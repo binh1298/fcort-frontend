@@ -1,9 +1,12 @@
-import React from 'react';
+import React, {useContext} from 'react';
+import ThemeContext from '../../contexts/ThemeContext';
 
-class App extends React.Component {
-  render() {
-    return <h1>Hello FCort</h1>;
-  }
-}
+export const App = () => {
+  const theme = useContext(ThemeContext);
+  const styles = {
+    color: theme.palette.primary.main,
+  };
+  return <h1 style={styles}>Hello FCort</h1>;
+};
 
 export default App;
