@@ -3,7 +3,7 @@
     "browser": true,
     "es6": true
   },
-  "extends": ["react-app", "plugin:prettier/recommended"],
+  "extends": ["plugin:prettier/recommended"],
   "plugins": [
     "react"
   ],
