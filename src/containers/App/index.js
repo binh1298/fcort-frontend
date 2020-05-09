@@ -7,14 +7,17 @@ import './styles.css';
 export const App = () => {
 	const theme = useContext(ThemeContext);
 	const styles = {
-		color: theme.palette.primary.main,
+		color: theme.palette.background.light,
 	};
 	return (
-		<div>
+		<div> 
 			{/* <h1 className="example-header" style={styles}>
         Hello FCort
       </h1> */}
-			<Login />
+			< Login color = {
+				theme.palette.background.dark
+			}
+			/>
 		</div>
 	);
 };

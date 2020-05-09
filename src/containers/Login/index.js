@@ -2,11 +2,21 @@
 import React, { Component } from 'react';
 import imgUrl from './imgUrl';
 import './style.css';
+
+ 
 class Login extends Component {
+ constructor(props){
+	 super(props);	
+
+ }
 
 	render() {
+		console.log(this.props.color);
+		const styles = {
+			backgroundColor: this.props.color,
+		}
 		return (
-			<body>
+				<div className="body" style={styles}>
 				<img className="wave" src={imgUrl.background} />
 				<div className="container">
 					<div className="img">
@@ -39,7 +49,7 @@ class Login extends Component {
 						</form>
 					</div>
 				</div>
-			</body>
+		</div>
 		);
 	}
 }
