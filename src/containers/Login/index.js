@@ -9,9 +9,26 @@ class Login extends Component {
 	 super(props);	
 
  }
+	handleFocus() {
+ 	let parent = this.parentNode.parentNode;
+ 	parent.classList.add("focus");
+ }
 
+	handleBlur() {
+ 	let parent = this.parentNode.parentNode;
+ 	if (this.value == "") {
+ 		parent.classList.remove("focus");
+ 	}
+ }
+componentDidMount(){
+	const inputs = document.querySelectorAll(".input");
+	inputs.forEach(input => {
+		input.addEventListener("focus", this.handleFocus);
+		input.addEventListener("blur", this.handleBlur);
+	});
+
+}
 	render() {
-		console.log(this.props.color);
 		const styles = {
 			backgroundColor: this.props.color,
 		}
