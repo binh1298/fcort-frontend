@@ -1,5 +1,6 @@
 import React, {useContext} from 'react';
 import ThemeContext from '../../contexts/ThemeContext';
+import Login from '../Login';
 import './styles.css';
 
 export const App = () => {
@@ -8,9 +9,12 @@ export const App = () => {
     color: theme.palette.primary.main,
   };
   return (
-    <h1 className="example-header" style={styles}>
-      Hello FCort
-    </h1>
+    <div>
+      <h1 className="example-header" style={styles}>
+        Hello FCort
+      </h1>
+      <Login />
+    </div>
   );
 };
 
