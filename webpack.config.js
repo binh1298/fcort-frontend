@@ -1,6 +1,10 @@
 const webpack = require('webpack');
 const path = require('path');
+const dotenv = require('dotenv');
+
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+
+dotenv.config();
 
 const config = {
   mode: 'development',
@@ -33,10 +37,18 @@ const config = {
     new HtmlWebpackPlugin({
       template: './src/index.html',
     }),
+    new webpack.DefinePlugin({
+      'process.env': {
+        NODE_ENV: JSON.stringify(process.env.NODE_ENV),
+        APP_ROOT_PORT: JSON.stringify(process.env.APP_ROOT_PORT),
+        APP_ROOT_URL: JSON.stringify(process.env.APP_ROOT_URL),
+        API_ROOT_URL: JSON.stringify(process.env.API_ROOT_URL),
+      },
+    }),
   ],
   devServer: {
     contentBase: './build',
-    port: 3000,
+    port: process.env.APP_ROOT_PORT || 3000,
     historyApiFallback: true,
   },
 };
