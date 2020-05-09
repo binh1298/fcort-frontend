@@ -41,7 +41,7 @@ componentDidMount(){
 					</div>
 					<div className="login-content">
 						<form action="index.html">
-							<img src={imgUrl.logo} />
+							<img src={imgUrl.logoFcode} />
 							<h2 className="title">Welcome</h2>
 							<div className="input-div one">
 								<div className="i">
