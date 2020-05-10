@@ -11,7 +11,6 @@ export const Login = (props) => {
   const {register, handleSubmit, watch, errors} = useForm();
   const onSubmit = (data) => {
     //Call the sever
-    console.log(data);
     console.log('Submitted');
   };
   function handleFocus() {
