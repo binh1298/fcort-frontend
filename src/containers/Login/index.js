@@ -2,7 +2,7 @@
 import React, {useEffect, useState} from 'react';
 import {useForm} from 'react-hook-form';
 import imgUrl from './imgUrl';
-import './style.css';
+import './style.scss';
 
 export const Login = (props) => {
   const styles = {
@@ -39,13 +39,13 @@ export const Login = (props) => {
         <div className="img">
           <img src={imgUrl.logo} />
         </div>
-        <div className="login-content">
+        <div className="login-form">
           <form onSubmit={handleSubmit(onSubmit)}>
             <img src={imgUrl.logoFcode} />
             <h2 className="title">Welcome</h2>
             <div className="input-div one">
-              <div className="i">
-                <i className="fas fa-user"></i>
+              <div className="icon">
+                <i className="fa fas fa-user"></i>
               </div>
               <div className="div">
                 <h5>Username</h5>
@@ -60,8 +60,8 @@ export const Login = (props) => {
               </div>
             </div>
             <div className="input-div pass">
-              <div className="i">
-                <i className="fas fa-lock"></i>
+              <div className="icon">
+                <i className="fa fas fa-lock"></i>
               </div>
               <div className="div">
                 <h5>Password</h5>

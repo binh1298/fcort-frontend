@@ -11,7 +11,7 @@ export const App = () => {
   };
   return (
     <div>
-      <Login color={theme.palette.background.dark} />
+      <Login color={theme.palette.background.light} />
     </div>
   );
 };
