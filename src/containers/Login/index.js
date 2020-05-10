@@ -12,7 +12,7 @@ export const Login = (props) => {
   const onSubmit = (data) => {
     //Call the sever
     console.log(data);
-    console.log('submitted');
+    console.log('Submitted');
   };
   function handleFocus() {
     let parent = this.parentNode.parentNode;
