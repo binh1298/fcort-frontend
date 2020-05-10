@@ -31,6 +31,18 @@ const config = {
         use: ['style-loader', 'css-loader', 'sass-loader'],
         exclude: /\.module\.scss$/,
       },
+      {
+        test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[ext]',
+              outputPath: 'fonts/',
+            },
+          },
+        ],
+      },
     ],
   },
   plugins: [
