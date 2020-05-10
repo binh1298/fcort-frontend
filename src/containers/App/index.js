@@ -1,6 +1,7 @@
 import React, {useContext} from 'react';
 import ThemeContext from '../../contexts/ThemeContext';
 import './styles.css';
+import SignIn from './SignIn';
 
 export const App = () => {
   const theme = useContext(ThemeContext);
@@ -9,7 +10,7 @@ export const App = () => {
   };
   return (
     <h1 className="example-header" style={styles}>
-      Hello FCort
+      <SignIn color={theme.palette.background.dark} />
     </h1>
   );
 };
