@@ -1,5 +1,6 @@
 /* eslint-disable prettier/prettier */
 import React, {useEffect, useState} from 'react';
+import {useForm} from 'react-hook-form';
 import imgUrl from './imgUrl';
 import './style.css';
 
@@ -7,14 +8,10 @@ export const Login = (props) => {
   const styles = {
     backgroundColor: props.color,
   };
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
+  const {register, handleSubmit, watch, errors} = useForm();
+  const onSubmit = (data) => {
     //Call the sever
-    console.log(username);
-    console.log(password);
+    console.log(data);
     console.log('submitted');
   };
   function handleFocus() {
@@ -44,7 +41,7 @@ export const Login = (props) => {
           <img src={imgUrl.logo} />
         </div>
         <div className="login-content">
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={handleSubmit(onSubmit)}>
             <img src={imgUrl.logoFcode} />
             <h2 className="title">Welcome</h2>
             <div className="input-div one">
@@ -55,10 +52,12 @@ export const Login = (props) => {
                 <h5>Username</h5>
                 <input
                   type="text"
+                  name="username"
                   className="input"
-                  value={username}
-                  onChange={(event) => setUsername(event.target.value)}
+                  //value={username}
+                  ref={register({required: true})}
                 />
+                {errors.username && <h5>Username is required</h5>}
               </div>
             </div>
             <div className="input-div pass">
@@ -69,10 +68,11 @@ export const Login = (props) => {
                 <h5>Password</h5>
                 <input
                   type="password"
+                  name="password"
                   className="input"
-                  value={password}
-                  onChange={(event) => setPassword(event.target.value)}
+                  ref={register({required: true})}
                 />
+                {errors.password && <h5>Password is required</h5>}
               </div>
             </div>
             <a href="#">Forgot Password?</a>
