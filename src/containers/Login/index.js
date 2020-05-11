@@ -3,7 +3,7 @@ import React, {useEffect, useState} from 'react';
 import {useForm} from 'react-hook-form';
 import imgUrl from './imgUrl';
 import './style.scss';
-
+import Input from './Input';
 export const Login = (props) => {
   const styles = {
     backgroundColor: props.color,
@@ -11,6 +11,8 @@ export const Login = (props) => {
   const {register, handleSubmit, watch, errors} = useForm();
   const onSubmit = (data) => {
     //Call the sever
+
+    console.log(data);
     console.log('Submitted');
   };
   function handleFocus() {
@@ -43,37 +45,20 @@ export const Login = (props) => {
           <form onSubmit={handleSubmit(onSubmit)}>
             <img src={imgUrl.logoFcode} />
             <h2 className="title">Welcome</h2>
-            <div className="input-div one">
-              <div className="icon">
-                <i className="fa fas fa-user"></i>
-              </div>
-              <div className="div">
-                <h5>Username</h5>
-                <input
-                  type="text"
-                  name="username"
-                  className="input"
-                  //value={username}
-                  ref={register({required: true})}
-                />
-                {errors.username && <h5>Username is required</h5>}
-              </div>
-            </div>
-            <div className="input-div pass">
-              <div className="icon">
-                <i className="fa fas fa-lock"></i>
-              </div>
-              <div className="div">
-                <h5>Password</h5>
-                <input
-                  type="password"
-                  name="password"
-                  className="input"
-                  ref={register({required: true})}
-                />
-                {errors.password && <h5>Password is required</h5>}
-              </div>
-            </div>
+            <Input
+              register={register}
+              name="username"
+              type="text"
+              label="Username"
+              errors={errors}
+            />
+            <Input
+              register={register}
+              name="password"
+              type="password"
+              label="Password"
+              errors={errors}
+            />
             <a href="#">Forgot Password?</a>
             <input type="submit" className="btn" value="Login" />
           </form>
