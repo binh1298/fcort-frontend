@@ -1,38 +1,24 @@
 /* eslint-disable prettier/prettier */
-import React, {useEffect, useState} from 'react';
+import React, {useContext} from 'react';
 import {useForm} from 'react-hook-form';
+import ThemeContext from '../../contexts/ThemeContext';
 import imgUrl from './imgUrl';
 import './style.scss';
-import Input from './Input';
-export const Login = (props) => {
+import Input from '../../component/InputField';
+export const Login = () => {
+  const theme = useContext(ThemeContext);
   const styles = {
-    backgroundColor: props.color,
+    backgroundColor: theme.palette.background.light,
+    color: theme.palette.text.inputField,
   };
-  const {register, handleSubmit, watch, errors} = useForm();
+
+  const {register, handleSubmit, errors} = useForm();
   const onSubmit = (data) => {
     //Call the sever
 
     console.log(data);
     console.log('Submitted');
   };
-  function handleFocus() {
-    let parent = this.parentNode.parentNode;
-    parent.classList.add('focus');
-  }
-
-  function handleBlur() {
-    let parent = this.parentNode.parentNode;
-    if (this.value == '') {
-      parent.classList.remove('focus');
-    }
-  }
-  useEffect(() => {
-    const inputs = document.querySelectorAll('.input');
-    inputs.forEach((input) => {
-      input.addEventListener('focus', handleFocus);
-      input.addEventListener('blur', handleBlur);
-    });
-  }, []);
 
   return (
     <div className="body" style={styles}>

@@ -8,11 +8,8 @@ const theme = {
       dark: '#333',
       light: '#fff',
     },
-    button: {
-      border: 'd9d9d9',
-    },
-    error: {
-      main: '#FF0000',
+    text: {
+      inputField: '#333',
     },
   },
 };

@@ -1,6 +1,24 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import './style.scss';
 const Input = ({register, name, label, type, errors}) => {
+  function handleFocus() {
+    let parent = this.parentNode.parentNode;
+    parent.classList.add('focus');
+  }
+
+  function handleBlur() {
+    let parent = this.parentNode.parentNode;
+    if (this.value == '') {
+      parent.classList.remove('focus');
+    }
+  }
+  useEffect(() => {
+    const inputs = document.querySelectorAll('.input');
+    inputs.forEach((input) => {
+      input.addEventListener('focus', handleFocus);
+      input.addEventListener('blur', handleBlur);
+    });
+  }, []);
   return (
     <div className="input-div">
       <div className="icon">

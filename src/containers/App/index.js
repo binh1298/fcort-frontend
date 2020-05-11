@@ -6,12 +6,9 @@ import Login from '../Login';
 
 export const App = () => {
   const theme = useContext(ThemeContext);
-  const styles = {
-    color: theme.palette.background.light,
-  };
   return (
     <div>
-      <Login color={theme.palette.background.light} />
+      <Login />
     </div>
   );
 };
