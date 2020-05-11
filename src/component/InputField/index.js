@@ -20,15 +20,15 @@ const Input = ({register, name, label, type, errors}) => {
     });
   }, []);
   return (
-    <div className="input-div">
-      <div className="icon">
+    <div className="input-container">
+      <div className="input-icon">
         {name === 'username' ? (
           <i className="fa fas fa-user"></i>
         ) : (
           <i className="fa fas fa-lock"></i>
         )}
       </div>
-      <div className="div">
+      <div className="input-field">
         <h5>{label}</h5>
         <input
           type={type}
@@ -36,7 +36,7 @@ const Input = ({register, name, label, type, errors}) => {
           className="input"
           ref={register({required: true})}
         />
-        {errors[name] && <h5>{label} is required</h5>}
+        {errors[name] && <span>{label} is required</span>}
       </div>
     </div>
   );

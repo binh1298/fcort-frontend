@@ -1,4 +1,4 @@
-.input-div {
+.input-container {
 	position: relative;
 	display: grid;
 	grid-template-columns: 7% 93%;
@@ -11,23 +11,31 @@
 // 	margin-top: 0;
 // }
 
-.icon {
+.input-icon {
 	color: #d9d9d9;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 }
 
-.icon i {
+span {
+	position: relative;
+	top: 50px;
+	left: -100px;
+	font-size: 12px;
+	color: rgba(217, 88, 28, 0.7);
+}
+
+.input-icon i {
 	transition: 0.3s;
 }
 
-.input-div>div {
+.input-container>div {
 	position: relative;
 	height: 45px;
 }
 
-.input-div>div>h5 {
+.input-container>div>h5 {
 	position: absolute;
 	left: 10px;
 	top: 50%;
@@ -37,8 +45,8 @@
 	transition: 0.3s;
 }
 
-.input-div:before,
-.input-div:after {
+.input-container:before,
+.input-container:after {
 	content: '';
 	position: absolute;
 	bottom: -2px;
@@ -48,29 +56,29 @@
 	transition: 0.4s;
 }
 
-.input-div:before {
+.input-container:before {
 	right: 50%;
 }
 
-.input-div:after {
+.input-container:after {
 	left: 50%;
 }
 
-.input-div.focus:before,
-.input-div.focus:after {
+.input-container.focus:before,
+.input-container.focus:after {
 	width: 50%;
 }
 
-.input-div.focus>div>h5 {
+.input-container.focus>div>h5 {
 	top: -5px;
 	font-size: 15px;
 }
 
-.input-div.focus>.icon>i {
+.input-container.focus>.icon>i {
 	color: #38d39f;
 }
 
-.input-div>div>input {
+.input-container>div>input {
 	position: absolute;
 	left: 0;
 	top: 0;

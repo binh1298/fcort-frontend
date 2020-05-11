@@ -21,10 +21,10 @@ export const Login = () => {
   };
 
   return (
-    <div className="body" style={styles}>
+    <div className="container" style={styles}>
       <img className="wave" src={imgUrl.background} />
-      <div className="container">
-        <div className="img">
+      <div className="login-content">
+        <div className="login-logo">
           <img src={imgUrl.logo} />
         </div>
         <div className="login-form">
@@ -46,7 +46,7 @@ export const Login = () => {
               errors={errors}
             />
             <a href="#">Forgot Password?</a>
-            <input type="submit" className="btn" value="Login" />
+            <input type="submit" className="login-button" value="Login" />
           </form>
         </div>
       </div>
