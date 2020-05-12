@@ -1,21 +1,16 @@
+/* eslint-disable prettier/prettier */
 import React, {useContext} from 'react';
 import ThemeContext from '../../contexts/ThemeContext';
-import './styles.scss';
+import Login from '../Login';
+
+// import './styles.css';
 
 export const App = () => {
   const theme = useContext(ThemeContext);
-  const styles = {
-    color: theme.palette.primary.main,
-  };
   return (
     <div>
-      <i class="fa fa-check fa-lg"></i>
-      <h1 className="example-header" style={styles}>
-        Hello FCort
-      </h1>
-      <i class="fa fa-check fa-lg"></i>
+      <Login />
     </div>
   );
 };
-
 export default App;
