@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
 import './style.scss';
-const Input = ({register, name, label, type, errors}) => {
+const Input = ({register, name, label, type, errors, valid}) => {
   function handleFocus() {
     let parent = this.parentNode.parentNode;
     parent.classList.add('focus');
@@ -34,9 +34,9 @@ const Input = ({register, name, label, type, errors}) => {
           type={type}
           name={name}
           className="input"
-          ref={register({required: true})}
+          ref={valid || register({required: `${label} is required`})}
         />
-        {errors[name] && <span>{label} is required</span>}
+        {errors[name] && <span>{errors[name].message}</span>}
       </div>
     </div>
   );
