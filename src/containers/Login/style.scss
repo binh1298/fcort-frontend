@@ -2,7 +2,7 @@
 
 
 
-.container {
+.login-container {
 	font-family: $default-font;
 	overflow: hidden;
 	/* background-color: #333; */
@@ -44,11 +44,11 @@
 	z-index: 2;
 }
 
-form img {
+.logo-fcode {
 	border-radius: 100%;
 }
 
-form {
+.form-wrapper {
 	width: 360px;
 }
 
@@ -63,16 +63,8 @@ form {
 	font-size: 2.9rem;
 }
 
-// .login-form .input-div {
-// 	position: relative;
-// 	display: grid;
-// 	grid-template-columns: 7% 93%;
-// 	margin: 25px 0;
-// 	padding: 5px 0;
-// 	border-bottom: 2px solid #d9d9d9;
-// }
 
-a {
+.login-form a {
 	display: block;
 	text-align: right;
 	text-decoration: none;
@@ -81,7 +73,7 @@ a {
 	transition: 0.3s;
 }
 
-a:hover {
+.login-form a:hover {
 	color: #38d39f;
 }
 

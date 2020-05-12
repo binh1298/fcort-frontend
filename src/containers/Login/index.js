@@ -21,15 +21,15 @@ export const Login = () => {
   };
 
   return (
-    <div className="container" style={styles}>
+    <div className="login-container" style={styles}>
       <img className="wave" src={imgUrl.background} />
       <div className="login-content">
         <div className="login-logo">
           <img src={imgUrl.logo} />
         </div>
         <div className="login-form">
-          <form onSubmit={handleSubmit(onSubmit)}>
-            <img src={imgUrl.logoFcode} />
+          <form className="form-wrapper" onSubmit={handleSubmit(onSubmit)}>
+            <img className="logo-fcode" src={imgUrl.logoFcode} />
             <h2 className="title">Welcome</h2>
             <Input
               register={register}
@@ -45,8 +45,10 @@ export const Login = () => {
               label="Password"
               errors={errors}
             />
-            <a href="#">Forgot Password?</a>
+            <a href="#">Forgot Password</a>
+
             <input type="submit" className="login-button" value="Login" />
+            <a href="#">Create new account</a>
           </form>
         </div>
       </div>
