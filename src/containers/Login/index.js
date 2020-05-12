@@ -2,9 +2,12 @@
 import React, {useContext} from 'react';
 import {useForm} from 'react-hook-form';
 import ThemeContext from '../../contexts/ThemeContext';
-import imgUrl from './imgUrl';
 import './style.scss';
 import Input from '../../component/InputField';
+import logoFcode from '../../assets/images/logoFcode.png';
+import logoFcort from '../../assets/images/logoFcort.png';
+import background from '../../assets/images/backgroundLoginSingup.png';
+
 export const Login = () => {
   const theme = useContext(ThemeContext);
   const styles = {
@@ -22,14 +25,14 @@ export const Login = () => {
 
   return (
     <div className="login-container" style={styles}>
-      <img className="wave" src={imgUrl.background} />
+      <img className="wave" src={background} />
       <div className="login-content">
         <div className="login-logo">
-          <img src={imgUrl.logo} />
+          <img src={logoFcort} />
         </div>
         <div className="login-form">
           <form className="form-wrapper" onSubmit={handleSubmit(onSubmit)}>
-            <img className="logo-fcode" src={imgUrl.logoFcode} />
+            <img className="logo-fcode" src={logoFcode} />
             <h2 className="title">Welcome</h2>
             <Input
               register={register}
