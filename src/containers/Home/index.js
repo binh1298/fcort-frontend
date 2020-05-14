@@ -36,7 +36,14 @@ export const Home = () => {
           ]}
         />
       </div>
-      <div className="section"></div>
+      <div className="section">
+        <div className="header">
+          <form>
+            <input type="text" placeholder="Search"></input>
+            <i className="fa fas fa-question-circle"></i>
+          </form>
+        </div>
+      </div>
     </div>
   );
 };
