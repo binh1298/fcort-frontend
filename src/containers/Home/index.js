@@ -5,6 +5,7 @@ import avatar from '../../assets/images/avatar.png';
 import UserNavbar from './UserNavbar';
 import Favorite from './Favorite';
 import Group from './Group';
+import Messages from './Messages';
 
 export const Home = () => {
   const theme = useContext(ThemeContext);
@@ -26,6 +27,12 @@ export const Home = () => {
             {id: 123, name: 'reactjs'},
             {id: 456, name: 'vuejs'},
             {id: 789, name: 'angular'},
+          ]}
+        />
+        <Messages
+          messagesList={[
+            {id: 135, name: 'BinhPham'},
+            {id: 246, name: 'KienTran'},
           ]}
         />
       </div>

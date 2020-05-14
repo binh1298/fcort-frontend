@@ -8,7 +8,7 @@ export const Group = (props) => {
       <p>
         <i className="fa fas fa-users"></i>Group
       </p>
-      <ListItems list={props.groupList} />
+      <ListItems list={props.groupList} symbol="#" />
     </div>
   );
 };
