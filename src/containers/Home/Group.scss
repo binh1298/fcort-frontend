@@ -1,4 +1,4 @@
-.favorite-wrapper {
+.group-wrapper {
   padding-top: 2rem;
   padding-bottom: 2rem;
   display: flex;
@@ -9,15 +9,18 @@
   padding-left: 18%;
   padding-top: 5vh;
 }
-.favorite-wrapper>p {
+
+.group-wrapper>p {
   padding-bottom: 1rem;
   cursor: default;
 }
-.favorite-wrapper>ul {
+
+.group-wrapper>ul {
   font-size: 1.5rem;
   line-height: 3rem;
 }
-.favorite-wrapper>ul>li:hover {
+
+.group-wrapper>ul>li:hover {
   color: #ffffff;
   cursor: pointer;
 }
