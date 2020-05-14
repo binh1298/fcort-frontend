@@ -12,7 +12,8 @@ const theme = {
       inputField: '#333',
     },
     navbar: {
-      home: '#22cc88',
+      background: '#22cc88',
+      color: '#fff',
     },
   },
 };
