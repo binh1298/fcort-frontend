@@ -1,4 +1,4 @@
-.wrapper {
+.userNavbar-wrapper {
   padding-top: 2rem;
   padding-bottom: 2rem;
   display: flex;
@@ -6,28 +6,28 @@
   justify-content: center;
 }
 
-.wrapper>a {
+.userNavbar-wrapper>a {
   display: flex;
   align-items: center;
   text-decoration: none;
   color: inherit;
 }
 
-a:hover {
+.userNavbar-wrapper>a:hover {
   color: #ffffff;
 }
 
-.wrapper>a>img {
+.userNavbar-wrapper>a>img {
   width: 5rem;
   height: 5rem;
   border-radius: 50%;
-  margin: 8px;
 }
 
-.wrapper>a>p {
+.userNavbar-wrapper>a>p {
   font-size: 1.5rem;
+  margin: 15px;
 }
 
-.wrapper>a>i {
+.userNavbar-wrapper>a>i {
   font-size: 2rem;
 }

@@ -1,0 +1,23 @@
+.favorite-wrapper {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  font-size: 2rem;
+  padding-left: 15%;
+  padding-top: 5vh;
+}
+.favorite-wrapper>p {
+  padding-bottom: 1rem;
+  cursor: default;
+}
+.favorite-wrapper>ul {
+  font-size: 1.5rem;
+  line-height: 3rem;
+}
+.favorite-wrapper>ul>li:hover {
+  color: #ffffff;
+  cursor: pointer;
+}

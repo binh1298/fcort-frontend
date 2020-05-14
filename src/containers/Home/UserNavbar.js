@@ -3,7 +3,7 @@ import './UserNavbar.scss';
 
 export const UserNavbar = (props) => {
   return (
-    <div className="wrapper">
+    <div className="userNavbar-wrapper">
       <a href="#">
         <img src={props.avatar} />
         <p>{props.userName}</p>
