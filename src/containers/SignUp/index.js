@@ -1,6 +1,7 @@
 /* eslint-disable prettier/prettier */
 import React, {useContext} from 'react';
 import {useForm} from 'react-hook-form';
+import {Link} from 'react-router-dom';
 import ThemeContext from '../../contexts/ThemeContext';
 import './style.scss';
 import Input from '../../component/InputField';
@@ -75,7 +76,7 @@ export const SignUp = () => {
               })}
             />
             <input type="submit" className="submit-button" value="Submit" />
-            <a href="#">Already have an account? Sign In</a>
+            <Link to="/login">Already have an account? Sign In</Link>
           </form>
         </div>
       </div>
