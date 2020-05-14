@@ -1,0 +1,34 @@
+@import '../../fonts.scss';
+
+html {
+  font-size: 10px;
+}
+
+.home-container {
+  display: grid;
+  position: relative;
+  grid-template-columns: 1fr 5fr;
+  font-family: $default-font;
+}
+
+.navbar {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: 100vh;
+  width: auto;
+}
+
+.navbar>h1 {
+  position: sticky;
+  white-space: nowrap;
+  font-size: 3.5rem;
+  text-align: center;
+  padding-top: 3rem;
+  width: 100%;
+  cursor: default;
+}
+
+i {
+  padding: 5px;
+}

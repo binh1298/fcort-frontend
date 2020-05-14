@@ -13,7 +13,7 @@ const theme = {
     },
     navbar: {
       background: '#22cc88',
-      color: '#fff',
+      color: '#F5F5F5',
     },
   },
 };
