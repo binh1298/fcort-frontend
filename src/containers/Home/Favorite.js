@@ -8,7 +8,7 @@ export const Favorite = (props) => {
       <p>
         <i className="fa fas fa-star"></i>Favorite
       </p>
-      <ShowList list={props.favoriteList} symbol="#" />
+      <ShowList list={props.favoriteList} icon="fa fas fa-hashtag" />
     </div>
   );
 };

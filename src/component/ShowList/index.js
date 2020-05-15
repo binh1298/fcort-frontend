@@ -21,7 +21,7 @@ const Items = (props) => {
 const ShowList = (props) => {
   const theList = props.list.map((object) => (
     <Items key={object.id}>
-      {props.symbol}
+      <i className={props.icon}></i>
       {object.name}
     </Items>
   ));

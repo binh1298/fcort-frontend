@@ -8,7 +8,7 @@ export const Messages = (props) => {
       <p>
         <i className="fa fas fa-comment"></i>Messages
       </p>
-      <ShowList list={props.messagesList} symbol="@" />
+      <ShowList list={props.messagesList} icon="fa fas fa-at" />
     </div>
   );
 };
