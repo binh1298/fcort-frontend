@@ -21,18 +21,29 @@ export const Home = () => {
           <i className="fa fas fa-tv fa-lg"></i>Fcord
         </h1>
         <UserNavbar avatar={avatar} userName="ThienDuc" />
-        <Favorite favoriteList={[{id: 123, name: 'reactjs'}]} />
+        <Favorite
+          favoriteList={[
+            {id: 123, name: 'reactjs'},
+            {id: 456, name: 'vuejs'},
+            {id: 789, name: 'angular'},
+          ]}
+        />
         <Group
           groupList={[
             {id: 123, name: 'reactjs'},
             {id: 456, name: 'vuejs'},
             {id: 789, name: 'angular'},
+            {id: 111, name: 'html'},
+            {id: 222, name: 'css'},
+            {id: 789, name: 'javascript'},
           ]}
         />
         <Messages
           messagesList={[
             {id: 135, name: 'BinhPham'},
             {id: 246, name: 'KienTran'},
+            {id: 135, name: 'HuyBui'},
+            {id: 246, name: 'BinhTruong'},
           ]}
         />
       </div>
