@@ -26,5 +26,6 @@ export const Routes = (
         component={route.component}
       />
     ))}
+    <Redirect to="/login" />
   </Switch>
 );
