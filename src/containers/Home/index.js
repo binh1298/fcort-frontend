@@ -11,7 +11,7 @@ export const Home = () => {
   const theme = useContext(ThemeContext);
   const styles = {
     backgroundColor: theme.palette.navbar.background,
-    color: theme.palette.navbar.color,
+    color: theme.palette.navbar.titleColor,
   };
 
   return (
@@ -23,27 +23,27 @@ export const Home = () => {
         <UserNavbar avatar={avatar} userName="ThienDuc" />
         <Favorite
           favoriteList={[
-            {id: 123, name: 'reactjs'},
-            {id: 456, name: 'vuejs'},
-            {id: 789, name: 'angular'},
+            {id: '123', name: 'reactjs'},
+            {id: '456', name: 'vuejs'},
+            {id: '789', name: 'angular'},
           ]}
         />
         <Group
           groupList={[
-            {id: 123, name: 'reactjs'},
-            {id: 456, name: 'vuejs'},
-            {id: 789, name: 'angular'},
-            {id: 111, name: 'html'},
-            {id: 222, name: 'css'},
-            {id: 789, name: 'javascript'},
+            {id: '123', name: 'reactjs'},
+            {id: '456', name: 'vuejs'},
+            {id: '789', name: 'angular'},
+            {id: '111', name: 'html'},
+            {id: '222', name: 'css'},
+            {id: '333', name: 'javascript'},
           ]}
         />
         <Messages
           messagesList={[
-            {id: 135, name: 'BinhPham'},
-            {id: 246, name: 'KienTran'},
-            {id: 135, name: 'HuyBui'},
-            {id: 246, name: 'BinhTruong'},
+            {id: '135', name: 'BinhPham'},
+            {id: '246', name: 'KienTran'},
+            {id: '357', name: 'HuyBui'},
+            {id: '468', name: 'BinhTruong'},
           ]}
         />
       </div>

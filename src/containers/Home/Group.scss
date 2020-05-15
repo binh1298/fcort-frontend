@@ -22,10 +22,8 @@
   line-height: 3rem;
   overflow-x: auto;
   overflow-y: auto;
-  color: #D0D3D4;
 }
 
-.group-wrapper>ul>li:hover {
-  color: #ffffff;
+.group-wrapper>ul>li {
   cursor: pointer;
 }

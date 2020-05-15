@@ -1,3 +1,5 @@
+@import '../../fonts.scss';
+
 .userNavbar-wrapper {
   padding-top: 2rem;
   padding-bottom: 2rem;
@@ -6,28 +8,28 @@
   justify-content: center;
 }
 
-.userNavbar-wrapper>a {
+.userNavbar-wrapper>button {
   display: flex;
   align-items: center;
-  text-decoration: none;
+  background-color: transparent;
   color: inherit;
+  border-style: none;
+  outline: none;
 }
 
-.userNavbar-wrapper>a:hover {
-  color: #ffffff;
-}
-
-.userNavbar-wrapper>a>img {
+.userNavbar-wrapper>button>img {
   width: 4rem;
   height: 4rem;
   border-radius: 50%;
 }
 
-.userNavbar-wrapper>a>p {
+.userNavbar-wrapper>button>p {
   font-size: 1.5rem;
   margin: 15px;
+  font-family: $default-font;
 }
 
-.userNavbar-wrapper>a>i {
+.userNavbar-wrapper>button>i {
   font-size: 2rem;
+  cursor: pointer;
 }
