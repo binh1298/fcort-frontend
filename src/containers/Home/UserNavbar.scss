@@ -31,5 +31,9 @@
 
 .userNavbar-wrapper>button>i {
   font-size: 2rem;
+}
+
+.userNavbar-wrapper>button>i,
+.userNavbar-wrapper>button>p {
   cursor: pointer;
 }
