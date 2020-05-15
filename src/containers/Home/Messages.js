@@ -1,6 +1,6 @@
 import React from 'react';
 import './Messages.scss';
-import ListItems from '../../component/ShowList';
+import ShowList from '../../component/ShowList';
 
 export const Messages = (props) => {
   return (
@@ -8,7 +8,7 @@ export const Messages = (props) => {
       <p>
         <i className="fa fas fa-comment"></i>Messages
       </p>
-      <ListItems list={props.messagesList} symbol="@" />
+      <ShowList list={props.messagesList} symbol="@" />
     </div>
   );
 };

@@ -8,32 +8,32 @@
   justify-content: center;
 }
 
-.userNavbar-wrapper>button {
+.userNavbar-wrapper>.dropdown>button {
   display: flex;
   align-items: center;
-  background-color: transparent;
   color: inherit;
+  background-color: transparent;
+  border-radius: 1rem;
   border-style: none;
+  padding-left: 0.5vw;
+  padding-right: 0.5vw;
   outline: none;
+  cursor: pointer;
 }
 
-.userNavbar-wrapper>button>img {
+.userNavbar-wrapper>img {
   width: 4rem;
   height: 4rem;
   border-radius: 50%;
+  margin-right: 1rem;
 }
 
-.userNavbar-wrapper>button>p {
+.userNavbar-wrapper>.dropdown>button>p {
   font-size: 1.5rem;
-  margin: 15px;
   font-family: $default-font;
+  margin: 5px;
 }
 
-.userNavbar-wrapper>button>i {
+.userNavbar-wrapper>.dropdown>button>i {
   font-size: 2rem;
-}
-
-.userNavbar-wrapper>button>i,
-.userNavbar-wrapper>button>p {
-  cursor: pointer;
 }

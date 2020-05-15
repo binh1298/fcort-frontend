@@ -1,0 +1,43 @@
+.header-wrapper {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  border-bottom: 2px inset;
+}
+
+.header-wrapper>form {
+  padding-right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  max-width: 300px;
+  min-width: 300px;
+}
+
+.header-wrapper>form>input {
+  width: 150px;
+  height: 2.5rem;
+  color: inherit;
+  outline-color: transparent;
+  border-style: none;
+  border-radius: 5px;
+  font-family: inherit;
+  padding: 8px;
+  transition: width 0.3s ease-in-out;
+}
+
+.header-wrapper>form>input:focus {
+  width: 290px;
+}
+
+.header-wrapper>i {
+  padding-right: 1vw;
+  font-size: 2.5rem;
+  transition: color 0.4s ease-in-out;
+}
+
+.header-wrapper>i:hover {
+  cursor: pointer;
+}

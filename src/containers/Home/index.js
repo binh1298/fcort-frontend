@@ -6,6 +6,7 @@ import UserNavbar from './UserNavbar';
 import Favorite from './Favorite';
 import Group from './Group';
 import Messages from './Messages';
+import Header from './Header';
 
 export const Home = () => {
   const theme = useContext(ThemeContext);
@@ -48,12 +49,7 @@ export const Home = () => {
         />
       </div>
       <div className="section">
-        <div className="header">
-          <form>
-            <input type="text" placeholder="Search"></input>
-            <i className="fa fas fa-question-circle"></i>
-          </form>
-        </div>
+        <Header />
       </div>
     </div>
   );

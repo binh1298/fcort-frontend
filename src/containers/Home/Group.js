@@ -1,6 +1,6 @@
 import React from 'react';
 import './Group.scss';
-import ListItems from '../../component/ShowList';
+import ShowList from '../../component/ShowList';
 
 export const Group = (props) => {
   return (
@@ -8,7 +8,7 @@ export const Group = (props) => {
       <p>
         <i className="fa fas fa-users"></i>Group
       </p>
-      <ListItems list={props.groupList} symbol="#" />
+      <ShowList list={props.groupList} symbol="#" />
     </div>
   );
 };

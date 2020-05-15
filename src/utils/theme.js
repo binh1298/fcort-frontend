@@ -14,7 +14,13 @@ const theme = {
     navbar: {
       background: '#32a852',
       titleColor: '#FFFFFF',
-      notActiveColor: '#D0D3D4',
+      hoverColor: '#D0D3D4',
+    },
+    header: {
+      horizontalLine: '#D3D3D3',
+      searchBgColor: '#DCDCDC',
+      questionColor: '#DCDCDC',
+      questionFocus: '#2C3E50',
     },
   },
 };
