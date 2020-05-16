@@ -7,7 +7,7 @@ html {
 .home-container {
   display: grid;
   position: relative;
-  grid-template-columns: 1fr 5fr;
+  grid-template-columns: 3fr 10fr;
   grid-column-gap: 1vw;
   font-family: $default-font;
   overflow: hidden;
@@ -53,7 +53,7 @@ html {
 .navbar>h1 {
   position: sticky;
   white-space: nowrap;
-  font-size: 3.5rem;
+  font-size: 4rem;
   text-align: center;
   padding-top: 3rem;
   width: 100%;
