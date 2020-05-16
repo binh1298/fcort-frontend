@@ -15,6 +15,17 @@
   cursor: default;
 }
 
+@media screen and (max-width: 900px) {
+  .group-wrapper>p {
+    padding-left: 30vw;
+  }
+
+  .group-wrapper>p>i {
+    padding-right: 2vw;
+  }
+}
+
+
 .group-wrapper>ul {
   font-size: 1.6rem;
   line-height: 3rem;

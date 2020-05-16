@@ -8,19 +8,25 @@ html {
   display: grid;
   position: relative;
   grid-template-columns: 1fr 5fr;
+  grid-column-gap: 1vw;
   font-family: $default-font;
   overflow: hidden;
 }
-.home-container>button {
-  display: none;
+
+@media screen and (max-width: 900px) {
+  .home-container {
+    grid-template-columns: 1fr;
+  }
 }
 
 .navbar {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  min-width: 220px;
   height: 100vh;
   overflow-y: scroll;
+  transition: all 0.5s ease-in-out;
 }
 
 .navbar::-webkit-scrollbar {
@@ -29,6 +35,19 @@ html {
 
 .navbar {
   -ms-overflow-style: none;
+}
+
+@media screen and (max-width: 900px) {
+  .home-container>.toggle-target {
+    transform: translateX(-90vw);
+  }
+
+  .home-container>.navbar {
+    position: absolute;
+    width: 90vw;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+  }
 }
 
 .navbar>h1 {
@@ -55,6 +74,9 @@ i {
   display: none;
 }
 
-.section {
-  -ms-overflow-style: none;
+@media screen and (max-width: 900px) {
+  .section>.main-content {
+    height: 100vh;
+  }
 }
+

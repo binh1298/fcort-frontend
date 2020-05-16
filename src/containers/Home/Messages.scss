@@ -11,8 +11,18 @@
   white-space: nowrap;
   align-self: flex-start;
   padding-left: 3vw;
-  font-size: 2rem;  
+  font-size: 2rem;
   cursor: default;
+}
+
+@media screen and (max-width: 900px) {
+  .messages-wrapper>p {
+    padding-left: 26vw;
+  }
+
+  .messages-wrapper>p>i {
+    padding-right: 2vw;
+  }
 }
 
 .messages-wrapper>ul {
