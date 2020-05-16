@@ -12,7 +12,7 @@ const theme = {
       inputField: '#333',
     },
     navbar: {
-      background: '#32a852',
+      background: '#28B463',
       titleColor: '#FFFFFF',
       hoverColor: '#D0D3D4',
     },

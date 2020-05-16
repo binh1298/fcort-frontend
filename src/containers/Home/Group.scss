@@ -4,9 +4,6 @@
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  font-size: 2rem;
-  max-height: 240px;
-  min-height: 240px;
 }
 
 .group-wrapper>p {
@@ -14,14 +11,13 @@
   white-space: nowrap;
   align-self: flex-start;
   padding-left: 3vw;
+  font-size: 2rem;
   cursor: default;
 }
 
 .group-wrapper>ul {
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   line-height: 3rem;
-  overflow-x: auto;
-  overflow-y: auto;
 }
 
 .group-wrapper>ul>li {

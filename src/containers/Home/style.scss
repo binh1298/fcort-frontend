@@ -9,6 +9,10 @@ html {
   position: relative;
   grid-template-columns: 1fr 5fr;
   font-family: $default-font;
+  overflow: hidden;
+}
+.home-container>button {
+  display: none;
 }
 
 .navbar {
@@ -16,8 +20,15 @@ html {
   flex-direction: column;
   justify-content: flex-start;
   height: 100vh;
-  min-height: 730px;
-  width: auto;
+  overflow-y: scroll;
+}
+
+.navbar::-webkit-scrollbar {
+  display: none;
+}
+
+.navbar {
+  -ms-overflow-style: none;
 }
 
 .navbar>h1 {
@@ -37,4 +48,13 @@ i {
 .section {
   display: flex;
   flex-direction: column;
+  overflow-y: scroll;
+}
+
+.section::-webkit-scrollbar {
+  display: none;
+}
+
+.section {
+  -ms-overflow-style: none;
 }

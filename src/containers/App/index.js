@@ -7,7 +7,7 @@ import Home from '../Home';
 
 export const App = () => {
   return (
-    <SignUp />
+    <Home />
   );
 };
 export default App;

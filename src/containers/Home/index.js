@@ -17,6 +17,7 @@ export const Home = () => {
 
   return (
     <div className="home-container">
+      <button className="toggle"></button>
       <div className="navbar" style={styles}>
         <h1>
           <i className="fa fas fa-tv fa-lg"></i>Fcord
@@ -27,6 +28,9 @@ export const Home = () => {
             {id: '123', name: 'reactjs'},
             {id: '456', name: 'vuejs'},
             {id: '789', name: 'angular'},
+            {id: '111', name: 'html'},
+            {id: '222', name: 'css'},
+            {id: '333', name: 'javascript'},
           ]}
         />
         <Group
