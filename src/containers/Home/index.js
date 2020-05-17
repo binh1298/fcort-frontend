@@ -1,4 +1,4 @@
-import React, {useContext, useEffect} from 'react';
+import React, {useContext, useState} from 'react';
 import './style.scss';
 import ThemeContext from '../../contexts/ThemeContext';
 import avatar from '../../assets/images/avatar.png';
@@ -14,17 +14,10 @@ export const Home = () => {
     backgroundColor: theme.palette.navbar.background,
     color: theme.palette.navbar.titleColor,
   };
-  function handleClick() {
-    let parent = this.parentNode.parentNode;
-    parent.childNodes[0].classList.add('toggle-target');
-  }
-  useEffect(() => {
-    const mainContent = document.getElementsByClassName('main-content');
-    mainContent[0].addEventListener('click', handleClick);
-  }, []);
+  const [isClicked, setIsClicked] = useState(false);
   return (
     <div className="home-container">
-      <div className="navbar toggle-target" style={styles}>
+      <div className={isClicked ? 'navbar toggle-target' : 'navbar'} style={styles}>
         <h1>
           <i className="fa fas fa-tv fa-lg"></i>Fcord
         </h1>
@@ -66,8 +59,8 @@ export const Home = () => {
         />
       </div>
       <div className="section">
-        <Header />
-        <div className="main-content"></div>
+        <Header onClick={() => setIsClicked(!isClicked)} />
+        <div className="main-content" onClick={() => setIsClicked(true)}></div>
       </div>
     </div>
   );

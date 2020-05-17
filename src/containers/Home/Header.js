@@ -1,8 +1,8 @@
-import React, {useContext, useState, useEffect} from 'react';
+import React, {useContext, useState} from 'react';
 import ThemeContext from '../../contexts/ThemeContext';
 import './Header.scss';
 
-export const Header = () => {
+export const Header = (props) => {
   const theme = useContext(ThemeContext);
   const headerWrapperStyles = {
     borderColor: theme.palette.header.horizontalLine,
@@ -13,17 +13,9 @@ export const Header = () => {
   const [iconColor, setIconColor] = useState({
     color: theme.palette.header.questionColor,
   });
-  function handleClick() {
-    let parent = this.parentNode.parentNode.parentNode;
-    parent.childNodes[0].classList.toggle('toggle-target');
-  }
-  useEffect(() => {
-    const toggle = document.getElementsByClassName('toggle');
-    toggle[0].addEventListener('click', handleClick);
-  }, []);
   return (
     <div className="header-wrapper" style={headerWrapperStyles}>
-      <button className="toggle">
+      <button className="toggle" onClick={props.onClick}>
         <i className="fa fas fa-bars fa-lg"></i>
       </button>
       <form>
