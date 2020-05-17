@@ -8,7 +8,7 @@ export const Group = (props) => {
       <p>
         <i className="fa fas fa-users"></i>Group
       </p>
-      <ListItems list={props.groupList} icon="fa fas fa-hashtag" />
+      <ListItems list={props.groupList} icon={<i className="fa fas fa-hashtag"></i>} />
     </div>
   );
 };

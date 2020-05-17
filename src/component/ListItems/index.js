@@ -19,10 +19,9 @@ const Items = (props) => {
 };
 
 export const ListItems = (props) => {
-  const Icon = () => <i className={props.icon}></i>;
   const List = props.list.map((object) => (
     <Items key={object.id}>
-      <Icon />
+      {props.icon}
       {object.name}
     </Items>
   ));
