@@ -1,12 +1,9 @@
 /* eslint-disable prettier/prettier */
-import React, { useContext } from 'react';
-import Login from '../Login';
-import SignUp from '../SignUp';
-// import './styles.css';
+import React from 'react';
+import {BrowserRouter} from 'react-router-dom';
+import {Routes} from '../../routes';
 
 export const App = () => {
-  return (
-    <SignUp />
-  );
+  return <BrowserRouter> {Routes} </BrowserRouter>;
 };
 export default App;
