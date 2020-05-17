@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React, {useContext, useEffect} from 'react';
 import './style.scss';
 import ThemeContext from '../../contexts/ThemeContext';
 import avatar from '../../assets/images/avatar.png';
@@ -14,7 +14,14 @@ export const Home = () => {
     backgroundColor: theme.palette.navbar.background,
     color: theme.palette.navbar.titleColor,
   };
-
+  function handleClick() {
+    let parent = this.parentNode.parentNode;
+    parent.childNodes[0].classList.add('toggle-target');
+  }
+  useEffect(() => {
+    const mainContent = document.getElementsByClassName('main-content');
+    mainContent[0].addEventListener('click', handleClick);
+  }, []);
   return (
     <div className="home-container">
       <div className="navbar toggle-target" style={styles}>
@@ -37,6 +44,11 @@ export const Home = () => {
             {id: '111', name: 'html'},
             {id: '222', name: 'css'},
             {id: '333', name: 'javascript'},
+            {id: '666', name: 'java'},
+            {id: '777', name: 'C#'},
+            {id: '888', name: 'C/C++'},
+            {id: '999', name: 'python'},
+            {id: '000', name: 'Pascal'},
           ]}
         />
         <MessagesList
@@ -48,6 +60,8 @@ export const Home = () => {
             {id: '579', name: 'HungNguyen'},
             {id: '680', name: 'NguyenTran'},
             {id: '791', name: 'HoaLuu'},
+            {id: '444', name: 'DaiLe'},
+            {id: '555', name: 'LamNguyen'},
           ]}
         />
       </div>

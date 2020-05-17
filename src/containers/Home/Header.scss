@@ -54,26 +54,43 @@
 }
 
 .header-wrapper>form>input {
-  width: 20vw;
+  width: 16vw;
   min-width: 70px;
   height: 2.5rem;
   color: inherit;
   outline-color: transparent;
   border-style: none;
-  border-radius: 5px;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
   font-family: inherit;
   padding: 10px;
-  transition: width 0.3s ease-in-out;
+  opacity: 0.5;
+  transition: width 0.4s ease-in-out, opacity 0.4s ease-in-out;
+}
+
+@media screen and (max-width: 900px) {
+  .header-wrapper>form>input {
+    transition: opacity 0.4s ease-in-out;
+  }
 }
 
 .header-wrapper>form>input:focus {
   width: 100%;
+  opacity: 1;
+}
+
+.header-wrapper>form>button {
+  border-style: none;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  color: inherit;
+  opacity: 0.6;
+  cursor: pointer;
+  padding: 1.6px;
 }
 
 .header-wrapper>i {
-  padding-right: 1vw;
-  padding-top: 0;
-  padding-left: 0;
+  padding: 4px 1vw 4px 0;
   font-size: 2.5rem;
   transition: color 0.3s ease-in-out;
 }

@@ -27,7 +27,10 @@ export const Header = () => {
         <i className="fa fas fa-bars fa-lg"></i>
       </button>
       <form>
-        <input type="text" placeholder="Search" style={inputStyles}></input>
+        <input type="text" placeholder="Search" style={inputStyles} />
+        <button>
+          <i className="fa fas fa-search"></i>
+        </button>
       </form>
       <i
         className="fa fas fa-question-circle"
