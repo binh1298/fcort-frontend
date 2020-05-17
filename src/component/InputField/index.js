@@ -1,16 +1,12 @@
 import React, {useEffect, useState} from 'react';
 import './style.scss';
-const Input = ({register, name, label, type, errors, valid}) => {
+const Input = ({register, name, label, type, errors, valid, icon}) => {
   const [isFocused, setIsFocused] = useState(false);
   const [currentText, setCurrentText] = useState('');
   return (
     <div className={isFocused ? 'input-container focus' : 'input-container'}>
       <div className="input-icon">
-        {name === 'email' ? (
-          <i className="fa fas fa-user"></i>
-        ) : (
-          <i className="fa fas fa-lock"></i>
-        )}
+        <i className={icon}></i>
       </div>
       <div className="input-field">
         <h5>{label}</h5>

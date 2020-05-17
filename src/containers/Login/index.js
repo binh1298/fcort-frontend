@@ -37,6 +37,7 @@ export const Login = () => {
             <h2 className="title">Welcome</h2>
             <Input
               register={register}
+              icon="fa fas fa-user"
               name="email"
               type="text"
               label="Email"
@@ -51,6 +52,7 @@ export const Login = () => {
             />
             <Input
               register={register}
+              icon="fa fas fa-lock"
               name="password"
               type="password"
               label="Password"
