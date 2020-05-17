@@ -1,8 +1,8 @@
 import React from 'react';
-import './MessagesList.scss';
+import './MessagesSection.scss';
 import ListItems from '../../component/ListItems';
 
-export const MessagesList = (props) => {
+export const MessagesSection = (props) => {
   return (
     <div className="messages-wrapper">
       <p>
@@ -12,4 +12,4 @@ export const MessagesList = (props) => {
     </div>
   );
 };
-export default MessagesList;
+export default MessagesSection;

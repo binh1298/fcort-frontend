@@ -1,8 +1,8 @@
 import React from 'react';
-import './Group.scss';
+import './GroupSection.scss';
 import ListItems from '../../component/ListItems';
 
-export const Group = (props) => {
+export const GroupSection = (props) => {
   return (
     <div className="group-wrapper">
       <p>
@@ -12,4 +12,4 @@ export const Group = (props) => {
     </div>
   );
 };
-export default Group;
+export default GroupSection;

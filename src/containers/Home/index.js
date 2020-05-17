@@ -3,9 +3,9 @@ import './style.scss';
 import ThemeContext from '../../contexts/ThemeContext';
 import avatar from '../../assets/images/avatar.png';
 import UserNavbar from './UserNavbar';
-import Favorite from './Favorite';
-import Group from './Group';
-import MessagesList from './MessagesList';
+import FavoriteSection from './FavoriteSection';
+import GroupSection from './GroupSection';
+import MessagesSection from './MessagesSection';
 import Header from './Header';
 
 export const Home = () => {
@@ -22,14 +22,14 @@ export const Home = () => {
           <i className="fa fas fa-tv fa-lg"></i>Fcord
         </h1>
         <UserNavbar avatar={avatar} userName="ThienDuc" />
-        <Favorite
+        <FavoriteSection
           favoriteList={[
             {id: '123', name: 'reactjs'},
             {id: '456', name: 'vuejs'},
             {id: '789', name: 'angular'},
           ]}
         />
-        <Group
+        <GroupSection
           groupList={[
             {id: '123', name: 'reactjs'},
             {id: '456', name: 'vuejs'},
@@ -44,7 +44,7 @@ export const Home = () => {
             {id: '000', name: 'Pascal'},
           ]}
         />
-        <MessagesList
+        <MessagesSection
           messagesList={[
             {id: '135', name: 'BinhPham'},
             {id: '246', name: 'KienTran'},

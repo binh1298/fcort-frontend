@@ -1,8 +1,8 @@
 import React, {useContext, useState} from 'react';
-import './Favorite.scss';
+import './FavoriteSection.scss';
 import ListItems from '../../component/ListItems';
 
-export const Favorite = (props) => {
+export const FavoriteSection = (props) => {
   return (
     <div className="favorite-wrapper">
       <p>
@@ -12,4 +12,4 @@ export const Favorite = (props) => {
     </div>
   );
 };
-export default Favorite;
+export default FavoriteSection;
