@@ -18,7 +18,7 @@ const Items = (props) => {
   );
 };
 
-const ShowList = (props) => {
+export const ListItems = (props) => {
   const theList = props.list.map((object) => (
     <Items key={object.id}>
       <i className={props.icon}></i>
@@ -28,4 +28,4 @@ const ShowList = (props) => {
   return <ul>{theList}</ul>;
 };
 
-export default ShowList;
+export default ListItems;

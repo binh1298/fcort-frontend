@@ -5,7 +5,7 @@ import avatar from '../../assets/images/avatar.png';
 import UserNavbar from './UserNavbar';
 import Favorite from './Favorite';
 import Group from './Group';
-import Messages from './Messages';
+import MessagesList from './MessagesList';
 import Header from './Header';
 
 export const Home = () => {
@@ -39,7 +39,7 @@ export const Home = () => {
             {id: '333', name: 'javascript'},
           ]}
         />
-        <Messages
+        <MessagesList
           messagesList={[
             {id: '135', name: 'BinhPham'},
             {id: '246', name: 'KienTran'},

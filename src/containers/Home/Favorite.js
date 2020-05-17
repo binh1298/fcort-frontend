@@ -1,6 +1,6 @@
 import React, {useContext, useState} from 'react';
 import './Favorite.scss';
-import ShowList from '../../component/ShowList';
+import ListItems from '../../component/ListItems';
 
 export const Favorite = (props) => {
   return (
@@ -8,7 +8,7 @@ export const Favorite = (props) => {
       <p>
         <i className="fa fas fa-star"></i>Favorite
       </p>
-      <ShowList list={props.favoriteList} icon="fa fas fa-hashtag" />
+      <ListItems list={props.favoriteList} icon="fa fas fa-hashtag" />
     </div>
   );
 };
