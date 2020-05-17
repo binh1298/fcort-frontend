@@ -18,17 +18,15 @@ const Items = (props) => {
   );
 };
 
-const Icon = (props) => {
-  return <i className={props.icon}></i>;
-};
 export const ListItems = (props) => {
-  const theList = props.list.map((object) => (
+  const Icon = () => <i className={props.icon}></i>;
+  const List = props.list.map((object) => (
     <Items key={object.id}>
-      <Icon icon={props.icon} />
+      <Icon />
       {object.name}
     </Items>
   ));
-  return <ul>{theList}</ul>;
+  return <ul>{List}</ul>;
 };
 
 export default ListItems;
