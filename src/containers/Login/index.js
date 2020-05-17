@@ -37,10 +37,17 @@ export const Login = () => {
             <h2 className="title">Welcome</h2>
             <Input
               register={register}
-              name="username"
+              name="email"
               type="text"
-              label="Username"
+              label="Email"
               errors={errors}
+              valid={register({
+                required: `Email is required`,
+                pattern: {
+                  value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
+                  message: 'Invalid email address',
+                },
+              })}
             />
             <Input
               register={register}
