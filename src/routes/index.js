@@ -19,7 +19,7 @@ export const publicRoutes = [
 ];
 export const privateRoutes = [
   {
-    path: '/',
+    path: '/home',
     name: 'home',
     component: Home,
   },
