@@ -1,0 +1,40 @@
+.messages-wrapper {
+  padding-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.messages-wrapper>p {
+  padding-bottom: 1rem;
+  white-space: nowrap;
+  align-self: flex-start;
+  padding-left: 30px;
+  font-size: 2rem;
+  cursor: default;
+}
+
+@media screen and (max-width: 900px) {
+  .messages-wrapper>p {
+    font-size: 2.2rem;
+  }
+
+  .messages-wrapper>p>i {
+    padding-right: 2vw;
+  }
+
+  .navbar>.messages-wrapper>ul {
+    padding-left: 40px;
+  }
+}
+
+.messages-wrapper>ul {
+  font-size: 1.6rem;
+  line-height: 30px;
+  padding-left: 45px;
+}
+
+.messages-wrapper>ul>li:hover {
+  cursor: pointer;
+}

@@ -1,0 +1,85 @@
+@import '../../fonts.scss';
+
+html {
+  font-size: 10px;
+}
+
+.home-container {
+  display: grid;
+  position: relative;
+  grid-template-columns: 3fr 10fr;
+  grid-column-gap: 1vw;
+  font-family: $default-font;
+  overflow: hidden;
+}
+
+@media screen and (max-width: 900px) {
+  .home-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+.navbar {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  min-width: 220px;
+  height: 100vh;
+  overflow-y: scroll;
+  transition: all 0.5s ease-in-out;
+  z-index: 100;
+}
+
+.navbar::-webkit-scrollbar {
+  display: none;
+}
+
+.navbar {
+  -ms-overflow-style: none;
+}
+
+@media screen and (max-width: 900px) {
+  .home-container>.toggle-target {
+    transform: translateX(-90vw);
+  }
+
+  .home-container>.navbar {
+    position: absolute;
+    width: 90vw;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+  }
+}
+
+.navbar>h1 {
+  position: sticky;
+  white-space: nowrap;
+  font-size: 4rem;
+  text-align: center;
+  padding-top: 3rem;
+  width: 100%;
+  cursor: default;
+}
+
+i {
+  padding: 5px;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+}
+
+.section::-webkit-scrollbar {
+  display: none;
+}
+
+@media screen and (max-width: 900px) {
+  .section {
+    height: 100vh;
+  }
+  .main-content {
+    height: 100vh;
+  }
+}

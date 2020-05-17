@@ -1,9 +1,13 @@
 /* eslint-disable prettier/prettier */
-import React from 'react';
-import {BrowserRouter} from 'react-router-dom';
-import {Routes} from '../../routes';
+import React, { useContext } from 'react';
+import { BrowserRouter } from 'react-router-dom';
+import { Routes } from '../../routes';
+import Login from '../Login';
+import SignUp from '../SignUp';
+import Home from '../Home';
+// import './styles.css';
 
 export const App = () => {
-  return <BrowserRouter> {Routes} </BrowserRouter>;
+  return <BrowserRouter> {Routes} </BrowserRouter>
 };
 export default App;
