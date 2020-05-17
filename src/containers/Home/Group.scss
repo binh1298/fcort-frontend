@@ -9,7 +9,8 @@
 .group-wrapper>p {
   padding-bottom: 1rem;
   white-space: nowrap;
-  align-self: center;
+  align-self: flex-start;
+  padding-left: 30px;
   font-size: 2rem;
   cursor: default;
 }
@@ -32,7 +33,7 @@
 .group-wrapper>ul {
   font-size: 1.6rem;
   line-height: 30px;
-  padding-left: 25px;
+  padding-left: 45px;
 }
 
 .group-wrapper>ul>li {

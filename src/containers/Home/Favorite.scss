@@ -8,7 +8,8 @@
 .favorite-wrapper>p {
   padding-bottom: 1rem;
   white-space: nowrap;
-  align-self: center;
+  align-self: left;
+  padding-left: 30px;
   font-size: 2rem;
   cursor: default;
 }
@@ -30,7 +31,7 @@
 .favorite-wrapper>ul {
   font-size: 1.6rem;
   line-height: 30px;
-  padding-left: 25px;
+  padding-left: 45px;
 }
 
 .favorite-wrapper>ul>li {
