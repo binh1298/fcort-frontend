@@ -1,13 +1,11 @@
 import React, {useEffect, useState} from 'react';
 import './style.scss';
-const Input = ({register, name, label, type, errors, valid, icon}) => {
+const InputField = ({register, name, label, type, errors, valid, icon}) => {
   const [isFocused, setIsFocused] = useState(false);
   const [currentText, setCurrentText] = useState('');
   return (
     <div className={isFocused ? 'input-container focus' : 'input-container'}>
-      <div className="input-icon">
-        <i className={icon}></i>
-      </div>
+      <div className="input-icon">{icon}</div>
       <div className="input-field">
         <h5>{label}</h5>
         <input
@@ -27,4 +25,4 @@ const Input = ({register, name, label, type, errors, valid, icon}) => {
   );
 };
 
-export default Input;
+export default InputField;

@@ -4,10 +4,10 @@ import {useForm} from 'react-hook-form';
 import {Link} from 'react-router-dom';
 import ThemeContext from '../../contexts/ThemeContext';
 import './style.scss';
-import Input from '../../component/InputField';
 import logoFcode from '../../assets/images/logoFcode.png';
 import logoFcort from '../../assets/images/logoFcort.png';
 import background from '../../assets/images/backgroundLoginSingup.png';
+import InputField from '../../component/InputField';
 export const SignUp = () => {
   const theme = useContext(ThemeContext);
   const styles = {
@@ -34,9 +34,9 @@ export const SignUp = () => {
           <form className="form-wrapper" onSubmit={handleSubmit(onSubmit)}>
             <img src={logoFcode} />
             <h2 className="title">Sign Up</h2>
-            <Input
+            <InputField
               register={register}
-              icon="fa fas fa-user"
+              icon={<i className="fa fas fa-user"></i>}
               name="email"
               type="text"
               label="Email"
@@ -49,9 +49,9 @@ export const SignUp = () => {
                 },
               })}
             />
-            <Input
+            <InputField
               register={register}
-              icon="fa fas fa-lock"
+              icon={<i className="fa fas fa-lock"></i>}
               name="password"
               type="password"
               label="Password"
@@ -64,9 +64,9 @@ export const SignUp = () => {
                 },
               })}
             />
-            <Input
+            <InputField
               register={register}
-              icon="fa fas fa-lock"
+              icon={<i className="fa fas fa-lock"></i>}
               name="confirmPassword"
               type="password"
               label="Confirm password"
