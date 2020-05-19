@@ -22,7 +22,7 @@ export const ListItems = (props) => {
   const list = props.list.map((object) => (
     <Items key={object.id}>
       {props.icon}
-      {object.name}
+      <div className="nameItems">{object.name}</div>
     </Items>
   ));
   return <ul>{list}</ul>;

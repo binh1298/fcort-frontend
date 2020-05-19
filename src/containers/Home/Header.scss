@@ -4,13 +4,21 @@
   align-items: center;
   padding-top: 0;
   padding-bottom: 0;
-  border-bottom: 2px inset;
+  height: 7vh;
+  border-bottom: 1px inset;
+}
+
+@media screen and (max-width: 900px) {
+  .header-wrapper {
+    justify-content: space-between;
+  }
 }
 
 .header-wrapper>button {
   display: none;
-  width: 30px;
-  height: 30px;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  font-size: 5rem;
   opacity: 0.8;
   border-style: none;
   border-radius: 5px;
@@ -26,10 +34,6 @@
 }
 
 @media screen and (max-width: 900px) {
-  .header-wrapper {
-    justify-content: space-between;
-  }
-
   .header-wrapper>button {
     display: block;
   }
@@ -44,10 +48,6 @@
 }
 
 @media screen and (max-width: 900px) {
-  .header-wrapper>form>input[type="text"] {
-    width: 100%;
-  }
-
   .header-wrapper>form {
     width: 80vw;
   }
@@ -55,21 +55,26 @@
 
 .header-wrapper>form>input {
   width: 16vw;
-  min-width: 70px;
-  height: 2.5rem;
+  height: 4vh;
   color: inherit;
   outline-color: transparent;
   border-style: none;
-  border-top-left-radius: 5px;
-  border-bottom-left-radius: 5px;
+  border-top-left-radius: 0.5rem;
+  border-bottom-left-radius: 0.5rem;
   font-family: inherit;
-  padding: 10px;
+  padding: 1rem;
+  font-size: 1rem;
   opacity: 0.5;
   transition: width 0.4s ease-in-out, opacity 0.4s ease-in-out;
 }
 
 @media screen and (max-width: 900px) {
   .header-wrapper>form>input {
+    padding-left: 2rem;
+    height: 4vh;
+    width: 100%;
+    font-size: 3rem;
+    border-radius: 1.5rem;
     transition: opacity 0.4s ease-in-out;
   }
 }
@@ -80,19 +85,38 @@
 }
 
 .header-wrapper>form>button {
+  height: 4vh;
+  padding-left: 0.7rem;
+  padding-right: 0.7rem;
   border-style: none;
-  border-top-right-radius: 5px;
-  border-bottom-right-radius: 5px;
+  border-top-right-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
   color: inherit;
   opacity: 0.6;
   cursor: pointer;
-  padding: 1.6px;
+}
+
+@media screen and (max-width: 900px) {
+  .header-wrapper>form>button {
+    display: none;
+  }
+}
+
+.header-wrapper>form>button>i {
+  font-size: 1rem;
 }
 
 .header-wrapper>i {
-  padding: 4px 1vw 4px 0;
-  font-size: 2.5rem;
+  padding: 1vh 1vw 1vh 0;
+  font-size: 2.2rem;
   transition: color 0.3s ease-in-out;
+}
+
+@media screen and (max-width: 900px) {
+  .header-wrapper>i {
+    padding-right: 2rem;
+    font-size: 6rem;
+  }
 }
 
 .header-wrapper>i:hover {

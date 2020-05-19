@@ -1,41 +1,58 @@
 .group-wrapper {
-  padding-top: 2rem;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
+  padding-left: 2vw;
+  padding-bottom: 2vh;
+}
+
+@media screen and (max-width: 900px) {
+  .group-wrapper {
+    padding-left: 12vw;
+  }
 }
 
 .group-wrapper>p {
-  padding-bottom: 1rem;
+  padding-bottom: 0.6vh;
   white-space: nowrap;
-  align-self: flex-start;
-  padding-left: 30px;
-  font-size: 2rem;
+  font-size: 1.5rem;
   cursor: default;
 }
 
 @media screen and (max-width: 900px) {
   .group-wrapper>p {
-    font-size: 2.2rem;
+    font-size: 4rem;
   }
+}
 
+.group-wrapper>p>i {
+  padding: 0.8rem;
+}
+
+@media screen and (max-width: 900px) {
   .group-wrapper>p>i {
-    padding-right: 2vw;
-  }
-
-  .navbar>.group-wrapper>ul {
-    padding-left: 40px;
+    padding-right: 2rem;
   }
 }
 
 
 .group-wrapper>ul {
-  font-size: 1.6rem;
-  line-height: 30px;
-  padding-left: 45px;
+  font-size: 1.1rem;
+  padding-left: 1vw;
+  word-wrap: break-word;
+  word-break: break-word;
+}
+
+@media screen and (max-width: 900px) {
+  .group-wrapper>ul {
+    font-size: 3rem;
+    padding-left: 4vw;
+  }
 }
 
 .group-wrapper>ul>li {
+  word-wrap: break-word;
+  word-break: break-word;
   cursor: pointer;
 }

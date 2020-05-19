@@ -1,3 +1,12 @@
 ul {
   list-style: none;
 }
+
+ul>li {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding-top: 0.4rem;
+  padding-bottom: 0.4rem;
+}
+

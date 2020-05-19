@@ -16,7 +16,7 @@ export const Header = (props) => {
   return (
     <div className="header-wrapper" style={headerWrapperStyles}>
       <button className="toggle" onClick={props.onClick}>
-        <i className="fa fas fa-bars fa-lg"></i>
+        <i className="fa fas fa-bars"></i>
       </button>
       <form>
         <input type="text" placeholder="Search" style={inputStyles} />

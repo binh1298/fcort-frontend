@@ -1,14 +1,14 @@
 @import '../../fonts.scss';
 
 html {
-  font-size: 10px;
+  font-size: 1vw;
 }
 
 .home-container {
   display: grid;
   position: relative;
-  grid-template-columns: 3fr 10fr;
-  grid-column-gap: 1vw;
+  grid-template-columns: 27vw 70vw;
+  grid-column-gap: 3rem;
   font-family: $default-font;
   overflow: hidden;
 }
@@ -23,7 +23,6 @@ html {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  min-width: 220px;
   height: 100vh;
   overflow-y: scroll;
   transition: all 0.5s ease-in-out;
@@ -54,15 +53,22 @@ html {
 .navbar>h1 {
   position: sticky;
   white-space: nowrap;
-  font-size: 4rem;
   text-align: center;
-  padding-top: 3rem;
+  font-size: 3.5rem;
+  padding-top: 2rem;
   width: 100%;
   cursor: default;
 }
 
-i {
-  padding: 5px;
+@media screen and (max-width: 900px) {
+  .navbar>h1 {
+    padding-top: 5rem;
+    font-size: 10rem;
+  }
+}
+
+.navbar>h1>i {
+  padding: 0.8rem;
 }
 
 .section {
@@ -79,6 +85,7 @@ i {
   .section {
     height: 100vh;
   }
+
   .main-content {
     height: 100vh;
   }
