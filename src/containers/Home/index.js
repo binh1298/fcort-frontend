@@ -1,7 +1,6 @@
 import React, {useContext, useState} from 'react';
 import './style.scss';
 import ThemeContext from '../../contexts/ThemeContext';
-import avatar from '../../assets/images/avatar.png';
 import UserNavbar from './UserNavbar';
 import FavoriteSection from './FavoriteSection';
 import GroupSection from './GroupSection';
@@ -21,7 +20,10 @@ export const Home = () => {
         <h1>
           <i className="fa fas fa-tv fa-lg"></i>Fcord
         </h1>
-        <UserNavbar avatar={avatar} userName="ThienDuc" />
+        <UserNavbar
+          avatar="https://github.com/kien123456k/Hello-world/blob/master/avatar.png?raw=true"
+          userName="ThienDuc"
+        />
         <FavoriteSection
           favoriteList={[
             {id: '123', name: 'reactjs'},

@@ -79,7 +79,7 @@ export const SignUp = () => {
               })}
             />
             <input type="submit" className="submit-button" value="Submit" />
-            <Link to="/login">Already have an account? Sign In</Link>
+           
           </form>
         </div>
       </div>
