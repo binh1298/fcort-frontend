@@ -1,6 +1,6 @@
 /* eslint-disable prettier/prettier */
 import React, {useContext} from 'react';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import {useForm} from 'react-hook-form';
 import ThemeContext from '../../contexts/ThemeContext';
 import './style.scss';
