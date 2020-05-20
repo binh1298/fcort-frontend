@@ -16,18 +16,18 @@
 .messages-wrapper>p {
   padding-bottom: 0.6vh;
   white-space: nowrap;
-  font-size: 1.5rem;
+  font-size: 1.5vw;
   cursor: default;
 }
 
 @media screen and (max-width: 900px) {
   .messages-wrapper>p {
-    font-size: 5rem;
+    font-size: 5vw;
   }
 }
 
 .messages-wrapper>p>i {
-  padding: 0.8rem;
+  padding: 0.8vw;
 }
 
 @media screen and (max-width: 900px) {
@@ -37,7 +37,7 @@
 }
 
 .messages-wrapper>ul {
-  font-size: 1.1rem;
+  font-size: 1.1vw;
   padding-left: 1vw;
   word-wrap: break-word;
   word-break: break-word;
@@ -45,7 +45,7 @@
 
 @media screen and (max-width: 900px) {
   .messages-wrapper>ul {
-    font-size: 3.5rem;
+    font-size: 3.5vw;
     padding-left: 4vw;
   }
 }
@@ -53,14 +53,14 @@
 .messages-wrapper>ul>li {
   word-wrap: break-word;
   word-break: break-word;
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
+  padding-top: 0.5vw;
+  padding-bottom: 0.5vw;
   cursor: pointer;
 }
 
 @media screen and (max-width: 900px) {
   .messages-wrapper>ul>li {
-    padding-top: 1.5rem;
-    padding-bottom: 1.5rem;
+    padding-top: 1.5vw;
+    padding-bottom: 1.5vw;
   }
 }

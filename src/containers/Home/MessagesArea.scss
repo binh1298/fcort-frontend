@@ -1,0 +1,27 @@
+.messagesArea-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding-left: 0;
+  padding-right: 2vw;
+  padding-bottom: 2vh;
+  height: 100%;
+  overflow-y: hidden;
+}
+
+.messagesArea-wrapper>input[type="text"] {
+  width: 100%;
+  height: 2.5vmax;
+  padding-left: 1vw;
+  font-family: inherit;
+  outline-color: transparent;
+  border-color: inherit;
+  border-radius: 1vw;
+  border-style: none;
+  opacity: 0.5;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.messagesArea-wrapper>input[type="text"]:focus {
+  opacity: 1;
+}

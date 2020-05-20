@@ -21,7 +21,7 @@
   align-items: center;
   color: inherit;
   background-color: transparent;
-  border-radius: 1rem;
+  border-radius: 1vw;
   border-style: none;
   padding-left: 1vw;
   padding-right: 1vw;
@@ -30,37 +30,38 @@
 }
 
 .userNavbar-wrapper>img {
-  width: 3rem;
+  width: 3vw;
   border-radius: 50%;
 }
 
 @media screen and (max-width: 900px) {
   .userNavbar-wrapper>img {
-    margin-right: 2rem;
-    width: 10rem;
+    margin-right: 2vw;
+    width: 10vw;
   }
 }
 
 .userNavbar-wrapper>.dropdown>button>p {
   word-wrap: break-word;
   word-break: break-word;
-  font-size: 1.2rem;
+  font-size: 1.2vw;
   font-family: $default-font;
 }
 
 @media screen and (max-width: 900px) {
   .userNavbar-wrapper>.dropdown>button>p {
-    font-size: 3.5rem;
+    font-size: 3.5vw;
   }
 }
 
 .userNavbar-wrapper>.dropdown>button>i {
-  font-size: 2rem;
+  font-size: 2vw;
+  padding-left: 1vw;
 }
 
 @media screen and (max-width: 900px) {
   .userNavbar-wrapper>.dropdown>button>i {
-    padding-left: 3rem;
-    font-size: 3rem;
+    padding-left: 3vw;
+    font-size: 3vw;
   }
 }

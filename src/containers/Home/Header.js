@@ -15,7 +15,10 @@ export const Header = (props) => {
   });
   return (
     <div className="header-wrapper" style={headerWrapperStyles}>
-      <h1>{props.chatTarget}</h1>
+      <p>
+        {props.icon}
+        {props.chatTarget}
+      </p>
       <button className="toggle" onClick={props.onClick}>
         <i className="fa fas fa-bars"></i>
       </button>

@@ -6,6 +6,7 @@ import FavoriteSection from './FavoriteSection';
 import GroupSection from './GroupSection';
 import MessagesSection from './MessagesSection';
 import Header from './Header';
+import MessagesArea from './MessagesArea';
 
 export const Home = () => {
   const theme = useContext(ThemeContext);
@@ -61,8 +62,46 @@ export const Home = () => {
         />
       </div>
       <div className="section">
-        <Header onClick={() => setIsClicked(!isClicked)} />
-        <div className="main-content" onClick={() => setIsClicked(true)}></div>
+        <Header
+          chatTarget="BinhPham"
+          icon={<i className="fa fas fa-at"></i>}
+          onClick={() => setIsClicked(!isClicked)}
+        />
+        <MessagesArea
+          onClick={() => setIsClicked(true)}
+          userName="Nguyễn Trần Thiên Đức"
+          messages={[
+            {id: '1', name: 'BinhPham', message: 'ừm'},
+            {id: '2', name: 'Nguyễn Trần Thiên Đức', message: 'tộ'},
+            {id: '3', name: 'BinhPham', message: 'kiệt lao'},
+            {id: '4', name: 'Nguyễn Trần Thiên Đức', message: 'ừm'},
+            {id: '5', name: 'BinhPham', message: 'lược lạo'},
+            {id: '6', name: 'Nguyễn Trần Thiên Đức', message: 'thăm ngàn'},
+            {id: '7', name: 'BinhPham', message: 'thăm ngàn'},
+            {id: '8', name: 'Nguyễn Trần Thiên Đức', message: 'kẹp ngần'},
+            {id: '9', name: 'BinhPham', message: 'thăm ngàn'},
+            {id: '10', name: 'Nguyễn Trần Thiên Đức', message: 'kẹp ngần'},
+            {id: '11', name: 'BinhPham', message: 'chai ni'},
+            {id: '12', name: 'Nguyễn Trần Thiên Đức', message: 'thăm ngàn'},
+            {id: '13', name: 'BinhPham', message: 'kẹp ngần'},
+            {id: '14', name: 'Nguyễn Trần Thiên Đức', message: 'đai riển'},
+            {id: '15', name: 'BinhPham', message: 'mìn kịt'},
+            {id: '16', name: 'Nguyễn Trần Thiên Đức', message: 'chui lừa'},
+            {id: '17', name: 'BinhPham', message: 'phỏm dại'},
+            {id: '18', name: 'Nguyễn Trần Thiên Đức', message: 'miều rặt'},
+            {id: '19', name: 'BinhPham', message: 'bơ bun'},
+            {id: '20', name: 'Nguyễn Trần Thiên Đức', message: 'minh buồi'},
+            {id: '21', name: 'BinhPham', message: 'rồ bần già'},
+            {id: '22', name: 'Nguyễn Trần Thiên Đức', message: 'ba ca nà'},
+            {id: '23', name: 'BinhPham', message: 'chả nại'},
+            {
+              id: '24',
+              name: 'Nguyễn Trần Thiên Đức',
+              message: 'tha chả lơ bịt nài là bưn lụa',
+            },
+            {id: '25', name: 'BinhPham', message: 'ken nơ lao nèn'},
+          ]}
+        />
       </div>
     </div>
   );

@@ -22,6 +22,9 @@ const theme = {
       questionColor: '#DCDCDC',
       questionFocus: '#2C3E50',
     },
+    message: {
+      textInput: '#e6e6e6',
+    },
   },
 };
 

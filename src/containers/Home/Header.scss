@@ -4,21 +4,33 @@
   align-items: center;
   padding-top: 0;
   padding-bottom: 0;
-  height: 3rem;
+  height: 3vw;
   border-bottom: 1px inset;
 }
 
 @media screen and (max-width: 900px) {
   .header-wrapper {
     justify-content: space-between;
+    height: 7vh;
+  }
+}
+
+.header-wrapper>p {
+  margin-right: 28vw;
+  font-size: 1.5vw;
+}
+
+@media screen and (max-width: 900px) {
+  .header-wrapper>p {
+    display: none;
   }
 }
 
 .header-wrapper>button {
   display: none;
-  padding-left: 2rem;
-  padding-right: 2rem;
-  font-size: 5rem;
+  padding-left: 2vw;
+  padding-right: 2vw;
+  font-size: 5vw;
   opacity: 0.8;
   border-style: none;
   border-radius: 5px;
@@ -45,7 +57,7 @@
   align-items: center;
   justify-content: flex-start;
   width: 30vw;
-  height: 2.2rem;
+  height: 2.2vw;
 }
 
 @media screen and (max-width: 900px) {
@@ -56,26 +68,25 @@
 
 .header-wrapper>form>input {
   width: 16vw;
-  height: 2.2rem;
-  color: inherit;
+  height: 2.2vw;
   outline-color: transparent;
   border-style: none;
-  border-top-left-radius: 0.5rem;
-  border-bottom-left-radius: 0.5rem;
+  border-top-left-radius: 0.5vw;
+  border-bottom-left-radius: 0.5vw;
   font-family: inherit;
-  padding: 1rem;
-  font-size: 1rem;
+  padding: 1vw;
+  font-size: 1vw;
   opacity: 0.5;
   transition: width 0.4s ease-in-out, opacity 0.4s ease-in-out;
 }
 
 @media screen and (max-width: 900px) {
   .header-wrapper>form>input {
-    padding-left: 2rem;
+    padding-left: 2vw;
     height: 4vh;
     width: 100%;
-    font-size: 3rem;
-    border-radius: 1.5rem;
+    font-size: 3vw;
+    border-radius: 1.5vw;
     transition: opacity 0.4s ease-in-out;
   }
 }
@@ -88,11 +99,11 @@
 .header-wrapper>form>button {
   display: flex;
   height: inherit;
-  padding-left: 0.6rem;
-  padding-right: 0.6rem;
+  padding-left: 0.6vw;
+  padding-right: 0.6vw;
   border-style: none;
-  border-top-right-radius: 0.5rem;
-  border-bottom-right-radius: 0.5rem;
+  border-top-right-radius: 0.5vw;
+  border-bottom-right-radius: 0.5vw;
   color: inherit;
   opacity: 0.6;
   cursor: pointer;
@@ -105,19 +116,19 @@
 }
 
 .header-wrapper>form>button>i {
-  font-size: 1rem;
+  font-size: 1vw;
 }
 
 .header-wrapper>i {
   padding: 1vh 1vw 1vh 0;
-  font-size: 2.2rem;
+  font-size: 2.2vw;
   transition: color 0.3s ease-in-out;
 }
 
 @media screen and (max-width: 900px) {
   .header-wrapper>i {
-    padding-right: 2rem;
-    font-size: 6rem;
+    padding-right: 2vw;
+    font-size: 6vw;
   }
 }
 

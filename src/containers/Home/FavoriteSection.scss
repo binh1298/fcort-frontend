@@ -16,34 +16,34 @@
 .favorite-wrapper>p {
   padding-bottom: 0.6vh;
   white-space: nowrap;
-  font-size: 1.5rem;
+  font-size: 1.5vw;
   cursor: default;
 }
 
 @media screen and (max-width: 900px) {
   .favorite-wrapper>p {
-    font-size: 5rem;
+    font-size: 5vw;
   }
 }
 
 .favorite-wrapper>p>i {
-  padding: 0.8rem;
+  padding: 0.8vw;
 }
 
 @media screen and (max-width: 900px) {
   .favorite-wrapper>p>i {
-    padding-right: 2rem;
+    padding-right: 2vw;
   }
 }
 
 .favorite-wrapper>ul {
-  font-size: 1.1rem;
+  font-size: 1.1vw;
   padding-left: 1vw;
 }
 
 @media screen and (max-width: 900px) {
   .favorite-wrapper>ul {
-    font-size: 3.5rem;
+    font-size: 3.5vw;
     padding-left: 4vw;
   }
 }
@@ -51,14 +51,14 @@
 .favorite-wrapper>ul>li {
   word-wrap: break-word;
   word-break: break-word;
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
+  padding-top: 0.5vw;
+  padding-bottom: 0.5vw;
   cursor: pointer;
 }
 
 @media screen and (max-width: 900px) {
   .favorite-wrapper>ul>li {
-    padding-top: 1.5rem;
-    padding-bottom: 1.5rem;
+    padding-top: 1.5vw;
+    padding-bottom: 1.5vw;
   }
 }

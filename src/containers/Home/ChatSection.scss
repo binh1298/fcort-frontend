@@ -1,0 +1,29 @@
+.chat-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  font-size: 1.4vw;
+  margin-top: 1vh;
+  margin-bottom: 1vh;
+  height: 100%;
+  overflow-y: scroll;
+}
+
+.chat-wrapper::-webkit-scrollbar {
+  display: none;
+}
+
+.chat-wrapper>.userMessages {
+  border-radius: 5vw;
+  align-self: flex-end;
+  display: inline-block;
+  background-color: #F3F3F3;
+  text-align: right;
+}
+
+.chat-wrapper>.otherMessages {
+  align-self: flex-start;
+  display: inline-block;
+  background-color: #F3F3F3;
+  text-align: left;
+}
