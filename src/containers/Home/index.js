@@ -23,7 +23,7 @@ export const Home = () => {
         </h1>
         <UserNavbar
           avatar="https://github.com/kien123456k/Hello-world/blob/master/avatar.png?raw=true"
-          userName="KienKienKienKienKienKienKienKienKienKienKienKienKien"
+          userName="Nguyễn Trần Thiên Đức"
         />
         <FavoriteSection
           favoriteList={[
