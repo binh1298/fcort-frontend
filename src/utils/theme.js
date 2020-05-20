@@ -24,6 +24,7 @@ const theme = {
     },
     message: {
       textInput: '#e6e6e6',
+      backgroundColor: '#F5F5F5',
     },
   },
 };

@@ -14,7 +14,7 @@ export const Home = () => {
     backgroundColor: theme.palette.navbar.background,
     color: theme.palette.navbar.titleColor,
   };
-  const [isClicked, setIsClicked] = useState(false);
+  const [isClicked, setIsClicked] = useState(true);
   return (
     <div className="home-container">
       <div className={isClicked ? 'navbar toggle-target' : 'navbar'} style={styles}>
@@ -70,6 +70,13 @@ export const Home = () => {
         <MessagesArea
           onClick={() => setIsClicked(true)}
           userName="Nguyễn Trần Thiên Đức"
+          avatarChat={[
+            {
+              id: '69',
+              image:
+                'https://github.com/kien123456k/Hello-world/blob/master/avatarChat.jpg?raw=true',
+            },
+          ]}
           messages={[
             {id: '1', name: 'BinhPham', message: 'ừm'},
             {id: '2', name: 'Nguyễn Trần Thiên Đức', message: 'tộ'},

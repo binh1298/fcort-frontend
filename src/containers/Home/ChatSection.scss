@@ -2,28 +2,91 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  font-size: 1.4vw;
-  margin-top: 1vh;
-  margin-bottom: 1vh;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.2vw;
+  margin-bottom: 2vh;
   height: 100%;
   overflow-y: scroll;
+}
+
+@media screen and (max-width: 900px) {
+  .chat-wrapper {
+    font-size: 5vw;
+  }
 }
 
 .chat-wrapper::-webkit-scrollbar {
   display: none;
 }
 
-.chat-wrapper>.userMessages {
-  border-radius: 5vw;
-  align-self: flex-end;
-  display: inline-block;
-  background-color: #F3F3F3;
-  text-align: right;
+.chat-wrapper> {
+  display: flex;
+
 }
 
 .chat-wrapper>.otherMessages {
+  display: flex;
+  align-items: center;
   align-self: flex-start;
+}
+
+.chat-wrapper>.userMessages {
+  display: flex;
+  align-items: center;
+  align-self: flex-end;
+}
+
+.chat-wrapper>.userMessages>span {
+  display: block;
+  max-width: 30vw;
+  padding: 1vh 1vw 1vh 1vw;
+  margin-bottom: 2vh;
+  border-radius: 4vw;
   display: inline-block;
-  background-color: #F3F3F3;
+  text-align: right;
+  word-wrap: break-word;
+  word-break: break-word;
+}
+
+@media screen and (max-width: 900px) {
+  .chat-wrapper>.userMessages>span {
+    max-width: 70vw;
+    padding: 1vh 3vw 1vh 3vw;
+  }
+}
+
+.chat-wrapper>.otherMessages>span {
+  display: block;
+  max-width: 50vw;
+  padding: 1vh 1vw 1vh 1vw;
+  border-radius: 4vw;
+  display: inline-block;
   text-align: left;
+  word-wrap: break-word;
+  word-break: break-word;
+}
+
+@media screen and (max-width: 900px) {
+  .chat-wrapper>.otherMessages>span {
+    max-width: 70vw;
+    padding: 1vh 3vw 1vh 3vw;
+  }
+}
+
+.chat-wrapper>.userMessages>.avatarChat {
+  display: none;
+}
+
+.chat-wrapper>.otherMessages>.avatarChat {
+  border-radius: 50%;
+  width: 3vw;
+  margin-right: 0.5vw;
+}
+
+@media screen and (max-width: 900px) {
+  .chat-wrapper>.otherMessages>.avatarChat {
+    border-radius: 50%;
+    width: 7vw;
+    margin-right: 2vw;
+  }
 }
