@@ -1,7 +1,7 @@
 /* eslint-disable prettier/prettier */
-import React, {useContext} from 'react';
-import {Link} from 'react-router-dom';
-import {useForm} from 'react-hook-form';
+import React, { useContext } from 'react';
+import { Link } from 'react-router-dom';
+import { useForm } from 'react-hook-form';
 import ThemeContext from '../../contexts/ThemeContext';
 import './style.scss';
 import logoFcode from '../../assets/images/logoFcode.png';
@@ -16,7 +16,7 @@ export const Login = () => {
     color: theme.palette.text.inputField,
   };
 
-  const {register, handleSubmit, errors} = useForm();
+  const { register, handleSubmit, errors } = useForm();
   const onSubmit = (data) => {
     //Call the sever
 
@@ -61,7 +61,7 @@ export const Login = () => {
             <a href="#">Forgot Password</a>
 
             <input type="submit" className="login-button" value="Login" />
-       
+            <Link to="/signup">Create new account</Link>
           </form>
         </div>
       </div>
