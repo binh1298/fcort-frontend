@@ -4,7 +4,7 @@
   align-items: center;
   padding-top: 0;
   padding-bottom: 0;
-  height: 7vh;
+  height: 3rem;
   border-bottom: 1px inset;
 }
 
@@ -45,6 +45,7 @@
   align-items: center;
   justify-content: flex-start;
   width: 30vw;
+  height: 2.2rem;
 }
 
 @media screen and (max-width: 900px) {
@@ -55,7 +56,7 @@
 
 .header-wrapper>form>input {
   width: 16vw;
-  height: 4vh;
+  height: 2.2rem;
   color: inherit;
   outline-color: transparent;
   border-style: none;
@@ -85,9 +86,10 @@
 }
 
 .header-wrapper>form>button {
-  height: 4vh;
-  padding-left: 0.7rem;
-  padding-right: 0.7rem;
+  display: flex;
+  height: inherit;
+  padding-left: 0.6rem;
+  padding-right: 0.6rem;
   border-style: none;
   border-top-right-radius: 0.5rem;
   border-bottom-right-radius: 0.5rem;
