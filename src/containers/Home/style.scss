@@ -3,7 +3,7 @@
 .home-container {
   display: grid;
   position: relative;
-  grid-template-columns: 27vw 70vw;
+  grid-template-columns: minmax(330px, 27vw) 70vw;
   grid-column-gap: 3vw;
   font-family: $default-font;
   overflow: hidden;
@@ -15,11 +15,12 @@
   }
 }
 
-.navbar {
+.home-container>.navbar {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   height: 100vh;
+  min-width: 330px;
   overflow-y: scroll;
   transition: all 0.5s ease-in-out;
   z-index: 100;
@@ -30,15 +31,15 @@
 }
 
 @media screen and (max-width: 900px) {
-  .home-container>.toggle-target {
-    transform: translateX(-90vw);
-  }
-
   .home-container>.navbar {
     position: absolute;
     width: 90vw;
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
+  }
+
+  .home-container>.toggle-target {
+    transform: translateX(-90vw);
   }
 }
 
@@ -46,8 +47,8 @@
   position: sticky;
   white-space: nowrap;
   text-align: center;
-  font-size: 3.5vw;
-  padding-top: 2vw;
+  font-size: 3.5rem;
+  padding-top: 32px;
   width: 100%;
   cursor: default;
 }
@@ -60,7 +61,7 @@
 }
 
 .navbar>h1>i {
-  padding: 0.8vw;
+  padding-right: 12px;
 }
 
 .section {

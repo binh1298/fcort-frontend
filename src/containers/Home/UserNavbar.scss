@@ -1,9 +1,9 @@
 @import '../../fonts.scss';
 
 .userNavbar-wrapper {
-  padding-top: 3vh;
-  padding-bottom: 2vh;
-  padding-left: 2vw;
+  padding-top: 16px;
+  padding-bottom: 24px;
+  padding-left: 32px;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -16,21 +16,8 @@
   }
 }
 
-.userNavbar-wrapper>.dropdown>button {
-  display: flex;
-  align-items: center;
-  color: inherit;
-  background-color: transparent;
-  border-radius: 1vw;
-  border-style: none;
-  padding-left: 1vw;
-  padding-right: 1vw;
-  outline: none;
-  cursor: pointer;
-}
-
 .userNavbar-wrapper>img {
-  width: 3vw;
+  width: 48px;
   border-radius: 50%;
 }
 
@@ -41,26 +28,38 @@
   }
 }
 
-.userNavbar-wrapper>.dropdown>button>p {
+.userNavbar-wrapper>button {
+  display: flex;
+  align-items: center;
+  color: inherit;
+  background-color: transparent;
+  border-style: none;
+  padding-left: 16px;
+  padding-right: 32px;
+  outline: none;
+  cursor: pointer;
+}
+
+.userNavbar-wrapper>button>p {
   word-wrap: break-word;
   word-break: break-word;
-  font-size: 1.2vw;
+  font-size: 1rem;
   font-family: $default-font;
 }
 
 @media screen and (max-width: 900px) {
-  .userNavbar-wrapper>.dropdown>button>p {
+  .userNavbar-wrapper>button>p {
     font-size: 3.5vw;
   }
 }
 
-.userNavbar-wrapper>.dropdown>button>i {
-  font-size: 2vw;
-  padding-left: 1vw;
+.userNavbar-wrapper>button>i {
+  font-size: 1.6rem;
+  padding-left: 12px;
 }
 
 @media screen and (max-width: 900px) {
-  .userNavbar-wrapper>.dropdown>button>i {
+  .userNavbar-wrapper>button>i {
     padding-left: 3vw;
     font-size: 3vw;
   }
