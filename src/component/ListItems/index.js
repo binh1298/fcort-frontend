@@ -13,16 +13,18 @@ const Items = (props) => {
       onMouseOver={() => setStyles({color: theme.palette.navbar.titleColor})}
       onMouseOut={() => setStyles({color: theme.palette.navbar.hoverColor})}
     >
-      {props.children}
+      <p className="itemName">
+        {props.children}
+        {props.name}
+      </p>
     </li>
   );
 };
 
 export const ListItems = (props) => {
   const list = props.list.map((object) => (
-    <Items key={object.id}>
+    <Items key={object.id} name={object.name}>
       {props.icon}
-      <div className="nameItems">{object.name}</div>
     </Items>
   ));
   return <ul>{list}</ul>;

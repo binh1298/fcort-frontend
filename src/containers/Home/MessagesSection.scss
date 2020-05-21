@@ -52,10 +52,14 @@
 }
 
 .messages-wrapper>ul>li {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
   word-wrap: break-word;
   word-break: break-word;
   padding-top: 6px;
   padding-bottom: 6px;
+  padding-right: 16px;
   cursor: pointer;
 }
 

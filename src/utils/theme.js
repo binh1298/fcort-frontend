@@ -19,8 +19,6 @@ const theme = {
     header: {
       horizontalLine: '#D3D3D3',
       searchBgColor: '#DCDCDC',
-      questionColor: '#DCDCDC',
-      questionFocus: '#2C3E50',
     },
     message: {
       textInput: '#e6e6e6',

@@ -1,10 +1,10 @@
 .header-wrapper {
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-start;
   align-items: center;
   padding-top: 0;
   padding-bottom: 0;
-  height: 3vw;
+  height: 48px;
   border-bottom: 1px inset;
 }
 
@@ -16,8 +16,8 @@
 }
 
 .header-wrapper>p {
-  margin-right: 28vw;
-  font-size: 1.5vw;
+  width: 60%;
+  font-size: 1.2rem;
 }
 
 @media screen and (max-width: 900px) {
@@ -52,12 +52,12 @@
 }
 
 .header-wrapper>form {
-  padding-right: 1vw;
+  padding-right: 1%;
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  width: 30vw;
-  height: 2.2vw;
+  width: 39%;
+  height: 32px;
 }
 
 @media screen and (max-width: 900px) {
@@ -67,17 +67,17 @@
 }
 
 .header-wrapper>form>input {
-  width: 16vw;
-  height: 2.2vw;
+  width: 60%;
+  height: 32px;
   outline-color: transparent;
   border-style: none;
-  border-top-left-radius: 0.5vw;
-  border-bottom-left-radius: 0.5vw;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
   font-family: inherit;
-  padding: 1vw;
-  font-size: 1vw;
+  padding-left: 12px;
+  font-size: 1rem;
   opacity: 0.5;
-  transition: width 0.4s ease-in-out, opacity 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
 }
 
 @media screen and (max-width: 900px) {
@@ -99,11 +99,11 @@
 .header-wrapper>form>button {
   display: flex;
   height: inherit;
-  padding-left: 0.6vw;
-  padding-right: 0.6vw;
+  padding-left: 8px;
+  padding-right: 8px;
   border-style: none;
-  border-top-right-radius: 0.5vw;
-  border-bottom-right-radius: 0.5vw;
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
   color: inherit;
   opacity: 0.6;
   cursor: pointer;
@@ -116,13 +116,19 @@
 }
 
 .header-wrapper>form>button>i {
-  font-size: 1vw;
+  font-size: 1rem;
 }
 
 .header-wrapper>i {
-  padding: 1vh 1vw 1vh 0;
-  font-size: 2.2vw;
-  transition: color 0.3s ease-in-out;
+  padding-right: 16px;
+  font-size: 2rem;
+  opacity: 0.3;
+  transition: opacity 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.header-wrapper>i:hover {
+  opacity: 0.8;
 }
 
 @media screen and (max-width: 900px) {
@@ -130,8 +136,4 @@
     padding-right: 2vw;
     font-size: 6vw;
   }
-}
-
-.header-wrapper>i:hover {
-  cursor: pointer;
 }

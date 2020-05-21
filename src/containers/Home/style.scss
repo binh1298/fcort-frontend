@@ -3,7 +3,7 @@
 .home-container {
   display: grid;
   position: relative;
-  grid-template-columns: minmax(330px, 27vw) 70vw;
+  grid-template-columns: minmax(330px, 27vw) minmax(0, 70vw);
   grid-column-gap: 3vw;
   font-family: $default-font;
   overflow: hidden;
