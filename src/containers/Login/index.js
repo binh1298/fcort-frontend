@@ -1,6 +1,6 @@
 /* eslint-disable prettier/prettier */
 import React, {useContext} from 'react';
-import { Link } from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import {useForm} from 'react-hook-form';
 import ThemeContext from '../../contexts/ThemeContext';
 import './style.scss';
@@ -8,7 +8,8 @@ import logoFcode from '../../assets/images/logoFcode.png';
 import logoFcort from '../../assets/images/logoFcort.png';
 import background from '../../assets/images/backgroundLoginSingup.png';
 import InputField from '../../component/InputField';
-
+import {post} from '../../utils/ApiCaller';
+import {LOCALSTORAGE_TOKEN_NAME} from '../../configurations';
 export const Login = () => {
   const theme = useContext(ThemeContext);
   const styles = {
@@ -16,11 +17,25 @@ export const Login = () => {
     color: theme.palette.text.inputField,
   };
 
-  const {register, handleSubmit, errors} = useForm();
-  const onSubmit = (data) => {
+  const {register, handleSubmit, errors, setError} = useForm();
+  const onSubmit = async (data) => {
     //Call the sever
-
-    console.log(data);
+    try {
+      const response = await post(
+        '/users/login',
+        {
+          email: data.email,
+          password: data.password,
+        },
+        {}
+      );
+      console.log('login success');
+    } catch (ex) {
+      if (ex.response && ex.response.status === 400) {
+        console.log(ex.response.data.data.message);
+        setError('username', 'validate');
+      }
+    }
     console.log('Submitted');
   };
 
@@ -61,6 +76,9 @@ export const Login = () => {
             <a href="#">Forgot Password</a>
 
             <input type="submit" className="login-button" value="Login" />
+            <div style={{color: theme.palette.text.error}}>
+              {Object.keys(errors)[0] === 'username' && 'Invalid email or password.'}
+            </div>
             <Link to="/signup">Create new account</Link>
           </form>
         </div>

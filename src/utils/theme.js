@@ -10,6 +10,7 @@ const theme = {
     },
     text: {
       inputField: '#333',
+      error: '#f15109',
     },
     navbar: {
       background: '#28B463',
