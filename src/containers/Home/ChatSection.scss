@@ -3,7 +3,7 @@
   flex-direction: column;
   justify-content: flex-start;
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 16px;
+  font-size: 1rem;
   margin-bottom: 16px;
   height: 100%;
   overflow-y: scroll;
@@ -11,17 +11,12 @@
 
 @media screen and (max-width: 900px) {
   .chat-wrapper {
-    font-size: 5vw;
+    font-size: 1.1rem;
   }
 }
 
 .chat-wrapper::-webkit-scrollbar {
   display: none;
-}
-
-.chat-wrapper> {
-  display: flex;
-
 }
 
 .chat-wrapper>.otherMessages {
@@ -49,8 +44,7 @@
 
 @media screen and (max-width: 900px) {
   .chat-wrapper>.userMessages>span {
-    max-width: 70vw;
-    padding: 1vh 3vw 1vh 3vw;
+    padding: 8px 16px 8px 16px;
   }
 }
 
@@ -65,8 +59,7 @@
 
 @media screen and (max-width: 900px) {
   .chat-wrapper>.otherMessages>span {
-    max-width: 70vw;
-    padding: 1vh 3vw 1vh 3vw;
+    padding: 8px 16px 8px 16px;
   }
 }
 
@@ -83,7 +76,7 @@
 @media screen and (max-width: 900px) {
   .chat-wrapper>.otherMessages>.avatarChat {
     border-radius: 50%;
-    width: 7vw;
-    margin-right: 2vw;
+    width: 32px;
+    margin-right: 8px;
   }
 }

@@ -11,7 +11,7 @@
 @media screen and (max-width: 900px) {
   .header-wrapper {
     justify-content: space-between;
-    height: 7vh;
+    height: 56px;
   }
 }
 
@@ -28,12 +28,12 @@
 
 .header-wrapper>button {
   display: none;
-  padding-left: 2vw;
-  padding-right: 2vw;
-  font-size: 5vw;
+  padding-left: 12px;
+  padding-right: 12px;
+  height: 48px;
+  font-size: 1.5rem;
   opacity: 0.8;
   border-style: none;
-  border-radius: 5px;
   background-color: transparent;
   outline: none;
   z-index: 100;
@@ -62,7 +62,9 @@
 
 @media screen and (max-width: 900px) {
   .header-wrapper>form {
-    width: 80vw;
+    padding-right: 8px;
+    width: 80%;
+    height: 48px;
   }
 }
 
@@ -82,11 +84,10 @@
 
 @media screen and (max-width: 900px) {
   .header-wrapper>form>input {
-    padding-left: 2vw;
-    height: 4vh;
+    padding-left: 12px;
     width: 100%;
-    font-size: 3vw;
-    border-radius: 1.5vw;
+    font-size: 1rem;
+    border-radius: 0.6rem;
     transition: opacity 0.4s ease-in-out;
   }
 }
@@ -133,7 +134,7 @@
 
 @media screen and (max-width: 900px) {
   .header-wrapper>i {
-    padding-right: 2vw;
-    font-size: 6vw;
+    padding-right: 8px;
+    font-size: 1.8rem;
   }
 }
