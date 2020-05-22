@@ -16,7 +16,7 @@ export const SignUp = () => {
     backgroundColor: theme.palette.background.light,
     color: theme.palette.text.inputField,
   };
-  const [isTaken, setIsTaken] = useState(false);
+
   const {register, handleSubmit, errors, watch, setError} = useForm();
   const onSubmit = async (data) => {
     //Call the sever
@@ -34,7 +34,6 @@ export const SignUp = () => {
     } catch (ex) {
       if (ex.response && ex.response.status === 400) {
         console.log(ex.response.data.data.message);
-        setIsTaken(true);
         setError('username', 'validate');
       }
     }
@@ -97,7 +96,7 @@ export const SignUp = () => {
               })}
             />
             <input type="submit" className="submit-button" value="Submit" />
-            <div style={{color: 'red'}}>
+            <div style={{color: theme.palette.text.error}}>
               {Object.keys(errors)[0] === 'username' && 'This email is already taken.'}
             </div>
             <Link to="/login">Already have an account? Sign In</Link>
