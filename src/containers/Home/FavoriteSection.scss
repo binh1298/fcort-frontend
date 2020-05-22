@@ -7,12 +7,6 @@
   padding-bottom: 16px;
 }
 
-@media screen and (max-width: 900px) {
-  .favorite-wrapper {
-    padding-left: 12vw;
-  }
-}
-
 .favorite-wrapper>p {
   padding-bottom: 8px;
   white-space: nowrap;
@@ -20,33 +14,14 @@
   cursor: default;
 }
 
-@media screen and (max-width: 900px) {
-  .favorite-wrapper>p {
-    font-size: 5vw;
-  }
-}
-
 .favorite-wrapper>p>i {
   padding-left: 12px;
   padding-right: 8px;
 }
 
-@media screen and (max-width: 900px) {
-  .favorite-wrapper>p>i {
-    padding-right: 2vw;
-  }
-}
-
 .favorite-wrapper>ul {
   font-size: 1.1rem;
   padding-left: 12px;
-}
-
-@media screen and (max-width: 900px) {
-  .favorite-wrapper>ul {
-    font-size: 3.5vw;
-    padding-left: 4vw;
-  }
 }
 
 .favorite-wrapper>ul>li {
@@ -59,11 +34,4 @@
   padding-bottom: 6px;
   padding-right: 16px;
   cursor: pointer;
-}
-
-@media screen and (max-width: 900px) {
-  .favorite-wrapper>ul>li {
-    padding-top: 1.5vw;
-    padding-bottom: 1.5vw;
-  }
 }

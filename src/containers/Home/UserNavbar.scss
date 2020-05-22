@@ -12,20 +12,13 @@
 
 @media screen and (max-width: 900px) {
   .userNavbar-wrapper {
-    padding-left: 20vw;
+    justify-content: center;
   }
 }
 
 .userNavbar-wrapper>img {
   width: 48px;
   border-radius: 50%;
-}
-
-@media screen and (max-width: 900px) {
-  .userNavbar-wrapper>img {
-    margin-right: 2vw;
-    width: 10vw;
-  }
 }
 
 .userNavbar-wrapper>button {
@@ -47,20 +40,7 @@
   font-family: $default-font;
 }
 
-@media screen and (max-width: 900px) {
-  .userNavbar-wrapper>button>p {
-    font-size: 3.5vw;
-  }
-}
-
 .userNavbar-wrapper>button>i {
   font-size: 1.6rem;
   padding-left: 12px;
-}
-
-@media screen and (max-width: 900px) {
-  .userNavbar-wrapper>button>i {
-    padding-left: 3vw;
-    font-size: 3vw;
-  }
 }

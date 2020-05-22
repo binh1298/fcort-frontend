@@ -33,7 +33,7 @@
 @media screen and (max-width: 900px) {
   .home-container>.navbar {
     position: absolute;
-    width: 90vw;
+    width: 90%;
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
   }
@@ -55,8 +55,7 @@
 
 @media screen and (max-width: 900px) {
   .navbar>h1 {
-    padding-top: 5vw;
-    font-size: 12vw;
+    font-size: 3.2rem;
   }
 }
 

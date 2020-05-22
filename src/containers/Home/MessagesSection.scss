@@ -7,12 +7,6 @@
   padding-bottom: 16px;
 }
 
-@media screen and (max-width: 900px) {
-  .messages-wrapper {
-    padding-left: 12vw;
-  }
-}
-
 .messages-wrapper>p {
   padding-bottom: 8px;
   white-space: nowrap;
@@ -20,21 +14,9 @@
   cursor: default;
 }
 
-@media screen and (max-width: 900px) {
-  .messages-wrapper>p {
-    font-size: 5vw;
-  }
-}
-
 .messages-wrapper>p>i {
   padding-left: 12px;
   padding-right: 8px;
-}
-
-@media screen and (max-width: 900px) {
-  .messages-wrapper>p>i {
-    padding-right: 2vw;
-  }
 }
 
 .messages-wrapper>ul {
@@ -42,13 +24,6 @@
   padding-left: 12px;
   word-wrap: break-word;
   word-break: break-word;
-}
-
-@media screen and (max-width: 900px) {
-  .messages-wrapper>ul {
-    font-size: 3.5vw;
-    padding-left: 4vw;
-  }
 }
 
 .messages-wrapper>ul>li {
@@ -61,11 +36,4 @@
   padding-bottom: 6px;
   padding-right: 16px;
   cursor: pointer;
-}
-
-@media screen and (max-width: 900px) {
-  .messages-wrapper>ul>li {
-    padding-top: 1.5vw;
-    padding-bottom: 1.5vw;
-  }
 }
