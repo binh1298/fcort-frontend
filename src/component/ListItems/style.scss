@@ -2,7 +2,10 @@ ul {
   list-style: none;
 }
 
+li {
+  transition: all 0.2s ease-in-out;
+}
+
 .itemName>i {
   display: inline;
 }
-
