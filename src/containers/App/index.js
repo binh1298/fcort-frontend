@@ -8,6 +8,6 @@ import Home from '../Home';
 // import './styles.css';
 
 export const App = () => {
-  return <Home />
+  return <BrowserRouter> {Routes} </BrowserRouter>
 };
 export default App;

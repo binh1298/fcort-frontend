@@ -61,7 +61,7 @@ export const Login = () => {
             <a href="#">Forgot Password</a>
 
             <input type="submit" className="login-button" value="Login" />
-            
+            <Link to="/signup">Create new account</Link>
           </form>
         </div>
       </div>
