@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import './style.scss';
-const InputField = ({register, name, label, type, errors, valid, icon}) => {
+const InputField = ({register, name, label, type, errors, valid, icon, isTaken}) => {
   const [isFocused, setIsFocused] = useState(false);
   const [currentText, setCurrentText] = useState('');
   return (
