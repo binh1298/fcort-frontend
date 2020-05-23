@@ -5,12 +5,10 @@ export const UserNavbar = (props) => {
   return (
     <div className="userNavbar-wrapper">
       <img src={props.avatar} />
-      <div className="dropdown">
-        <button>
-          <p>{props.userName}</p>
-          <i className="fa fas fa-caret-down fa-lg"></i>
-        </button>
-      </div>
+      <button>
+        <p>{props.userName}</p>
+        <i className="fa fas fa-caret-down fa-lg"></i>
+      </button>
     </div>
   );
 };

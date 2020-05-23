@@ -1,40 +1,39 @@
 .messages-wrapper {
-  padding-top: 2rem;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
+  padding-left: 32px;
+  padding-bottom: 16px;
 }
 
 .messages-wrapper>p {
-  padding-bottom: 1rem;
+  padding-bottom: 8px;
   white-space: nowrap;
-  align-self: flex-start;
-  padding-left: 30px;
-  font-size: 2rem;
+  font-size: 1.5rem;
   cursor: default;
 }
 
-@media screen and (max-width: 900px) {
-  .messages-wrapper>p {
-    font-size: 2.2rem;
-  }
-
-  .messages-wrapper>p>i {
-    padding-right: 2vw;
-  }
-
-  .navbar>.messages-wrapper>ul {
-    padding-left: 40px;
-  }
+.messages-wrapper>p>i {
+  padding-left: 12px;
+  padding-right: 8px;
 }
 
 .messages-wrapper>ul {
-  font-size: 1.6rem;
-  line-height: 30px;
-  padding-left: 45px;
+  font-size: 1.1rem;
+  padding-left: 12px;
+  word-wrap: break-word;
+  word-break: break-word;
 }
 
-.messages-wrapper>ul>li:hover {
+.messages-wrapper>ul>li {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  word-wrap: break-word;
+  word-break: break-word;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  padding-right: 16px;
   cursor: pointer;
 }

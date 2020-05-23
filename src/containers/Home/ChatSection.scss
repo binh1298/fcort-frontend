@@ -1,0 +1,82 @@
+.chat-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1rem;
+  margin-bottom: 16px;
+  height: 100%;
+  overflow-y: scroll;
+}
+
+@media screen and (max-width: 900px) {
+  .chat-wrapper {
+    font-size: 1.1rem;
+  }
+}
+
+.chat-wrapper::-webkit-scrollbar {
+  display: none;
+}
+
+.chat-wrapper>.otherMessages {
+  align-self: flex-start;
+  display: flex;
+  align-items: center;
+  max-width: 60%;
+}
+
+.chat-wrapper>.userMessages {
+  align-self: flex-end;
+  display: flex;
+  align-items: center;
+  max-width: 60%;
+}
+
+.chat-wrapper>.userMessages>span {
+  display: block;
+  padding: 12px 16px 12px 16px;
+  border-radius: 48px;
+  text-align: left;
+  word-wrap: break-word;
+  word-break: break-word;
+}
+
+@media screen and (max-width: 900px) {
+  .chat-wrapper>.userMessages>span {
+    padding: 8px 16px 8px 16px;
+  }
+}
+
+.chat-wrapper>.otherMessages>span {
+  display: block;
+  padding: 12px 16px 12px 16px;
+  border-radius: 48px;
+  text-align: left;
+  word-wrap: break-word;
+  word-break: break-word;
+}
+
+@media screen and (max-width: 900px) {
+  .chat-wrapper>.otherMessages>span {
+    padding: 8px 16px 8px 16px;
+  }
+}
+
+.chat-wrapper>.userMessages>.avatarChat {
+  display: none;
+}
+
+.chat-wrapper>.otherMessages>.avatarChat {
+  border-radius: 50%;
+  width: 40px;
+  margin-right: 12px;
+}
+
+@media screen and (max-width: 900px) {
+  .chat-wrapper>.otherMessages>.avatarChat {
+    border-radius: 50%;
+    width: 32px;
+    margin-right: 8px;
+  }
+}

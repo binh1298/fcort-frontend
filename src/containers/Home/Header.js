@@ -10,13 +10,14 @@ export const Header = (props) => {
   const inputStyles = {
     backgroundColor: theme.palette.header.searchBgColor,
   };
-  const [iconColor, setIconColor] = useState({
-    color: theme.palette.header.questionColor,
-  });
   return (
     <div className="header-wrapper" style={headerWrapperStyles}>
+      <p>
+        {props.icon}
+        {props.chatTarget}
+      </p>
       <button className="toggle" onClick={props.onClick}>
-        <i className="fa fas fa-bars fa-lg"></i>
+        <i className="fa fas fa-bars"></i>
       </button>
       <form>
         <input type="text" placeholder="Search" style={inputStyles} />
@@ -24,12 +25,7 @@ export const Header = (props) => {
           <i className="fa fas fa-search"></i>
         </button>
       </form>
-      <i
-        className="fa fas fa-question-circle"
-        style={iconColor}
-        onMouseOver={() => setIconColor({color: theme.palette.header.questionFocus})}
-        onMouseOut={() => setIconColor({color: theme.palette.header.questionColor})}
-      ></i>
+      <i className="fa fas fa-question-circle"></i>
     </div>
   );
 };

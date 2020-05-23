@@ -1,7 +1,7 @@
 /* eslint-disable prettier/prettier */
-import React, {useContext} from 'react';
-import {Link} from 'react-router-dom';
-import {useForm} from 'react-hook-form';
+import React, { useContext } from 'react';
+import { Link } from 'react-router-dom';
+import { useForm } from 'react-hook-form';
 import ThemeContext from '../../contexts/ThemeContext';
 import './style.scss';
 import logoFcode from '../../assets/images/logoFcode.png';
