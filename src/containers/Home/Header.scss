@@ -71,7 +71,6 @@
 .header-wrapper>form>input {
   width: 60%;
   height: 32px;
-  outline-color: transparent;
   border-style: none;
   border-top-left-radius: 8px;
   border-bottom-left-radius: 8px;
@@ -95,6 +94,7 @@
 .header-wrapper>form>input:focus {
   width: 100%;
   opacity: 1;
+  outline: none;
 }
 
 .header-wrapper>form>button {
