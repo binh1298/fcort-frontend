@@ -7,6 +7,7 @@ import GroupSection from './GroupSection';
 import MessagesSection from './MessagesSection';
 import Header from './Header';
 import MessagesArea from './MessagesArea';
+import GroupDialog from './GroupDialog';
 
 export const Home = () => {
   const theme = useContext(ThemeContext);
@@ -14,10 +15,17 @@ export const Home = () => {
     backgroundColor: theme.palette.navbar.background,
     color: theme.palette.navbar.titleColor,
   };
-  const [isClicked, setIsClicked] = useState(false);
+  const [isClickedMenu, setIsClickedMenu] = useState(true);
+  const [isClickedAddGroup, setIsClickedAddGroup] = useState(false);
   return (
     <div className="home-container">
-      <div className={isClicked ? 'navbar toggle-target' : 'navbar'} style={styles}>
+      <GroupDialog
+        addGroup={isClickedAddGroup}
+        onClick={() => {
+          setIsClickedAddGroup(false);
+        }}
+      />
+      <div className={isClickedMenu ? 'navbar toggle-target' : 'navbar'} style={styles}>
         <h1>
           <i className="fa fas fa-tv fa-lg"></i>Fcord
         </h1>
@@ -33,6 +41,7 @@ export const Home = () => {
           ]}
         />
         <GroupSection
+          onClick={() => setIsClickedAddGroup(true)}
           groupList={[
             {id: '123', name: 'reactjs'},
             {id: '456', name: 'vuejs'},
@@ -65,10 +74,10 @@ export const Home = () => {
         <Header
           chatTarget="BinhPham"
           icon={<i className="fa fas fa-at"></i>}
-          onClick={() => setIsClicked(!isClicked)}
+          onClick={() => setIsClickedMenu(!isClickedMenu)}
         />
         <MessagesArea
-          onClick={() => setIsClicked(true)}
+          onClick={() => setIsClickedMenu(true)}
           userName="Nguyễn Trần Thiên Đức"
           avatarChat={[
             {
