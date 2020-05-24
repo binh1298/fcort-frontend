@@ -20,7 +20,6 @@ export const SignUp = () => {
   const {register, handleSubmit, errors, watch, setError} = useForm();
   const onSubmit = async (data) => {
     //Call the sever
-    //data.preventDefault()
     try {
       const response = await post(
         '/users/signup',
