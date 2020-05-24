@@ -5,7 +5,7 @@ import LocalStorageUtils from '../utils/LocalStorageUtils';
 export const PublicRoute = (props) => {
   const user = LocalStorageUtils.getUser();
 
-  if (!user || user.userId?.length <= 0) {
+  if (!user || user.sub?.length <= 0) {
     // TODO should check authorization here
     return <Route {...props} />;
   }

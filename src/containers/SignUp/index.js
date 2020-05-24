@@ -99,7 +99,7 @@ export const SignUp = () => {
             <div style={{color: theme.palette.text.error}}>
               {Object.keys(errors)[0] === 'username' && 'This email is already taken.'}
             </div>
-            <Link to="/login">Already have an account? Sign In</Link>
+            <Link to="/">Already have an account? Sign In</Link>
           </form>
         </div>
       </div>
