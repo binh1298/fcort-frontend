@@ -1,7 +1,7 @@
 /* eslint-disable prettier/prettier */
-import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
-import { useForm } from 'react-hook-form';
+import React, {useContext} from 'react';
+import {Link} from 'react-router-dom';
+import {useForm} from 'react-hook-form';
 import ThemeContext from '../../contexts/ThemeContext';
 import './style.scss';
 import logoFcode from '../../assets/images/logoFcode.png';
@@ -10,7 +10,10 @@ import background from '../../assets/images/backgroundLoginSingup.png';
 import InputField from '../../component/InputField';
 import {post} from '../../utils/ApiCaller';
 import {LOCALSTORAGE_TOKEN_NAME} from '../../configurations';
+import usePersistedState from '../../utils/usePersistedState';
 export const Login = () => {
+  const [user, setUser] = usePersistedState(LOCALSTORAGE_TOKEN_NAME);
+  const [token, setToken] = usePersistedState(LOCALSTORAGE_TOKEN_NAME, '');
   const theme = useContext(ThemeContext);
   const styles = {
     backgroundColor: theme.palette.background.light,
@@ -22,7 +25,7 @@ export const Login = () => {
     //Call the sever
     try {
       const response = await post(
-        '/users/login',
+        '/auth/login',
         {
           email: data.email,
           password: data.password,
@@ -30,6 +33,11 @@ export const Login = () => {
         {}
       );
       console.log('login success');
+      console.log(response);
+      if (response.data.success) {
+        setUser(response.data.data.token);
+        window.location.reload(false);
+      }
     } catch (ex) {
       if (ex.response && ex.response.status === 400) {
         console.log(ex.response.data.data.message);

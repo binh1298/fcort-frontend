@@ -7,7 +7,7 @@ import Login from '../containers/Login';
 import Home from '../containers/Home';
 export const publicRoutes = [
   {
-    path: '/login',
+    path: '/',
     name: 'login',
     component: Login,
   },
