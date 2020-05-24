@@ -14,9 +14,20 @@
   cursor: default;
 }
 
-.group-wrapper>p>i {
+.group-wrapper>p>.fa-users {
   padding-left: 12px;
   padding-right: 8px;
+}
+
+.group-wrapper>p>.fa-plus {
+  padding: 0 4px 0 4px;
+  margin-left: 4px;
+  margin-right: 4px;
+  font-size: 1.1rem;
+  font-weight: 100;
+  vertical-align: baseline;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
 }
 
 .group-wrapper>ul {

@@ -7,6 +7,7 @@ const theme = {
     background: {
       dark: '#333',
       light: '#fff',
+      lightTransprent: 'rgba(0,0,0,0.4)',
     },
     text: {
       inputField: '#333',
@@ -24,6 +25,15 @@ const theme = {
     message: {
       textInput: '#e6e6e6',
       backgroundColor: '#F5F5F5',
+    },
+    dialog: {
+      backgroundColor: 'rgba(0, 0, 0, 0.4)',
+      boxBgColor: '#FFFFFF',
+      titleColor: '#00995c',
+      buttonColor: '#FFFFFF',
+      buttonBgColor: '#00cc7a',
+      inputBorder: '#f2f2f2',
+      inputBorderFocus: '#38d39f',
     },
   },
 };
