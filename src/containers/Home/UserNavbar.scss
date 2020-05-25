@@ -21,26 +21,33 @@
   border-radius: 50%;
 }
 
-.userNavbar-wrapper>button {
+.userDropdown {
+  position: relative;
+  padding-top: 6px;
+  padding-bottom: 6px;
+}
+
+.userDropdown>.optionBtn {
+  position: relative;
   display: flex;
   align-items: center;
   color: inherit;
   background-color: transparent;
   border-style: none;
   padding-left: 16px;
-  padding-right: 32px;
+  padding-right: 16px;
   outline: none;
   cursor: pointer;
 }
 
-.userNavbar-wrapper>button>p {
+.userDropdown>.optionBtn>p {
   word-wrap: break-word;
   word-break: break-word;
   font-size: 1rem;
   font-family: $default-font;
 }
 
-.userNavbar-wrapper>button>i {
+.userDropdown>.optionBtn>i {
   font-size: 1.6rem;
   padding-left: 12px;
 }

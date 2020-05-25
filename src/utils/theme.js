@@ -26,7 +26,7 @@ const theme = {
       textInput: '#e6e6e6',
       backgroundColor: '#F5F5F5',
     },
-    dialog: {
+    groupDialog: {
       backgroundColor: 'rgba(0, 0, 0, 0.4)',
       boxBgColor: '#FFFFFF',
       titleColor: '#00995c',
@@ -34,6 +34,9 @@ const theme = {
       buttonBgColor: '#00cc7a',
       inputBorder: '#f2f2f2',
       inputBorderFocus: '#38d39f',
+    },
+    userOptionDialog: {
+      backgroundColor: '#26884F',
     },
   },
 };

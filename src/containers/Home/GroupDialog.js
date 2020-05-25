@@ -6,23 +6,23 @@ export const GroupDialog = (props) => {
   const [isFocused, setIsFocused] = useState(false);
   const theme = useContext(ThemeContext);
   const stylesGroupDialogBg = {
-    backgroundColor: theme.palette.dialog.backgroundColor,
+    backgroundColor: theme.palette.groupDialog.backgroundColor,
   };
   const stylesDialogGroupBox = {
-    backgroundColor: theme.palette.dialog.boxBgColor,
+    backgroundColor: theme.palette.groupDialog.boxBgColor,
   };
   const stylesDialogGroupTitle = {
-    color: theme.palette.dialog.titleColor,
+    color: theme.palette.groupDialog.titleColor,
   };
   const stylesDialogGroupButton = {
-    color: theme.palette.dialog.buttonColor,
-    backgroundColor: theme.palette.dialog.buttonBgColor,
+    color: theme.palette.groupDialog.buttonColor,
+    backgroundColor: theme.palette.groupDialog.buttonBgColor,
   };
   const stylesInputBorder = {
-    borderColor: theme.palette.dialog.inputBorder,
+    borderColor: theme.palette.groupDialog.inputBorder,
   };
   const stylesInputBorderFocus = {
-    borderColor: theme.palette.dialog.inputBorderFocus,
+    borderColor: theme.palette.groupDialog.inputBorderFocus,
   };
   return (
     <div className={props.addGroup ? 'dialogOn' : 'dialogOff'}>
