@@ -1,5 +1,6 @@
 import React, {useContext, useState} from 'react';
 import './UserOption.scss';
+import {Link} from 'react-router-dom';
 import ThemeContext from '../../contexts/ThemeContext';
 
 const Options = (props) => {
@@ -13,7 +14,11 @@ const Options = (props) => {
       onMouseOver={() => setStyles({color: theme.palette.navbar.titleColor})}
       onMouseOut={() => setStyles({color: theme.palette.navbar.hoverColor})}
     >
-      <p className="optionsName">{props.name}</p>
+      {props.name === 'Logout' ? (
+        <Link to="/login">{props.name}</Link>
+      ) : (
+        <p className="optionsName">{props.name}</p>
+      )}
     </li>
   );
 };

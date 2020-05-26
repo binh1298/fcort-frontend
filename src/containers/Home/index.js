@@ -17,7 +17,7 @@ export const Home = () => {
   };
   const [isClickedMenu, setIsClickedMenu] = useState(true);
   const [isClickedAddGroup, setIsClickedAddGroup] = useState(false);
-  const [isClickedUserOption, setIsClickedUserOption] = useState(true);
+  const [isClickedUserOption, setIsClickedUserOption] = useState(false);
   return (
     <div className="home-container">
       <GroupDialog
