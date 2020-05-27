@@ -10,12 +10,6 @@
   align-items: center;
 }
 
-@media screen and (max-width: 900px) {
-  .userNavbar-wrapper {
-    justify-content: center;
-  }
-}
-
 .userNavbar-wrapper>img {
   width: 48px;
   border-radius: 50%;

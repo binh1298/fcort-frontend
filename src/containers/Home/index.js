@@ -36,8 +36,8 @@ export const Home = () => {
           onClickUserOption={() => setIsClickedUserOption(!isClickedUserOption)}
           isClickedUserOption={isClickedUserOption}
           userOption={[
-            {id: 'aaa', name: 'Account Setting'},
-            {id: 'bbb', name: 'Logout'},
+            {id: 'aaa', name: 'Account Setting', icon: <i className="fa fas fa-cog"></i>},
+            {id: 'bbb', name: 'Logout', icon: <i className="fa fas fa-sign-out"></i>},
           ]}
         />
         <FavoriteSection

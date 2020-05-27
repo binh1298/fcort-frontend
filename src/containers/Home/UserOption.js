@@ -10,10 +10,12 @@ const Options = (props) => {
   const [styles, setStyles] = useState({
     color: theme.palette.navbar.hoverColor,
   });
-  const handleLogoutClick = () => {
-    LocalStorageUtils.removeItem(LOCALSTORAGE_TOKEN_NAME);
-    <Redirect to="/" />;
-    window.location.reload(false);
+  const handleLogoutClick = (props) => {
+    if (props === 'Logout') {
+      LocalStorageUtils.removeItem(LOCALSTORAGE_TOKEN_NAME);
+      <Redirect to="/" />;
+      window.location.reload(false);
+    }
   };
   return (
     <li
@@ -21,8 +23,9 @@ const Options = (props) => {
       onMouseOver={() => setStyles({color: theme.palette.navbar.titleColor})}
       onMouseOut={() => setStyles({color: theme.palette.navbar.hoverColor})}
     >
-      <p className="optionsName" onClick={handleLogoutClick}>
+      <p className="optionsName" onClick={() => handleLogoutClick(props.name)}>
         {props.name}
+        {props.icon}
       </p>
     </li>
   );
@@ -33,7 +36,7 @@ export const UserOption = (props) => {
     backgroundColor: theme.palette.userOptionDialog.backgroundColor,
   };
   const options = props.userOption.map((object) => (
-    <Options key={object.id} name={object.name}></Options>
+    <Options key={object.id} name={object.name} icon={object.icon}></Options>
   ));
   return (
     <ul

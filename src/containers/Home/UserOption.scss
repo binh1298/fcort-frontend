@@ -4,6 +4,7 @@
   position: absolute;
   top: 100%;
   width: 100%;
+  min-width: 180px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -55,7 +56,8 @@
   padding-bottom: 6px;
 }
 
-.options-wrapper>li>a {
-  text-decoration: none;
-  color: inherit;
+.options-wrapper>li>p>i {
+  font-size: 1.1rem;
+  margin-left: 8px;
+  margin-right: 8px;
 }
