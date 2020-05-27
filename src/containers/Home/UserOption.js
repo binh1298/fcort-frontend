@@ -1,24 +1,29 @@
 import React, {useContext, useState} from 'react';
 import './UserOption.scss';
-import {Link} from 'react-router-dom';
+import {Redirect} from 'react-router-dom';
 import ThemeContext from '../../contexts/ThemeContext';
+import {LOCALSTORAGE_TOKEN_NAME} from '../../configurations';
+import LocalStorageUtils from '../../utils/LocalStorageUtils';
 
 const Options = (props) => {
   const theme = useContext(ThemeContext);
   const [styles, setStyles] = useState({
     color: theme.palette.navbar.hoverColor,
   });
+  const handleLogoutClick = () => {
+    LocalStorageUtils.removeItem(LOCALSTORAGE_TOKEN_NAME);
+    <Redirect to="/" />;
+    window.location.reload(false);
+  };
   return (
     <li
       style={styles}
       onMouseOver={() => setStyles({color: theme.palette.navbar.titleColor})}
       onMouseOut={() => setStyles({color: theme.palette.navbar.hoverColor})}
     >
-      {props.name === 'Logout' ? (
-        <Link to="/login">{props.name}</Link>
-      ) : (
-        <p className="optionsName">{props.name}</p>
-      )}
+      <p className="optionsName" onClick={handleLogoutClick}>
+        {props.name}
+      </p>
     </li>
   );
 };
