@@ -1,6 +1,8 @@
 import React, {useContext, useState} from 'react';
+import {useForm} from 'react-hook-form';
 import './GroupDialog.scss';
 import ThemeContext from '../../contexts/ThemeContext';
+import InputField from '../../component/InputField';
 
 export const GroupDialog = (props) => {
   const [isFocused, setIsFocused] = useState(false);
@@ -24,6 +26,10 @@ export const GroupDialog = (props) => {
   const stylesInputBorderFocus = {
     borderColor: theme.palette.groupDialog.inputBorderFocus,
   };
+  const {register, handleSubmit, errors, setError} = useForm();
+  const onSubmit = (data) => {
+    console.log(data);
+  };
   return (
     <div className={props.addGroup ? 'dialogOn' : 'dialogOff'}>
       <div
@@ -35,30 +41,31 @@ export const GroupDialog = (props) => {
         <p className="dialogGroupTitle" style={stylesDialogGroupTitle}>
           Add a new group
         </p>
-        <div
+        <form
           className={isFocused ? 'inputGroupName focus' : 'inputGroupName'}
+          onSubmit={handleSubmit(onSubmit)}
           onFocus={() => setIsFocused(true)}
           onBlur={() => setIsFocused(false)}
         >
-          <input
+          <InputField
+            register={register}
+            icon={<i className="fa fas fa-users"></i>}
+            name="groupName"
             type="text"
-            onFocus={() => {
-              setIsFocused(true);
-            }}
-            onBlur={() => {
-              setIsFocused(false);
-            }}
-            placeholder="Enter group name"
+            label="Group Name"
+            errors={errors}
+            valid={register({
+              required: `Email is required`,
+              pattern: {
+                value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
+                message: 'Invalid email address',
+              },
+            })}
           />
-          <hr className="borderDefault" style={stylesInputBorder} />
-          <hr
-            className={isFocused ? 'borderHover focus' : 'borderHover'}
-            style={stylesInputBorderFocus}
-          />
-        </div>
-        <button className="button-narrow" style={stylesDialogGroupButton}>
-          <p>Create</p>
-        </button>
+          <button className="button-narrow" style={stylesDialogGroupButton}>
+            <p>Create</p>
+          </button>
+        </form>
       </div>
     </div>
   );
