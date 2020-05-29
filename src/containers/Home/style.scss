@@ -26,6 +26,10 @@
   z-index: 1;
 }
 
+#isProfileOn {
+  overflow-y: hidden;
+}
+
 .navbar::-webkit-scrollbar {
   display: none;
 }

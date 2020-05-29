@@ -6,7 +6,7 @@ export const UserNavbar = (props) => {
     <div className="userNavbar-wrapper">
       <img src={props.avatar} />
       <button>
-        <p>{props.userName}</p>
+        <p onClick={props.onClick}>{props.userName}</p>
         <i className="fa fas fa-caret-down fa-lg"></i>
       </button>
     </div>

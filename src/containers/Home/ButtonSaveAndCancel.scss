@@ -1,0 +1,14 @@
+.btn-submit>button {
+    width: 50px;
+    font-size: 0.8rem;
+    padding: 2px;
+    margin-right: 8px;
+    border-radius: 3px;
+    outline: none;
+    border-style: solid;
+    cursor: pointer;
+}
+
+.btn-submit>button:hover {
+    opacity: 0.8;
+}
