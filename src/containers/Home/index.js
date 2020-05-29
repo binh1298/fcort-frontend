@@ -36,11 +36,7 @@ export const Home = () => {
           setIsClickedViewProfile(false);
         }}
       />
-      <div
-        className={isClickedMenu ? 'navbar toggle-target' : 'navbar'}
-        style={styles}
-        id={isClickedViewProfile ? 'isProfileOn' : 'isProfileOff'}
-      >
+      <div className={isClickedMenu ? 'navbar toggle-target' : 'navbar'} style={styles}>
         <h1>
           <i className="fa fas fa-tv fa-lg"></i>Fcord
         </h1>
