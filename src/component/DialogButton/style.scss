@@ -1,0 +1,16 @@
+.dialogBtn {
+  align-self: flex-end;
+  font-size: 1.2rem;
+  border-style: none;
+  border-radius: 8px;
+  outline: none;
+  padding: 12px 12px 12px 12px;
+  margin: 0;
+  opacity: 0.9;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+.dialogBtn:hover {
+  opacity: 1;
+}

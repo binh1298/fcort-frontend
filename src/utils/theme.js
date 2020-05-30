@@ -31,7 +31,7 @@ const theme = {
       boxBgColor: '#FFFFFF',
       titleColor: '#00995c',
       buttonColor: '#FFFFFF',
-      buttonBgColor: '#00cc7a',
+      buttonBgColor: '#2FBA83',
       inputBorder: '#f2f2f2',
       inputBorderFocus: '#38d39f',
     },
