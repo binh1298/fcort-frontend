@@ -8,6 +8,7 @@ import MessagesSection from './MessagesSection';
 import Header from './Header';
 import MessagesArea from './MessagesArea';
 import GroupDialog from './GroupDialog';
+import ProfileDialog from './ProfileDialog';
 
 export const Home = () => {
   const theme = useContext(ThemeContext);
@@ -17,12 +18,22 @@ export const Home = () => {
   };
   const [isClickedMenu, setIsClickedMenu] = useState(true);
   const [isClickedAddGroup, setIsClickedAddGroup] = useState(false);
+  const [isClickedViewProfile, setIsClickedViewProfile] = useState(false);
   return (
     <div className="home-container">
       <GroupDialog
         addGroup={isClickedAddGroup}
         onClick={() => {
           setIsClickedAddGroup(false);
+        }}
+      />
+      <ProfileDialog
+        viewProfile={isClickedViewProfile}
+        avatar="https://github.com/kien123456k/Hello-world/blob/master/avatar.png?raw=true"
+        userName="Nguyễn Trần Thiên Đức"
+        gmail="abc@gmail.com"
+        onClick={() => {
+          setIsClickedViewProfile(false);
         }}
       />
       <div className={isClickedMenu ? 'navbar toggle-target' : 'navbar'} style={styles}>
@@ -32,6 +43,10 @@ export const Home = () => {
         <UserNavbar
           avatar="https://github.com/kien123456k/Hello-world/blob/master/avatar.png?raw=true"
           userName="Nguyễn Trần Thiên Đức"
+          gmail="abc@gmail.com"
+          onClick={() => {
+            setIsClickedViewProfile(true);
+          }}
         />
         <FavoriteSection
           favoriteList={[

@@ -1,0 +1,220 @@
+@import '../../fonts.scss';
+$titleColor: #00995c;
+$borderFocusColor: #38d39f;
+$defaultColor: #747474;
+$notifyColor: #FF0000;
+@keyframes appear {
+    0% {
+      transform: scale(0.1, 0.1);
+    }
+  
+    100% {
+      transform: scale(1, 1);
+    }
+  }
+
+.dialogOff {
+    display: none;
+}
+
+.dialogOn {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    color: black;
+}
+
+.dialog-overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.profile-dialog {
+    display: flex;
+    flex-direction: column;
+    z-index: 1;
+    font-size: 1rem;
+    min-width: 35%;
+    padding: 16px 32px 32px 32px;
+    border-radius: 5px;
+    align-items: center;
+    animation-name: appear;
+    animation-duration: 0.3s;
+    animation-timing-function: ease-in-out;
+    position: relative;
+}
+
+//Profile Avatar
+.profile-avatar
+{
+    text-align: center;
+    width: 100%;
+}
+
+.avatar-container {
+    position: relative; 
+    width: 100%;
+}
+
+.avatar-container::before {
+    content: "";
+    display: block;
+    border: 2px solid $titleColor;
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    z-index: -1;
+    border-radius: 2px;
+}
+
+.avatar-container>a>img {
+    width: 100px;
+    border-radius: 50%;
+    border: 2px solid $titleColor;
+}
+
+.avatar-container>button {
+    position: absolute;
+    transform: translate(-50%, 0);
+    bottom: 0;
+    left: 58%;
+}
+
+.btn-avatar {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: rgba(0,0,0,0.65);
+    border-color: transparent;
+}
+
+.btn-avatar>i {
+    color: white;
+}
+
+.btn-avatar:hover {
+    cursor: pointer;
+    border:2px solid $borderFocusColor;
+}
+
+.myfile {
+   margin-left: 90px;
+}
+
+// Profile Fullname
+.profile-fullname-wrap {
+    width: 100%;
+}
+
+.profile-fullname-wrap>div {
+    margin-top: 2px;
+    padding-left: 10px;
+}
+
+.profile-fullname {
+    width: 100%;
+}
+
+.fullname-initialOn>div>input,
+.fullname-changeOn>input,
+.profile-gmail>input {
+    font-size: 1.1rem;
+    width: 85%;
+    padding: 6px 4px;
+    margin-right: 8px;
+    border-radius: 4px;
+    border: 2px solid;
+    outline: none;
+    transition: all 0.3s ease-in-out;
+}
+
+.fullname-changeOn>input:focus {
+    border: 2px solid;
+    border-color:$borderFocusColor;
+}
+
+.fullname-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.btn-fullname>div {
+    display: flex;
+    justify-content: flex-end;
+    color: $defaultColor;
+    font-size: 0.9rem;
+}
+
+.fa.fa-pencil{
+    display: none;
+}
+
+.btn-fullname:hover  {
+    cursor: pointer;
+    .fa.fa-pencil{
+        display: block;
+        margin-top: 4px;
+        margin-right: 8px;
+        color: $borderFocusColor;
+    } 
+    .btn-edit-label {
+        text-decoration: underline;
+        color: $borderFocusColor;
+    }
+}
+
+.btn-fullname {
+    border: 2px solid transparent;
+    background-color: transparent;
+    margin: auto 0;
+}
+
+
+.fullname-changeOn>i {
+    color: $defaultColor;
+    margin-left: 16px;
+}
+
+// Check special Character
+.notifyOn {
+    color: $notifyColor;
+    font-size: 0.9rem;
+    display: block; 
+}
+
+.fullname-changeOn>label {
+    display: block;
+}
+
+#check-fullname-active {
+    color: $borderFocusColor;
+}
+
+#profile-submit-fullname,
+#disable-btn-save {
+    text-align: center;
+}
+
+#disable-btn-save>button:last-child{
+    display: none;
+    text-align: center;  
+}
+
+#profile-submit-avatar {
+    text-align: center;
+}
+
+.fullname-initialOff,
+.fullname-changeOff,
+.change-avatarOff,
+.notifyOff,
+#buttonAvatarOff,
+#buttonFullnameOff{
+    display: none;
+}
+
+
+
