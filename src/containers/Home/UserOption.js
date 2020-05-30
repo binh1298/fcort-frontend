@@ -13,7 +13,6 @@ const Options = (props) => {
   const handleLogoutClick = (props) => {
     if (props === 'Logout') {
       LocalStorageUtils.removeItem(LOCALSTORAGE_TOKEN_NAME);
-      <Redirect to="/" />;
       window.location.reload(false);
     }
   };
