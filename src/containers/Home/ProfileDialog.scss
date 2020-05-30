@@ -195,7 +195,8 @@ $notifyColor: #FF0000;
 
 #profile-submit-fullname,
 #disable-btn-save {
-    text-align: center;
+    text-align: right;
+    width: 85%;
 }
 
 #disable-btn-save>button:last-child{
