@@ -1,4 +1,4 @@
-import React, {useContext, useState} from 'react';
+import React, {useContext, useState, useEffect} from 'react';
 import './style.scss';
 import ThemeContext from '../../contexts/ThemeContext';
 import UserNavbar from './UserNavbar';
@@ -32,6 +32,14 @@ export const Home = () => {
     }
     console.log('Groups fetched');
   };
+  const [groupList, setGroupList] = useState([]);
+  const groupFetch = async () => {
+    setGroupList(await groupFetching());
+  };
+  useEffect(() => {
+    groupFetch();
+  }, []);
+  const [chatTarget, setChatTarget] = useState('');
   const [isClickedMenu, setIsClickedMenu] = useState(true);
   const [isClickedAddGroup, setIsClickedAddGroup] = useState(false);
   const [isClickedUserOption, setIsClickedUserOption] = useState(false);
@@ -39,6 +47,7 @@ export const Home = () => {
     <div className="home-container">
       <GroupDialog
         addGroup={isClickedAddGroup}
+        handleFetch={groupFetch}
         onClick={() => {
           setIsClickedAddGroup(false);
         }}
@@ -58,6 +67,7 @@ export const Home = () => {
           ]}
         />
         <FavoriteSection
+          chooseChatTarget={setChatTarget}
           favoriteList={[
             {id: '123', name: 'reactjs'},
             {id: '456', name: 'vuejs'},
@@ -65,10 +75,12 @@ export const Home = () => {
           ]}
         />
         <GroupSection
+          chooseChatTarget={setChatTarget}
           onClick={() => setIsClickedAddGroup(true)}
-          handleFetch={groupFetching}
+          groupList={groupList}
         />
         <MessagesSection
+          chooseChatTarget={setChatTarget}
           messagesList={[
             {id: '135', name: 'BinhPham'},
             {id: '246', name: 'KienTran'},
@@ -84,7 +96,7 @@ export const Home = () => {
       </div>
       <div className="section">
         <Header
-          chatTarget="BinhPham"
+          chatTarget={chatTarget}
           icon={<i className="fa fas fa-at"></i>}
           onClick={() => setIsClickedMenu(!isClickedMenu)}
         />

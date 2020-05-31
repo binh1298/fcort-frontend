@@ -8,13 +8,6 @@ export const GroupSection = (props) => {
   const [styles, setStyles] = useState({
     color: theme.palette.navbar.hoverColor,
   });
-  const [groupList, setGroupList] = useState([]);
-  useEffect(() => {
-    const groupListing = async () => {
-      setGroupList(await props.handleFetch());
-    };
-    groupListing();
-  }, []);
   return (
     <div className="group-wrapper">
       <p>
@@ -29,9 +22,9 @@ export const GroupSection = (props) => {
         ></i>
       </p>
       <ListItems
-        handleFetch={props.handleFetch}
-        list={groupList}
+        list={props.groupList}
         icon={<i className="fa fas fa-hashtag"></i>}
+        chooseChatTarget={props.chooseChatTarget}
       />
     </div>
   );

@@ -44,9 +44,8 @@ export const GroupDialog = (props) => {
         {}
       );
       console.log('create group success');
-      console.log(response);
       if (response.data.success) {
-        window.location.reload(false);
+        await props.handleFetch();
       }
     } catch (ex) {
       if (ex.response) {

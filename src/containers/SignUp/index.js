@@ -22,7 +22,7 @@ export const SignUp = () => {
     //Call the sever
     try {
       const response = await post(
-        '/users/signup',
+        '/auth/signup',
         {
           email: data.email,
           password: data.password,
