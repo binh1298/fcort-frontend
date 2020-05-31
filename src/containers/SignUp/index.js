@@ -96,7 +96,7 @@ export const SignUp = () => {
             />
             <input type="submit" className="submit-button" value="Submit" />
             <div style={{ color: theme.palette.text.error }}>
-              {console.log(Object.keys(errors)) && 'This email is already taken.'}
+              {Object.keys(errors)[0] === 'username' && 'This email is already taken.'}
             </div>
             <Link to="/">Already have an account? Sign In</Link>
           </form>
