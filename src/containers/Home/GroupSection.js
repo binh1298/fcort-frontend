@@ -1,4 +1,4 @@
-import React, {useState, useContext} from 'react';
+import React, {useState, useContext, useEffect} from 'react';
 import './GroupSection.scss';
 import ListItems from '../../component/ListItems';
 import ThemeContext from '../../contexts/ThemeContext';
@@ -8,7 +8,13 @@ export const GroupSection = (props) => {
   const [styles, setStyles] = useState({
     color: theme.palette.navbar.hoverColor,
   });
-
+  const [groupList, setGroupList] = useState([]);
+  useEffect(() => {
+    const groupListing = async () => {
+      setGroupList(await props.handleFetch());
+    };
+    groupListing();
+  }, []);
   return (
     <div className="group-wrapper">
       <p>
@@ -22,7 +28,11 @@ export const GroupSection = (props) => {
           onMouseOut={() => setStyles({color: theme.palette.navbar.hoverColor})}
         ></i>
       </p>
-      <ListItems list={props.groupList} icon={<i className="fa fas fa-hashtag"></i>} />
+      <ListItems
+        handleFetch={props.handleFetch}
+        list={groupList}
+        icon={<i className="fa fas fa-hashtag"></i>}
+      />
     </div>
   );
 };

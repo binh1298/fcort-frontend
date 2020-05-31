@@ -4,6 +4,7 @@ import './GroupDialog.scss';
 import ThemeContext from '../../contexts/ThemeContext';
 import InputField from '../../component/InputField';
 import DialogButton from '../../component/DialogButton';
+import {post} from '../../utils/ApiCaller';
 
 export const GroupDialog = (props) => {
   const [isFocused, setIsFocused] = useState(false);
@@ -27,9 +28,33 @@ export const GroupDialog = (props) => {
   const stylesInputBorderFocus = {
     borderColor: theme.palette.groupDialog.inputBorderFocus,
   };
+  const stylesConfictNameError = {
+    color: theme.palette.text.error,
+    textAlign: 'center',
+  };
   const {register, handleSubmit, errors, setError} = useForm();
-  const onSubmit = (data) => {
-    console.log(data);
+  const onSubmit = async (data) => {
+    //Call the server
+    try {
+      const response = await post(
+        '/groups',
+        {
+          name: data.groupname,
+        },
+        {}
+      );
+      console.log('create group success');
+      console.log(response);
+      if (response.data.success) {
+        window.location.reload(false);
+      }
+    } catch (ex) {
+      if (ex.response) {
+        console.log(ex.response.data.message);
+        setError('groupsname');
+      }
+    }
+    console.log('Group created');
   };
   return (
     <div className={props.addGroup ? 'dialogOn' : 'dialogOff'}>
@@ -51,12 +76,23 @@ export const GroupDialog = (props) => {
           <InputField
             register={register}
             icon={<i className="fa fas fa-users"></i>}
-            name="groupName"
+            name="groupname"
             type="text"
             label="Group Name"
             errors={errors}
+            valid={register({
+              required: 'Group name is required',
+              maxLength: {
+                value: 69,
+                message: 'Group name must be less than 69 characters',
+              },
+            })}
           />
           <DialogButton styles={stylesDialogGroupButton}>Create</DialogButton>
+          <div style={stylesConfictNameError}>
+            {Object.keys(errors)[0] === 'groupsname' &&
+              'This group name is already taken.'}
+          </div>
         </form>
       </div>
     </div>

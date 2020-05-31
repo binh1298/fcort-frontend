@@ -8,12 +8,29 @@ import MessagesSection from './MessagesSection';
 import Header from './Header';
 import MessagesArea from './MessagesArea';
 import GroupDialog from './GroupDialog';
+import {get} from '../../utils/ApiCaller';
 
 export const Home = () => {
   const theme = useContext(ThemeContext);
   const styles = {
     backgroundColor: theme.palette.navbar.background,
     color: theme.palette.navbar.titleColor,
+  };
+  const groupFetching = async () => {
+    //Call the sever
+    try {
+      const response = await get('/groups', {});
+      console.log('fetch groups list success');
+      console.log(response);
+      if (response.data.success) {
+        return response.data.data;
+      }
+    } catch (ex) {
+      if (ex.response) {
+        console.log(ex.response.data.message);
+      }
+    }
+    console.log('Groups fetched');
   };
   const [isClickedMenu, setIsClickedMenu] = useState(true);
   const [isClickedAddGroup, setIsClickedAddGroup] = useState(false);
@@ -49,19 +66,7 @@ export const Home = () => {
         />
         <GroupSection
           onClick={() => setIsClickedAddGroup(true)}
-          groupList={[
-            {id: '123', name: 'reactjs'},
-            {id: '456', name: 'vuejs'},
-            {id: '789', name: 'angular'},
-            {id: '111', name: 'html'},
-            {id: '222', name: 'css'},
-            {id: '333', name: 'javascript'},
-            {id: '666', name: 'java'},
-            {id: '777', name: 'C#'},
-            {id: '888', name: 'C/C++'},
-            {id: '999', name: 'python'},
-            {id: '000', name: 'Pascal'},
-          ]}
+          handleFetch={groupFetching}
         />
         <MessagesSection
           messagesList={[
