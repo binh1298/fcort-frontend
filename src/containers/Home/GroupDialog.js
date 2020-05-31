@@ -1,28 +1,35 @@
 import React, {useContext, useState} from 'react';
+import {useForm} from 'react-hook-form';
 import './GroupDialog.scss';
 import ThemeContext from '../../contexts/ThemeContext';
+import InputField from '../../component/InputField';
+import DialogButton from '../../component/DialogButton';
 
 export const GroupDialog = (props) => {
   const [isFocused, setIsFocused] = useState(false);
   const theme = useContext(ThemeContext);
   const stylesGroupDialogBg = {
-    backgroundColor: theme.palette.dialog.backgroundColor,
+    backgroundColor: theme.palette.groupDialog.backgroundColor,
   };
   const stylesDialogGroupBox = {
-    backgroundColor: theme.palette.dialog.boxBgColor,
+    backgroundColor: theme.palette.groupDialog.boxBgColor,
   };
   const stylesDialogGroupTitle = {
-    color: theme.palette.dialog.titleColor,
+    color: theme.palette.groupDialog.titleColor,
   };
   const stylesDialogGroupButton = {
-    color: theme.palette.dialog.buttonColor,
-    backgroundColor: theme.palette.dialog.buttonBgColor,
+    color: theme.palette.groupDialog.buttonColor,
+    backgroundColor: theme.palette.groupDialog.buttonBgColor,
   };
   const stylesInputBorder = {
-    borderColor: theme.palette.dialog.inputBorder,
+    borderColor: theme.palette.groupDialog.inputBorder,
   };
   const stylesInputBorderFocus = {
-    borderColor: theme.palette.dialog.inputBorderFocus,
+    borderColor: theme.palette.groupDialog.inputBorderFocus,
+  };
+  const {register, handleSubmit, errors, setError} = useForm();
+  const onSubmit = (data) => {
+    console.log(data);
   };
   return (
     <div className={props.addGroup ? 'dialogOn' : 'dialogOff'}>
@@ -35,30 +42,22 @@ export const GroupDialog = (props) => {
         <p className="dialogGroupTitle" style={stylesDialogGroupTitle}>
           Add a new group
         </p>
-        <div
+        <form
           className={isFocused ? 'inputGroupName focus' : 'inputGroupName'}
+          onSubmit={handleSubmit(onSubmit)}
           onFocus={() => setIsFocused(true)}
           onBlur={() => setIsFocused(false)}
         >
-          <input
+          <InputField
+            register={register}
+            icon={<i className="fa fas fa-users"></i>}
+            name="groupName"
             type="text"
-            onFocus={() => {
-              setIsFocused(true);
-            }}
-            onBlur={() => {
-              setIsFocused(false);
-            }}
-            placeholder="Enter group name"
+            label="Group Name"
+            errors={errors}
           />
-          <hr className="borderDefault" style={stylesInputBorder} />
-          <hr
-            className={isFocused ? 'borderHover focus' : 'borderHover'}
-            style={stylesInputBorderFocus}
-          />
-        </div>
-        <button className="button-narrow" style={stylesDialogGroupButton}>
-          <p>Create</p>
-        </button>
+          <DialogButton styles={stylesDialogGroupButton}>Create</DialogButton>
+        </form>
       </div>
     </div>
   );

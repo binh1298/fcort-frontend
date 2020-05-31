@@ -18,7 +18,7 @@ export const Home = () => {
   };
   const [isClickedMenu, setIsClickedMenu] = useState(true);
   const [isClickedAddGroup, setIsClickedAddGroup] = useState(false);
-  const [isClickedViewProfile, setIsClickedViewProfile] = useState(false);
+  const [isClickedUserOption, setIsClickedUserOption] = useState(false);
   return (
     <div className="home-container">
       <GroupDialog
@@ -43,10 +43,12 @@ export const Home = () => {
         <UserNavbar
           avatar="https://github.com/kien123456k/Hello-world/blob/master/avatar.png?raw=true"
           userName="Nguyễn Trần Thiên Đức"
-          gmail="abc@gmail.com"
-          onClick={() => {
-            setIsClickedViewProfile(true);
-          }}
+          onClickUserOption={() => setIsClickedUserOption(!isClickedUserOption)}
+          isClickedUserOption={isClickedUserOption}
+          userOption={[
+            {id: 'aaa', name: 'Account Setting', icon: <i className="fa fas fa-cog"></i>},
+            {id: 'bbb', name: 'Logout', icon: <i className="fa fas fa-sign-out"></i>},
+          ]}
         />
         <FavoriteSection
           favoriteList={[
