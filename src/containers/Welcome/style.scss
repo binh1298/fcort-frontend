@@ -1,0 +1,176 @@
+@import '../../fonts.scss';
+
+
+
+.login-container {
+	font-family: $default-font;
+	overflow: hidden;
+	/* background-color: #333; */
+	z-index: 0;
+}
+
+
+
+.login-content {
+	width: 100vw;
+	height: 100vh;
+	display: grid;
+	grid-template-columns: repeat(1, 1fr);
+	grid-gap: 7rem;
+	padding: 0 2rem;
+
+}
+
+.login-logo {
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+}
+
+.login-form {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	text-align: center;
+	justify-content: center;
+}
+
+.login-logo img {
+	width: 500px;
+	z-index: 2;
+}
+
+.logo-fcode {
+	border-radius: 100%;
+}
+
+.form-wrapper {
+	width: 360px;
+	align-items: center;
+}
+
+.login-form img {
+	height: 100px;
+}
+
+.login-form h2 {
+	margin: 15px 0;
+	color: #333;
+	text-transform: uppercase;
+	font-size: 2.9rem;
+}
+
+
+.login-form a {
+	display: block;
+	text-align: right;
+	text-decoration: none;
+	color: #999;
+	font-size: 0.9rem;
+	transition: 0.3s;
+}
+
+.login-form a:hover {
+	color: #38d39f;
+}
+
+.login-button {
+	display: block;
+	width: 100%;
+	height: 50px;
+	border-radius: 25px;
+	outline: none;
+	border: none;
+	background-image: linear-gradient(to right, #32be8f, #38d39f, #32be8f);
+	background-size: 200%;
+	font-size: 1.2rem;
+	color: #fff;
+	font-family: 'Poppins', sans-serif;
+	text-transform: uppercase;
+	margin: 1rem 0;
+	cursor: pointer;
+	transition: 0.5s;
+}
+
+.login-button:hover {
+	background-position: right;
+}
+
+.logo-cover {
+	position: relative;
+
+}
+
+
+.logo-cover span {
+	opacity: 0;
+	color: rgb(36, 33, 33);
+	font-size: 1rem;
+	position: absolute;
+	top: 40px;
+	left: 135px;
+}
+
+.logo-cover i {
+	position: absolute;
+}
+
+.logo-cover:hover img {
+	background-color: #333;
+	transition: 0.5s;
+	opacity: 0.5;
+}
+
+.logo-cover input {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	height: 100%;
+	opacity: 0;
+	cursor: pointer;
+}
+
+.logo-cover:hover span {
+	transition: 1;
+	opacity: 0.9;
+}
+
+@media screen and (max-width: 1050px) {
+	.login-content {
+		grid-gap: 5rem;
+	}
+}
+
+@media screen and (max-width: 1000px) {
+	form {
+		width: 290px;
+	}
+
+	.login-content h2 {
+		font-size: 2.4rem;
+		margin: 8px 0;
+	}
+
+	.login-logo img {
+		width: 400px;
+	}
+}
+
+@media screen and (max-width: 900px) {
+	.login-content {
+		grid-template-columns: 1fr;
+	}
+
+	.login-logo {
+		display: none;
+	}
+
+	.wave {
+		display: none;
+	}
+
+	.login-form {
+		justify-content: center;
+	}
+}

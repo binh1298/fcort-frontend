@@ -1,0 +1,58 @@
+@import '../../fonts.scss';
+
+// .dialog-container {
+// 	position: relative;
+// }
+
+.dialogOff {
+	display: none;
+}
+
+.dialogOn {
+	position: absolute;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100vw;
+	height: 100vh;
+	z-index: 3;
+}
+
+.groupDialog-background {
+	position: absolute;
+	width: 100vw;
+	height: 100vh;
+}
+
+.dialogGroupBox {
+
+	display: flex;
+	top: 0;
+	left: 0px;
+	flex-direction: column;
+	justify-content: space-around;
+	height: fit-content;
+	max-width: 80%;
+	padding: 24px 24px 32px 24px;
+	border-radius: 6px;
+	animation-name: dialogGroupAppear;
+	animation-duration: 0.2s;
+	animation-timing-function: ease-in-out;
+	z-index: 4;
+}
+
+@keyframes dialogGroupAppear {
+	0% {
+		transform: scale(0.1, 0.1);
+	}
+
+	100% {
+		transform: scale(1, 1);
+	}
+}
+
+.dialogGroupBox>.dialogGroupTitle {
+	align-self: flex-start;
+	font-size: 1.5rem;
+	margin-left: 1vw;
+}
