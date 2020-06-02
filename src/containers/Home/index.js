@@ -26,7 +26,7 @@ export const Home = () => {
     } catch (ex) {}
   };
   const [groupList, setGroupList] = useState([]);
-  const fetchingGroup = async () => {
+  const fetchGroup = async () => {
     const tempGroupList = await groupFetching();
     await setGroupList(tempGroupList);
     if (tempGroupList.length) {
@@ -34,7 +34,7 @@ export const Home = () => {
     }
   };
   useEffect(() => {
-    fetchingGroup();
+    fetchGroup();
   }, []);
   const [chatTarget, setChatTarget] = useState({});
   const [isClickedMenu, setIsClickedMenu] = useState(true);
@@ -44,7 +44,7 @@ export const Home = () => {
     <div className="home-container">
       <GroupDialog
         addGroup={isClickedAddGroup}
-        handleFetch={fetchingGroup}
+        handleFetch={fetchGroup}
         onClick={() => {
           setIsClickedAddGroup(false);
         }}

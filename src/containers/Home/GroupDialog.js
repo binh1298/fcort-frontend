@@ -39,7 +39,7 @@ export const GroupDialog = (props) => {
       const response = await post(
         '/groups',
         {
-          name: data.groupname,
+          name: data.groupName,
         },
         {}
       );
@@ -49,7 +49,7 @@ export const GroupDialog = (props) => {
       }
     } catch (ex) {
       if (ex.response) {
-        setError('groupsname');
+        setError('groupsName');
       }
     }
   };
@@ -73,7 +73,7 @@ export const GroupDialog = (props) => {
           <InputField
             register={register}
             icon={<i className="fa fas fa-users"></i>}
-            name="groupname"
+            name="groupName"
             type="text"
             label="Group Name"
             errors={errors}
@@ -87,7 +87,7 @@ export const GroupDialog = (props) => {
           />
           <DialogButton styles={stylesDialogGroupButton}>Create</DialogButton>
           <div style={stylesConfictNameError}>
-            {Object.keys(errors)[0] === 'groupsname' &&
+            {Object.keys(errors)[0] === 'groupsName' &&
               'This group name is already taken.'}
           </div>
         </form>
