@@ -19,6 +19,7 @@ export const Home = () => {
   const [isClickedMenu, setIsClickedMenu] = useState(true);
   const [isClickedAddGroup, setIsClickedAddGroup] = useState(false);
   const [isClickedUserOption, setIsClickedUserOption] = useState(false);
+  const [isClickedViewProfile, setIsClickedViewProfile] = useState(false);
   return (
     <div className="home-container">
       <GroupDialog
@@ -49,6 +50,10 @@ export const Home = () => {
             {id: 'aaa', name: 'Account Setting', icon: <i className="fa fas fa-cog"></i>},
             {id: 'bbb', name: 'Logout', icon: <i className="fa fas fa-sign-out"></i>},
           ]}
+          viewProfile={isClickedViewProfile}
+          onClickViewProfile={() => {
+            setIsClickedViewProfile(true);
+          }}
         />
         <FavoriteSection
           favoriteList={[

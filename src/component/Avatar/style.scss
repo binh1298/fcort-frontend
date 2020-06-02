@@ -1,0 +1,40 @@
+@import '../../fonts.scss';
+$titleColor: #00995c;
+$borderFocusColor: #38d39f;
+.avatar-container>a>img {
+    width: 100px;
+    border-radius: 50%;
+    border: 2px solid $titleColor;
+}
+
+.avatar-container>div {
+    position: absolute;
+    transform: translate(-50%, 0);
+    bottom: 0;
+    left: 58%;
+}
+
+.btn-avatar {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: rgba(0,0,0,0.65);
+    border:2px solid transparent;
+}
+.btn-avatar>i {
+    color: white;
+    text-align: center;
+}
+
+.btn-avatar:hover {
+    cursor: pointer;
+    border:2px solid $borderFocusColor;
+}
+
+#disable-btn-add-avatar {
+    display: none;
+}
+
+.btn-avatar:active {
+    border: none;
+}

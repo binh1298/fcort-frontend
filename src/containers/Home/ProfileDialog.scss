@@ -38,7 +38,7 @@ $notifyColor: #FF0000;
     z-index: 1;
     font-size: 1rem;
     min-width: 35%;
-    padding: 16px 32px 32px 32px;
+    padding: 16px 32px;
     border-radius: 5px;
     align-items: center;
     animation-name: appear;
@@ -62,7 +62,7 @@ $notifyColor: #FF0000;
 .avatar-container::before {
     content: "";
     display: block;
-    border: 2px solid $titleColor;
+    border-bottom: 4px solid $titleColor;
     width: 100%;
     position: absolute;
     top: 50%;
@@ -70,112 +70,25 @@ $notifyColor: #FF0000;
     border-radius: 2px;
 }
 
-.avatar-container>a>img {
-    width: 100px;
-    border-radius: 50%;
-    border: 2px solid $titleColor;
-}
-
-.avatar-container>button {
-    position: absolute;
-    transform: translate(-50%, 0);
-    bottom: 0;
-    left: 58%;
-}
-
-.btn-avatar {
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    background-color: rgba(0,0,0,0.65);
-    border-color: transparent;
-}
-
-.btn-avatar>i {
-    color: white;
-}
-
-.btn-avatar:hover {
-    cursor: pointer;
-    border:2px solid $borderFocusColor;
-}
-
-.myfile {
-   margin-left: 90px;
+.btn-edit-profile {
+    display: flex;
+    justify-content: flex-end;
 }
 
 // Profile Fullname
-.profile-fullname-wrap {
+.profileEdit-On {
     width: 100%;
 }
 
-.profile-fullname-wrap>div {
-    margin-top: 2px;
-    padding-left: 10px;
-}
-
-.profile-fullname {
-    width: 100%;
-}
-
-.fullname-initialOn>div>input,
-.fullname-changeOn>input,
-.profile-gmail>input {
-    font-size: 1.1rem;
-    width: 85%;
-    padding: 6px 4px;
-    margin-right: 8px;
-    border-radius: 4px;
-    border: 2px solid;
-    outline: none;
-    transition: all 0.3s ease-in-out;
-}
-
-.fullname-changeOn>input:focus {
-    border: 2px solid;
-    border-color:$borderFocusColor;
-}
-
-.fullname-container {
-    display: flex;
-    justify-content: space-between;
-}
-
-.btn-fullname>div {
-    display: flex;
-    justify-content: flex-end;
-    color: $defaultColor;
-    font-size: 0.9rem;
-}
-
-.fa.fa-pencil{
+.profileEdit-Off {
     display: none;
 }
 
-.btn-fullname:hover  {
-    cursor: pointer;
-    .fa.fa-pencil{
-        display: block;
-        margin-top: 4px;
-        margin-right: 8px;
-        color: $borderFocusColor;
-    } 
-    .btn-edit-label {
-        text-decoration: underline;
-        color: $borderFocusColor;
-    }
+.inputFullName {
+    width: 100%;
 }
-
-.btn-fullname {
-    border: 2px solid transparent;
-    background-color: transparent;
-    margin: auto 0;
-}
-
-
-.fullname-changeOn>i {
-    color: $defaultColor;
-    margin-left: 16px;
+.inputFullName>.fields-notChange {
+    opacity: 0.5;
 }
 
 // Check special Character
@@ -185,37 +98,22 @@ $notifyColor: #FF0000;
     display: block; 
 }
 
-.fullname-changeOn>label {
-    display: block;
-}
-
 #check-fullname-active {
     color: $borderFocusColor;
 }
 
-#profile-submit-fullname,
-#disable-btn-save {
-    text-align: right;
-    width: 85%;
+.btn-submit {
+    display: flex;
+    justify-content: flex-end;
 }
 
-#disable-btn-save>button:last-child{
-    display: none;
-    text-align: center;  
+.btn-submit>button {
+    margin-left: 16px;
 }
 
-#profile-submit-avatar {
-    text-align: center;
+.change-password {
+    color:$defaultColor;
 }
-
-.fullname-initialOff,
-.fullname-changeOff,
-.change-avatarOff,
-.notifyOff,
-#buttonAvatarOff,
-#buttonFullnameOff{
-    display: none;
+.change-password:hover {
+    color: #020202;
 }
-
-
-

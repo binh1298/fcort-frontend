@@ -5,7 +5,7 @@ import UserOption from './UserOption';
 export const UserNavbar = (props) => {
   return (
     <div className="userNavbar-wrapper">
-      <img src={props.avatar} />
+      <img src={props.avatar} onClick={props.onClickViewProfile} />
       <div className="userDropdown">
         <button className="optionBtn" onClick={props.onClickUserOption}>
           <p>{props.userName}</p>
