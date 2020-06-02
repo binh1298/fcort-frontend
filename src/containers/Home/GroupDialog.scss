@@ -1,25 +1,5 @@
 @import '../../fonts.scss';
 
-.dialogOff {
-  display: none;
-}
-
-.dialogOn {
-  position: absolute;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100%;
-  z-index: 3;
-}
-
-.groupDialog-background {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-}
-
 .dialogGroupBox {
   top: 0;
   left: 0;
@@ -28,7 +8,7 @@
   justify-content: center;
   height: fit-content;
   max-width: 80%;
-  padding: 24px 24px 32px 24px;
+  padding: 24px 24px 24px 24px;
   border-radius: 6px;
   animation-name: dialogGroupAppear;
   animation-duration: 0.2s;
@@ -67,5 +47,9 @@
   width: 25vw;
   min-width: 200px;
   margin: 16px 0 16px 0;
+}
+
+.inputGroupName>.dialogBtn {
+  margin-bottom: 8px;
 }
 

@@ -4,13 +4,12 @@ import './GroupDialog.scss';
 import ThemeContext from '../../contexts/ThemeContext';
 import InputField from '../../component/InputField';
 import DialogButton from '../../component/DialogButton';
+import Dialog from '../../component/Dialog';
+import {post} from '../../utils/ApiCaller';
 
 export const GroupDialog = (props) => {
   const [isFocused, setIsFocused] = useState(false);
   const theme = useContext(ThemeContext);
-  const stylesGroupDialogBg = {
-    backgroundColor: theme.palette.groupDialog.backgroundColor,
-  };
   const stylesDialogGroupBox = {
     backgroundColor: theme.palette.groupDialog.boxBgColor,
   };
@@ -27,17 +26,33 @@ export const GroupDialog = (props) => {
   const stylesInputBorderFocus = {
     borderColor: theme.palette.groupDialog.inputBorderFocus,
   };
+  const stylesConfictNameError = {
+    color: theme.palette.text.error,
+    textAlign: 'center',
+  };
   const {register, handleSubmit, errors, setError} = useForm();
-  const onSubmit = (data) => {
-    console.log(data);
+  const onSubmit = async (data) => {
+    //Call the server
+    try {
+      const response = await post(
+        '/groups',
+        {
+          name: data.groupName,
+        },
+        {}
+      );
+      if (response.data.success) {
+        await props.handleFetch();
+        props.onClick();
+      }
+    } catch (ex) {
+      if (ex.response) {
+        setError('groupsName');
+      }
+    }
   };
   return (
-    <div className={props.addGroup ? 'dialogOn' : 'dialogOff'}>
-      <div
-        className="groupDialog-background"
-        style={stylesGroupDialogBg}
-        onClick={props.onClick}
-      ></div>
+    <Dialog addGroup={props.addGroup} onClick={props.onClick}>
       <div className="dialogGroupBox" style={stylesDialogGroupBox}>
         <p className="dialogGroupTitle" style={stylesDialogGroupTitle}>
           Add a new group
@@ -55,11 +70,22 @@ export const GroupDialog = (props) => {
             type="text"
             label="Group Name"
             errors={errors}
+            valid={register({
+              required: 'Group name is required',
+              maxLength: {
+                value: 69,
+                message: 'Group name must be less than 69 characters',
+              },
+            })}
           />
           <DialogButton styles={stylesDialogGroupButton}>Create</DialogButton>
+          <div style={stylesConfictNameError}>
+            {Object.keys(errors)[0] === 'groupsName' &&
+              'This group name is already taken.'}
+          </div>
         </form>
       </div>
-    </div>
+    </Dialog>
   );
 };
 export default GroupDialog;

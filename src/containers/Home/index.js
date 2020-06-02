@@ -1,4 +1,4 @@
-import React, {useContext, useState} from 'react';
+import React, {useContext, useState, useEffect} from 'react';
 import './style.scss';
 import ThemeContext from '../../contexts/ThemeContext';
 import UserNavbar from './UserNavbar';
@@ -8,7 +8,7 @@ import MessagesSection from './MessagesSection';
 import Header from './Header';
 import MessagesArea from './MessagesArea';
 import GroupDialog from './GroupDialog';
-import ProfileDialog from './ProfileDialog';
+import {get} from '../../utils/ApiCaller';
 
 export const Home = () => {
   const theme = useContext(ThemeContext);
@@ -16,6 +16,27 @@ export const Home = () => {
     backgroundColor: theme.palette.navbar.background,
     color: theme.palette.navbar.titleColor,
   };
+  const groupFetching = async () => {
+    //Call the sever
+    try {
+      const response = await get('/groups', {});
+      if (response.data.success) {
+        return response.data.data;
+      }
+    } catch (ex) {}
+  };
+  const [groupList, setGroupList] = useState([]);
+  const fetchGroup = async () => {
+    const tempGroupList = await groupFetching();
+    await setGroupList(tempGroupList);
+    if (tempGroupList.length) {
+      setChatTarget(tempGroupList[0]);
+    }
+  };
+  useEffect(() => {
+    fetchGroup();
+  }, []);
+  const [chatTarget, setChatTarget] = useState({});
   const [isClickedMenu, setIsClickedMenu] = useState(true);
   const [isClickedAddGroup, setIsClickedAddGroup] = useState(false);
   const [isClickedUserOption, setIsClickedUserOption] = useState(false);
@@ -24,6 +45,7 @@ export const Home = () => {
     <div className="home-container">
       <GroupDialog
         addGroup={isClickedAddGroup}
+        handleFetch={fetchGroup}
         onClick={() => {
           setIsClickedAddGroup(false);
         }}
@@ -56,6 +78,7 @@ export const Home = () => {
           }}
         />
         <FavoriteSection
+          chooseChatTarget={setChatTarget}
           favoriteList={[
             {id: '123', name: 'reactjs'},
             {id: '456', name: 'vuejs'},
@@ -63,22 +86,12 @@ export const Home = () => {
           ]}
         />
         <GroupSection
+          chooseChatTarget={setChatTarget}
           onClick={() => setIsClickedAddGroup(true)}
-          groupList={[
-            {id: '123', name: 'reactjs'},
-            {id: '456', name: 'vuejs'},
-            {id: '789', name: 'angular'},
-            {id: '111', name: 'html'},
-            {id: '222', name: 'css'},
-            {id: '333', name: 'javascript'},
-            {id: '666', name: 'java'},
-            {id: '777', name: 'C#'},
-            {id: '888', name: 'C/C++'},
-            {id: '999', name: 'python'},
-            {id: '000', name: 'Pascal'},
-          ]}
+          groupList={groupList}
         />
         <MessagesSection
+          chooseChatTarget={setChatTarget}
           messagesList={[
             {id: '135', name: 'BinhPham'},
             {id: '246', name: 'KienTran'},
@@ -94,7 +107,7 @@ export const Home = () => {
       </div>
       <div className="section">
         <Header
-          chatTarget="BinhPham"
+          chatTarget={chatTarget}
           icon={<i className="fa fas fa-at"></i>}
           onClick={() => setIsClickedMenu(!isClickedMenu)}
         />

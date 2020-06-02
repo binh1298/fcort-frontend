@@ -8,7 +8,11 @@ export const MessagesSection = (props) => {
       <p>
         <i className="fa fas fa-comment"></i>Messages
       </p>
-      <ListItems list={props.messagesList} icon={<i className="fa fas fa-at"></i>} />
+      <ListItems
+        list={props.messagesList}
+        icon={<i className="fa fas fa-at"></i>}
+        chooseChatTarget={props.chooseChatTarget}
+      />
     </div>
   );
 };
