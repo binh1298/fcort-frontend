@@ -2,32 +2,20 @@
 
 
 
-.login-container {
-	font-family: $default-font;
-	overflow: hidden;
-	/* background-color: #333; */
-	z-index: 0;
-}
 
 
-
-.login-content {
+.welcome-content {
 	width: 100vw;
 	height: 100vh;
 	display: grid;
 	grid-template-columns: repeat(1, 1fr);
 	grid-gap: 7rem;
 	padding: 0 2rem;
+	font-family: $default-font;
 
 }
 
-.login-logo {
-	display: flex;
-	justify-content: flex-end;
-	align-items: center;
-}
-
-.login-form {
+.welcome-form {
 	display: flex;
 	justify-content: flex-start;
 	align-items: center;
@@ -49,11 +37,11 @@
 	align-items: center;
 }
 
-.login-form img {
+.welcome-form img {
 	height: 100px;
 }
 
-.login-form h2 {
+.welcome-form h2 {
 	margin: 15px 0;
 	color: #333;
 	text-transform: uppercase;
@@ -61,7 +49,7 @@
 }
 
 
-.login-form a {
+.welcome-form a {
 	display: block;
 	text-align: right;
 	text-decoration: none;
@@ -70,11 +58,11 @@
 	transition: 0.3s;
 }
 
-.login-form a:hover {
+.welcome-form a:hover {
 	color: #38d39f;
 }
 
-.login-button {
+.welcome-button {
 	display: block;
 	width: 100%;
 	height: 50px;
@@ -92,7 +80,7 @@
 	transition: 0.5s;
 }
 
-.login-button:hover {
+.welcome-button:hover {
 	background-position: right;
 }
 
@@ -147,18 +135,18 @@
 		width: 290px;
 	}
 
-	.login-content h2 {
+	.welcome-content h2 {
 		font-size: 2.4rem;
 		margin: 8px 0;
 	}
 
-	.login-logo img {
+	.welcome-logo img {
 		width: 400px;
 	}
 }
 
 @media screen and (max-width: 900px) {
-	.login-content {
+	.welcome-content {
 		grid-template-columns: 1fr;
 	}
 
@@ -170,7 +158,7 @@
 		display: none;
 	}
 
-	.login-form {
+	.welcome-form {
 		justify-content: center;
 	}
 }

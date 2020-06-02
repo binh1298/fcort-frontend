@@ -13,8 +13,7 @@ import {post} from '../../utils/ApiCaller';
 import {LOCALSTORAGE_TOKEN_NAME} from '../../configurations';
 import usePersistedState from '../../utils/usePersistedState';
 import AvatarUpload from '../../component/AvatarUpload';
-export const Login = () => {
-  const [user, setUser] = usePersistedState(LOCALSTORAGE_TOKEN_NAME);
+export const Welcome = () => {
   const [token, setToken] = usePersistedState(LOCALSTORAGE_TOKEN_NAME, '');
   const [userProfilePic, setUserProfilePic] = useState('');
   const [selectedImage, setSelectedImage] = useState('');
@@ -70,50 +69,49 @@ export const Login = () => {
     }
   };
   return (
-    <div className="login-container" style={styles}>
-      <div className="login-content">
-        <AvatarUpload
-          addGroup={isClickedAddGroup}
-          onClick={() => {
-            setIsClickedAddGroup(false);
-          }}
-          setUserProfilePic={setUserProfilePic}
-          selectedImage={selectedImage}
-          setIsClickedAddGroup={setIsClickedAddGroup}
-        />
+    <div className="welcome-content">
+      <AvatarUpload
+        addGroup={isClickedAddGroup}
+        onClick={() => {
+          setIsClickedAddGroup(false);
+        }}
+        setUserProfilePic={setUserProfilePic}
+        selectedImage={selectedImage}
+        setIsClickedAddGroup={setIsClickedAddGroup}
+      />
 
-        <div className="login-form">
-          <form className="form-wrapper" onSubmit={handleSubmit(onSubmit)}>
-            <div className="logo-cover">
-              <img className="logo-fcode" src={userProfilePic || userAvt} />
-              <span>Upload Avt</span>
-              <input
-                className="fileInput-23-d-3"
-                type="file"
-                tabIndex="0"
-                multiple=""
-                accept=".jpg,.jpeg,.png,.gif"
-                aria-label="Change Avatar"
-                onChange={profilePicChange}
-              />
-              <i className="fa fa-camera"></i>
-            </div>
-
-            <h3 className="title">Your avatar</h3>
-            <InputField
-              register={register}
-              icon={<i className="fa fas fa-user"></i>}
-              name="email"
-              type="text"
-              label="Your name"
-              errors={errors}
+      <div className="welcome-form">
+        <form className="form-wrapper" onSubmit={handleSubmit(onSubmit)}>
+          <div className="logo-cover">
+            {/* <h1>Welcome to Fcort</h1> */}
+            <img className="logo-fcode" src={userProfilePic || userAvt} />
+            <span>Upload Avt</span>
+            <input
+              className="fileInput-23-d-3"
+              type="file"
+              tabIndex="0"
+              multiple=""
+              accept=".jpg,.jpeg,.png,.gif"
+              aria-label="Change Avatar"
+              onChange={profilePicChange}
             />
+            <i className="fa fa-camera"></i>
+          </div>
 
-            <input type="submit" className="login-button" value="Submit" />
-          </form>
-        </div>
+          <h3 className="title">Your avatar</h3>
+          <InputField
+            register={register}
+            icon={<i className="fa fas fa-user"></i>}
+            name="email"
+            type="text"
+            label="Your name"
+            errors={errors}
+          />
+
+          <input type="submit" className="welcome-button" value="Submit" />
+        </form>
       </div>
     </div>
   );
 };
-export default Login;
+export default Welcome;

@@ -42,9 +42,7 @@ export const MyEditor = ({
     return new File([u8arr], filename, {type: mime});
   };
   const theme = useContext(ThemeContext);
-  const stylesGroupDialogBg = {
-    backgroundColor: theme.palette.groupDialog.backgroundColor,
-  };
+
   const stylesDialogGroupBox = {
     backgroundColor: theme.palette.groupDialog.boxBgColorDark,
   };
@@ -58,9 +56,9 @@ export const MyEditor = ({
 
   return (
     <div className={addGroup ? 'dialogOn' : 'dialogOff'}>
-      <div className="groupDialog-background" onClick={onClick}></div>
-      <div className="dialogGroupBox" style={stylesDialogGroupBox}>
-        <p className="dialogGroupTitle" style={stylesDialogGroupTitle}>
+      {/* <div className="groupDialog-background" onClick={onClick}></div> */}
+      <div className="dialogBox" style={stylesDialogGroupBox}>
+        <p className="dialogTitle" style={stylesDialogGroupTitle}>
           Upload your avatar
         </p>
         <div>
@@ -71,12 +69,15 @@ export const MyEditor = ({
             scaleValue={scaleValue}
             onScaleChange={onScaleChange}
           />
-          <button
-            styles={stylesDialogGroupButton}
-            onClick={() => setIsClickedAddGroup(false)}
-          >
-            Cancel
-          </button>
+          <div className="cancel-btn">
+            <button
+              styles={stylesDialogGroupButton}
+              onClick={() => setIsClickedAddGroup(false)}
+            >
+              Cancel
+            </button>
+          </div>
+
           <div className="btn-container">
             <DialogButton styles={stylesDialogGroupButton} onClick={onCrop}>
               Save
