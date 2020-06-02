@@ -4,13 +4,11 @@ import './GroupDialog.scss';
 import ThemeContext from '../../contexts/ThemeContext';
 import InputField from '../../component/InputField';
 import DialogButton from '../../component/DialogButton';
+import Dialog from '../../component/Dialog';
 
 export const GroupDialog = (props) => {
   const [isFocused, setIsFocused] = useState(false);
   const theme = useContext(ThemeContext);
-  const stylesGroupDialogBg = {
-    backgroundColor: theme.palette.groupDialog.backgroundColor,
-  };
   const stylesDialogGroupBox = {
     backgroundColor: theme.palette.groupDialog.boxBgColor,
   };
@@ -32,12 +30,7 @@ export const GroupDialog = (props) => {
     console.log(data);
   };
   return (
-    <div className={props.addGroup ? 'dialogOn' : 'dialogOff'}>
-      <div
-        className="groupDialog-background"
-        style={stylesGroupDialogBg}
-        onClick={props.onClick}
-      ></div>
+    <Dialog addGroup={props.addGroup} onClick={props.onClick}>
       <div className="dialogGroupBox" style={stylesDialogGroupBox}>
         <p className="dialogGroupTitle" style={stylesDialogGroupTitle}>
           Add a new group
@@ -59,7 +52,7 @@ export const GroupDialog = (props) => {
           <DialogButton styles={stylesDialogGroupButton}>Create</DialogButton>
         </form>
       </div>
-    </div>
+    </Dialog>
   );
 };
 export default GroupDialog;
