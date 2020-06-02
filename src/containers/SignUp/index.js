@@ -1,15 +1,15 @@
 /* eslint-disable prettier/prettier */
-import React, {useContext, useState} from 'react';
+import React, { useContext, useState } from 'react';
 
-import {useForm} from 'react-hook-form';
-import {Link} from 'react-router-dom';
+import { useForm } from 'react-hook-form';
+import { Link } from 'react-router-dom';
 import ThemeContext from '../../contexts/ThemeContext';
 import './style.scss';
 import logoFcode from '../../assets/images/logoFcode.png';
 import logoFcort from '../../assets/images/logoFcort.png';
 import background from '../../assets/images/backgroundLoginSingup.png';
 import InputField from '../../component/InputField';
-import {post} from '../../utils/ApiCaller';
+import { post } from '../../utils/ApiCaller';
 export const SignUp = () => {
   const theme = useContext(ThemeContext);
   const styles = {
@@ -17,12 +17,12 @@ export const SignUp = () => {
     color: theme.palette.text.inputField,
   };
 
-  const {register, handleSubmit, errors, watch, setError} = useForm();
+  const { register, handleSubmit, errors, watch, setError } = useForm();
   const onSubmit = async (data) => {
     //Call the sever
     try {
       const response = await post(
-        '/users/signup',
+        '/auth/signup',
         {
           email: data.email,
           password: data.password,
@@ -95,7 +95,7 @@ export const SignUp = () => {
               })}
             />
             <input type="submit" className="submit-button" value="Submit" />
-            <div style={{color: theme.palette.text.error}}>
+            <div style={{ color: theme.palette.text.error }}>
               {Object.keys(errors)[0] === 'username' && 'This email is already taken.'}
             </div>
             <Link to="/">Already have an account? Sign In</Link>

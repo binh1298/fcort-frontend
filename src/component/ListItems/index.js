@@ -12,6 +12,7 @@ const Items = (props) => {
       style={styles}
       onMouseOver={() => setStyles({color: theme.palette.navbar.titleColor})}
       onMouseOut={() => setStyles({color: theme.palette.navbar.hoverColor})}
+      onClick={props.isClick}
     >
       <p className="itemName">
         {props.children}
@@ -23,7 +24,11 @@ const Items = (props) => {
 
 export const ListItems = (props) => {
   const list = props.list.map((object) => (
-    <Items key={object.id} name={object.name}>
+    <Items
+      key={object.id}
+      name={object.name}
+      isClick={() => props.chooseChatTarget(object)}
+    >
       {props.icon}
     </Items>
   ));

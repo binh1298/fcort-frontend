@@ -8,7 +8,7 @@
   justify-content: center;
   height: fit-content;
   max-width: 80%;
-  padding: 24px 24px 32px 24px;
+  padding: 24px 24px 24px 24px;
   border-radius: 6px;
   animation-name: dialogGroupAppear;
   animation-duration: 0.2s;
@@ -47,5 +47,9 @@
   width: 25vw;
   min-width: 200px;
   margin: 16px 0 16px 0;
+}
+
+.inputGroupName>.dialogBtn {
+  margin-bottom: 8px;
 }
 

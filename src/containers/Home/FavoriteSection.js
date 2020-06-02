@@ -8,7 +8,11 @@ export const FavoriteSection = (props) => {
       <p>
         <i className="fa fas fa-star"></i>Favorite
       </p>
-      <ListItems list={props.favoriteList} icon={<i className="fa fas fa-hashtag"></i>} />
+      <ListItems
+        list={props.favoriteList}
+        icon={<i className="fa fas fa-hashtag"></i>}
+        chooseChatTarget={props.chooseChatTarget}
+      />
     </div>
   );
 };
