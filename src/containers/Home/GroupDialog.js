@@ -43,17 +43,15 @@ export const GroupDialog = (props) => {
         },
         {}
       );
-      console.log('create group success');
       if (response.data.success) {
         await props.handleFetch();
+        props.onClick();
       }
     } catch (ex) {
       if (ex.response) {
-        console.log(ex.response.data.message);
         setError('groupsname');
       }
     }
-    console.log('Group created');
   };
   return (
     <div className={props.addGroup ? 'dialogOn' : 'dialogOff'}>

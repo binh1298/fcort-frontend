@@ -20,26 +20,21 @@ export const Home = () => {
     //Call the sever
     try {
       const response = await get('/groups', {});
-      console.log('fetch groups list success');
-      console.log(response);
       if (response.data.success) {
         return response.data.data;
       }
-    } catch (ex) {
-      if (ex.response) {
-        console.log(ex.response.data.message);
-      }
-    }
-    console.log('Groups fetched');
+    } catch (ex) {}
   };
   const [groupList, setGroupList] = useState([]);
-  const groupFetch = async () => {
+  const fetchingGroup = async () => {
     const tempGroupList = await groupFetching();
     await setGroupList(tempGroupList);
-    setChatTarget(tempGroupList[0]);
+    if (tempGroupList.length) {
+      setChatTarget(tempGroupList[0]);
+    }
   };
   useEffect(() => {
-    groupFetch();
+    fetchingGroup();
   }, []);
   const [chatTarget, setChatTarget] = useState({});
   const [isClickedMenu, setIsClickedMenu] = useState(true);
@@ -49,7 +44,7 @@ export const Home = () => {
     <div className="home-container">
       <GroupDialog
         addGroup={isClickedAddGroup}
-        handleFetch={groupFetch}
+        handleFetch={fetchingGroup}
         onClick={() => {
           setIsClickedAddGroup(false);
         }}
