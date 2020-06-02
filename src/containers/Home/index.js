@@ -34,12 +34,14 @@ export const Home = () => {
   };
   const [groupList, setGroupList] = useState([]);
   const groupFetch = async () => {
-    setGroupList(await groupFetching());
+    const tempGroupList = await groupFetching();
+    await setGroupList(tempGroupList);
+    setChatTarget(tempGroupList[0]);
   };
   useEffect(() => {
     groupFetch();
   }, []);
-  const [chatTarget, setChatTarget] = useState('');
+  const [chatTarget, setChatTarget] = useState({});
   const [isClickedMenu, setIsClickedMenu] = useState(true);
   const [isClickedAddGroup, setIsClickedAddGroup] = useState(false);
   const [isClickedUserOption, setIsClickedUserOption] = useState(false);

@@ -27,7 +27,7 @@ export const ListItems = (props) => {
     <Items
       key={object.id}
       name={object.name}
-      isClick={() => props.chooseChatTarget(object.id)}
+      isClick={() => props.chooseChatTarget(object)}
     >
       {props.icon}
     </Items>
