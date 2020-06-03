@@ -4,10 +4,7 @@ import {Link} from 'react-router-dom';
 import {useForm} from 'react-hook-form';
 import ThemeContext from '../../contexts/ThemeContext';
 import './style.scss';
-import logoFcode from '../../assets/images/logoFcode.png';
-import logoFcort from '../../assets/images/logoFcort.png';
 import userAvt from '../../assets/images/userAvt.png';
-import background from '../../assets/images/backgroundLoginSingup.png';
 import InputField from '../../component/InputField';
 import {post} from '../../utils/ApiCaller';
 import {LOCALSTORAGE_TOKEN_NAME} from '../../configurations';
@@ -37,8 +34,7 @@ export const Welcome = () => {
         },
         {}
       );
-      console.log('login success');
-      console.log(response);
+
       if (response.data.success) {
         setUser(response.data.data.token);
         window.location.reload(false);

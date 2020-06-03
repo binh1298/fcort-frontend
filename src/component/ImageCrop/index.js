@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import AvatarEditor from 'react-avatar-editor';
 import './styles.scss';
-const ImageCrop = ({imageSrc, onCrop, setEditorRef, scaleValue, onScaleChange}) => (
+const ImageCrop = ({imageSrc, setEditorRef, scaleValue, onScaleChange}) => (
   <div>
     <div className="editorOverlayInner">
       <div className="editorModalContent clearfix">
@@ -16,10 +16,6 @@ const ImageCrop = ({imageSrc, onCrop, setEditorRef, scaleValue, onScaleChange}) 
             ref={setEditorRef}
             className="cropCanvas"
           />
-
-          {/* <button onClick={onCrop} className="editorOverlayCloseBtn crpBtn">
-            Save
-          </button> */}
         </div>
         <div className="rangeCnt">
           <input

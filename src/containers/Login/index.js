@@ -31,8 +31,7 @@ export const Login = () => {
         },
         {}
       );
-      console.log('login success');
-      console.log(response);
+
       if (response.data.success) {
         setUser(response.data.data.token);
         window.location.reload(false);
@@ -43,7 +42,6 @@ export const Login = () => {
         setError('username', 'validate');
       }
     }
-    console.log('Submitted');
   };
 
   return (

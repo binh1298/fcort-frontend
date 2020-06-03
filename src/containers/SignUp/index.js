@@ -34,7 +34,7 @@ export const SignUp = () => {
         },
         {}
       );
-      console.log(response);
+
       if (response.data.success) {
         setUser(response.data.data.token);
         window.location.reload(false);
@@ -45,7 +45,6 @@ export const SignUp = () => {
         setError('username', 'validate');
       }
     }
-    console.log('Submitted');
   };
 
   return (

@@ -9,7 +9,7 @@ import MyEditor from '../Welcome';
 // import './styles.css';
 
 export const App = () => {
-  // return <BrowserRouter> {Routes} </BrowserRouter>;
-  return <MyEditor addGroup={true} />;
+  return <BrowserRouter> {Routes} </BrowserRouter>;
+  // return <MyEditor addGroup={true} />;
 };
 export default App;
