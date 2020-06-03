@@ -6,17 +6,20 @@ import ThemeContext from '../../contexts/ThemeContext';
 import './style.scss';
 import userAvt from '../../assets/images/userAvt.png';
 import InputField from '../../component/InputField';
-import {post} from '../../utils/ApiCaller';
+import {put, get} from '../../utils/ApiCaller';
 import {LOCALSTORAGE_TOKEN_NAME} from '../../configurations';
+import LocalStorageUtils from '../../utils/LocalStorageUtils';
 import usePersistedState from '../../utils/usePersistedState';
 import AvatarUpload from '../../component/AvatarUpload';
 export const Welcome = () => {
+  const [user, setUser] = usePersistedState(LOCALSTORAGE_TOKEN_NAME);
   const [token, setToken] = usePersistedState(LOCALSTORAGE_TOKEN_NAME, '');
   const [userProfilePic, setUserProfilePic] = useState('');
   const [selectedImage, setSelectedImage] = useState('');
   const [openCropper, setOpenCropper] = useState(false);
   const [isClickedAddGroup, setIsClickedAddGroup] = useState(false);
   const theme = useContext(ThemeContext);
+  const userID = LocalStorageUtils.getUser(LOCALSTORAGE_TOKEN_NAME).sub;
   const styles = {
     backgroundColor: theme.palette.background.light,
     color: theme.palette.text.inputField,
@@ -25,27 +28,25 @@ export const Welcome = () => {
   const {register, handleSubmit, errors, setError} = useForm();
   const onSubmit = async (data) => {
     //Call the sever
+    console.log(data);
     try {
-      const response = await post(
-        '/auth/login',
+      const response = await put(
+        `/users/${userID}`,
         {
-          email: data.email,
-          password: data.password,
+          fullname: data.fullname,
         },
         {}
       );
-
+      console.log(response);
       if (response.data.success) {
-        setUser(response.data.data.token);
+        const res = await get('/auth/refresh');
+        console.log(res);
+        setUser(res.data.data.token);
         window.location.reload(false);
       }
     } catch (ex) {
-      if (ex.response && ex.response.status === 401) {
-        console.log(ex.response.data.data.message);
-        setError('username', 'validate');
-      }
+      console.log(ex);
     }
-    console.log('Submitted');
   };
   const profilePicChange = (fileChangeEvent) => {
     const file = fileChangeEvent.target.files[0] || selectedImage;
@@ -98,7 +99,7 @@ export const Welcome = () => {
           <InputField
             register={register}
             icon={<i className="fa fas fa-user"></i>}
-            name="email"
+            name="fullname"
             type="text"
             label="Your name"
             errors={errors}
