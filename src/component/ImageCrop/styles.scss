@@ -1,0 +1,17 @@
+.cropCnt {
+	display: flex;
+}
+
+.rangeCnt input {
+	padding: 10px;
+}
+
+.btn-container {
+	position: relative;
+}
+
+.btn-container button {
+	position: absolute;
+	right: 0;
+	top: -30px;
+}

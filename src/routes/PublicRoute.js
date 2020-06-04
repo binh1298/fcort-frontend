@@ -9,5 +9,5 @@ export const PublicRoute = (props) => {
     // TODO should check authorization here
     return <Route {...props} />;
   }
-  return <Redirect to="/home" />;
+  return <Redirect to="/" />;
 };
