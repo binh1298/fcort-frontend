@@ -1,5 +1,4 @@
 import React, {useState, useContext} from 'react';
-import Avatar from 'react-avatar-edit';
 import ThemeContext from '../../contexts/ThemeContext';
 import DialogButton from '../../component/DialogButton';
 import ImageCrop from '../ImageCrop';

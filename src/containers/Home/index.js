@@ -1,5 +1,4 @@
-import React, {useState} from 'react';
-import {post} from '../../utils/ApiCaller';
+import React from 'react';
 import {LOCALSTORAGE_TOKEN_NAME} from '../../configurations';
 import LocalStorageUtils from '../../utils/LocalStorageUtils';
 import Welcome from '../Welcome';
