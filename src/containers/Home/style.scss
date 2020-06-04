@@ -34,6 +34,7 @@
   .home-container>.navbar {
     position: absolute;
     width: 90%;
+    min-width: 0;
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
   }
