@@ -34,7 +34,6 @@ export const Welcome = () => {
         },
         {}
       );
-      console.log(response);
       if (response.data.success) {
         const res = await get('/auth/refresh');
         setUser(res.data.data.token);
