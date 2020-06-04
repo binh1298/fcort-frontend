@@ -43,7 +43,7 @@ export const Home = () => {
   return (
     <div className="home-container">
       <GroupDialog
-        addGroup={isClickedAddGroup}
+        dialogStatus={isClickedAddGroup}
         handleFetch={fetchGroup}
         onClick={() => {
           setIsClickedAddGroup(false);

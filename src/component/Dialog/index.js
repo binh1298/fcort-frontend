@@ -8,7 +8,7 @@ export const Dialog = (props) => {
     backgroundColor: theme.palette.groupDialog.backgroundColor,
   };
   return (
-    <div className={props.addGroup ? 'dialogOn' : 'dialogOff'}>
+    <div className={props.dialogStatus ? 'dialogOn' : 'dialogOff'}>
       <div
         className="groupDialog-background"
         style={stylesGroupDialogBg}

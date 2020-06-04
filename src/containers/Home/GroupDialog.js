@@ -52,7 +52,7 @@ export const GroupDialog = (props) => {
     }
   };
   return (
-    <Dialog addGroup={props.addGroup} onClick={props.onClick}>
+    <Dialog dialogStatus={props.dialogStatus} onClick={props.onClick}>
       <div className="dialogGroupBox" style={stylesDialogGroupBox}>
         <p className="dialogGroupTitle" style={stylesDialogGroupTitle}>
           Add a new group
