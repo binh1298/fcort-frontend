@@ -6,7 +6,7 @@ const Avatar = ({href, id}) => {
       <a href={href}>
         <img src={href} />
       </a>
-      <div className="btn-avatar" id={id}>
+      <div className="btn-add-avatar" id={id}>
         <i className="fa fa-camera"></i>
       </div>
     </div>

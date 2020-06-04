@@ -14,19 +14,19 @@ $borderFocusColor: #38d39f;
     left: 58%;
 }
 
-.btn-avatar {
+.btn-add-avatar {
     width: 30px;
     height: 30px;
     border-radius: 50%;
     background-color: rgba(0,0,0,0.65);
     border:2px solid transparent;
 }
-.btn-avatar>i {
+.btn-add-avatar>i {
     color: white;
     text-align: center;
 }
 
-.btn-avatar:hover {
+.btn-add-avatar:hover {
     cursor: pointer;
     border:2px solid $borderFocusColor;
 }
@@ -35,6 +35,6 @@ $borderFocusColor: #38d39f;
     display: none;
 }
 
-.btn-avatar:active {
+.btn-add-avatar:active {
     border: none;
 }
