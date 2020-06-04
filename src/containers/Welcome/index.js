@@ -26,7 +26,6 @@ export const Welcome = () => {
   const {register, handleSubmit, errors, setError} = useForm();
   const onSubmit = async (data) => {
     //Call the sever
-    console.log(data);
     try {
       const response = await put(
         `/users/${userID}`,
@@ -41,7 +40,9 @@ export const Welcome = () => {
         setUser(res.data.data.token);
         window.location.reload(false);
       }
-    } catch (ex) {}
+    } catch (ex) {
+      console.log(ex);
+    }
   };
   const profilePicChange = (fileChangeEvent) => {
     const file = fileChangeEvent.target.files[0] || selectedImage;
