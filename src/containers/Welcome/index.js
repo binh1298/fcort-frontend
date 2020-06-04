@@ -103,6 +103,13 @@ export const Welcome = () => {
             type="text"
             label="Your name"
             errors={errors}
+            valid={register({
+              required: `Fullname is required.`,
+              pattern: {
+                value: /^[A-Z]/i,
+                message: 'Fullname must not contain special characters.',
+              },
+            })}
           />
 
           <input type="submit" className="welcome-button" value="Submit" />
