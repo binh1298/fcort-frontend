@@ -101,6 +101,8 @@
 
 .header-wrapper>form>button {
   display: flex;
+  justify-self: center;
+  align-items: center;
   height: inherit;
   padding-left: 8px;
   padding-right: 8px;
