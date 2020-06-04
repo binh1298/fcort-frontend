@@ -4,7 +4,6 @@ import {useForm} from 'react-hook-form';
 import {Link} from 'react-router-dom';
 import ThemeContext from '../../contexts/ThemeContext';
 import './style.scss';
-import Login from '../Login';
 import logoFcode from '../../assets/images/logoFcode.png';
 import logoFcort from '../../assets/images/logoFcort.png';
 import background from '../../assets/images/backgroundLoginSingup.png';
@@ -41,12 +40,10 @@ export const SignUp = () => {
       }
     } catch (ex) {
       if (ex.response && ex.response.status === 400) {
-        console.log(ex.response.data.data.message);
         setError('username', 'validate');
       }
     }
   };
-
   return (
     <div className="sign-up-container" style={styles}>
       <img className="wave" src={background} />

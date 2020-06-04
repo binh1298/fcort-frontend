@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 import React, {useContext, useState} from 'react';
 import {Link} from 'react-router-dom';
 import {useForm} from 'react-hook-form';
@@ -17,14 +16,13 @@ export const Welcome = () => {
   const [userProfilePic, setUserProfilePic] = useState('');
   const [selectedImage, setSelectedImage] = useState('');
   const [openCropper, setOpenCropper] = useState(false);
-  const [isClickedAddGroup, setIsClickedAddGroup] = useState(false);
+  const [isClicked, setIsClicked] = useState(false);
   const theme = useContext(ThemeContext);
   const userID = LocalStorageUtils.getUser(LOCALSTORAGE_TOKEN_NAME).sub;
   const styles = {
     backgroundColor: theme.palette.background.light,
     color: theme.palette.text.inputField,
   };
-
   const {register, handleSubmit, errors, setError} = useForm();
   const onSubmit = async (data) => {
     //Call the sever
@@ -40,13 +38,10 @@ export const Welcome = () => {
       console.log(response);
       if (response.data.success) {
         const res = await get('/auth/refresh');
-        console.log(res);
         setUser(res.data.data.token);
         window.location.reload(false);
       }
-    } catch (ex) {
-      console.log(ex);
-    }
+    } catch (ex) {}
   };
   const profilePicChange = (fileChangeEvent) => {
     const file = fileChangeEvent.target.files[0] || selectedImage;
@@ -60,7 +55,7 @@ export const Welcome = () => {
       )
     ) {
     } else {
-      setIsClickedAddGroup(true);
+      setIsClicked(true);
       setOpenCropper(true);
       setSelectedImage(file);
     }
@@ -68,19 +63,17 @@ export const Welcome = () => {
   return (
     <div className="welcome-content">
       <AvatarUpload
-        addGroup={isClickedAddGroup}
+        addGroup={isClicked}
         onClick={() => {
-          setIsClickedAddGroup(false);
+          setIsClicked(false);
         }}
         setUserProfilePic={setUserProfilePic}
         selectedImage={selectedImage}
-        setIsClickedAddGroup={setIsClickedAddGroup}
+        setIsClicked={setIsClicked}
       />
-
       <div className="welcome-form">
         <form className="form-wrapper" onSubmit={handleSubmit(onSubmit)}>
           <div className="logo-cover">
-            {/* <h1>Welcome to Fcort</h1> */}
             <img className="logo-fcode" src={userProfilePic || userAvt} />
             <span>Upload Avt</span>
             <input
@@ -94,7 +87,6 @@ export const Welcome = () => {
             />
             <i className="fa fa-camera"></i>
           </div>
-
           <h3 className="title">Your avatar</h3>
           <InputField
             register={register}
@@ -111,7 +103,6 @@ export const Welcome = () => {
               },
             })}
           />
-
           <input type="submit" className="welcome-button" value="Submit" />
         </form>
       </div>

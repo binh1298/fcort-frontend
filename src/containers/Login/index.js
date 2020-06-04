@@ -38,7 +38,6 @@ export const Login = () => {
       }
     } catch (ex) {
       if (ex.response && ex.response.status === 401) {
-        console.log(ex.response.data.data.message);
         setError('username', 'validate');
       }
     }

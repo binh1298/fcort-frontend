@@ -4,12 +4,12 @@ import ThemeContext from '../../contexts/ThemeContext';
 import DialogButton from '../../component/DialogButton';
 import ImageCrop from '../ImageCrop';
 import './style.scss';
-export const MyEditor = ({
+export const AvatarUpload = ({
   selectedImage,
   setUserProfilePic,
   addGroup,
   onClick,
-  setIsClickedAddGroup,
+  setIsClicked,
 }) => {
   const [editor, setEditor] = useState(null);
   const [scaleValue, setScaleValue] = useState(1);
@@ -21,28 +21,14 @@ export const MyEditor = ({
     if (editor !== null) {
       const url = editor.getImageScaledToCanvas().toDataURL();
       setUserProfilePic(url);
-      setIsClickedAddGroup(false);
+      setIsClicked(false);
     }
   };
-
   const onScaleChange = (scaleChangeEvent) => {
     const scaleValue = parseFloat(scaleChangeEvent.target.value);
     setScaleValue(scaleValue);
   };
-
-  const DataURLtoFile = (dataurl, filename) => {
-    let arr = dataurl.split(','),
-      mime = arr[0].match(/:(.*?);/)[1],
-      bstr = atob(arr[1]),
-      n = bstr.length,
-      u8arr = new Uint8Array(n);
-    while (n--) {
-      u8arr[n] = bstr.charCodeAt(n);
-    }
-    return new File([u8arr], filename, {type: mime});
-  };
   const theme = useContext(ThemeContext);
-
   const stylesDialogGroupBox = {
     backgroundColor: theme.palette.groupDialog.boxBgColorDark,
   };
@@ -53,10 +39,8 @@ export const MyEditor = ({
     color: theme.palette.groupDialog.buttonColor,
     backgroundColor: theme.palette.groupDialog.buttonBgColor,
   };
-
   return (
     <div className={addGroup ? 'dialogOn' : 'dialogOff'}>
-      {/* <div className="groupDialog-background" onClick={onClick}></div> */}
       <div className="dialogBox" style={stylesDialogGroupBox}>
         <p className="dialogTitle" style={stylesDialogGroupTitle}>
           Upload your avatar
@@ -70,10 +54,7 @@ export const MyEditor = ({
             onScaleChange={onScaleChange}
           />
           <div className="cancel-btn">
-            <button
-              styles={stylesDialogGroupButton}
-              onClick={() => setIsClickedAddGroup(false)}
-            >
+            <button styles={stylesDialogGroupButton} onClick={() => setIsClicked(false)}>
               Cancel
             </button>
           </div>
@@ -88,4 +69,4 @@ export const MyEditor = ({
     </div>
   );
 };
-export default MyEditor;
+export default AvatarUpload;

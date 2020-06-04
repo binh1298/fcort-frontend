@@ -2,14 +2,7 @@
 import React, {useContext} from 'react';
 import {BrowserRouter} from 'react-router-dom';
 import {Routes} from '../../routes';
-import Login from '../Login';
-import SignUp from '../SignUp';
-import Home from '../Home';
-import MyEditor from '../Welcome';
-// import './styles.css';
-
 export const App = () => {
   return <BrowserRouter> {Routes} </BrowserRouter>;
-  // return <MyEditor addGroup={true} />;
 };
 export default App;
