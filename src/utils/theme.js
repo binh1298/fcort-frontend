@@ -38,6 +38,9 @@ const theme = {
     userOptionDialog: {
       backgroundColor: '#26884F',
     },
+    groupDetail: {
+      lineColor: '#D3D3D3',
+    },
   },
 };
 

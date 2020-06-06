@@ -16,7 +16,7 @@ export const Header = (props) => {
         {props.icon}
         {props.chatTarget.name}
       </p>
-      <button className="toggle" onClick={props.onClick}>
+      <button className="toggle" onClick={props.onClickMenu}>
         <i className="fa fas fa-bars"></i>
       </button>
       <form>
@@ -25,7 +25,7 @@ export const Header = (props) => {
           <i className="fa fas fa-search"></i>
         </button>
       </form>
-      <i className="fa fas fa-question-circle"></i>
+      <i className="fa fas fa-question-circle" onClick={props.onClickGroupDetail}></i>
     </div>
   );
 };

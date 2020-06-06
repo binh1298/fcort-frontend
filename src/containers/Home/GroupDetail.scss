@@ -1,0 +1,25 @@
+@import '../../fonts.scss';
+
+.groupDetailOn {
+  width: 55%;
+  margin-left: 1vw;
+}
+
+.groupDetailOff {
+  display: none;
+}
+
+.groupDetail-background {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.groupDetail-wrapper {
+  width: 100%;
+  height: 100%;
+  border-left: 1px inset;
+}
