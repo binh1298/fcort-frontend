@@ -4,9 +4,9 @@ import './ProfileDialog.scss';
 import ThemeContext from '../../contexts/ThemeContext';
 import DialogButton from '../../component/DialogButton';
 import Avatar from '../../component/Avatar';
-import ButtonEditProfile from './ButtonEditProfile';
 import FieldsChange from './FieldsChange';
 import FieldsNotChange from './FieldsNotChange';
+import Dialog from '../../component/Dialog';
 
 export const ProfileDialog = (props) => {
   const [currentText, setCurrentText] = useState(props.userName);
@@ -51,18 +51,16 @@ export const ProfileDialog = (props) => {
     return true;
   };
   return (
-    <div className={props.viewProfile ? 'dialogOn' : 'dialogOff'}>
-      <div
-        className="dialog-overlay"
-        style={stylesDialogOverlay}
-        onClick={props.onClick}
-      ></div>
+    <Dialog addGroup={props.viewProfile} onClick={props.onClick}>
       <div className="profile-dialog" style={stylesProfileBackround}>
         <h2 style={stylesProfileTitle}>My Profile</h2>
         <div className="profile-avatar">
           <Avatar href={props.avatar} id={isEditOn ? '' : 'disable-btn-add-avatar'} />
           <div className="btn-edit-profile" onClick={() => setIsEditOn(true)}>
-            <ButtonEditProfile id={isEditOn ? 'disable-buttonEditProfile' : ''} />
+            <button className="btn-edit" id={isEditOn ? 'disable-buttonEditProfile' : ''}>
+              <i className="fa fa-pencil"></i>
+              <p className="btn-edit-label">Edit</p>
+            </button>
           </div>
         </div>
         <div className={isEditOn ? 'profileEdit-Off' : 'profileEdit-On'}>
@@ -110,7 +108,7 @@ export const ProfileDialog = (props) => {
           </form>
         </div>
       </div>
-    </div>
+    </Dialog>
   );
 };
 export default ProfileDialog;

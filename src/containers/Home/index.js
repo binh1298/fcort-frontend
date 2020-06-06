@@ -8,6 +8,7 @@ import MessagesSection from './MessagesSection';
 import Header from './Header';
 import MessagesArea from './MessagesArea';
 import GroupDialog from './GroupDialog';
+import ProfileDialog from './ProfileDialog';
 import {get} from '../../utils/ApiCaller';
 
 export const Home = () => {
