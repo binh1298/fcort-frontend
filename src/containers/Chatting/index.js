@@ -40,10 +40,11 @@ export const Chatting = () => {
   const [isClickedMenu, setIsClickedMenu] = useState(true);
   const [isClickedAddGroup, setIsClickedAddGroup] = useState(false);
   const [isClickedUserOption, setIsClickedUserOption] = useState(false);
+  const [isClickedGroupDetail, setIsClickedGroupDetail] = useState(false);
   return (
     <div className="home-container">
       <GroupDialog
-        addGroup={isClickedAddGroup}
+        dialogStatus={isClickedAddGroup}
         handleFetch={fetchGroup}
         onClick={() => {
           setIsClickedAddGroup(false);
@@ -95,11 +96,12 @@ export const Chatting = () => {
         <Header
           chatTarget={chatTarget}
           icon={<i className="fa fas fa-at"></i>}
-          onClick={() => setIsClickedMenu(!isClickedMenu)}
+          onClickMenu={() => setIsClickedMenu(!isClickedMenu)}
+          onClickGroupDetail={() => setIsClickedGroupDetail(!isClickedGroupDetail)}
         />
         <MessagesArea
-          onClick={() => setIsClickedMenu(true)}
-          userName="Nguyễn Trần Thiên Đức"
+          onClickMenu={() => setIsClickedMenu(true)}
+          username="Nguyễn Trần Thiên Đức"
           avatarChat={[
             {
               id: '69',
@@ -138,6 +140,10 @@ export const Chatting = () => {
             },
             {id: '25', name: 'BinhPham', message: 'ken nơ lao nèn'},
           ]}
+          navbarStatus={isClickedGroupDetail}
+          onClickGroupDetail={() => {
+            setIsClickedGroupDetail(false);
+          }}
         />
       </div>
     </div>
