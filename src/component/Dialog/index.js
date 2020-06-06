@@ -4,14 +4,14 @@ import './style.scss';
 
 export const Dialog = (props) => {
   const theme = useContext(ThemeContext);
-  const stylesGroupDialogBg = {
+  const stylesDialogBackground = {
     backgroundColor: theme.palette.groupDialog.backgroundColor,
   };
   return (
     <div className={props.dialogStatus ? 'dialogOn' : 'dialogOff'}>
       <div
-        className="groupDialog-background"
-        style={stylesGroupDialogBg}
+        className="dialog-background"
+        style={stylesDialogBackground}
         onClick={props.onClick}
       ></div>
       {props.children}
