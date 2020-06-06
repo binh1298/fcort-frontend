@@ -7,7 +7,7 @@ import Login from '../containers/Login';
 import Home from '../containers/Home';
 export const publicRoutes = [
   {
-    path: '/',
+    path: '/login',
     name: 'login',
     component: Login,
   },
@@ -19,7 +19,7 @@ export const publicRoutes = [
 ];
 export const privateRoutes = [
   {
-    path: '/home',
+    path: '/',
     name: 'home',
     component: Home,
   },

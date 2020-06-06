@@ -1,23 +1,26 @@
 /* eslint-disable prettier/prettier */
-import React, { useContext, useState } from 'react';
-
-import { useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
+import React, {useContext, useState} from 'react';
+import {useForm} from 'react-hook-form';
+import {Link} from 'react-router-dom';
 import ThemeContext from '../../contexts/ThemeContext';
 import './style.scss';
 import logoFcode from '../../assets/images/logoFcode.png';
 import logoFcort from '../../assets/images/logoFcort.png';
 import background from '../../assets/images/backgroundLoginSingup.png';
 import InputField from '../../component/InputField';
-import { post } from '../../utils/ApiCaller';
+import {post} from '../../utils/ApiCaller';
+import {LOCALSTORAGE_TOKEN_NAME} from '../../configurations';
+import usePersistedState from '../../utils/usePersistedState';
 export const SignUp = () => {
+  const [user, setUser] = usePersistedState(LOCALSTORAGE_TOKEN_NAME);
+  const [token, setToken] = usePersistedState(LOCALSTORAGE_TOKEN_NAME, '');
   const theme = useContext(ThemeContext);
   const styles = {
     backgroundColor: theme.palette.background.light,
     color: theme.palette.text.inputField,
   };
 
-  const { register, handleSubmit, errors, watch, setError } = useForm();
+  const {register, handleSubmit, errors, watch, setError} = useForm();
   const onSubmit = async (data) => {
     //Call the sever
     try {
@@ -30,15 +33,17 @@ export const SignUp = () => {
         },
         {}
       );
+
+      if (response.data.success) {
+        setUser(response.data.data.token);
+        window.location.reload(false);
+      }
     } catch (ex) {
       if (ex.response && ex.response.status === 400) {
-        console.log(ex.response.data.data.message);
         setError('username', 'validate');
       }
     }
-    console.log('Submitted');
   };
-
   return (
     <div className="sign-up-container" style={styles}>
       <img className="wave" src={background} />
@@ -95,10 +100,10 @@ export const SignUp = () => {
               })}
             />
             <input type="submit" className="submit-button" value="Submit" />
-            <div style={{ color: theme.palette.text.error }}>
+            <div style={{color: theme.palette.text.error}}>
               {Object.keys(errors)[0] === 'username' && 'This email is already taken.'}
             </div>
-            <Link to="/">Already have an account? Sign In</Link>
+            <Link to="/login">Already have an account? Sign In</Link>
           </form>
         </div>
       </div>

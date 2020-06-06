@@ -4289,6 +4289,11 @@ kind-of@^6.0.0, kind-of@^6.0.2:
   resolved "https://registry.yarnpkg.com/kind-of/-/kind-of-6.0.3.tgz#07c05034a6c349fa06e24fa35aa76db4580ce4dd"
   integrity sha512-dcS1ul+9tmeD95T+x28/ehLgd9mENa3LsvDTtzm3vyBEO7RPptvAD+t44WVXaUjTBRcrpFeFlC8WCruUR456hw==
 
+konva@2.5.1:
+  version "2.5.1"
+  resolved "https://registry.yarnpkg.com/konva/-/konva-2.5.1.tgz#cca611a9522e831e54cf57c508a1aed3f0ceac25"
+  integrity sha512-YdHEWqmbWPieqIZuLx7JFGm9Ui08hSUaSJ2k2Ml8o5giFgJ0WmxAS0DPXIM+Ty2ADRagOHZfXSJ/skwYqqlwgQ==
+
 lcid@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/lcid/-/lcid-2.0.0.tgz#6ef5d2df60e52f82eb228a4c373e8d1f397253cf"
@@ -5584,7 +5589,7 @@ promise-inflight@^1.0.1:
   resolved "https://registry.yarnpkg.com/promise-inflight/-/promise-inflight-1.0.1.tgz#98472870bf228132fcbdd868129bad12c3c029e3"
   integrity sha1-mEcocL8igTL8vdhoEputEsPAKeM=
 
-prop-types@^15.6.2, prop-types@^15.7.2:
+prop-types@^15.5.8, prop-types@^15.6.2, prop-types@^15.7.2:
   version "15.7.2"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.7.2.tgz#52c41e75b8c87e72b9d9360e0206b99dcbffa6c5"
   integrity sha512-8QQikdH7//R2vurIJSutZ1smHYTcLpRWEOlHnzcWHmBYrOGUysKwSsrC89BCiFj3CbrfJ/nXFdJepOVrY1GCHQ==
@@ -5722,6 +5727,20 @@ raw-body@2.4.0:
     http-errors "1.7.2"
     iconv-lite "0.4.24"
     unpipe "1.0.0"
+
+react-avatar-edit@^0.8.3:
+  version "0.8.3"
+  resolved "https://registry.yarnpkg.com/react-avatar-edit/-/react-avatar-edit-0.8.3.tgz#0ebf21391328fc255429bdfbc782f795827109bf"
+  integrity sha512-QEedh6DjDCSI7AUsUHHtfhxApCWC5hJAoywxUA5PtUdw03iIjEurgVqPOIt1UBHhU/Zk/9amElRF3oepN9JZSg==
+  dependencies:
+    konva "2.5.1"
+
+react-avatar-editor@^11.0.9:
+  version "11.0.9"
+  resolved "https://registry.yarnpkg.com/react-avatar-editor/-/react-avatar-editor-11.0.9.tgz#74d11f0ccb61dd2aca9c0c1d777d13cfd6ed5530"
+  integrity sha512-FGYdygcY1ca9PVScHCsm4H28ZLaBPxc/jz2cRhPFjmgMD7fwdYTE5AjBGDCr28jIlRNC1Vm4WERTKxSdDscFDA==
+  dependencies:
+    prop-types "^15.5.8"
 
 react-dom@^16.13.1:
   version "16.13.1"
