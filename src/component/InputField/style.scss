@@ -94,3 +94,9 @@
 	color: #555;
 	font-family: 'poppins', sans-serif;
 }
+
+input:focus,
+textarea:focus,
+select:focus {
+	outline: none;
+}

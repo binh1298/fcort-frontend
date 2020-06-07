@@ -11,5 +11,5 @@ export const PrivateRoute = ({component, ...rest}) => {
 
   // We need to keep the path for first page load
   // tokenStorageService.set(pathNameKey.FIRST_LOAD, location.pathname);
-  return <Redirect to="/" />;
+  return <Redirect to="/login" />;
 };

@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 import React, {useContext} from 'react';
 import {Link} from 'react-router-dom';
 import {useForm} from 'react-hook-form';
@@ -32,19 +31,16 @@ export const Login = () => {
         },
         {}
       );
-      console.log('login success');
-      console.log(response);
+
       if (response.data.success) {
         setUser(response.data.data.token);
         window.location.reload(false);
       }
     } catch (ex) {
       if (ex.response && ex.response.status === 401) {
-        console.log(ex.response.data.data.message);
         setError('username', 'validate');
       }
     }
-    console.log('Submitted');
   };
 
   return (

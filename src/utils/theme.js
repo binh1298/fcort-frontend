@@ -34,6 +34,7 @@ const theme = {
       buttonBgColor: '#2FBA83',
       inputBorder: '#f2f2f2',
       inputBorderFocus: '#38d39f',
+      boxBgColorDark: '#e8e4e1',
     },
     userOptionDialog: {
       backgroundColor: '#26884F',
