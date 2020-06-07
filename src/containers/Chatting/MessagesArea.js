@@ -11,6 +11,7 @@ export const MessagesArea = ({
   onClickMenu,
   navbarStatus,
   onClickGroupDetail,
+  chatTarget,
 }) => {
   const theme = useContext(ThemeContext);
   const styles = {
@@ -27,7 +28,11 @@ export const MessagesArea = ({
           </button>
         </form>
       </div>
-      <GroupDetail navbarStatus={navbarStatus} onClick={onClickGroupDetail} />
+      <GroupDetail
+        navbarStatus={navbarStatus}
+        onClick={onClickGroupDetail}
+        chatTarget={chatTarget}
+      />
     </div>
   );
 };

@@ -10,6 +10,9 @@ export const Header = (props) => {
   const inputStyles = {
     backgroundColor: theme.palette.header.searchBgColor,
   };
+  const groupDetailIconStyles = {
+    color: theme.palette.header.exclamationIcon,
+  };
   return (
     <div className="header-wrapper" style={headerWrapperStyles}>
       <p>
@@ -25,7 +28,15 @@ export const Header = (props) => {
           <i className="fa fas fa-search"></i>
         </button>
       </form>
-      <i className="fa fas fa-question-circle" onClick={props.onClickGroupDetail}></i>
+      <i
+        className={
+          props.groupDetailStatus
+            ? 'fa fa-exclamation-circle groupDetailIconOn'
+            : 'fa fa-exclamation-circle'
+        }
+        onClick={props.onClickGroupDetail}
+        style={groupDetailIconStyles}
+      ></i>
     </div>
   );
 };

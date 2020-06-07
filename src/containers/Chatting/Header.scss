@@ -127,13 +127,13 @@
 .header-wrapper>i {
   padding-right: 16px;
   font-size: 2rem;
-  opacity: 0.3;
-  transition: opacity 0.3s ease-in-out;
+  opacity: 0.4;
+  transition: opacity 0.1s ease-in-out;
   cursor: pointer;
 }
 
-.header-wrapper>i:hover {
-  opacity: 0.8;
+.header-wrapper>i:active {
+  opacity: 0.7;
 }
 
 @media screen and (max-width: 900px) {
@@ -141,4 +141,8 @@
     padding-right: 8px;
     font-size: 1.8rem;
   }
+}
+
+.header-wrapper>.groupDetailIconOn {
+  opacity: 1;
 }

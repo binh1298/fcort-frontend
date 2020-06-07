@@ -4,12 +4,7 @@ import DialogButton from '../../component/DialogButton';
 import ImageCrop from '../ImageCrop';
 import './style.scss';
 import Dialog from '../Dialog';
-export const AvatarUpload = ({
-  selectedImage,
-  setUserProfilePic,
-  dialogStatus,
-  onClick,
-}) => {
+export const AvatarUpload = ({selectedImage, setProfilePic, dialogStatus, onClick}) => {
   const [editor, setEditor] = useState(null);
   const [scaleValue, setScaleValue] = useState(1);
   const [openCropper, setOpenCropper] = useState(false);
@@ -19,7 +14,7 @@ export const AvatarUpload = ({
   const onCrop = () => {
     if (editor !== null) {
       const url = editor.getImageScaledToCanvas().toDataURL();
-      setUserProfilePic(url);
+      setProfilePic(url);
       setIsClicked(false);
     }
   };
@@ -39,7 +34,7 @@ export const AvatarUpload = ({
     backgroundColor: theme.palette.dialog.buttonBgColor,
   };
   return (
-    <Dialog dialogStatus={dialogStatus}>
+    <Dialog dialogStatus={dialogStatus} onClick={onClick}>
       <div className="dialogBox" style={stylesDialogAvatarBox}>
         <p className="dialogTitle" style={stylesDialogAvatarTitle}>
           Upload your avatar
@@ -52,10 +47,13 @@ export const AvatarUpload = ({
             scaleValue={scaleValue}
             onScaleChange={onScaleChange}
           />
-          <div className="avatarButtons">
-            <DialogButton styles={stylesDialogAvatarButton} onClick={onClick}>
+          <div className="cancel-btn">
+            <button styles={stylesDialogAvatarButton} onClick={onClick}>
               Cancel
-            </DialogButton>
+            </button>
+          </div>
+
+          <div className="btn-container">
             <DialogButton styles={stylesDialogAvatarButton} onClick={onCrop}>
               Save
             </DialogButton>
