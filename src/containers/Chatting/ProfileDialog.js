@@ -42,6 +42,7 @@ export const ProfileDialog = (props) => {
       if (response.data.success) {
         props.handleFetch();
         props.onClick();
+        setIsEditOn(false);
       }
     } catch (ex) {
       console.log(ex);
