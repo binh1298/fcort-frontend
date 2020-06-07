@@ -1,40 +1,61 @@
 @import '../../fonts.scss';
-$titleColor: #00995c;
-$borderFocusColor: #38d39f;
-.avatar-container>a>img {
-    width: 100px;
-    border-radius: 50%;
-    border: 2px solid $titleColor;
+
+.avatar-container {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	text-align: center;
 }
 
-.avatar-container>div {
-    position: absolute;
-    transform: translate(-50%, 0);
-    bottom: 0;
-    left: 58%;
+.form-wrapper {
+	width: 100px;
 }
 
-.btn-add-avatar {
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    background-color: rgba(0,0,0,0.65);
-    border:2px solid transparent;
-}
-.btn-add-avatar>i {
-    color: white;
-    text-align: center;
+.logo-cover {
+	position: relative;
 }
 
-.btn-add-avatar:hover {
-    cursor: pointer;
-    border:2px solid $borderFocusColor;
+.logo-cover > img {
+    height: 100px;
+}
+
+.logo-cover span {
+	opacity: 0;
+	color: rgb(36, 33, 33);
+	font-size: 1rem;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.logo-cover i {
+	position: absolute;
+	top: 0;
+	right: -10%;
+}
+
+.logo-cover:hover img {
+	background-color: #333;
+	transition: 0.5s;
+	opacity: 0.5;
+}
+
+.logo-cover input {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	height: 100%;
+	opacity: 0;
+	cursor: pointer;
+}
+
+.logo-cover:hover span {
+	transition: 1;
+	opacity: 0.9;
 }
 
 #disable-btn-add-avatar {
-    display: none;
-}
-
-.btn-add-avatar:active {
-    border: none;
+	display: none;
 }

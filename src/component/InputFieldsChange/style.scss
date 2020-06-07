@@ -1,6 +1,5 @@
 @import '../../fonts.scss';
-$titleColor: #00995c;
-$borderFocusColor: #38d39f;
+
 .input-wrapper {
     display: flex;
     justify-content: space-between;
@@ -17,6 +16,7 @@ $borderFocusColor: #38d39f;
     font-size: 1.1rem;
     border: none;
     outline: none;
+    font-family: $default-font;
 }
 
 .input-wrapper.focus {
@@ -33,7 +33,7 @@ $borderFocusColor: #38d39f;
 
 
 #icon-text-valid {
-    color: $borderFocusColor;
+    color: #38d39f;
 }
 
 .fields-change span {

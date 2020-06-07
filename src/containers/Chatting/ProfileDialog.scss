@@ -1,8 +1,4 @@
 @import '../../fonts.scss';
-$titleColor: #00995c;
-$borderFocusColor: #38d39f;
-$defaultColor: #747474;
-$notifyColor: #FF0000;
 @keyframes appear {
     0% {
       transform: scale(0.1, 0.1);
@@ -26,6 +22,7 @@ $notifyColor: #FF0000;
     animation-duration: 0.3s;
     animation-timing-function: ease-in-out;
     position: relative;
+    font-family: $default-font;
 }
 
 //Profile Avatar
@@ -43,7 +40,7 @@ $notifyColor: #FF0000;
 .avatar-container::before {
     content: "";
     display: block;
-    border-bottom: 4px solid $titleColor;
+    border-bottom: 4px solid #00995c;
     width: 100%;
     position: absolute;
     top: 50%;
@@ -59,7 +56,7 @@ $notifyColor: #FF0000;
 .btn-edit {
     display: flex;
     justify-content: space-between;
-    color: $defaultColor;
+    color: #747474;
     font-size: 0.9rem;
     padding: 6px 10px;
     background-color:  #00995c;
@@ -71,10 +68,12 @@ $notifyColor: #FF0000;
     margin-right: 8px;
     color: #FFFFFF;
     display: none;
+    text-align: center;
 } 
 
 .btn-edit-label {
     color: #FFFFFF;
+    font-family: $default-font;
 }
 
 .btn-edit:hover  {
@@ -93,7 +92,7 @@ $notifyColor: #FF0000;
     border: none;
 }
 
-#disable-buttonEditProfile {
+#disable-edit-profile {
     display: none;
 }
 
@@ -115,13 +114,13 @@ $notifyColor: #FF0000;
 
 // Check special Character
 .notifyOn {
-    color: $notifyColor;
+    color: #FF0000;
     font-size: 0.9rem;
     display: block; 
 }
 
 #check-fullname-active {
-    color: $borderFocusColor;
+    color: #38d39f;
 }
 
 .btn-submit {
@@ -129,12 +128,22 @@ $notifyColor: #FF0000;
     justify-content: flex-end;
 }
 
+.btn-submit>p {
+    display: flex;
+    align-items: center;
+}
+
+.btn-submit>p:hover {
+    text-decoration: underline;
+    cursor: pointer;
+} 
+
 .btn-submit>button {
     margin-left: 16px;
 }
 
 .change-password {
-    color:$defaultColor;
+    color:#747474;
 }
 .change-password:hover {
     color: #020202;

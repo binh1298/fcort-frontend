@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import './style.scss';
 
 const InputFieldsChange = ({
@@ -7,12 +7,15 @@ const InputFieldsChange = ({
   placeholder,
   style,
   name,
-  value,
   register,
   errors,
+  value,
 }) => {
   const [isFocused, setIsFocused] = useState(false);
-  const [currentText, setCurrentText] = useState(value);
+  const [currentText, setCurrentText] = useState();
+  useEffect(() => {
+    setCurrentText(value);
+  }, [value]);
   return (
     <div>
       <div className="fields-change">
@@ -29,7 +32,7 @@ const InputFieldsChange = ({
             onFocus={() => setIsFocused(true)}
             onBlur={() => setIsFocused(false)}
           />
-          {currentText.length ? (
+          {currentText ? (
             <i className="fa fa-check" id={'icon-text-valid'}></i>
           ) : (
             <i className="fa fa-times" id={'icon-text-invalid'}></i>

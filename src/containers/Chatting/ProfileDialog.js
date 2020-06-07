@@ -1,4 +1,4 @@
-import React, {useState, useContext} from 'react';
+import React, {useState, useContext, useEffect} from 'react';
 import {useForm} from 'react-hook-form';
 import './ProfileDialog.scss';
 import ThemeContext from '../../contexts/ThemeContext';
@@ -7,13 +7,14 @@ import Avatar from '../../component/Avatar';
 import InputFieldsChange from '../../component/InputFieldsChange';
 import InputFieldsNotChange from '../../component/InputFieldsNotChange';
 import Dialog from '../../component/Dialog';
+import {put} from '../../utils/ApiCaller';
+import {LOCALSTORAGE_TOKEN_NAME} from '../../configurations';
+import LocalStorageUtils from '../../utils/LocalStorageUtils';
+const user = LocalStorageUtils.getUser(LOCALSTORAGE_TOKEN_NAME);
 
 export const ProfileDialog = (props) => {
   const [isEditOn, setIsEditOn] = useState(false);
   const theme = useContext(ThemeContext);
-  const stylesDialogOverlay = {
-    backgroundColor: theme.palette.profileDialog.overlayColor,
-  };
   const stylesProfileBackround = {
     backgroundColor: theme.palette.profileDialog.boxColor,
   };
@@ -27,23 +28,35 @@ export const ProfileDialog = (props) => {
     color: theme.palette.profileDialog.btnSubmitColor,
     backgroundColor: theme.palette.profileDialog.btnSaveBgColor,
   };
-
-  const stylesDialogButtonCancel = {
-    color: theme.palette.profileDialog.btnSubmitColor,
-    backgroundColor: theme.palette.profileDialog.btnCancelBgColor,
-  };
   const {register, handleSubmit, errors} = useForm();
-  const onSubmit = (data) => {
+  const onSubmit = async (data) => {
     console.log(data);
+    //Call the sever
+    try {
+      const response = await put(
+        `/users/${user.sub}`,
+        {
+          fullname: data.fullname,
+        },
+        {}
+      );
+      if (response.data.success) {
+        window.location.reload(true);
+      }
+    } catch (ex) {
+      console.log(ex);
+    }
   };
   return (
     <Dialog addGroup={props.viewProfile} onClick={props.onClick}>
       <div className="profile-dialog" style={stylesProfileBackround}>
         <h2 style={stylesProfileTitle}>My Profile</h2>
-        <div className="profile-avatar">
-          <Avatar href={props.avatar} id={isEditOn ? '' : 'disable-btn-add-avatar'} />
+        <div className="profile-avatar" id={isEditOn ? 'disable-edit-profile' : ''}>
+          <div className="avatar-container">
+            <Avatar href={props.avatar} id="disable-btn-add-avatar" />
+          </div>
           <div className="btn-edit-profile" onClick={() => setIsEditOn(true)}>
-            <button className="btn-edit" id={isEditOn ? 'disable-buttonEditProfile' : ''}>
+            <button className="btn-edit">
               <i className="fa fa-pencil"></i>
               <p className="btn-edit-label">Edit</p>
             </button>
@@ -52,7 +65,7 @@ export const ProfileDialog = (props) => {
         <div className={isEditOn ? 'profileEdit-Off' : 'profileEdit-On'}>
           <InputFieldsNotChange
             label="FULL NAME:"
-            value={props.userName}
+            value={props.fullname}
             styleTitle={stylesProfileTitle}
             styleBoder={stylesInputBorder}
           />
@@ -66,12 +79,15 @@ export const ProfileDialog = (props) => {
 
         <div className={isEditOn ? 'profileEdit-On' : 'profileEdit-Off'}>
           <form className="inputFullName" onSubmit={handleSubmit(onSubmit)}>
+            <div className="avatar-container">
+              <Avatar href={props.avatar} />
+            </div>
             <InputFieldsChange
               label="FULL NAME:"
               name="fullname"
               placeholder="Full Name"
               type="text"
-              value={props.userName}
+              value={props.fullname}
               style={stylesProfileTitle}
               register={register}
               errors={errors}
@@ -86,7 +102,7 @@ export const ProfileDialog = (props) => {
               Change Password ?
             </a>
             <div className="btn-submit">
-              <DialogButton styles={stylesDialogButtonCancel}>Cancel</DialogButton>
+              <p onClick={() => setIsEditOn(false)}>Cancel</p>
               <DialogButton styles={stylesDialogButtonSave}>Save</DialogButton>
             </div>
           </form>

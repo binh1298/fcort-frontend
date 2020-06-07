@@ -1,4 +1,4 @@
-
+@import '../../fonts.scss';
 .fields-notChange {
     margin-bottom: 16px;
     width: 100%;
@@ -11,4 +11,5 @@
     border: 2px solid;
     color: #555;
     transition: all 0.3s ease-in-out;
+    font-family: $default-font;
 }
