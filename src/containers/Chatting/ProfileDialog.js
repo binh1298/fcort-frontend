@@ -30,7 +30,6 @@ export const ProfileDialog = (props) => {
   };
   const {register, handleSubmit, errors} = useForm();
   const onSubmit = async (data) => {
-    console.log(data);
     //Call the sever
     try {
       const response = await put(
@@ -44,7 +43,9 @@ export const ProfileDialog = (props) => {
         props.handleFetch();
         props.onClick();
       }
-    } catch (ex) {}
+    } catch (ex) {
+      console.log(ex);
+    }
   };
   return (
     <Dialog addGroup={props.viewProfile} onClick={props.onClick}>
