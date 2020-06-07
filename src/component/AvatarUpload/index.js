@@ -3,12 +3,12 @@ import ThemeContext from '../../contexts/ThemeContext';
 import DialogButton from '../../component/DialogButton';
 import ImageCrop from '../ImageCrop';
 import './style.scss';
+import Dialog from '../Dialog';
 export const AvatarUpload = ({
   selectedImage,
   setUserProfilePic,
-  addGroup,
+  dialogStatus,
   onClick,
-  setIsClicked,
 }) => {
   const [editor, setEditor] = useState(null);
   const [scaleValue, setScaleValue] = useState(1);
@@ -28,20 +28,20 @@ export const AvatarUpload = ({
     setScaleValue(scaleValue);
   };
   const theme = useContext(ThemeContext);
-  const stylesDialogGroupBox = {
-    backgroundColor: theme.palette.groupDialog.boxBgColorDark,
+  const stylesDialogAvatarBox = {
+    backgroundColor: theme.palette.dialog.boxBgColorDark,
   };
-  const stylesDialogGroupTitle = {
-    color: theme.palette.groupDialog.titleColor,
+  const stylesDialogAvatarTitle = {
+    color: theme.palette.dialog.titleColor,
   };
-  const stylesDialogGroupButton = {
-    color: theme.palette.groupDialog.buttonColor,
-    backgroundColor: theme.palette.groupDialog.buttonBgColor,
+  const stylesDialogAvatarButton = {
+    color: theme.palette.dialog.buttonColor,
+    backgroundColor: theme.palette.dialog.buttonBgColor,
   };
   return (
-    <div className={addGroup ? 'dialogOn' : 'dialogOff'}>
-      <div className="dialogBox" style={stylesDialogGroupBox}>
-        <p className="dialogTitle" style={stylesDialogGroupTitle}>
+    <Dialog dialogStatus={dialogStatus}>
+      <div className="dialogBox" style={stylesDialogAvatarBox}>
+        <p className="dialogTitle" style={stylesDialogAvatarTitle}>
           Upload your avatar
         </p>
         <div>
@@ -52,20 +52,17 @@ export const AvatarUpload = ({
             scaleValue={scaleValue}
             onScaleChange={onScaleChange}
           />
-          <div className="cancel-btn">
-            <button styles={stylesDialogGroupButton} onClick={() => setIsClicked(false)}>
+          <div className="avatarButtons">
+            <DialogButton styles={stylesDialogAvatarButton} onClick={onClick}>
               Cancel
-            </button>
-          </div>
-
-          <div className="btn-container">
-            <DialogButton styles={stylesDialogGroupButton} onClick={onCrop}>
+            </DialogButton>
+            <DialogButton styles={stylesDialogAvatarButton} onClick={onCrop}>
               Save
             </DialogButton>
           </div>
         </div>
       </div>
-    </div>
+    </Dialog>
   );
 };
 export default AvatarUpload;

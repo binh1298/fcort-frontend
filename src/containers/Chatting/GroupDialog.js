@@ -11,20 +11,20 @@ export const GroupDialog = (props) => {
   const [isFocused, setIsFocused] = useState(false);
   const theme = useContext(ThemeContext);
   const stylesDialogGroupBox = {
-    backgroundColor: theme.palette.groupDialog.boxBgColor,
+    backgroundColor: theme.palette.dialog.boxBgColor,
   };
   const stylesDialogGroupTitle = {
-    color: theme.palette.groupDialog.titleColor,
+    color: theme.palette.dialog.titleColor,
   };
   const stylesDialogGroupButton = {
-    color: theme.palette.groupDialog.buttonColor,
-    backgroundColor: theme.palette.groupDialog.buttonBgColor,
+    color: theme.palette.dialog.buttonColor,
+    backgroundColor: theme.palette.dialog.buttonBgColor,
   };
   const stylesInputBorder = {
-    borderColor: theme.palette.groupDialog.inputBorder,
+    borderColor: theme.palette.dialog.inputBorder,
   };
   const stylesInputBorderFocus = {
-    borderColor: theme.palette.groupDialog.inputBorderFocus,
+    borderColor: theme.palette.dialog.inputBorderFocus,
   };
   const stylesConfictNameError = {
     color: theme.palette.text.error,

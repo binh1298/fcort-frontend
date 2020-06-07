@@ -63,13 +63,12 @@ export const Welcome = () => {
   return (
     <div className="welcome-content">
       <AvatarUpload
-        addGroup={isClicked}
+        dialogStatus={isClicked}
         onClick={() => {
           setIsClicked(false);
         }}
         setUserProfilePic={setUserProfilePic}
         selectedImage={selectedImage}
-        setIsClicked={setIsClicked}
       />
       <div className="welcome-form">
         <form className="form-wrapper" onSubmit={handleSubmit(onSubmit)}>

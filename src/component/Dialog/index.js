@@ -2,19 +2,19 @@ import React, {useContext} from 'react';
 import ThemeContext from '../../contexts/ThemeContext';
 import './style.scss';
 
-export const Dialog = (props) => {
+export const Dialog = ({dialogStatus, onClick, children}) => {
   const theme = useContext(ThemeContext);
   const stylesDialogBackground = {
-    backgroundColor: theme.palette.groupDialog.backgroundColor,
+    backgroundColor: theme.palette.dialog.backgroundColor,
   };
   return (
-    <div className={props.dialogStatus ? 'dialogOn' : 'dialogOff'}>
+    <div className={dialogStatus ? 'dialogOn' : 'dialogOff'}>
       <div
         className="dialog-background"
         style={stylesDialogBackground}
-        onClick={props.onClick}
+        onClick={onClick}
       ></div>
-      {props.children}
+      {children}
     </div>
   );
 };
