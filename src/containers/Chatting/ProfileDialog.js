@@ -41,11 +41,10 @@ export const ProfileDialog = (props) => {
         {}
       );
       if (response.data.success) {
-        window.location.reload(true);
+        props.handleFetch();
+        props.onClick();
       }
-    } catch (ex) {
-      console.log(ex);
-    }
+    } catch (ex) {}
   };
   return (
     <Dialog addGroup={props.viewProfile} onClick={props.onClick}>
@@ -103,12 +102,7 @@ export const ProfileDialog = (props) => {
             </a>
             <div className="btn-submit">
               <p onClick={() => setIsEditOn(false)}>Cancel</p>
-              <DialogButton
-                styles={stylesDialogButtonSave}
-                onClick={() => setIsEditOn(false)}
-              >
-                Save
-              </DialogButton>
+              <DialogButton styles={stylesDialogButtonSave}>Save</DialogButton>
             </div>
           </form>
         </div>

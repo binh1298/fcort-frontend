@@ -74,6 +74,7 @@ export const Chatting = () => {
         avatar="https://github.com/kien123456k/Hello-world/blob/master/avatar.png?raw=true"
         fullname={inforProfile.fullname}
         gmail={inforProfile.email}
+        handleFetch={fetchProfile}
         onClick={() => {
           setIsClickedViewProfile(false);
         }}
