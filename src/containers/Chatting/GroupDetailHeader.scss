@@ -6,8 +6,14 @@
   justify-content: flex-start;
   align-items: center;
   width: 100%;
-  height: 200px;
   border-bottom: 1px inset;
+  padding-bottom: 12px;
+}
+
+@media screen and (max-width: 900px) {
+  .groupDetail-header {
+    padding-bottom: 24px;
+  }
 }
 
 .groupDetailAvt-wrapper {
@@ -18,6 +24,12 @@
   border-radius: 50%;
   margin-top: 24px;
   opacity: 0.8;
+}
+
+@media screen and (max-width: 900px) {
+  .groupDetailAvt-wrapper {
+    margin-top: 48px;
+  }
 }
 
 .groupDetailAvt {
@@ -66,4 +78,7 @@
   font-family: $message-font;
   font-size: 1.8rem;
   font-weight: 650;
+  word-wrap: break-word;
+  word-break: break-word;
+  text-align: center;
 }

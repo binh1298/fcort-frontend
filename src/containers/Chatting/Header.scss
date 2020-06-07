@@ -38,7 +38,7 @@
   border-style: none;
   background-color: transparent;
   outline: none;
-  z-index: 100;
+  z-index: 3;
   cursor: pointer;
   transition: opacity 0.3s ease-in-out;
 }
@@ -127,6 +127,7 @@
 .header-wrapper>i {
   padding-right: 16px;
   font-size: 2rem;
+  z-index: 8;
   opacity: 0.4;
   transition: opacity 0.1s ease-in-out;
   cursor: pointer;

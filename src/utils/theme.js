@@ -41,6 +41,7 @@ const theme = {
       backgroundColor: '#26884F',
     },
     groupDetail: {
+      backgroundColor: '#FFFFFF',
       lineColor: '#D3D3D3',
     },
   },
