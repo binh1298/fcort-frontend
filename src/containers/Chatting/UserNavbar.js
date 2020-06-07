@@ -5,10 +5,10 @@ import UserOption from './UserOption';
 export const UserNavbar = (props) => {
   return (
     <div className="userNavbar-wrapper">
-      <img src={props.avatar} onClick={props.onClickViewProfile} />
+      <img src={props.avatar} />
       <div className="userDropdown">
         <button className="optionBtn">
-          <p>{props.userName}</p>
+          <p onClick={props.onClickViewProfile}>{props.userName}</p>
           <i
             onMouseEnter={() => props.onHoverUserOption(true)}
             onMouseLeave={() => props.onHoverUserOption(false)}
