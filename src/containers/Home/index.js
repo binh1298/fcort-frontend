@@ -67,7 +67,7 @@ export const Home = () => {
         <UserNavbar
           avatar="https://github.com/kien123456k/Hello-world/blob/master/avatar.png?raw=true"
           userName="Nguyễn Trần Thiên Đức"
-          onClickUserOption={() => setIsClickedUserOption(!isClickedUserOption)}
+          onHoverUserOption={(value) => setIsClickedUserOption(value)}
           isClickedUserOption={isClickedUserOption}
           userOption={[
             {id: 'aaa', name: 'Account Setting', icon: <i className="fa fas fa-cog"></i>},
@@ -75,7 +75,7 @@ export const Home = () => {
           ]}
           viewProfile={isClickedViewProfile}
           onClickViewProfile={() => {
-            setIsClickedViewProfile(true);
+            setIsClickedViewProfile(false);
           }}
         />
         <FavoriteSection

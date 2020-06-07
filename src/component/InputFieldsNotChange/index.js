@@ -1,7 +1,7 @@
 import React from 'react';
-import './FieldsNotChange.scss';
+import './style.scss';
 
-const FieldsNotChange = ({label, value, styleTitle, styleBoder}) => {
+const InputFieldsNotChange = ({label, value, styleTitle, styleBoder}) => {
   return (
     <div className="fields-notChange">
       <h4 style={styleTitle}>{label}</h4>
@@ -10,4 +10,4 @@ const FieldsNotChange = ({label, value, styleTitle, styleBoder}) => {
   );
 };
 
-export default FieldsNotChange;
+export default InputFieldsNotChange;

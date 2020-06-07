@@ -4,12 +4,11 @@ import './ProfileDialog.scss';
 import ThemeContext from '../../contexts/ThemeContext';
 import DialogButton from '../../component/DialogButton';
 import Avatar from '../../component/Avatar';
-import FieldsChange from './FieldsChange';
-import FieldsNotChange from './FieldsNotChange';
+import InputFieldsChange from '../../component/InputFieldsChange';
+import InputFieldsNotChange from '../../component/InputFieldsNotChange';
 import Dialog from '../../component/Dialog';
 
 export const ProfileDialog = (props) => {
-  const [currentText, setCurrentText] = useState(props.userName);
   const [isEditOn, setIsEditOn] = useState(false);
   const theme = useContext(ThemeContext);
   const stylesDialogOverlay = {
@@ -34,21 +33,8 @@ export const ProfileDialog = (props) => {
     backgroundColor: theme.palette.profileDialog.btnCancelBgColor,
   };
   const {register, handleSubmit, errors} = useForm();
-  const onSubmit = () => {
-    console.log(currentText);
-  };
-  const check = () => {
-    var specialChars = '<>@!#$%^&*()_+[]{}?:;|\'"\\,./~`-=';
-    if (currentText.length == 0) {
-      return false;
-    }
-    var i;
-    for (i = 0; i < specialChars.length; i++) {
-      if (currentText.indexOf(specialChars[i]) > -1) {
-        return false;
-      }
-    }
-    return true;
+  const onSubmit = (data) => {
+    console.log(data);
   };
   return (
     <Dialog addGroup={props.viewProfile} onClick={props.onClick}>
@@ -64,13 +50,13 @@ export const ProfileDialog = (props) => {
           </div>
         </div>
         <div className={isEditOn ? 'profileEdit-Off' : 'profileEdit-On'}>
-          <FieldsNotChange
+          <InputFieldsNotChange
             label="FULL NAME:"
             value={props.userName}
             styleTitle={stylesProfileTitle}
             styleBoder={stylesInputBorder}
           />
-          <FieldsNotChange
+          <InputFieldsNotChange
             label="GMAIL:"
             value={props.gmail}
             styleTitle={stylesProfileTitle}
@@ -80,19 +66,17 @@ export const ProfileDialog = (props) => {
 
         <div className={isEditOn ? 'profileEdit-On' : 'profileEdit-Off'}>
           <form className="inputFullName" onSubmit={handleSubmit(onSubmit)}>
-            <FieldsChange
+            <InputFieldsChange
               label="FULL NAME:"
               name="fullname"
               placeholder="Full Name"
               type="text"
+              value={props.userName}
               style={stylesProfileTitle}
-              value={currentText}
               register={register}
               errors={errors}
-              onHandleChange={(e) => setCurrentText(e)}
-              id={check() ? 'checkChar-false' : 'checkChar-true'}
             />
-            <FieldsNotChange
+            <InputFieldsNotChange
               label="GMAIL:"
               value={props.gmail}
               styleTitle={stylesProfileTitle}

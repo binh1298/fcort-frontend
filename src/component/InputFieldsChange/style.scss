@@ -27,19 +27,13 @@ $borderFocusColor: #38d39f;
     margin: 4px;
 }
 
-#falsecheckChar-true {
+#icon-text-invalid {
     color: rgba(241, 82, 9, 0.9);
 }
 
-#falsecheckChar-false {
-   display: none;
-}
 
-#truecheckChar-false {
+#icon-text-valid {
     color: $borderFocusColor;
-}
-#truecheckChar-true {
-    display: none;
 }
 
 .fields-change span {
