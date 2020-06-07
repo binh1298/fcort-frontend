@@ -37,9 +37,9 @@ export const Avatar = (props) => {
         setIsClicked={setIsClicked}
       />
 
-      <form className="form-wrapper">
-        <div className="logo-cover">
-          <img className="logo-fcode" src={userProfilePic || props.href} />
+      <form className="avatar-wrapper">
+        <div className="avatar-cover">
+          <img src={userProfilePic || props.href} />
           <div id={props.id}>
             <span>Upload Avt</span>
             <input

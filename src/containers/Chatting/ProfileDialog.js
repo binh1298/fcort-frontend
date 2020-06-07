@@ -78,7 +78,7 @@ export const ProfileDialog = (props) => {
         </div>
 
         <div className={isEditOn ? 'profileEdit-On' : 'profileEdit-Off'}>
-          <form className="inputFullName" onSubmit={handleSubmit(onSubmit)}>
+          <form onSubmit={handleSubmit(onSubmit)}>
             <div className="avatar-container">
               <Avatar href={props.avatar} />
             </div>
@@ -103,7 +103,12 @@ export const ProfileDialog = (props) => {
             </a>
             <div className="btn-submit">
               <p onClick={() => setIsEditOn(false)}>Cancel</p>
-              <DialogButton styles={stylesDialogButtonSave}>Save</DialogButton>
+              <DialogButton
+                styles={stylesDialogButtonSave}
+                onClick={() => setIsEditOn(false)}
+              >
+                Save
+              </DialogButton>
             </div>
           </form>
         </div>

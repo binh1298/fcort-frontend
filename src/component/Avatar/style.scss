@@ -1,25 +1,18 @@
 @import '../../fonts.scss';
-
-.avatar-container {
-	width: 100%;
-	display: flex;
-	justify-content: center;
-	text-align: center;
-}
-
-.form-wrapper {
+.avatar-wrapper {
 	width: 100px;
 }
 
-.logo-cover {
+.avatar-cover {
 	position: relative;
 }
 
-.logo-cover > img {
-    height: 100px;
+.avatar-cover > img {
+	height: 100px;
+	border-radius: 50%;
 }
 
-.logo-cover span {
+.avatar-cover span {
 	opacity: 0;
 	color: rgb(36, 33, 33);
 	font-size: 1rem;
@@ -29,19 +22,19 @@
 	transform: translate(-50%, -50%);
 }
 
-.logo-cover i {
+.avatar-cover i {
 	position: absolute;
 	top: 0;
 	right: -10%;
 }
 
-.logo-cover:hover img {
+.avatar-cover:hover img {
 	background-color: #333;
 	transition: 0.5s;
 	opacity: 0.5;
 }
 
-.logo-cover input {
+.avatar-cover input {
 	position: absolute;
 	top: 0px;
 	left: 0px;
@@ -51,7 +44,7 @@
 	cursor: pointer;
 }
 
-.logo-cover:hover span {
+.avatar-cover:hover span {
 	transition: 1;
 	opacity: 0.9;
 }

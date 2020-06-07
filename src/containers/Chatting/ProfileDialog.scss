@@ -35,6 +35,9 @@
 .avatar-container {
     position: relative; 
     width: 100%;
+    display: flex;
+	justify-content: center;
+	text-align: center;
 }
 
 .avatar-container::before {
@@ -105,24 +108,12 @@
     display: none;
 }
 
-.inputFullName {
-    width: 100%;
-}
-.inputFullName>.fields-notChange {
-    opacity: 0.5;
-}
-
 // Check special Character
 .notifyOn {
     color: #FF0000;
     font-size: 0.9rem;
     display: block; 
 }
-
-#check-fullname-active {
-    color: #38d39f;
-}
-
 .btn-submit {
     display: flex;
     justify-content: flex-end;
