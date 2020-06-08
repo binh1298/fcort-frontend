@@ -8,6 +8,7 @@
   "dependencies": {
     "axios": "^0.19.2",
     "dotenv": "^8.2.0",
+    "firebase": "^7.15.0",
     "font-awesome": "^4.7.0",
     "jwt-decode": "^2.2.0",
     "object-assign": "^4.1.1",
