@@ -10,6 +10,7 @@ import MessagesArea from './MessagesArea';
 import GroupDialog from './GroupDialog';
 import {get} from '../../utils/ApiCaller';
 import ProfileDialog from './ProfileDialog';
+import AddFavoriteGroup from './AddFavoriteGroup';
 import {LOCALSTORAGE_TOKEN_NAME} from '../../configurations';
 import LocalStorageUtils from '../../utils/LocalStorageUtils';
 const user = LocalStorageUtils.getUser(LOCALSTORAGE_TOKEN_NAME);
@@ -41,6 +42,29 @@ export const Chatting = () => {
       setChatTarget(tempGroupList[0]);
     }
   };
+
+  const favoriteFetching = async () => {
+    //Call the sever
+    try {
+      const response = await get('/favorites', {});
+      if (response.data.success) {
+        return response.data.data;
+      }
+    } catch (ex) {
+      if (ex.response && ex.response.status === 401) {
+        LocalStorageUtils.deleteUser();
+      }
+    }
+  };
+  const [favoriteList, setFavoriteList] = useState([]);
+  const fetchFavorite = async () => {
+    const tempFavoriteList = await favoriteFetching();
+    await setFavoriteList(tempFavoriteList);
+    if (tempFavoriteList.length) {
+      setChatTarget(tempFavoriteList[0]);
+    }
+  };
+
   const profileFetching = async () => {
     //Call the sever
     try {
@@ -58,10 +82,12 @@ export const Chatting = () => {
   useEffect(() => {
     fetchGroup();
     fetchProfile();
+    fetchFavorite();
   }, []);
   const [chatTarget, setChatTarget] = useState({});
   const [isClickedMenu, setIsClickedMenu] = useState(true);
   const [isClickedAddGroup, setIsClickedAddGroup] = useState(false);
+  const [isClickedAddFavorite, setIsClickedAddFavorite] = useState(false);
   const [isClickedUserOption, setIsClickedUserOption] = useState(false);
   const [isClickedViewProfile, setIsClickedViewProfile] = useState(false);
   return (
@@ -71,6 +97,13 @@ export const Chatting = () => {
         handleFetch={fetchGroup}
         onClick={() => {
           setIsClickedAddGroup(false);
+        }}
+      />
+      <AddFavoriteGroup
+        addFavorite={isClickedAddFavorite}
+        handleFetch={fetchFavorite}
+        onClick={() => {
+          setIsClickedAddFavorite(false);
         }}
       />
       <ProfileDialog
@@ -103,11 +136,8 @@ export const Chatting = () => {
         />
         <FavoriteSection
           chooseChatTarget={setChatTarget}
-          favoriteList={[
-            {id: '123', name: 'reactjs'},
-            {id: '456', name: 'vuejs'},
-            {id: '789', name: 'angular'},
-          ]}
+          favoriteList={favoriteList}
+          onClick={() => setIsClickedAddFavorite(true)}
         />
         <GroupSection
           chooseChatTarget={setChatTarget}
