@@ -9,7 +9,8 @@ import Header from './Header';
 import MessagesArea from './MessagesArea';
 import GroupDialog from './GroupDialog';
 import {get} from '../../utils/ApiCaller';
-
+import {LOCALSTORAGE_TOKEN_NAME} from '../../configurations';
+import LocalStorageUtils from '../../utils/LocalStorageUtils';
 export const Chatting = () => {
   const theme = useContext(ThemeContext);
   const styles = {
@@ -23,7 +24,11 @@ export const Chatting = () => {
       if (response.data.success) {
         return response.data.data;
       }
-    } catch (ex) {}
+    } catch (ex) {
+      if (ex.response && ex.response.status === 401) {
+        LocalStorageUtils.deleteUser();
+      }
+    }
   };
   const [groupList, setGroupList] = useState([]);
   const fetchGroup = async () => {
