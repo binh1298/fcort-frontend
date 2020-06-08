@@ -3,7 +3,7 @@ import {useForm} from 'react-hook-form';
 import './ProfileDialog.scss';
 import ThemeContext from '../../contexts/ThemeContext';
 import DialogButton from '../../component/DialogButton';
-import Avatar from '../../component/Avatar';
+import ProfileAvatar from '../../component/ProfileAvatar';
 import InputFieldsChange from '../../component/InputFieldsChange';
 import InputFieldsNotChange from '../../component/InputFieldsNotChange';
 import Dialog from '../../component/Dialog';
@@ -54,7 +54,7 @@ export const ProfileDialog = (props) => {
         <h2 style={stylesProfileTitle}>My Profile</h2>
         <div className="profile-avatar" id={isEditOn ? 'disable-edit-profile' : ''}>
           <div className="avatar-container">
-            <Avatar href={props.avatar} id="disable-btn-add-avatar" />
+            <ProfileAvatar href={props.avatar} id="disable-btn-add-avatar" />
           </div>
           <div className="btn-edit-profile" onClick={() => setIsEditOn(true)}>
             <button className="btn-edit">
@@ -81,7 +81,7 @@ export const ProfileDialog = (props) => {
         <div className={isEditOn ? 'profileEdit-On' : 'profileEdit-Off'}>
           <form onSubmit={handleSubmit(onSubmit)}>
             <div className="avatar-container">
-              <Avatar href={props.avatar} />
+              <ProfileAvatar href={props.avatar} />
             </div>
             <InputFieldsChange
               label="FULL NAME:"

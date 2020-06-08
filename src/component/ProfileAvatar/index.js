@@ -3,7 +3,7 @@ import './style.scss';
 import AvatarUpload from '../../component/AvatarUpload';
 import userAvt from '../../assets/images/userAvt.png';
 
-export const Avatar = (props) => {
+export const ProfileAvatar = (props) => {
   const [userProfilePic, setUserProfilePic] = useState('');
   const [selectedImage, setSelectedImage] = useState('');
   const [openCropper, setOpenCropper] = useState(false);
@@ -37,7 +37,7 @@ export const Avatar = (props) => {
         setIsClicked={setIsClicked}
       />
 
-      <form className="avatar-wrapper">
+      <div className="avatar-wrapper">
         <div className="avatar-cover">
           <img src={userProfilePic || props.href} />
           <div id={props.id}>
@@ -54,8 +54,8 @@ export const Avatar = (props) => {
             <i className="fa fa-camera"></i>
           </div>
         </div>
-      </form>
+      </div>
     </div>
   );
 };
-export default Avatar;
+export default ProfileAvatar;
