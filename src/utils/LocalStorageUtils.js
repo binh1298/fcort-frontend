@@ -27,12 +27,23 @@ class LocalStorageUtils {
       localStorage.clear();
     }
   }
-
+  deleteUser() {
+    this.removeItem(LOCALSTORAGE_TOKEN_NAME);
+    window.location.reload(false);
+  }
   getUser() {
     if (typeof localStorage !== 'undefined') {
       const token = this.getItem(LOCALSTORAGE_TOKEN_NAME);
-      if (token) return jwt_decode(token);
-      else return token;
+      if (token) {
+        try {
+          jwt_decode(token);
+          return jwt_decode(token);
+        } catch (ex) {
+          if (ex.response && ex.response.status === 401) {
+            this.deleteUser();
+          }
+        }
+      } else return token;
     }
     return undefined;
   }

@@ -27,7 +27,11 @@ export const Chatting = () => {
       if (response.data.success) {
         return response.data.data;
       }
-    } catch (ex) {}
+    } catch (ex) {
+      if (ex.response && ex.response.status === 401) {
+        LocalStorageUtils.deleteUser();
+      }
+    }
   };
   const [groupList, setGroupList] = useState([]);
   const fetchGroup = async () => {
