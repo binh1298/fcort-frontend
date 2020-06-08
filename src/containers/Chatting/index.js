@@ -9,6 +9,10 @@ import GroupDialog from './GroupDialog';
 import Header from './Header';
 import MessagesArea from './MessagesArea';
 import {get} from '../../utils/ApiCaller';
+import ProfileDialog from './ProfileDialog';
+import {LOCALSTORAGE_TOKEN_NAME} from '../../configurations';
+import LocalStorageUtils from '../../utils/LocalStorageUtils';
+const user = LocalStorageUtils.getUser(LOCALSTORAGE_TOKEN_NAME);
 
 export const Chatting = () => {
   const theme = useContext(ThemeContext);
@@ -23,7 +27,11 @@ export const Chatting = () => {
       if (response.data.success) {
         return response.data.data;
       }
-    } catch (ex) {}
+    } catch (ex) {
+      if (ex.response && ex.response.status === 401) {
+        LocalStorageUtils.deleteUser();
+      }
+    }
   };
   const [groupList, setGroupList] = useState([]);
   const fetchGroup = async () => {
@@ -33,14 +41,30 @@ export const Chatting = () => {
       setChatTarget(tempGroupList[0]);
     }
   };
+  const profileFetching = async () => {
+    //Call the sever
+    try {
+      const response = await get(`/users/${user.sub}`, {});
+      if (response.data.success) {
+        return response.data.data;
+      }
+    } catch (ex) {}
+  };
+  const [inforProfile, setInforProfile] = useState({});
+  const fetchProfile = async () => {
+    const tempInforProfile = await profileFetching();
+    await setInforProfile(tempInforProfile);
+  };
   useEffect(() => {
     fetchGroup();
+    fetchProfile();
   }, []);
   const [chatTarget, setChatTarget] = useState({});
   const [isClickedMenu, setIsClickedMenu] = useState(false);
   const [isClickedAddGroup, setIsClickedAddGroup] = useState(false);
   const [isClickedUserOption, setIsClickedUserOption] = useState(false);
   const [isClickedGroupDetail, setIsClickedGroupDetail] = useState(false);
+  const [isClickedViewProfile, setIsClickedViewProfile] = useState(false);
   return (
     <div className="home-container">
       <GroupDialog
@@ -50,19 +74,33 @@ export const Chatting = () => {
           setIsClickedAddGroup(false);
         }}
       />
-      <div className={isClickedMenu ? 'navbar' : 'navbar toggle-target'} style={styles}>
+      <ProfileDialog
+        viewProfile={isClickedViewProfile}
+        avatar="https://github.com/kien123456k/Hello-world/blob/master/avatar.png?raw=true"
+        fullname={inforProfile.fullname}
+        gmail={inforProfile.email}
+        handleFetch={fetchProfile}
+        onClick={() => {
+          setIsClickedViewProfile(false);
+        }}
+      />
+      <div className={isClickedMenu ? 'navbar toggle-target' : 'navbar'} style={styles}>
         <h1>
           <i className="fa fas fa-tv fa-lg"></i>Fcord
         </h1>
         <UserNavbar
           avatar="https://github.com/kien123456k/Hello-world/blob/master/avatar.png?raw=true"
-          userName="Nguyễn Trần Thiên Đức"
-          onClickUserOption={() => setIsClickedUserOption(!isClickedUserOption)}
+          userName={inforProfile.fullname}
+          onHoverUserOption={(value) => setIsClickedUserOption(value)}
           isClickedUserOption={isClickedUserOption}
           userOption={[
             {id: 'aaa', name: 'Account Setting', icon: <i className="fa fas fa-cog"></i>},
             {id: 'bbb', name: 'Logout', icon: <i className="fa fas fa-sign-out"></i>},
           ]}
+          viewProfile={isClickedViewProfile}
+          onClickViewProfile={() => {
+            setIsClickedViewProfile(true);
+          }}
         />
         <FavoriteSection
           chooseChatTarget={setChatTarget}

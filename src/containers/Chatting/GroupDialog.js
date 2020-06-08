@@ -6,7 +6,8 @@ import InputField from '../../component/InputField';
 import DialogButton from '../../component/DialogButton';
 import Dialog from '../../component/Dialog';
 import {post} from '../../utils/ApiCaller';
-
+import LocalStorageUtils from '../../utils/LocalStorageUtils';
+import {LOCALSTORAGE_TOKEN_NAME} from '../../configurations';
 export const GroupDialog = (props) => {
   const [isFocused, setIsFocused] = useState(false);
   const theme = useContext(ThemeContext);
@@ -46,6 +47,9 @@ export const GroupDialog = (props) => {
         props.onClick();
       }
     } catch (ex) {
+      if (ex.response.status === 401) {
+        LocalStorageUtils.deleteUser();
+      }
       if (ex.response) {
         setError('groupsName');
       }

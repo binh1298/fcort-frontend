@@ -44,6 +44,15 @@ const theme = {
       backgroundColor: '#FFFFFF',
       lineColor: '#D3D3D3',
     },
+    profileDialog: {
+      overlayColor: 'rgba(0, 0, 0, 0.4)',
+      boxColor: '#FFFFFF',
+      titleColor: '#00995c',
+      inputBorder: '#f2f2f2',
+      btnSubmitColor: '#FFFFFF',
+      btnSaveBgColor: '#00995c',
+      btnCancelBgColor: '#999999',
+    },
   },
 };
 

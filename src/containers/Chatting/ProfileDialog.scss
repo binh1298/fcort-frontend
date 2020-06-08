@@ -1,0 +1,141 @@
+@import '../../fonts.scss';
+@keyframes appear {
+    0% {
+      transform: scale(0.1, 0.1);
+    }
+  
+    100% {
+      transform: scale(1, 1);
+    }
+  }
+
+.profile-dialog {
+    display: flex;
+    flex-direction: column;
+    z-index: 1;
+    font-size: 1rem;
+    min-width: 35%;
+    padding: 16px 32px;
+    border-radius: 5px;
+    align-items: center;
+    animation-name: appear;
+    animation-duration: 0.3s;
+    animation-timing-function: ease-in-out;
+    position: relative;
+    font-family: $default-font;
+}
+
+//Profile Avatar
+.profile-avatar
+{
+    text-align: center;
+    width: 100%;
+}
+
+.avatar-container {
+    position: relative; 
+    width: 100%;
+    display: flex;
+	justify-content: center;
+	text-align: center;
+}
+
+.avatar-container::before {
+    content: "";
+    display: block;
+    border-bottom: 4px solid #00995c;
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    z-index: -1;
+    border-radius: 2px;
+}
+
+.btn-edit-profile {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.btn-edit {
+    display: flex;
+    justify-content: space-between;
+    color: #747474;
+    font-size: 0.9rem;
+    padding: 6px 10px;
+    background-color:  #00995c;
+    border-radius: 6px;
+    border: 2px solid transparent;
+}
+
+.fa.fa-pencil{
+    margin-right: 8px;
+    color: #FFFFFF;
+    display: none;
+    text-align: center;
+} 
+
+.btn-edit-label {
+    color: #FFFFFF;
+    font-family: $default-font;
+}
+
+.btn-edit:hover  {
+    cursor: pointer;
+    opacity: 0.9;
+    border-color:  #00995c;
+    .btn-edit-label {
+    text-decoration: underline;
+    }
+    .fa.fa-pencil{
+        display: block;
+    }
+}
+
+.btn-edit:active {
+    border: none;
+}
+
+#disable-edit-profile {
+    display: none;
+}
+
+// Profile Fullname
+.profileEdit-On {
+    width: 100%;
+}
+
+.profileEdit-Off {
+    display: none;
+}
+
+// Check special Character
+.notifyOn {
+    color: #FF0000;
+    font-size: 0.9rem;
+    display: block; 
+}
+.btn-submit {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.btn-submit>p {
+    display: flex;
+    align-items: center;
+}
+
+.btn-submit>p:hover {
+    text-decoration: underline;
+    cursor: pointer;
+} 
+
+.btn-submit>button {
+    margin-left: 16px;
+}
+
+.change-password {
+    color:#747474;
+}
+.change-password:hover {
+    color: #020202;
+}
