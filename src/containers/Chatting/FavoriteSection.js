@@ -1,6 +1,6 @@
 import React, {useContext, useState} from 'react';
 import './FavoriteSection.scss';
-import ListItems from '../../../component/ListItems';
+import ListItems from '../../component/ListItems';
 
 export const FavoriteSection = (props) => {
   return (

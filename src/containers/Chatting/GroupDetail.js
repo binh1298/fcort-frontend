@@ -1,6 +1,6 @@
 import React, {useContext, useState} from 'react';
 import './GroupDetail.scss';
-import ThemeContext from '../../../contexts/ThemeContext';
+import ThemeContext from '../../contexts/ThemeContext';
 import GroupDetailHeader from './GroupDetailHeader';
 
 export const GroupDetail = ({navbarStatus, chatTarget}) => {

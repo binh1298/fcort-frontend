@@ -1,11 +1,11 @@
 import React, {useContext, useState} from 'react';
 import {useForm} from 'react-hook-form';
 import './GroupDialog.scss';
-import ThemeContext from '../../../contexts/ThemeContext';
-import InputField from '../../../component/InputField';
-import DialogButton from '../../../component/DialogButton';
-import Dialog from '../../../component/Dialog';
-import {post} from '../../../utils/ApiCaller';
+import ThemeContext from '../../contexts/ThemeContext';
+import InputField from '../../component/InputField';
+import DialogButton from '../../component/DialogButton';
+import Dialog from '../../component/Dialog';
+import {post} from '../../utils/ApiCaller';
 
 export const GroupDialog = (props) => {
   const [isFocused, setIsFocused] = useState(false);

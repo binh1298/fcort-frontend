@@ -1,7 +1,7 @@
 import React, {useState, useContext, useEffect} from 'react';
 import './GroupSection.scss';
-import ListItems from '../../../component/ListItems';
-import ThemeContext from '../../../contexts/ThemeContext';
+import ListItems from '../../component/ListItems';
+import ThemeContext from '../../contexts/ThemeContext';
 
 export const GroupSection = (props) => {
   const theme = useContext(ThemeContext);
