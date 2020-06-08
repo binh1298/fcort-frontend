@@ -3,6 +3,7 @@
 .options-wrapper {
   position: absolute;
   top: 100%;
+  right: 0;
   width: 100%;
   min-width: 180px;
   display: flex;
@@ -14,8 +15,11 @@
   animation-duration: 0.1s;
   animation-timing-function: ease-in-out;
   transform-origin: top;
-  padding-left: 8px;
-  padding-right: 8px;
+  padding: 8px;
+  word-wrap: break-word;
+  word-break: break-word;
+  font-size: 1rem;
+  font-family: $default-font;
 }
 
 @keyframes userOptionAppear {
