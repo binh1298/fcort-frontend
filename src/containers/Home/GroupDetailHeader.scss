@@ -38,6 +38,11 @@
   height: 110px;
   border-radius: 50%;
   opacity: 0.9;
+  transition: all 0.3s ease-in-out;
+}
+
+.groupDetailAvt-wrapper:hover .groupDetailAvt {
+  opacity: 0.5;
 }
 
 .groupDetailAvt-wrapper>input {
@@ -56,21 +61,16 @@
   left: 0;
   width: 100%;
   text-align: center;
-  margin-top: 36px;
-  font-size: 1rem;
+  margin-top: 42px;
+  font-size: 1.1rem;
   font-family: $default-font;
   font-weight: bold;
   opacity: 0;
+  transition: all 0.3s ease-in-out;
 }
 
 .groupDetailAvt-wrapper:hover span {
   opacity: 1;
-  transition: 0.3s ease-in-out;
-}
-
-.groupDetailAvt-wrapper:hover img {
-  opacity: 0.5;
-  transition: 0.3s ease-in-out;
 }
 
 .groupDetailName {
