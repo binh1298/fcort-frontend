@@ -1,13 +1,13 @@
 import React, {useContext, useState, useEffect} from 'react';
 import './style.scss';
 import ThemeContext from '../../contexts/ThemeContext';
-import UserNavbar from './UserNavbar';
-import FavoriteSection from './FavoriteSection';
-import GroupSection from './GroupSection';
-import MessagesSection from './MessagesSection';
-import Header from './Header';
-import MessagesArea from './MessagesArea';
-import GroupDialog from './GroupDialog';
+import UserNavbar from './Menu/UserNavbar';
+import FavoriteSection from './Menu/FavoriteSection';
+import GroupSection from './Menu/GroupSection';
+import MessagesSection from './Menu/MessagesSection';
+import GroupDialog from './Menu/GroupDialog';
+import Header from './Header/Header';
+import MessagesArea from './MessageArea/MessagesArea';
 import {get} from '../../utils/ApiCaller';
 
 export const Home = () => {

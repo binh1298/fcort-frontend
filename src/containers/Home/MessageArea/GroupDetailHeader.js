@@ -1,13 +1,14 @@
 import React, {useContext, useState} from 'react';
 import './GroupDetailHeader.scss';
-import groupAvt from '../../assets/images/groupAvt.png';
-import ThemeContext from '../../contexts/ThemeContext';
-import AvatarUpload from '../../component/AvatarUpload';
+import groupAvt from '../../../assets/images/groupAvt.png';
+import ThemeContext from '../../../contexts/ThemeContext';
+import AvatarUpload from '../../../component/AvatarUpload';
 
 export const GroupDetailHeader = ({chatTarget}) => {
   const theme = useContext(ThemeContext);
   const lineStyles = {
     borderColor: theme.palette.groupDetail.lineColor,
+    s,
   };
   const [groupProfilePic, setGroupProfilePic] = useState('');
   const [selectedImage, setSelectedImage] = useState('');
