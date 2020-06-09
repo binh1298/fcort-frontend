@@ -7,11 +7,13 @@ export const UserNavbar = (props) => {
     <div className="userNavbar-wrapper">
       <img src={props.avatar} />
       <div className="userDropdown">
-        <button className="optionBtn">
-          <p onClick={props.onClickViewProfile}>{props.userName}</p>
+        <button
+          className="optionBtn"
+          onMouseEnter={() => props.onHoverUserOption(true)}
+          onMouseLeave={() => props.onHoverUserOption(false)}
+        >
+          <p>{props.userName}</p>
           <i
-            onMouseEnter={() => props.onHoverUserOption(true)}
-            onMouseLeave={() => props.onHoverUserOption(false)}
             className={
               props.isClickedUserOption
                 ? 'fa fas fa-caret-up fa-lg'
@@ -21,6 +23,7 @@ export const UserNavbar = (props) => {
             <UserOption
               userOption={props.userOption}
               isClickedUserOption={props.isClickedUserOption}
+              onClickViewProfile={props.onClickViewProfile}
             />
           </i>
         </button>
