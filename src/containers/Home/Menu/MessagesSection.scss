@@ -1,6 +1,7 @@
-@import '../../fonts.scss';
+@import '../../../fonts.scss';
 
-.favorite-wrapper {
+
+.messages-wrapper {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -9,28 +10,30 @@
   padding-bottom: 16px;
 }
 
-.favorite-wrapper>p {
+.messages-wrapper>p {
   padding-bottom: 8px;
   white-space: nowrap;
   font-size: 1.5rem;
   cursor: default;
 }
 
-.favorite-wrapper>p>i {
+.messages-wrapper>p>i {
   padding-left: 12px;
   padding-right: 8px;
 }
 
-.favorite-wrapper>ul {
+.messages-wrapper>ul {
   font-size: 1.1rem;
   padding-left: 12px;
+  word-wrap: break-word;
+  word-break: break-word;
   width: 100%;
 }
 
-.favorite-wrapper>ul>li {
+.messages-wrapper>ul>li {
   display: flex;
   justify-content: flex-start;
-  align-items: flex-start;
+  align-items: center;
   word-wrap: break-word;
   word-break: break-word;
   padding-top: 6px;

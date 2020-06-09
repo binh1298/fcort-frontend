@@ -4,7 +4,7 @@ import {PublicRoute} from './PublicRoute';
 import {PrivateRoute} from './PrivateRoute';
 import SignUp from '../containers/SignUp';
 import Login from '../containers/Login';
-import Home from '../containers/Home';
+import FullnameChecking from '../containers/FullnameChecking';
 export const publicRoutes = [
   {
     path: '/login',
@@ -20,8 +20,8 @@ export const publicRoutes = [
 export const privateRoutes = [
   {
     path: '/',
-    name: 'Home',
-    component: Home,
+    name: 'FullnameChecking',
+    component: FullnameChecking,
   },
 ];
 export const Routes = (

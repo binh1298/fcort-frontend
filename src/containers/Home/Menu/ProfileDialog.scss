@@ -1,13 +1,14 @@
-@import '../../fonts.scss';
+@import '../../../fonts.scss';
+
 @keyframes appear {
     0% {
-      transform: scale(0.1, 0.1);
+        transform: scale(0.1, 0.1);
     }
-  
+
     100% {
-      transform: scale(1, 1);
+        transform: scale(1, 1);
     }
-  }
+}
 
 .profile-dialog {
     display: flex;
@@ -26,18 +27,17 @@
 }
 
 //Profile Avatar
-.profile-avatar
-{
+.profile-avatar {
     text-align: center;
     width: 100%;
 }
 
 .avatar-container {
-    position: relative; 
+    position: relative;
     width: 100%;
     display: flex;
-	justify-content: center;
-	text-align: center;
+    justify-content: center;
+    text-align: center;
 }
 
 .avatar-container::before {
@@ -62,31 +62,33 @@
     color: #747474;
     font-size: 0.9rem;
     padding: 6px 10px;
-    background-color:  #00995c;
+    background-color: #00995c;
     border-radius: 6px;
     border: 2px solid transparent;
 }
 
-.fa.fa-pencil{
+.fa.fa-pencil {
     margin-right: 8px;
     color: #FFFFFF;
     display: none;
     text-align: center;
-} 
+}
 
 .btn-edit-label {
     color: #FFFFFF;
     font-family: $default-font;
 }
 
-.btn-edit:hover  {
+.btn-edit:hover {
     cursor: pointer;
     opacity: 0.9;
-    border-color:  #00995c;
+    border-color: #00995c;
+
     .btn-edit-label {
-    text-decoration: underline;
+        text-decoration: underline;
     }
-    .fa.fa-pencil{
+
+    .fa.fa-pencil {
         display: block;
     }
 }
@@ -112,8 +114,9 @@
 .notifyOn {
     color: #FF0000;
     font-size: 0.9rem;
-    display: block; 
+    display: block;
 }
+
 .btn-submit {
     display: flex;
     justify-content: flex-end;
@@ -127,15 +130,16 @@
 .btn-submit>p:hover {
     text-decoration: underline;
     cursor: pointer;
-} 
+}
 
 .btn-submit>button {
     margin-left: 16px;
 }
 
 .change-password {
-    color:#747474;
+    color: #747474;
 }
+
 .change-password:hover {
     color: #020202;
 }
