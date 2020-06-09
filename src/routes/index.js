@@ -4,7 +4,7 @@ import {PublicRoute} from './PublicRoute';
 import {PrivateRoute} from './PrivateRoute';
 import SignUp from '../containers/SignUp';
 import Login from '../containers/Login';
-import FullnameChecking from '../containers/FullnameChecking';
+import FullnameChecker from '../containers/FullnameChecker';
 export const publicRoutes = [
   {
     path: '/login',
@@ -20,8 +20,8 @@ export const publicRoutes = [
 export const privateRoutes = [
   {
     path: '/',
-    name: 'FullnameChecking',
-    component: FullnameChecking,
+    name: 'FullnameChecker',
+    component: FullnameChecker,
   },
 ];
 export const Routes = (
