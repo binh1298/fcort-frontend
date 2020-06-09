@@ -66,7 +66,7 @@ export const Welcome = () => {
   return (
     <div className="welcome-content">
       <AvatarUpload
-        addGroup={isClicked}
+        dialogStatus={isClicked}
         onClick={() => {
           setIsClicked(false);
         }}

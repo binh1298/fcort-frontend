@@ -1,4 +1,5 @@
-@import '../../fonts.scss';
+@import '../../../fonts.scss';
+
 
 .header-wrapper {
   display: flex;
@@ -38,7 +39,7 @@
   border-style: none;
   background-color: transparent;
   outline: none;
-  z-index: 100;
+  z-index: 3;
   cursor: pointer;
   transition: opacity 0.3s ease-in-out;
 }
@@ -101,6 +102,8 @@
 
 .header-wrapper>form>button {
   display: flex;
+  justify-self: center;
+  align-items: center;
   height: inherit;
   padding-left: 8px;
   padding-right: 8px;
@@ -125,13 +128,14 @@
 .header-wrapper>i {
   padding-right: 16px;
   font-size: 2rem;
-  opacity: 0.3;
-  transition: opacity 0.3s ease-in-out;
+  z-index: 8;
+  opacity: 0.4;
+  transition: opacity 0.1s ease-in-out;
   cursor: pointer;
 }
 
-.header-wrapper>i:hover {
-  opacity: 0.8;
+.header-wrapper>i:active {
+  opacity: 0.7;
 }
 
 @media screen and (max-width: 900px) {
@@ -139,4 +143,8 @@
     padding-right: 8px;
     font-size: 1.8rem;
   }
+}
+
+.header-wrapper>.groupDetailIconOn {
+  opacity: 1;
 }
