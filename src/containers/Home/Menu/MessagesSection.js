@@ -1,6 +1,6 @@
 import React from 'react';
 import './MessagesSection.scss';
-import ListItems from '../../component/ListItems';
+import ListItems from '../../../component/ListItems';
 
 export const MessagesSection = (props) => {
   return (

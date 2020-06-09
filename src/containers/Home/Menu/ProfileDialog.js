@@ -1,15 +1,15 @@
 import React, {useState, useContext, useEffect} from 'react';
 import {useForm} from 'react-hook-form';
 import './ProfileDialog.scss';
-import ThemeContext from '../../contexts/ThemeContext';
-import DialogButton from '../../component/DialogButton';
-import ProfileAvatar from '../../component/ProfileAvatar';
-import InputFieldsChange from '../../component/InputFieldsChange';
-import InputFieldsNotChange from '../../component/InputFieldsNotChange';
-import Dialog from '../../component/Dialog';
-import {put} from '../../utils/ApiCaller';
-import {LOCALSTORAGE_TOKEN_NAME} from '../../configurations';
-import LocalStorageUtils from '../../utils/LocalStorageUtils';
+import ThemeContext from '../../../contexts/ThemeContext';
+import DialogButton from '../../../component/DialogButton';
+import ProfileAvatar from '../../../component/ProfileAvatar';
+import InputFieldsChange from '../../../component/InputFieldsChange';
+import InputFieldsNotChange from '../../../component/InputFieldsNotChange';
+import Dialog from '../../../component/Dialog';
+import {put} from '../../../utils/ApiCaller';
+import {LOCALSTORAGE_TOKEN_NAME} from '../../../configurations';
+import LocalStorageUtils from '../../../utils/LocalStorageUtils';
 const user = LocalStorageUtils.getUser(LOCALSTORAGE_TOKEN_NAME);
 
 export const ProfileDialog = (props) => {

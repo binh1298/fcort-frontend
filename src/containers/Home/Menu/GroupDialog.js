@@ -1,31 +1,31 @@
 import React, {useContext, useState} from 'react';
 import {useForm} from 'react-hook-form';
 import './GroupDialog.scss';
-import ThemeContext from '../../contexts/ThemeContext';
-import InputField from '../../component/InputField';
-import DialogButton from '../../component/DialogButton';
-import Dialog from '../../component/Dialog';
-import {post} from '../../utils/ApiCaller';
-import LocalStorageUtils from '../../utils/LocalStorageUtils';
-import {LOCALSTORAGE_TOKEN_NAME} from '../../configurations';
+import ThemeContext from '../../../contexts/ThemeContext';
+import InputField from '../../../component/InputField';
+import DialogButton from '../../../component/DialogButton';
+import Dialog from '../../../component/Dialog';
+import {post} from '../../../utils/ApiCaller';
+import LocalStorageUtils from '../../../utils/LocalStorageUtils';
+import {LOCALSTORAGE_TOKEN_NAME} from '../../../configurations';
 export const GroupDialog = (props) => {
   const [isFocused, setIsFocused] = useState(false);
   const theme = useContext(ThemeContext);
   const stylesDialogGroupBox = {
-    backgroundColor: theme.palette.groupDialog.boxBgColor,
+    backgroundColor: theme.palette.dialog.boxBgColor,
   };
   const stylesDialogGroupTitle = {
-    color: theme.palette.groupDialog.titleColor,
+    color: theme.palette.dialog.titleColor,
   };
   const stylesDialogGroupButton = {
-    color: theme.palette.groupDialog.buttonColor,
-    backgroundColor: theme.palette.groupDialog.buttonBgColor,
+    color: theme.palette.dialog.buttonColor,
+    backgroundColor: theme.palette.dialog.buttonBgColor,
   };
   const stylesInputBorder = {
-    borderColor: theme.palette.groupDialog.inputBorder,
+    borderColor: theme.palette.dialog.inputBorder,
   };
   const stylesInputBorderFocus = {
-    borderColor: theme.palette.groupDialog.inputBorderFocus,
+    borderColor: theme.palette.dialog.inputBorderFocus,
   };
   const stylesConfictNameError = {
     color: theme.palette.text.error,
@@ -56,7 +56,7 @@ export const GroupDialog = (props) => {
     }
   };
   return (
-    <Dialog addGroup={props.addGroup} onClick={props.onClick}>
+    <Dialog dialogStatus={props.dialogStatus} onClick={props.onClick}>
       <div className="dialogGroupBox" style={stylesDialogGroupBox}>
         <p className="dialogGroupTitle" style={stylesDialogGroupTitle}>
           Add a new group

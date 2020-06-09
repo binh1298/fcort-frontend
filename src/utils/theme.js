@@ -21,12 +21,13 @@ const theme = {
     header: {
       horizontalLine: '#D3D3D3',
       searchBgColor: '#DCDCDC',
+      exclamationIcon: '#28B463',
     },
     message: {
       textInput: '#e6e6e6',
       backgroundColor: '#F5F5F5',
     },
-    groupDialog: {
+    dialog: {
       backgroundColor: 'rgba(0, 0, 0, 0.4)',
       boxBgColor: '#FFFFFF',
       titleColor: '#00995c',
@@ -38,6 +39,10 @@ const theme = {
     },
     userOptionDialog: {
       backgroundColor: '#26884F',
+    },
+    groupDetail: {
+      backgroundColor: '#FFFFFF',
+      lineColor: '#D3D3D3',
     },
     profileDialog: {
       overlayColor: 'rgba(0, 0, 0, 0.4)',

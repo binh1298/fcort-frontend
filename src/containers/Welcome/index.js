@@ -31,6 +31,7 @@ export const Welcome = () => {
         `/users/${userID}`,
         {
           fullname: data.fullname,
+          avatar: userProfilePic,
         },
         {}
       );
@@ -40,7 +41,9 @@ export const Welcome = () => {
         window.location.reload(false);
       }
     } catch (ex) {
-      console.log(ex);
+      if (ex.response && ex.response.status === 401) {
+        LocalStorageUtils.deleteUser();
+      }
     }
   };
   const profilePicChange = (fileChangeEvent) => {
@@ -63,13 +66,14 @@ export const Welcome = () => {
   return (
     <div className="welcome-content">
       <AvatarUpload
-        addGroup={isClicked}
+        dialogStatus={isClicked}
         onClick={() => {
           setIsClicked(false);
         }}
         setUserProfilePic={setUserProfilePic}
         selectedImage={selectedImage}
         setIsClicked={setIsClicked}
+        userID={userID}
       />
       <div className="welcome-form">
         <form className="form-wrapper" onSubmit={handleSubmit(onSubmit)}>

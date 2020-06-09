@@ -1,4 +1,5 @@
-@import '../../fonts.scss';
+@import '../../../fonts.scss';
+
 
 .messages-wrapper {
   display: flex;
@@ -26,6 +27,7 @@
   padding-left: 12px;
   word-wrap: break-word;
   word-break: break-word;
+  width: 100%;
 }
 
 .messages-wrapper>ul>li {

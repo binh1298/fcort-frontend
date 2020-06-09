@@ -1,9 +1,8 @@
 import React, {useContext, useState} from 'react';
 import './UserOption.scss';
-import {Redirect} from 'react-router-dom';
-import ThemeContext from '../../contexts/ThemeContext';
-import {LOCALSTORAGE_TOKEN_NAME} from '../../configurations';
-import LocalStorageUtils from '../../utils/LocalStorageUtils';
+import ThemeContext from '../../../contexts/ThemeContext';
+import {LOCALSTORAGE_TOKEN_NAME} from '../../../configurations';
+import LocalStorageUtils from '../../../utils/LocalStorageUtils';
 
 const Options = (props) => {
   const theme = useContext(ThemeContext);
