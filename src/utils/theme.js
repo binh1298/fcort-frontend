@@ -43,6 +43,7 @@ const theme = {
     groupDetail: {
       backgroundColor: '#FFFFFF',
       lineColor: '#D3D3D3',
+      plusIconColor: '#2ecc71',
     },
     profileDialog: {
       overlayColor: 'rgba(0, 0, 0, 0.4)',

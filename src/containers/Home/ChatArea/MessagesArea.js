@@ -2,7 +2,7 @@ import React, {useContext} from 'react';
 import './MessagesArea.scss';
 import ThemeContext from '../../../contexts/ThemeContext';
 import ChatSection from './ChatSection';
-import GroupDetail from './GroupDetail';
+import GroupDetail from './GroupDetail/GroupDetail';
 
 export const MessagesArea = ({
   username,

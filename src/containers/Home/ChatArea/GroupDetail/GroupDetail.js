@@ -1,7 +1,8 @@
 import React, {useContext, useState} from 'react';
 import './GroupDetail.scss';
-import ThemeContext from '../../../contexts/ThemeContext';
+import ThemeContext from '../../../../contexts/ThemeContext';
 import GroupDetailHeader from './GroupDetailHeader';
+import GroupDetailMenu from './GroupDetailMenu';
 
 export const GroupDetail = ({navbarStatus, chatTarget}) => {
   const theme = useContext(ThemeContext);
@@ -22,6 +23,7 @@ export const GroupDetail = ({navbarStatus, chatTarget}) => {
     >
       <div className="groupDetail-wrapper" style={lineStyles}>
         <GroupDetailHeader chatTarget={chatTarget} />
+        <GroupDetailMenu />
       </div>
     </div>
   );

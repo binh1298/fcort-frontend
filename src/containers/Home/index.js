@@ -63,7 +63,7 @@ export const Home = () => {
   const [isClickedMenu, setIsClickedMenu] = useState(false);
   const [isClickedAddGroup, setIsClickedAddGroup] = useState(false);
   const [isClickedUserOption, setIsClickedUserOption] = useState(false);
-  const [isClickedGroupDetail, setIsClickedGroupDetail] = useState(false);
+  const [isClickedGroupDetail, setIsClickedGroupDetail] = useState(true);
   const [isClickedViewProfile, setIsClickedViewProfile] = useState(false);
   return (
     <div className="home-container">
