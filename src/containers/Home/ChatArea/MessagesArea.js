@@ -8,7 +8,6 @@ export const MessagesArea = ({
   username,
   messages,
   avatarChat,
-  onClickMenu,
   navbarStatus,
   chatTarget,
 }) => {
@@ -18,7 +17,7 @@ export const MessagesArea = ({
   };
   return (
     <div className="messagesArea-groupDetail">
-      <div className="messagesArea-wrapper" onClick={onClickMenu}>
+      <div className="messagesArea-wrapper">
         <ChatSection messages={messages} username={username} avatarChat={avatarChat} />
         <form>
           <input type="text" placeholder="Type a messages..." style={styles}></input>

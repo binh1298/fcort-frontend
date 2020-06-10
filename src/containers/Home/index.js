@@ -84,7 +84,11 @@ export const Home = () => {
           setIsClickedViewProfile(false);
         }}
       />
-      <div className={isClickedMenu ? 'navbar toggle-target' : 'navbar'} style={styles}>
+      <div
+        className={isClickedMenu ? 'navbarOn' : 'navbarOff'}
+        onClick={() => setIsClickedMenu(false)}
+      ></div>
+      <div className={isClickedMenu ? 'navbar' : 'navbar toggle-target'} style={styles}>
         <h1>
           <i className="fa fas fa-tv fa-lg"></i>Fcord
         </h1>
@@ -140,7 +144,6 @@ export const Home = () => {
         />
         <MessagesArea
           chatTarget={chatTarget}
-          onClickMenu={() => setIsClickedMenu(false)}
           username="Nguyễn Trần Thiên Đức"
           avatarChat={[
             {
