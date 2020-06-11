@@ -14,6 +14,7 @@ const user = LocalStorageUtils.getUser(LOCALSTORAGE_TOKEN_NAME);
 
 export const ProfileDialog = (props) => {
   const [isEditOn, setIsEditOn] = useState(false);
+  const [avatarUpload, setAvatarUpload] = useState();
   const theme = useContext(ThemeContext);
   const stylesProfileBackround = {
     backgroundColor: theme.palette.profileDialog.boxColor,
@@ -36,6 +37,7 @@ export const ProfileDialog = (props) => {
         `/users/${user.sub}`,
         {
           fullname: data.fullname,
+          avatar: avatarUpload,
         },
         {}
       );
@@ -49,7 +51,7 @@ export const ProfileDialog = (props) => {
     }
   };
   return (
-    <Dialog addGroup={props.viewProfile} onClick={props.onClick}>
+    <Dialog dialogStatus={props.viewProfile} onClick={props.onClick}>
       <div className="profile-dialog" style={stylesProfileBackround}>
         <h2 style={stylesProfileTitle}>My Profile</h2>
         <div className="profile-avatar" id={isEditOn ? 'disable-edit-profile' : ''}>
@@ -81,7 +83,7 @@ export const ProfileDialog = (props) => {
         <div className={isEditOn ? 'profileEdit-On' : 'profileEdit-Off'}>
           <form onSubmit={handleSubmit(onSubmit)}>
             <div className="avatar-container">
-              <ProfileAvatar href={props.avatar} />
+              <ProfileAvatar href={props.avatar} onClick={(e) => setAvatarUpload(e)} />
             </div>
             <InputFieldsChange
               label="FULL NAME:"
