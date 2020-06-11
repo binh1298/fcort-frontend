@@ -1,4 +1,5 @@
-@import '../../fonts.scss';
+@import '../../../fonts.scss';
+
 
 .group-wrapper {
   display: flex;
@@ -37,6 +38,7 @@
   padding-left: 12px;
   word-wrap: break-word;
   word-break: break-word;
+  width: 100%;
 }
 
 .group-wrapper>ul>li {

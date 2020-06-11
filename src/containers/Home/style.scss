@@ -3,8 +3,8 @@
 .home-container {
   display: grid;
   position: relative;
-  grid-template-columns: minmax(330px, 27vw) minmax(0, 70vw);
-  grid-column-gap: 3vw;
+  grid-template-columns: 400px minmax(0, 1fr);
+  grid-column-gap: 2vw;
   font-family: $default-font;
   overflow: hidden;
 }
@@ -34,6 +34,7 @@
   .home-container>.navbar {
     position: absolute;
     width: 90%;
+    min-width: 0;
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
   }
