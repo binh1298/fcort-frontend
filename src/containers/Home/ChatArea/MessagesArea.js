@@ -10,6 +10,7 @@ export const MessagesArea = ({
   avatarChat,
   navbarStatus,
   chatTarget,
+  membersList,
 }) => {
   const theme = useContext(ThemeContext);
   const styles = {
@@ -26,7 +27,11 @@ export const MessagesArea = ({
           </button>
         </form>
       </div>
-      <GroupDetail navbarStatus={navbarStatus} chatTarget={chatTarget} />
+      <GroupDetail
+        navbarStatus={navbarStatus}
+        chatTarget={chatTarget}
+        membersList={membersList}
+      />
     </div>
   );
 };

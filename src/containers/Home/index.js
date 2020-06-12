@@ -12,9 +12,9 @@ import {get} from '../../utils/ApiCaller';
 import ProfileDialog from './Menu/ProfileDialog';
 import {LOCALSTORAGE_TOKEN_NAME} from '../../configurations';
 import LocalStorageUtils from '../../utils/LocalStorageUtils';
-const user = LocalStorageUtils.getUser(LOCALSTORAGE_TOKEN_NAME);
 
 export const Home = () => {
+  const user = LocalStorageUtils.getUser(LOCALSTORAGE_TOKEN_NAME);
   const theme = useContext(ThemeContext);
   const styles = {
     backgroundColor: theme.palette.navbar.background,
@@ -59,6 +59,31 @@ export const Home = () => {
     fetchGroup();
     fetchProfile();
   }, []);
+  const memberFetching = async () => {
+    //Call the server
+    try {
+      console.log(chatTarget);
+      const response = await get(`/groups/${chatTarget.id}/members`, {});
+      if (response.data.success) {
+        console.log(response);
+        return response.data.data;
+      }
+    } catch (ex) {
+      if (ex.response && ex.response.status === 401) {
+        LocalStorageUtils.deleteUser();
+      }
+    }
+  };
+  const [membersList, setMembersList] = useState([]);
+  const fetchMembers = async () => {
+    const tempMembersList = await memberFetching();
+    await setMembersList(tempMembersList);
+  };
+  useEffect(() => {
+    if (Object.entries(chatTarget).length !== 0) {
+      fetchMembers();
+    }
+  }, [chatTarget]);
   const [chatTarget, setChatTarget] = useState({});
   const [isClickedMenu, setIsClickedMenu] = useState(false);
   const [isClickedAddGroup, setIsClickedAddGroup] = useState(false);
@@ -144,6 +169,7 @@ export const Home = () => {
         />
         <MessagesArea
           chatTarget={chatTarget}
+          membersList={membersList}
           username="Nguyễn Trần Thiên Đức"
           avatarChat={[
             {

@@ -22,17 +22,13 @@ const Items = (props) => {
   );
 };
 
-export const ListItems = (props) => {
-  const list = props.list.map((object) => (
-    <Items
-      key={object.id}
-      name={object.name}
-      isClick={() => props.chooseChatTarget(object)}
-    >
-      {props.icon}
+export const ListItems = ({list, icon, chooseChatTarget}) => {
+  const listItems = list.map((object) => (
+    <Items key={object.id} name={object.name} isClick={() => chooseChatTarget(object)}>
+      {icon}
     </Items>
   ));
-  return <ul>{list}</ul>;
+  return <ul>{listItems}</ul>;
 };
 
 export default ListItems;

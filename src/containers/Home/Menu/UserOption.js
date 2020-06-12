@@ -11,8 +11,7 @@ const Options = (props) => {
   });
   const handleLogoutClick = (props) => {
     if (props === 'Logout') {
-      LocalStorageUtils.removeItem(LOCALSTORAGE_TOKEN_NAME);
-      window.location.reload(false);
+      LocalStorageUtils.deleteUser();
     }
   };
   return (
