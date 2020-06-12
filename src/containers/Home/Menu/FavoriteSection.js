@@ -1,7 +1,7 @@
 import React, {useContext, useState} from 'react';
 import './FavoriteSection.scss';
-import ListItems from '../../component/ListItems';
-import ThemeContext from '../../contexts/ThemeContext';
+import ListItems from '../../../component/ListItems';
+import ThemeContext from '../../../contexts/ThemeContext';
 
 export const FavoriteSection = (props) => {
   const theme = useContext(ThemeContext);
