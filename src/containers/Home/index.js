@@ -12,7 +12,6 @@ import {get} from '../../utils/ApiCaller';
 import ProfileDialog from './Menu/ProfileDialog';
 import {LOCALSTORAGE_TOKEN_NAME} from '../../configurations';
 import LocalStorageUtils from '../../utils/LocalStorageUtils';
-import AddFavoriteGroup from './Menu/AddFavoriteGroup';
 const user = LocalStorageUtils.getUser(LOCALSTORAGE_TOKEN_NAME);
 
 export const Home = () => {
@@ -90,16 +89,8 @@ export const Home = () => {
   const [isClickedUserOption, setIsClickedUserOption] = useState(false);
   const [isClickedGroupDetail, setIsClickedGroupDetail] = useState(false);
   const [isClickedViewProfile, setIsClickedViewProfile] = useState(false);
-  const [isClickedAddFavorite, setIsClickedAddFavorite] = useState(false);
   return (
     <div className="home-container">
-      <AddFavoriteGroup
-        dialogStatus={isClickedAddFavorite}
-        handleFetch={fetchFavoriteGroup}
-        onClick={() => {
-          setIsClickedAddFavorite(false);
-        }}
-      />
       <GroupDialog
         dialogStatus={isClickedAddGroup}
         handleFetch={fetchGroup}
