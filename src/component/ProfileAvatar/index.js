@@ -1,13 +1,21 @@
 import React, {useState} from 'react';
+import {useForm} from 'react-hook-form';
 import './style.scss';
+import {put, get} from '../../utils/ApiCaller';
+import {LOCALSTORAGE_TOKEN_NAME} from '../../configurations';
+import LocalStorageUtils from '../../utils/LocalStorageUtils';
+import usePersistedState from '../../utils/usePersistedState';
 import AvatarUpload from '../../component/AvatarUpload';
 import userAvt from '../../assets/images/userAvt.png';
 
 export const ProfileAvatar = (props) => {
-  const [userProfilePic, setUserProfilePic] = useState('');
+  const [user, setUser] = usePersistedState(LOCALSTORAGE_TOKEN_NAME);
+  const [token, setToken] = usePersistedState(LOCALSTORAGE_TOKEN_NAME, '');
+  const [userProfilePic, setUserProfilePic] = useState();
   const [selectedImage, setSelectedImage] = useState('');
   const [openCropper, setOpenCropper] = useState(false);
   const [isClicked, setIsClicked] = useState(false);
+  const userID = LocalStorageUtils.getUser(LOCALSTORAGE_TOKEN_NAME).sub;
   const profilePicChange = (fileChangeEvent) => {
     const file = fileChangeEvent.target.files[0] || selectedImage;
     const {type} = file;
@@ -25,21 +33,26 @@ export const ProfileAvatar = (props) => {
       setSelectedImage(file);
     }
   };
+  const handleSetUserProfile = (event) => {
+    setUserProfilePic(event);
+    props.onClick(event);
+  };
   return (
     <div>
       <AvatarUpload
-        addGroup={isClicked}
+        dialogStatus={isClicked}
         onClick={() => {
           setIsClicked(false);
         }}
-        setUserProfilePic={setUserProfilePic}
+        setUserProfilePic={handleSetUserProfile}
         selectedImage={selectedImage}
         setIsClicked={setIsClicked}
+        userID={userID}
       />
 
       <div className="avatar-wrapper">
         <div className="avatar-cover">
-          <img src={userProfilePic || props.href} />
+          <img src={userProfilePic || props.src} />
           <div id={props.id}>
             <span>Upload Avt</span>
             <input
