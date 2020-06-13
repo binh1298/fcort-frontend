@@ -1,30 +1,26 @@
 import React, {useContext, useState} from 'react';
 import './FavoriteSection.scss';
 import ListItems from '../../../component/ListItems';
-import ThemeContext from '../../../contexts/ThemeContext';
+import RemoveFavoriteGroup from './RemoveFavoriteGroup';
 
 export const FavoriteSection = (props) => {
-  const theme = useContext(ThemeContext);
-  const [styles, setStyles] = useState({
-    color: theme.palette.navbar.hoverColor,
-  });
+  const handleRemoveFavoriteGroup = async (e) => {
+    await RemoveFavoriteGroup(e);
+    await props.handleFetch();
+  };
   return (
     <div className="favorite-wrapper">
       <p>
         <i className="fa fas fa-star"></i>
         Favorite
-        <i
-          className="fa fas fa-plus"
-          style={styles}
-          onClick={props.onClick}
-          onMouseOver={() => setStyles({color: theme.palette.navbar.titleColor})}
-          onMouseOut={() => setStyles({color: theme.palette.navbar.hoverColor})}
-        ></i>
       </p>
       <ListItems
         list={props.favoriteList}
         icon={<i className="fa fas fa-hashtag"></i>}
+        iconRemote="fa fa-trash"
+        labelRemote="Remove"
         chooseChatTarget={props.chooseChatTarget}
+        onClick={(e) => handleRemoveFavoriteGroup(e)}
       />
     </div>
   );

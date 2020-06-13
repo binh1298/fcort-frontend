@@ -17,6 +17,12 @@
   cursor: default;
 }
 
+.group-wrapper>span {
+  margin: 0 16px;
+  font-size: 0.9rem;
+  color: #D80000;
+}
+
 .group-wrapper>p>.fa-users {
   padding-left: 12px;
   padding-right: 8px;
@@ -33,6 +39,11 @@
   cursor: pointer;
 }
 
+.group-wrapper>p>i {
+  padding-left: 12px;
+  padding-right: 8px;
+}
+
 .group-wrapper>ul {
   font-size: 1.1rem;
   padding-left: 12px;
@@ -41,14 +52,6 @@
   width: 100%;
 }
 
-.group-wrapper>ul>li {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  word-wrap: break-word;
-  word-break: break-word;
-  padding-top: 6px;
-  padding-bottom: 6px;
-  padding-right: 16px;
-  cursor: pointer;
+.favorite-notify-off {
+  display: none;
 }

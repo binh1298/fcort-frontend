@@ -7,17 +7,42 @@ const Items = (props) => {
   const [styles, setStyles] = useState({
     color: theme.palette.navbar.hoverColor,
   });
+  const [isHoverItem, setIsHoverItem] = useState(false);
+  const [isHoverIcon, setIsOnHoverIcon] = useState(false);
+  const handleHoverOver = () => {
+    setIsHoverItem(true);
+    setStyles({color: theme.palette.navbar.titleColor});
+  };
+  const handleHoverOut = () => {
+    setIsHoverItem(false);
+    setStyles({color: theme.palette.navbar.hoverColor});
+  };
   return (
     <li
       style={styles}
-      onMouseOver={() => setStyles({color: theme.palette.navbar.titleColor})}
-      onMouseOut={() => setStyles({color: theme.palette.navbar.hoverColor})}
+      onMouseOver={() => handleHoverOver()}
+      onMouseOut={() => handleHoverOut()}
       onClick={props.isClick}
+      className="items"
     >
       <p className="itemName">
         {props.children}
         {props.name}
       </p>
+      <div
+        className={isHoverItem ? 'iconContainer' : 'iconContainer-Off'}
+        onClick={() => props.onClick(props.id)}
+      >
+        <i
+          className={props.iconRemote}
+          onMouseOver={() => setIsOnHoverIcon(true)}
+          onMouseOut={() => setIsOnHoverIcon(false)}
+        >
+          <div className={isHoverIcon ? 'iconLabel' : 'iconLabel-Off'}>
+            <p>{props.labelRemote}</p>
+          </div>
+        </i>
+      </div>
     </li>
   );
 };
@@ -28,6 +53,10 @@ export const ListItems = (props) => {
       key={object.id}
       name={object.name}
       isClick={() => props.chooseChatTarget(object)}
+      iconRemote={props.iconRemote}
+      labelRemote={props.labelRemote}
+      onClick={(e) => props.onClick(e)}
+      id={object.id}
     >
       {props.icon}
     </Items>

@@ -35,17 +35,7 @@
 .favorite-wrapper>ul {
   font-size: 1.1rem;
   padding-left: 12px;
-  width: 100%;
-}
-
-.favorite-wrapper>ul>li {
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
   word-wrap: break-word;
   word-break: break-word;
-  padding-top: 6px;
-  padding-bottom: 6px;
-  padding-right: 16px;
-  cursor: pointer;
+  width: 100%;
 }

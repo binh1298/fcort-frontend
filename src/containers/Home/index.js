@@ -128,13 +128,14 @@ export const Home = () => {
         />
         <FavoriteSection
           chooseChatTarget={setChatTarget}
-          onClick={() => setIsClickedAddFavorite(true)}
           favoriteList={favoriteGroupList}
+          handleFetch={fetchFavoriteGroup}
         />
         <GroupSection
           chooseChatTarget={setChatTarget}
           onClick={() => setIsClickedAddGroup(true)}
           groupList={groupList}
+          handleFetch={fetchFavoriteGroup}
         />
         <MessagesSection
           chooseChatTarget={setChatTarget}

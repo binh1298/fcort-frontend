@@ -6,6 +6,69 @@ li {
   transition: all 0.1s ease-in-out;
 }
 
+@keyframes appear {
+  0% {
+    transform: scale(0.1, 0.1);
+  }
+
+  100% {
+    transform: scale(1, 1);
+  }
+}
+
+.items {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  word-wrap: break-word;
+  word-break: break-word;
+  padding: 6px 0;
+  padding-right: 12px;
+  cursor: pointer;
+}
+
 .itemName>i {
   display: inline;
+}
+
+.iconContainer-Off {
+  display: none;
+}
+
+.iconContainer{
+  margin-right: 30px;
+}
+
+.iconContainer>i {
+  position: relative;
+}
+
+.iconLabel-Off {
+  display: none;
+}
+
+.iconLabel {
+  position: absolute;
+  text-align: center;
+  font-size: 0.9rem;
+  width: 100px;
+  padding: 6px 0;
+  border-radius: 5px;
+  background-color: rgba(0, 0, 0, 0.7);
+  cursor: default;
+  top: -40px;
+  animation: appear ease-in 0.03s ;
+  right: -40px;
+}
+
+.iconLabel::before {
+  z-index: 2;
+  content: "";
+  display: block;
+  border-width: 5px 4px;
+  border-color:rgba(0, 0, 0, 0.7) transparent transparent transparent;
+  border-style: solid;
+  position: absolute;
+  top: 100%;
+  left: 48%;
 }
