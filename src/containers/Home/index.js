@@ -100,7 +100,7 @@ export const Home = () => {
       />
       <ProfileDialog
         viewProfile={isClickedViewProfile}
-        avatar="https://github.com/kien123456k/Hello-world/blob/master/avatar.png?raw=true"
+        avatar={inforProfile.avatar}
         fullname={inforProfile.fullname}
         gmail={inforProfile.email}
         handleFetch={fetchProfile}
@@ -113,7 +113,7 @@ export const Home = () => {
           <i className="fa fas fa-tv fa-lg"></i>Fcord
         </h1>
         <UserNavbar
-          avatar="https://github.com/kien123456k/Hello-world/blob/master/avatar.png?raw=true"
+          avatar={inforProfile.avatar}
           userName={inforProfile.fullname}
           onHoverUserOption={(value) => setIsClickedUserOption(value)}
           isClickedUserOption={isClickedUserOption}

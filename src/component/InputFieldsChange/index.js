@@ -23,7 +23,7 @@ const InputFieldsChange = ({
         <div className={isFocused ? 'input-wrapper focus' : 'input-wrapper'}>
           <input
             name={name}
-            value={currentText}
+            defaultValue={value}
             type={type}
             onChange={(e) => {
               setCurrentText(e.target.value);
