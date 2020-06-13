@@ -12,7 +12,6 @@ export const AvatarUpload = ({
   onClick,
   setIsClicked,
   userID,
-  setUserProfilePicUpload,
 }) => {
   const [editor, setEditor] = useState(null);
   const [scaleValue, setScaleValue] = useState(1);
@@ -31,15 +30,13 @@ export const AvatarUpload = ({
     return new File([u8arr], filename, {type: mime});
   };
 
-  const onCrop = () => {
+  const onCrop = (event) => {
     if (editor !== null) {
       const url = editor.getImageScaledToCanvas().toDataURL();
       const imageFile = DataURLtoFile(url, selectedImage);
       setUserProfilePic(url);
       setIsClicked(false);
-      setUserProfilePicUpload(url);
       const uploadTask = storage.ref(`/avatar/${userID}`).put(imageFile);
-
       //initiates the firebase side uploading
       uploadTask.on('state_changed', () => {
         // gets the functions from storage refences the image storage in firebase by the children
@@ -50,9 +47,9 @@ export const AvatarUpload = ({
           .getDownloadURL()
           .then((fireBaseUrl) => {
             setUserProfilePic(fireBaseUrl);
-            setUserProfilePicUpload(fireBaseUrl);
           });
       });
+      event.preventDefault();
     }
   };
   const onScaleChange = (scaleChangeEvent) => {

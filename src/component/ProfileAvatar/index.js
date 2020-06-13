@@ -33,6 +33,10 @@ export const ProfileAvatar = (props) => {
       setSelectedImage(file);
     }
   };
+  const handleSetUserProfile = (event) => {
+    setUserProfilePic(event);
+    props.onClick(event);
+  };
   return (
     <div>
       <AvatarUpload
@@ -40,8 +44,7 @@ export const ProfileAvatar = (props) => {
         onClick={() => {
           setIsClicked(false);
         }}
-        setUserProfilePic={setUserProfilePic}
-        setUserProfilePicUpload={props.onClick}
+        setUserProfilePic={handleSetUserProfile}
         selectedImage={selectedImage}
         setIsClicked={setIsClicked}
         userID={userID}
@@ -49,7 +52,7 @@ export const ProfileAvatar = (props) => {
 
       <div className="avatar-wrapper">
         <div className="avatar-cover">
-          <img src={userProfilePic || props.href} />
+          <img src={userProfilePic || props.src} />
           <div id={props.id}>
             <span>Upload Avt</span>
             <input
