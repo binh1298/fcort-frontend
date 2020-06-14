@@ -1,1 +1,46 @@
 @import '../../fonts.scss';
+
+.listUsersGroupDetail {
+  font-size: 1.1rem;
+  font-family: $message-font;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.listUsersGroupDetail>li {
+  width: 100%;
+  padding: 8px 8px 8px 16px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  cursor: pointer;
+}
+
+.listUsersAvatar {
+  width: 36px;
+  border-radius: 50%;
+}
+
+.listUsersName {
+  width: 80%;
+  margin-left: 16px;
+  word-wrap: break-word;
+  word-break: break-word;
+}
+
+.listUserOptionsOn>i {
+  visibility: visible;
+  opacity: 0.7;
+  margin-right: 12px;
+  font-size: 1.2rem;
+  padding: 4px;
+}
+
+.listUserOptionsOff>i {
+  visibility: hidden;
+  opacity: 0.7;
+  margin-right: 12px;
+  font-size: 1.2rem;
+  padding: 4px;
+}

@@ -59,31 +59,6 @@ export const Home = () => {
     fetchGroup();
     fetchProfile();
   }, []);
-  const memberFetching = async () => {
-    //Call the server
-    try {
-      console.log(chatTarget);
-      const response = await get(`/groups/${chatTarget.id}/members`, {});
-      if (response.data.success) {
-        console.log(response);
-        return response.data.data;
-      }
-    } catch (ex) {
-      if (ex.response && ex.response.status === 401) {
-        LocalStorageUtils.deleteUser();
-      }
-    }
-  };
-  const [membersList, setMembersList] = useState([]);
-  const fetchMembers = async () => {
-    const tempMembersList = await memberFetching();
-    await setMembersList(tempMembersList);
-  };
-  useEffect(() => {
-    if (Object.entries(chatTarget).length !== 0) {
-      fetchMembers();
-    }
-  }, [chatTarget]);
   const [chatTarget, setChatTarget] = useState({});
   const [isClickedMenu, setIsClickedMenu] = useState(false);
   const [isClickedAddGroup, setIsClickedAddGroup] = useState(false);
@@ -97,16 +72,6 @@ export const Home = () => {
         handleFetch={fetchGroup}
         onClick={() => {
           setIsClickedAddGroup(false);
-        }}
-      />
-      <ProfileDialog
-        viewProfile={isClickedViewProfile}
-        avatar="https://github.com/kien123456k/Hello-world/blob/master/avatar.png?raw=true"
-        fullname={inforProfile.fullname}
-        gmail={inforProfile.email}
-        handleFetch={fetchProfile}
-        onClick={() => {
-          setIsClickedViewProfile(false);
         }}
       />
       <div
@@ -169,7 +134,6 @@ export const Home = () => {
         />
         <MessagesArea
           chatTarget={chatTarget}
-          membersList={membersList}
           username="Nguyễn Trần Thiên Đức"
           avatarChat={[
             {

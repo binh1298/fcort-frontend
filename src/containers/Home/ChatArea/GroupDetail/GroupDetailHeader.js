@@ -6,7 +6,7 @@ import AvatarUpload from '../../../../component/AvatarUpload';
 
 export const GroupDetailHeader = ({chatTarget}) => {
   const theme = useContext(ThemeContext);
-  const lineStyles = {
+  const stylesLine = {
     borderColor: theme.palette.groupDetail.lineColor,
   };
   const [groupProfilePic, setGroupProfilePic] = useState('');
@@ -31,7 +31,7 @@ export const GroupDetailHeader = ({chatTarget}) => {
     }
   };
   return (
-    <div className="groupDetail-header" style={lineStyles}>
+    <div className="groupDetail-header" style={stylesLine}>
       <AvatarUpload
         dialogStatus={isClickedAvatar}
         onClick={() => setIsClickedAvatar(false)}

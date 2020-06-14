@@ -14,7 +14,7 @@ const theme = {
       error: '#f15109',
     },
     navbar: {
-      background: '#28B463',
+      background: '#2ecc71',
       titleColor: '#FFFFFF',
       hoverColor: '#D0D3D4',
     },
@@ -30,7 +30,8 @@ const theme = {
     dialog: {
       backgroundColor: 'rgba(0, 0, 0, 0.4)',
       boxBgColor: '#FFFFFF',
-      titleColor: '#00995c',
+      titleColor: '#00B36B',
+      textColor: '#00663D',
       buttonColor: '#FFFFFF',
       buttonBgColor: '#2FBA83',
       inputBorder: '#f2f2f2',
@@ -44,11 +45,13 @@ const theme = {
       backgroundColor: '#FFFFFF',
       lineColor: '#D3D3D3',
       plusIconColor: '#2ecc71',
+      minusIConColor: '#e74c3c',
+      hoverListMembersColor: '#dcdde1',
     },
     profileDialog: {
       overlayColor: 'rgba(0, 0, 0, 0.4)',
       boxColor: '#FFFFFF',
-      titleColor: '#00995c',
+      titleColor: '#00B36B',
       inputBorder: '#f2f2f2',
       btnSubmitColor: '#FFFFFF',
       btnSaveBgColor: '#00995c',

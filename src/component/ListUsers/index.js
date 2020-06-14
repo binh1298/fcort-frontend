@@ -1,10 +1,47 @@
-import React, {useContext} from 'react';
+import React, {useContext, useState} from 'react';
 import './style.scss';
+import userAvt from '../../assets/images/userAvt.png';
+import ThemeContext from '../../contexts/ThemeContext';
 
-export const ListUsers = ({listUsers}) => {
-  const list = listUsers.map((object) => {
-    <li>{object.fullname}</li>;
-  });
-  return <ul>{list}</ul>;
+const User = ({fullname, id, setUsersID, children}) => {
+  const theme = useContext(ThemeContext);
+  const [styles, setStyles] = useState({});
+  return (
+    <li
+      style={styles}
+      onMouseOver={() =>
+        setStyles({backgroundColor: theme.palette.groupDetail.hoverListMembersColor})
+      }
+      onMouseOut={() => setStyles({})}
+    >
+      <img className="listUsersAvatar" src={userAvt} onClick={() => setUsersID(id)} />
+      <p className="listUsersName" onClick={() => setUsersID(id)}>
+        {fullname}
+      </p>
+      <div
+        className={
+          Object.entries(styles).length === 0 ? 'listUserOptionsOff' : 'listUserOptionsOn'
+        }
+        onClick={() => setUsersID(id)}
+      >
+        {children}
+      </div>
+    </li>
+  );
+};
+
+export const ListUsers = ({listUsers, setUsersID, children}) => {
+  const theme = useContext(ThemeContext);
+  const list = listUsers.map((object) => (
+    <User
+      fullname={object.fullname}
+      key={object.id}
+      id={object.id}
+      setUsersID={setUsersID}
+    >
+      {children}
+    </User>
+  ));
+  return <ul className="listUsersGroupDetail">{list}</ul>;
 };
 export default ListUsers;

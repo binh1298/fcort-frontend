@@ -3,18 +3,31 @@ import './GroupDetailMenu.scss';
 import ThemeContext from '../../../../contexts/ThemeContext';
 import ListUsers from '../../../../component/ListUsers';
 
-export const GroupDetailMenu = ({membersList}) => {
+export const GroupDetailMenu = ({
+  membersList,
+  onClickDeleteMembersDialog,
+  setGroupDetailUserTargetID,
+}) => {
   const theme = useContext(ThemeContext);
-  const plusIconstyles = {
+  const stylesPlusIcon = {
     color: theme.palette.groupDetail.plusIconColor,
+  };
+  const stylesMinusIcon = {
+    color: theme.palette.groupDetail.minusIConColor,
   };
   return (
     <div className="groupDetailMenu-wrapper">
       <div className="groupDetailMenu-header">
         <p>EVERYBODY</p>
-        <i className="fa fas fa-plus" style={plusIconstyles}></i>
+        <i className="fa fas fa-plus" style={stylesPlusIcon}></i>
       </div>
-      <ListUsers listUsers={membersList} />
+      <ListUsers listUsers={membersList} setUsersID={setGroupDetailUserTargetID}>
+        <i
+          className="fa fas fa-minus"
+          onClick={onClickDeleteMembersDialog}
+          style={stylesMinusIcon}
+        ></i>
+      </ListUsers>
     </div>
   );
 };
