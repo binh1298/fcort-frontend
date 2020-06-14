@@ -28,7 +28,7 @@ export const ListItems = ({list, icon, chooseChatTarget}) => {
       {icon}
     </Items>
   ));
-  return <ul>{listItems}</ul>;
+  return <ul className="listItemsName">{listItems}</ul>;
 };
 
 export default ListItems;

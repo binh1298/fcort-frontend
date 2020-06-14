@@ -11,28 +11,22 @@ import {LOCALSTORAGE_TOKEN_NAME} from '../../../configurations';
 export const GroupDialog = (props) => {
   const [isFocused, setIsFocused] = useState(false);
   const theme = useContext(ThemeContext);
-  const stylesDialogGroupBox = {
+  const stylesDialogAddGroupBox = {
     backgroundColor: theme.palette.dialog.boxBgColor,
   };
-  const stylesDialogGroupTitle = {
+  const stylesDialogAddGroupTitle = {
     color: theme.palette.dialog.titleColor,
   };
   const stylesDialogGroupButton = {
     color: theme.palette.dialog.buttonColor,
     backgroundColor: theme.palette.dialog.buttonBgColor,
   };
-  const stylesInputBorder = {
-    borderColor: theme.palette.dialog.inputBorder,
-  };
-  const stylesInputBorderFocus = {
-    borderColor: theme.palette.dialog.inputBorderFocus,
-  };
   const stylesConfictNameError = {
     color: theme.palette.text.error,
     textAlign: 'center',
   };
   const {register, handleSubmit, errors, setError} = useForm();
-  const onSubmit = async (data) => {
+  const groupAdding = async (data) => {
     //Call the server
     try {
       const response = await post(
@@ -57,13 +51,13 @@ export const GroupDialog = (props) => {
   };
   return (
     <Dialog dialogStatus={props.dialogStatus} onClick={props.onClick}>
-      <div className="dialogGroupBox" style={stylesDialogGroupBox}>
-        <p className="dialogGroupTitle" style={stylesDialogGroupTitle}>
+      <div className="dialogAddGroupBox" style={stylesDialogAddGroupBox}>
+        <p className="dialogAddGroupTitle" style={stylesDialogAddGroupTitle}>
           Add a new group
         </p>
         <form
           className={isFocused ? 'inputGroupName focus' : 'inputGroupName'}
-          onSubmit={handleSubmit(onSubmit)}
+          onSubmit={handleSubmit(groupAdding)}
           onFocus={() => setIsFocused(true)}
           onBlur={() => setIsFocused(false)}
         >

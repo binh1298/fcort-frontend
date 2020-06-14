@@ -1,6 +1,6 @@
 @import '../../../fonts.scss';
 
-.dialogGroupBox {
+.dialogAddGroupBox {
   top: 0;
   left: 0;
   display: flex;
@@ -10,13 +10,13 @@
   max-width: 80%;
   padding: 24px 24px 24px 24px;
   border-radius: 6px;
-  animation-name: dialogGroupAppear;
+  animation-name: dialogAddGroupAppear;
   animation-duration: 0.2s;
   animation-timing-function: ease-in-out;
   z-index: 4;
 }
 
-@keyframes dialogGroupAppear {
+@keyframes dialogAddGroupAppear {
   0% {
     transform: scale(0.1, 0.1);
   }
@@ -26,8 +26,9 @@
   }
 }
 
-.dialogGroupBox>.dialogGroupTitle {
+.dialogAddGroupTitle {
   align-self: flex-start;
+  font-family: $default-font;
   font-size: 1.5rem;
   margin-left: 1vw;
 }

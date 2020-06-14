@@ -1,10 +1,10 @@
 import React from 'react';
 import './style.scss';
 
-export const DialogButton = (props) => {
+export const DialogButton = ({styles, onClick, children}) => {
   return (
-    <button className="dialogBtn" style={props.styles} onClick={props.onClick}>
-      {props.children}
+    <button className="dialogBtn" style={styles} onClick={onClick}>
+      {children}
     </button>
   );
 };
