@@ -30,7 +30,7 @@ export const AvatarUpload = ({
     return new File([u8arr], filename, {type: mime});
   };
 
-  const onCrop = () => {
+  const onCrop = (event) => {
     if (editor !== null) {
       const url = editor.getImageScaledToCanvas().toDataURL();
       const imageFile = DataURLtoFile(url, selectedImage);
@@ -49,6 +49,7 @@ export const AvatarUpload = ({
             setUserProfilePic(fireBaseUrl);
           });
       });
+      event.preventDefault();
     }
   };
   const onScaleChange = (scaleChangeEvent) => {

@@ -74,16 +74,26 @@ export const Home = () => {
           setIsClickedAddGroup(false);
         }}
       />
+      <ProfileDialog
+        viewProfile={isClickedViewProfile}
+        avatar={inforProfile.avatar}
+        fullname={inforProfile.fullname}
+        gmail={inforProfile.email}
+        handleFetch={fetchProfile}
+        onClick={() => {
+          setIsClickedViewProfile(false);
+        }}
+      />
       <div
         className={isClickedMenu ? 'navbarOn' : 'navbarOff'}
         onClick={() => setIsClickedMenu(false)}
       ></div>
-      <div className={isClickedMenu ? 'navbar' : 'navbar toggle-target'} style={styles}>
+      <div className={isClickedMenu ? 'navbar toggle-target' : 'navbar'} style={styles}>
         <h1>
           <i className="fa fas fa-tv fa-lg"></i>Fcord
         </h1>
         <UserNavbar
-          avatar="https://github.com/kien123456k/Hello-world/blob/master/avatar.png?raw=true"
+          avatar={inforProfile.avatar}
           userName={inforProfile.fullname}
           onHoverUserOption={(value) => setIsClickedUserOption(value)}
           isClickedUserOption={isClickedUserOption}

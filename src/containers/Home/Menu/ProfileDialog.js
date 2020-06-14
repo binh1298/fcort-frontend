@@ -8,12 +8,14 @@ import InputFieldsChange from '../../../component/InputFieldsChange';
 import InputFieldsNotChange from '../../../component/InputFieldsNotChange';
 import Dialog from '../../../component/Dialog';
 import {put} from '../../../utils/ApiCaller';
+import userAvt from '../../../assets/images/userAvt.png';
 import {LOCALSTORAGE_TOKEN_NAME} from '../../../configurations';
 import LocalStorageUtils from '../../../utils/LocalStorageUtils';
 const user = LocalStorageUtils.getUser(LOCALSTORAGE_TOKEN_NAME);
 
 export const ProfileDialog = (props) => {
   const [isEditOn, setIsEditOn] = useState(false);
+  const [avatarUpload, setAvatarUpload] = useState();
   const theme = useContext(ThemeContext);
   const stylesProfileBackround = {
     backgroundColor: theme.palette.profileDialog.boxColor,
@@ -36,6 +38,7 @@ export const ProfileDialog = (props) => {
         `/users/${user.sub}`,
         {
           fullname: data.fullname,
+          avatar: avatarUpload,
         },
         {}
       );
@@ -49,12 +52,12 @@ export const ProfileDialog = (props) => {
     }
   };
   return (
-    <Dialog addGroup={props.viewProfile} onClick={props.onClick}>
+    <Dialog dialogStatus={props.viewProfile} onClick={props.onClick}>
       <div className="profile-dialog" style={stylesProfileBackround}>
         <h2 style={stylesProfileTitle}>My Profile</h2>
         <div className="profile-avatar" id={isEditOn ? 'disable-edit-profile' : ''}>
           <div className="avatar-container">
-            <ProfileAvatar href={props.avatar} id="disable-btn-add-avatar" />
+            <ProfileAvatar src={props.avatar || userAvt} id="disable-btn-add-avatar" />
           </div>
           <div className="btn-edit-profile" onClick={() => setIsEditOn(true)}>
             <button className="btn-edit">
@@ -81,7 +84,10 @@ export const ProfileDialog = (props) => {
         <div className={isEditOn ? 'profileEdit-On' : 'profileEdit-Off'}>
           <form onSubmit={handleSubmit(onSubmit)}>
             <div className="avatar-container">
-              <ProfileAvatar href={props.avatar} />
+              <ProfileAvatar
+                src={props.avatar || userAvt}
+                onClick={(e) => setAvatarUpload(e)}
+              />
             </div>
             <InputFieldsChange
               label="FULL NAME:"
@@ -103,7 +109,9 @@ export const ProfileDialog = (props) => {
               Change Password ?
             </a>
             <div className="btn-submit">
-              <p onClick={() => setIsEditOn(false)}>Cancel</p>
+              <button className="btn-cancel" onClick={() => setIsEditOn(false)}>
+                Cancel
+              </button>
               <DialogButton styles={stylesDialogButtonSave}>Save</DialogButton>
             </div>
           </form>

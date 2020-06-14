@@ -1,17 +1,20 @@
 import React, {useState, useEffect} from 'react';
 import './UserNavbar.scss';
 import UserOption from './UserOption';
+import userAvt from '../../../assets/images/userAvt.png';
 
 export const UserNavbar = (props) => {
   return (
     <div className="userNavbar-wrapper">
-      <img src={props.avatar} />
+      <img src={props.avatar || userAvt} />
       <div className="userDropdown">
-        <button className="optionBtn">
-          <p onClick={props.onClickViewProfile}>{props.userName}</p>
+        <button
+          className="optionBtn"
+          onMouseEnter={() => props.onHoverUserOption(true)}
+          onMouseLeave={() => props.onHoverUserOption(false)}
+        >
+          <p>{props.userName}</p>
           <i
-            onMouseEnter={() => props.onHoverUserOption(true)}
-            onMouseLeave={() => props.onHoverUserOption(false)}
             className={
               props.isClickedUserOption
                 ? 'fa fas fa-caret-up fa-lg'
@@ -21,6 +24,7 @@ export const UserNavbar = (props) => {
             <UserOption
               userOption={props.userOption}
               isClickedUserOption={props.isClickedUserOption}
+              onClickViewProfile={props.onClickViewProfile}
             />
           </i>
         </button>
