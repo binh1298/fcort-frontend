@@ -6,7 +6,7 @@ import RemoveFavoriteGroup from './RemoveFavoriteGroup';
 export const FavoriteSection = (props) => {
   const handleRemoveFavoriteGroup = async (e) => {
     await RemoveFavoriteGroup(e);
-    await props.handleFetch();
+    props.handleFetch();
   };
   return (
     <div className="favorite-wrapper">

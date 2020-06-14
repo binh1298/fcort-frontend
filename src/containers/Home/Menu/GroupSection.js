@@ -12,8 +12,8 @@ export const GroupSection = (props) => {
   });
   const handleAddFavoriteGroup = async (e) => {
     const check = await AddFavoriteGroup(e);
-    await props.handleFetch();
-    await setCheckGroupExist(check);
+    props.handleFetch();
+    setCheckGroupExist(check);
   };
   return (
     <div className="group-wrapper" onClick={() => setCheckGroupExist(true)}>
