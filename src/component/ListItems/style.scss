@@ -16,7 +16,7 @@ li {
   }
 }
 
-.items {
+.item {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -27,27 +27,27 @@ li {
   cursor: pointer;
 }
 
-.itemName>i {
+.item-name>i {
   display: inline;
 }
 
-.iconContainer-Off {
+.icon-container-off {
   display: none;
 }
 
-.iconContainer{
+.icon-container{
   margin-right: 30px;
 }
 
-.iconContainer>i {
+.icon-container>i {
   position: relative;
 }
 
-.iconLabel-Off {
+.icon-label-off {
   display: none;
 }
 
-.iconLabel {
+.icon-label {
   position: absolute;
   text-align: center;
   font-size: 0.9rem;
@@ -61,7 +61,7 @@ li {
   right: -40px;
 }
 
-.iconLabel::before {
+.icon-label::before {
   z-index: 2;
   content: "";
   display: block;

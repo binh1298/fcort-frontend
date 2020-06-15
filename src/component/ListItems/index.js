@@ -23,14 +23,14 @@ const Items = (props) => {
       onMouseOver={() => handleHoverOver()}
       onMouseOut={() => handleHoverOut()}
       onClick={props.isClick}
-      className="items"
+      className="item"
     >
-      <p className="itemName">
+      <p className="item-name">
         {props.children}
         {props.name}
       </p>
       <div
-        className={isHoverItem ? 'iconContainer' : 'iconContainer-Off'}
+        className={isHoverItem ? 'icon-container' : 'icon-container-off'}
         onClick={() => props.onClick(props.id)}
       >
         <i
@@ -38,7 +38,7 @@ const Items = (props) => {
           onMouseOver={() => setIsOnHoverIcon(true)}
           onMouseOut={() => setIsOnHoverIcon(false)}
         >
-          <div className={isHoverIcon ? 'iconLabel' : 'iconLabel-Off'}>
+          <div className={isHoverIcon ? 'icon-label' : 'icon-label-off'}>
             <p>{props.labelRemote}</p>
           </div>
         </i>
