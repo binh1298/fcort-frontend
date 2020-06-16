@@ -59,6 +59,7 @@ export const Home = () => {
     fetchGroup();
     fetchProfile();
   }, []);
+  const [updateGroupDetail, setUpdateGroupDetail] = useState(true);
   const [chatTarget, setChatTarget] = useState({});
   const [isClickedMenu, setIsClickedMenu] = useState(false);
   const [isClickedAddGroup, setIsClickedAddGroup] = useState(false);
@@ -83,6 +84,7 @@ export const Home = () => {
         onClick={() => {
           setIsClickedViewProfile(false);
         }}
+        setUpdateGroupDetail={() => setUpdateGroupDetail(!updateGroupDetail)}
       />
       <div
         className={isClickedMenu ? 'navbarOn' : 'navbarOff'}
@@ -143,7 +145,9 @@ export const Home = () => {
           groupDetailStatus={isClickedGroupDetail}
         />
         <MessagesArea
+          updateGroupDetail={updateGroupDetail}
           chatTarget={chatTarget}
+          navbarStatus={isClickedGroupDetail}
           username="Nguyễn Trần Thiên Đức"
           avatarChat={[
             {
@@ -183,7 +187,6 @@ export const Home = () => {
             },
             {id: '25', name: 'BinhPham', message: 'ken nơ lao nèn'},
           ]}
-          navbarStatus={isClickedGroupDetail}
         />
       </div>
     </div>

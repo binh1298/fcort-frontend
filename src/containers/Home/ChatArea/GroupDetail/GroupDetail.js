@@ -6,8 +6,9 @@ import GroupDetailMenu from './GroupDetailMenu';
 import LocalStorageUtils from '../../../../utils/LocalStorageUtils';
 import {get, remove} from '../../../../utils/ApiCaller';
 import DeleteMembersDialog from './DeleteMembersDialog';
+import AddMembersDialog from './AddMembersDialog';
 
-export const GroupDetail = ({navbarStatus, chatTarget}) => {
+export const GroupDetail = ({updateGroupDetail, navbarStatus, chatTarget}) => {
   const theme = useContext(ThemeContext);
   const groupDetailStyles = {
     backgroundColor: theme.palette.groupDetail.backgroundColor,
@@ -37,7 +38,8 @@ export const GroupDetail = ({navbarStatus, chatTarget}) => {
     if (Object.entries(chatTarget).length !== 0) {
       fetchMembers();
     }
-  }, [chatTarget]);
+    console.log(updateGroupDetail);
+  }, [chatTarget, updateGroupDetail]);
   const membersDeteling = async () => {
     //Call the server
     try {
@@ -58,7 +60,9 @@ export const GroupDetail = ({navbarStatus, chatTarget}) => {
     }
   };
   const [isClickedDeleteMembersDialog, setIsClickedDeleteMembersDialog] = useState(false);
+  const [isClickedAddMembersDialog, setIsClickedAddMembersDialog] = useState(false);
   const [groupDetailUserTargetID, setGroupDetailUserTargetID] = useState({});
+  const [groupDetailAddMembersID, setGroupDetailAddMembersID] = useState([]);
   return (
     <div
       className={
@@ -73,11 +77,17 @@ export const GroupDetail = ({navbarStatus, chatTarget}) => {
         <GroupDetailMenu
           membersList={membersList}
           onClickDeleteMembersDialog={() => setIsClickedDeleteMembersDialog(true)}
+          onClickAddMembersDialog={() => setIsClickedAddMembersDialog(true)}
           setGroupDetailUserTargetID={setGroupDetailUserTargetID}
         />
         <DeleteMembersDialog
           dialogStatus={isClickedDeleteMembersDialog}
           setIsClickedDeleteMembersDialog={() => setIsClickedDeleteMembersDialog(false)}
+          onClick={() => membersDeteling()}
+        />
+        <AddMembersDialog
+          dialogStatus={isClickedAddMembersDialog}
+          setIsClickedAddMembersDialog={() => setIsClickedAddMembersDialog(false)}
           onClick={() => membersDeteling()}
         />
       </div>

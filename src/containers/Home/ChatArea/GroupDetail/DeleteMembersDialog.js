@@ -38,12 +38,9 @@ export const DeleteMembersDialog = ({
           longer be able to send or receive new messages.
         </p>
         <div className="dialogBtn-container">
-          <DialogButton
-            styles={stylesCancelDeleteMembersButton}
-            onClick={setIsClickedDeleteMembersDialog}
-          >
+          <button className="btn-cancel" onClick={setIsClickedDeleteMembersDialog}>
             Cancel
-          </DialogButton>
+          </button>
           <DialogButton styles={stylesDeleteMembersButton} onClick={onClick}>
             Delete
           </DialogButton>

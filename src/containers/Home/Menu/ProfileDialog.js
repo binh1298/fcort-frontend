@@ -46,6 +46,7 @@ export const ProfileDialog = (props) => {
         props.handleFetch();
         props.onClick();
         setIsEditOn(false);
+        props.setUpdateGroupDetail();
       }
     } catch (ex) {
       console.log(ex);

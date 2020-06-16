@@ -6,6 +6,7 @@ import ListUsers from '../../../../component/ListUsers';
 export const GroupDetailMenu = ({
   membersList,
   onClickDeleteMembersDialog,
+  onClickAddMembersDialog,
   setGroupDetailUserTargetID,
 }) => {
   const theme = useContext(ThemeContext);
@@ -19,7 +20,11 @@ export const GroupDetailMenu = ({
     <div className="groupDetailMenu-wrapper">
       <div className="groupDetailMenu-header">
         <p>EVERYBODY</p>
-        <i className="fa fas fa-plus" style={stylesPlusIcon}></i>
+        <i
+          className="fa fas fa-plus"
+          style={stylesPlusIcon}
+          onClick={onClickAddMembersDialog}
+        ></i>
       </div>
       <ListUsers listUsers={membersList} setUsersID={setGroupDetailUserTargetID}>
         <i

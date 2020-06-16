@@ -3,7 +3,7 @@ import './style.scss';
 import userAvt from '../../assets/images/userAvt.png';
 import ThemeContext from '../../contexts/ThemeContext';
 
-const User = ({fullname, id, setUsersID, children}) => {
+const User = ({fullname, avatar, id, setUsersID, children}) => {
   const theme = useContext(ThemeContext);
   const [styles, setStyles] = useState({});
   return (
@@ -14,7 +14,11 @@ const User = ({fullname, id, setUsersID, children}) => {
       }
       onMouseOut={() => setStyles({})}
     >
-      <img className="listUsersAvatar" src={userAvt} onClick={() => setUsersID(id)} />
+      <img
+        className="listUsersAvatar"
+        src={avatar || userAvt}
+        onClick={() => setUsersID(id)}
+      />
       <p className="listUsersName" onClick={() => setUsersID(id)}>
         {fullname}
       </p>
@@ -35,8 +39,9 @@ export const ListUsers = ({listUsers, setUsersID, children}) => {
   const list = listUsers.map((object) => (
     <User
       fullname={object.fullname}
-      key={object.id}
+      avatar={object.avatar}
       id={object.id}
+      key={object.id}
       setUsersID={setUsersID}
     >
       {children}
