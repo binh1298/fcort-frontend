@@ -1,7 +1,7 @@
 @import '../../../../fonts.scss';
 
 .groupDetail-context {
-  transition: all 0.4s ease-in-out;
+  transition: all 0.5s ease-in-out;
   height: 100%;
 }
 
@@ -9,7 +9,7 @@
   .groupDetail-context {
     position: absolute;
     top: 0;
-    left: 0;
+    right: 0;
   }
 }
 
@@ -19,7 +19,7 @@
 
 @media screen and (max-width: 900px) {
   .groupDetailOn {
-    width: 100vw;
+    width: 90vw;
     justify-content: flex-end;
     z-index: 6;
   }
@@ -32,7 +32,7 @@
 @media screen and (max-width: 900px) {
   .groupDetailOff {
     display: block;
-    width: 100vw;
+    width: 90vw;
     transform: translate(100vw);
     justify-content: flex-end;
     z-index: 6;
@@ -53,12 +53,6 @@
   height: 100%;
   border-left: 1px inset;
   overflow-y: scroll;
-}
-
-@media screen and (max-width: 900px) {
-  .groupDetail-wrapper {
-    border-style: none;
-  }
 }
 
 .groupDetail-wrapper::-webkit-scrollbar {

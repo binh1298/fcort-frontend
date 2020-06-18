@@ -47,6 +47,9 @@ const theme = {
       plusIconColor: '#2ecc71',
       minusIConColor: '#e74c3c',
       hoverListMembersColor: '#dcdde1',
+      groupNameColor: '#2ecc71',
+      titleColor: '#2ecc71',
+      borderAddMembersDialog: '#2ecc71',
     },
     profileDialog: {
       overlayColor: 'rgba(0, 0, 0, 0.4)',

@@ -29,7 +29,6 @@ const User = ({fullname, avatar, id, setUsersID, children}) => {
 };
 
 export const ListUsers = ({listUsers, setUsersID, children}) => {
-  const theme = useContext(ThemeContext);
   const list = listUsers.map((object) => (
     <User
       fullname={object.fullname}

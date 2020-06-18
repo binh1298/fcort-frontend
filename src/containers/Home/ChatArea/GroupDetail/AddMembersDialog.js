@@ -46,6 +46,7 @@ export const AddMembersDialog = ({
   const theme = useContext(ThemeContext);
   const stylesAddMembersDialog = {
     backgroundColor: theme.palette.dialog.boxBgColor,
+    borderColor: theme.palette.groupDetail.borderAddMembersDialog,
   };
   const stylesAddMembersDialogTitle = {
     color: theme.palette.dialog.titleColor,

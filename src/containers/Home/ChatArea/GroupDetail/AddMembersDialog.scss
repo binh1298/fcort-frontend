@@ -8,6 +8,7 @@
   height: 540px;
   width: 500px;
   padding: 24px 24px 24px 24px;
+  border: 1px solid;
   border-radius: 6px;
   animation-name: deleteMembersDialogAppear;
   animation-duration: 0.2s;
@@ -22,6 +23,15 @@
 
   100% {
     transform: scale(1, 1);
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .addMembersDialog-wrapper {
+    position: absolute;
+    left: -10vw;
+    width: 100vw;
+    height: 70vh;
   }
 }
 
@@ -51,7 +61,7 @@
 
 .listAddUsers>.listUsers>li {
   cursor: default;
-} 
+}
 
 .listAddUsers::-webkit-scrollbar {
   display: none;

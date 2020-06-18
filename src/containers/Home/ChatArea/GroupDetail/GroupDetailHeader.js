@@ -9,6 +9,9 @@ export const GroupDetailHeader = ({chatTarget}) => {
   const stylesLine = {
     borderColor: theme.palette.groupDetail.lineColor,
   };
+  const stylesGroupName = {
+    color: theme.palette.groupDetail.groupNameColor,
+  };
   const [groupProfilePic, setGroupProfilePic] = useState('');
   const [selectedImage, setSelectedImage] = useState('');
   const [openCropper, setOpenCropper] = useState(false);
@@ -51,7 +54,9 @@ export const GroupDetailHeader = ({chatTarget}) => {
           onChange={profilePicChange}
         />
       </div>
-      <div className="groupDetailName">{chatTarget.name}</div>
+      <div className="groupDetailName" style={stylesGroupName}>
+        {chatTarget.name}
+      </div>
     </div>
   );
 };

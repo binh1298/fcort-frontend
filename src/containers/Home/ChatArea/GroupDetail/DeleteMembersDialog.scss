@@ -8,6 +8,7 @@
   height: fit-content;
   width: 500px;
   padding: 24px 36px 24px 36px;
+  border: 1px solid;
   border-radius: 6px;
   animation-name: deleteMembersDialogAppear;
   animation-duration: 0.2s;
@@ -22,6 +23,14 @@
 
   100% {
     transform: scale(1, 1);
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .deleteMembersDialog-wrapper {
+    position: absolute;
+    left: -10vw;
+    width: 100vw;
   }
 }
 

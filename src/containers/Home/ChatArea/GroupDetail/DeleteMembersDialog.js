@@ -13,6 +13,7 @@ export const DeleteMembersDialog = ({
   const theme = useContext(ThemeContext);
   const stylesDeleteMembersDialog = {
     backgroundColor: theme.palette.dialog.boxBgColor,
+    borderColor: theme.palette.groupDetail.borderAddMembersDialog,
   };
   const stylesDeleteMembersDialogTitle = {
     color: theme.palette.dialog.titleColor,

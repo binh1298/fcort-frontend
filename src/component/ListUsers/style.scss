@@ -22,11 +22,16 @@
 }
 
 .listUsersName {
-  width: 18vw;
+  width: 80%;
   margin-left: 16px;
-  text-overflow: ellipsis;
-  overflow: hidden;
-  white-space: nowrap;
+  word-wrap: break-word;
+  word-break: break-word;
+}
+
+@media screen and (max-width: 900px) {
+  .listUsersName {
+    width: 100%;
+  }
 }
 
 .listUserOptionsOn>i {
@@ -47,4 +52,10 @@
   margin-right: 12px;
   font-size: 1.2rem;
   padding: 4px;
+}
+
+@media screen and (max-width: 900px) {
+  .listUsers i {
+    visibility: visible;
+  }
 }
