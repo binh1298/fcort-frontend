@@ -64,7 +64,7 @@ export const Home = () => {
   const [isClickedMenu, setIsClickedMenu] = useState(false);
   const [isClickedAddGroup, setIsClickedAddGroup] = useState(false);
   const [isClickedUserOption, setIsClickedUserOption] = useState(false);
-  const [isClickedGroupDetail, setIsClickedGroupDetail] = useState(true);
+  const [isClickedGroupDetail, setIsClickedGroupDetail] = useState(false);
   const [isClickedViewProfile, setIsClickedViewProfile] = useState(false);
   return (
     <div className="home-container">
@@ -86,55 +86,64 @@ export const Home = () => {
         }}
         setUpdateGroupDetail={() => setUpdateGroupDetail(!updateGroupDetail)}
       />
-      <div
-        className={isClickedMenu ? 'navbarOn' : 'navbarOff'}
-        onClick={() => setIsClickedMenu(false)}
-      ></div>
-      <div className={isClickedMenu ? 'navbar' : 'navbar  toggle-target'} style={styles}>
-        <h1>
-          <i className="fa fas fa-tv fa-lg"></i>Fcord
-        </h1>
-        <UserNavbar
-          avatar={inforProfile.avatar}
-          userName={inforProfile.fullname}
-          onHoverUserOption={(value) => setIsClickedUserOption(value)}
-          isClickedUserOption={isClickedUserOption}
-          userOption={[
-            {id: 'aaa', name: 'Account Setting', icon: <i className="fa fas fa-cog"></i>},
-            {id: 'bbb', name: 'Logout', icon: <i className="fa fas fa-sign-out"></i>},
-          ]}
-          viewProfile={isClickedViewProfile}
-          onClickViewProfile={() => {
-            setIsClickedViewProfile(true);
-          }}
-        />
-        <FavoriteSection
-          chooseChatTarget={setChatTarget}
-          favoriteList={[
-            {id: '123', name: 'reactjs'},
-            {id: '456', name: 'vuejs'},
-            {id: '789', name: 'angular'},
-          ]}
-        />
-        <GroupSection
-          chooseChatTarget={setChatTarget}
-          onClick={() => setIsClickedAddGroup(true)}
-          groupList={groupList}
-        />
-        <MessagesSection
-          chooseChatTarget={setChatTarget}
-          messagesList={[
-            {id: '135', name: 'BinhPham'},
-            {id: '246', name: 'KienTran'},
-            {id: '357', name: 'HuyBui'},
-            {id: '468', name: 'BinhTruong'},
-            {id: '579', name: 'HungNguyen'},
-            {id: '680', name: 'NguyenTran'},
-            {id: '791', name: 'HoaLuu'},
-            {id: '444', name: 'DaiLe'},
-            {id: '555', name: 'LamNguyen'},
-          ]}
-        />
+      <div className="navbar-wrapper">
+        <div
+          className={isClickedMenu ? 'navbarOn' : 'navbarOff'}
+          onClick={() => setIsClickedMenu(false)}
+        ></div>
+        <div
+          className={isClickedMenu ? 'navbar' : 'navbar  toggle-target'}
+          style={styles}
+        >
+          <h1>
+            <i className="fa fas fa-tv fa-lg"></i>Fcord
+          </h1>
+          <UserNavbar
+            avatar={inforProfile.avatar}
+            userName={inforProfile.fullname}
+            onHoverUserOption={(value) => setIsClickedUserOption(value)}
+            isClickedUserOption={isClickedUserOption}
+            userOption={[
+              {
+                id: 'aaa',
+                name: 'Account Setting',
+                icon: <i className="fa fas fa-cog"></i>,
+              },
+              {id: 'bbb', name: 'Logout', icon: <i className="fa fas fa-sign-out"></i>},
+            ]}
+            viewProfile={isClickedViewProfile}
+            onClickViewProfile={() => {
+              setIsClickedViewProfile(true);
+            }}
+          />
+          <FavoriteSection
+            chooseChatTarget={setChatTarget}
+            favoriteList={[
+              {id: '123', name: 'reactjs'},
+              {id: '456', name: 'vuejs'},
+              {id: '789', name: 'angular'},
+            ]}
+          />
+          <GroupSection
+            chooseChatTarget={setChatTarget}
+            onClick={() => setIsClickedAddGroup(true)}
+            groupList={groupList}
+          />
+          <MessagesSection
+            chooseChatTarget={setChatTarget}
+            messagesList={[
+              {id: '135', name: 'BinhPham'},
+              {id: '246', name: 'KienTran'},
+              {id: '357', name: 'HuyBui'},
+              {id: '468', name: 'BinhTruong'},
+              {id: '579', name: 'HungNguyen'},
+              {id: '680', name: 'NguyenTran'},
+              {id: '791', name: 'HoaLuu'},
+              {id: '444', name: 'DaiLe'},
+              {id: '555', name: 'LamNguyen'},
+            ]}
+          />
+        </div>
       </div>
       <div className="section">
         <Header

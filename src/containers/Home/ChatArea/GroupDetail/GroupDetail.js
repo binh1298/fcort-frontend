@@ -95,7 +95,7 @@ export const GroupDetail = ({updateGroupDetail, navbarStatus, chatTarget}) => {
   const [membersList, setMembersList] = useState([]);
   const [allUsers, setAllUsers] = useState([]);
   const [isClickedDeleteMembersDialog, setIsClickedDeleteMembersDialog] = useState(false);
-  const [isClickedAddMembersDialog, setIsClickedAddMembersDialog] = useState(true);
+  const [isClickedAddMembersDialog, setIsClickedAddMembersDialog] = useState(false);
   const [groupDetailUserTargetID, setGroupDetailUserTargetID] = useState({});
   const [groupDetailAddMembersID, setGroupDetailAddMembersID] = useState([]);
   return (

@@ -15,7 +15,7 @@
   }
 }
 
-.home-container>.navbar {
+.navbar {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -31,7 +31,7 @@
 }
 
 @media screen and (max-width: 900px) {
-  .home-container>.navbar {
+  .navbar {
     position: absolute;
     width: 90%;
     min-width: 0;
@@ -39,7 +39,7 @@
     border-bottom-right-radius: 10px;
   }
 
-  .home-container>.toggle-target {
+  .toggle-target {
     transform: translateX(-90vw);
   }
 }

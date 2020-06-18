@@ -24,6 +24,12 @@
   }
 }
 
+@media screen and (max-width: 900px) {
+  .dialogAddGroup-wrapper {
+    width: 100%;
+  }
+}
+
 .dialogAddGroup-header {
   position: relative;
   align-self: flex-start;
@@ -45,6 +51,12 @@
   justify-content: center;
   align-items: center;
   margin-top: 8px;
+}
+
+@media screen and (max-width: 900px) {
+  .inputGroupName {
+    width: 100%;
+  }
 }
 
 .inputGroupName>.input-container {
