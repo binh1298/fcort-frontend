@@ -1,13 +1,11 @@
 @import '../../../fonts.scss';
 
-.dialogAddGroupBox {
-  top: 0;
-  left: 0;
+.dialogAddGroup-wrapper {
   display: flex;
   flex-direction: column;
   justify-content: center;
   height: fit-content;
-  max-width: 80%;
+  width: 500px;
   padding: 24px 24px 24px 24px;
   border-radius: 6px;
   animation-name: dialogAddGroupAppear;
@@ -26,9 +24,14 @@
   }
 }
 
-.dialogAddGroupTitle {
+.dialogAddGroup-header {
+  position: relative;
   align-self: flex-start;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
   font-family: $default-font;
+  width: 100%;
   font-size: 1.5rem;
   margin-left: 1vw;
 }
@@ -36,7 +39,7 @@
 .inputGroupName {
   position: relative;
   display: flex;
-  width: 28vw;
+  width: 450px;
   min-width: 210px;
   flex-direction: column;
   justify-content: center;
@@ -45,11 +48,14 @@
 }
 
 .inputGroupName>.input-container {
-  width: 25vw;
-  min-width: 200px;
+  width: 94%;
   margin: 16px 0 16px 0;
 }
 
 .inputGroupName>.dialogBtn {
   margin-bottom: 8px;
+}
+
+.inputGroupName>.dialogBtn-container {
+  padding-left: 12px;
 }

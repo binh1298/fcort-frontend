@@ -1,0 +1,39 @@
+@import '../../fonts.scss';
+
+.searchBar-wrapper {
+  width: 100%;
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+
+.searchBar-wrapper form {
+  position: relative;
+  height: 36px;
+}
+
+.searchBar-wrapper input {
+  font-family: $default-font;
+  font-size: 1rem;
+  height: 100%;
+  width: 100%;
+  border: none;
+  border-radius: 5px;
+  padding-left: 16px;
+  opacity: 0.6;
+  transition: all 0.2s ease-in-out;
+}
+
+.searchBar-wrapper>form>input:focus {
+  opacity: 1;
+}
+
+.searchBar-wrapper i {
+  position: absolute;
+  font-size: 1rem;
+  right: 8px;
+  top: 6px;
+  background-color: transparent;
+  border: none;
+  opacity: 0.6;
+  pointer-events: none;
+}

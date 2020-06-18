@@ -57,6 +57,17 @@ const theme = {
       btnSaveBgColor: '#00995c',
       btnCancelBgColor: '#999999',
     },
+    searchBar: {
+      backgroundColor: 'rgba(0, 0, 0, 0.1)',
+    },
+    listUsers: {
+      btnAddedMembersTextColor: '#43B581',
+      btnAddedMembersBgColor: '#FFFFFF',
+      btnAddMembersBgColor: '#4cd137',
+      btnAddMembersHoverBgColor: '#00E67E',
+      btnAddMembersTextColor: '#FFFFFF',
+      btnAddMembersBorderColor: '#4cd137',
+    },
   },
 };
 

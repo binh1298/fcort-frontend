@@ -12,10 +12,10 @@
 
 .profile-dialog {
     display: flex;
-    flex-direction: column;
+    flex-direction: column; 
     z-index: 1;
     font-size: 1rem;
-    min-width: 35%;
+    width: 560px;
     padding: 16px 32px;
     border-radius: 5px;
     align-items: center;

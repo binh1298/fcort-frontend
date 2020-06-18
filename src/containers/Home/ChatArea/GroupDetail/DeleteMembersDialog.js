@@ -5,6 +5,7 @@ import Dialog from '../../../../component/Dialog';
 import DialogButton from '../../../../component/DialogButton';
 
 export const DeleteMembersDialog = ({
+  chatTarget,
   dialogStatus,
   setIsClickedDeleteMembersDialog,
   onClick,
@@ -23,15 +24,14 @@ export const DeleteMembersDialog = ({
     color: theme.palette.dialog.buttonColor,
     backgroundColor: theme.palette.dialog.buttonBgColor,
   };
-  const stylesCancelDeleteMembersButton = {
-    color: theme.palette.dialog.buttonColor,
-    backgroundColor: theme.palette.dialog.buttonBgColor,
-  };
   return (
     <Dialog dialogStatus={dialogStatus} onClick={setIsClickedDeleteMembersDialog}>
-      <div className="deleteMembersDialogBox" style={stylesDeleteMembersDialog}>
-        <div className="deleteMembersDialogTitle" style={stylesDeleteMembersDialogTitle}>
-          Remove from group
+      <div className="deleteMembersDialog-wrapper" style={stylesDeleteMembersDialog}>
+        <div
+          className="deleteMembersDialog-header"
+          style={stylesDeleteMembersDialogTitle}
+        >
+          Remove from {chatTarget.name}
         </div>
         <p style={stylesDeleteMembersDialogText}>
           Are you sure you want to delete this person from the conversation? They will no

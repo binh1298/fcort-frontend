@@ -9,24 +9,18 @@ const User = ({fullname, avatar, id, setUsersID, children}) => {
   return (
     <li
       style={styles}
-      onMouseOver={() =>
-        setStyles({backgroundColor: theme.palette.groupDetail.hoverListMembersColor})
-      }
-      onMouseOut={() => setStyles({})}
+      onMouseEnter={() => {
+        setStyles({backgroundColor: theme.palette.groupDetail.hoverListMembersColor});
+        setUsersID(id);
+      }}
+      onMouseLeave={() => setStyles({})}
     >
-      <img
-        className="listUsersAvatar"
-        src={avatar || userAvt}
-        onClick={() => setUsersID(id)}
-      />
-      <p className="listUsersName" onClick={() => setUsersID(id)}>
-        {fullname}
-      </p>
+      <img className="listUsersAvatar" src={avatar || userAvt} />
+      <p className="listUsersName">{fullname}</p>
       <div
         className={
           Object.entries(styles).length === 0 ? 'listUserOptionsOff' : 'listUserOptionsOn'
         }
-        onClick={() => setUsersID(id)}
       >
         {children}
       </div>
@@ -47,6 +41,6 @@ export const ListUsers = ({listUsers, setUsersID, children}) => {
       {children}
     </User>
   ));
-  return <ul className="listUsersGroupDetail">{list}</ul>;
+  return <ul className="listUsers">{list}</ul>;
 };
 export default ListUsers;

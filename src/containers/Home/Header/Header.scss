@@ -21,6 +21,9 @@
 .header-wrapper>p {
   width: 60%;
   font-size: 1.2rem;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
 @media screen and (max-width: 900px) {
