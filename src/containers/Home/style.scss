@@ -44,17 +44,19 @@
   }
 }
 
-.navbarOff {
-  display: none;
-}
+@media screen and (max-width: 900px) {
+  .navbarOff {
+    display: none;
+  }
 
-.navbarOn {  
-  display: block;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
+  .navbarOn {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+  }
 }
 
 .navbar>h1 {
@@ -63,6 +65,8 @@
   text-align: center;
   font-size: 3.5rem;
   padding-top: 32px;
+  margin-top: 8px;
+  margin-bottom: 8px;
   width: 100%;
   cursor: default;
 }

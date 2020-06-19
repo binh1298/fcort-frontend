@@ -3,6 +3,7 @@
 .groupDetail-context {
   transition: all 0.5s ease-in-out;
   height: 100%;
+  z-index: 0;
 }
 
 @media screen and (max-width: 900px) {
@@ -21,7 +22,6 @@
   .groupDetailOn {
     width: 90vw;
     justify-content: flex-end;
-    z-index: 6;
   }
 }
 
@@ -35,7 +35,6 @@
     width: 90vw;
     transform: translate(100vw);
     justify-content: flex-end;
-    z-index: 6;
   }
 }
 
@@ -53,6 +52,8 @@
   height: 100%;
   border-left: 1px inset;
   overflow-y: scroll;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
 }
 
 .groupDetail-wrapper::-webkit-scrollbar {
