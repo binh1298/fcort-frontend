@@ -34,3 +34,9 @@ body {
   -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.2);
   background-color: #4cd137;
 }
+
+@media screen and (max-width: 900px) {
+  ::-webkit-scrollbar {
+    width: 4px;
+  }
+}
