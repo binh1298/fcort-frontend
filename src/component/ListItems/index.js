@@ -7,28 +7,61 @@ const Items = (props) => {
   const [styles, setStyles] = useState({
     color: theme.palette.navbar.hoverColor,
   });
+  const [isHoverItem, setIsHoverItem] = useState(false);
+  const [isHoverIcon, setIsOnHoverIcon] = useState(false);
+  const handleHoverOver = () => {
+    setIsHoverItem(true);
+    setStyles({color: theme.palette.navbar.titleColor});
+  };
+  const handleHoverOut = () => {
+    setIsHoverItem(false);
+    setStyles({color: theme.palette.navbar.hoverColor});
+  };
   return (
     <li
       style={styles}
-      onMouseOver={() => setStyles({color: theme.palette.navbar.titleColor})}
-      onMouseOut={() => setStyles({color: theme.palette.navbar.hoverColor})}
+      onMouseOver={() => handleHoverOver()}
+      onMouseOut={() => handleHoverOut()}
       onClick={props.isClick}
+      className="item"
     >
-      <p className="itemName">
+      <p className="item-name">
         {props.children}
         {props.name}
       </p>
+      <div
+        className={isHoverItem ? 'icon-container' : 'icon-container-off'}
+        onClick={() => props.onClick(props.id)}
+      >
+        <i
+          className={props.iconRemote}
+          onMouseOver={() => setIsOnHoverIcon(true)}
+          onMouseOut={() => setIsOnHoverIcon(false)}
+        >
+          <div className={isHoverIcon ? 'icon-label' : 'icon-label-off'}>
+            <p>{props.labelRemote}</p>
+          </div>
+        </i>
+      </div>
     </li>
   );
 };
 
-export const ListItems = ({list, icon, chooseChatTarget}) => {
-  const listItems = list.map((object) => (
-    <Items key={object.id} name={object.name} isClick={() => chooseChatTarget(object)}>
-      {icon}
+export const ListItems = (props) => {
+  const list = props.list.map((object) => (
+    <Items
+      key={object.id}
+      name={object.name}
+      isClick={() => props.chooseChatTarget(object)}
+      iconRemote={props.iconRemote}
+      labelRemote={props.labelRemote}
+      onClick={(e) => props.onClick(e)}
+      id={object.id}
+    >
+      {props.icon}
     </Items>
   ));
-  return <ul className="listItemsName">{listItems}</ul>;
+  return <ul className="listItemsName">{list}</ul>;
 };
 
 export default ListItems;
