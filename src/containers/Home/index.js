@@ -76,7 +76,7 @@ export const Home = () => {
   const [inforProfile, setInforProfile] = useState({});
   const fetchProfile = async () => {
     const tempInforProfile = await profileFetching();
-    await setInforProfile(tempInforProfile);
+    setInforProfile(tempInforProfile);
   };
   useEffect(() => {
     fetchGroup();

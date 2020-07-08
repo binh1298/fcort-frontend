@@ -12,10 +12,11 @@ import userAvt from '../../../assets/images/userAvt.png';
 import {LOCALSTORAGE_TOKEN_NAME} from '../../../configurations';
 import LocalStorageUtils from '../../../utils/LocalStorageUtils';
 const user = LocalStorageUtils.getUser(LOCALSTORAGE_TOKEN_NAME);
+import {storage} from '../../../utils/FireBase';
 
 export const ProfileDialog = (props) => {
   const [isEditOn, setIsEditOn] = useState(false);
-  const [avatarUpload, setAvatarUpload] = useState();
+  const [imageFileUpload, setImageFileUpload] = useState('');
   const theme = useContext(ThemeContext);
   const stylesProfileBackround = {
     backgroundColor: theme.palette.profileDialog.boxColor,
@@ -31,14 +32,35 @@ export const ProfileDialog = (props) => {
     backgroundColor: theme.palette.profileDialog.btnSaveBgColor,
   };
   const {register, handleSubmit, errors} = useForm();
+
   const onSubmit = async (data) => {
     //Call the sever
     try {
+      if (imageFileUpload) {
+        const uploadTask = storage.ref(`/avatar/${user.sub}`).put(imageFileUpload);
+        uploadTask.on('state_changed', () => {
+          storage
+            .ref('avatar')
+            .child(user.sub)
+            .getDownloadURL()
+            .then(async (fireBaseUrl) => {
+              const response = await put(
+                `/users/${user.sub}`,
+                {
+                  avatar: fireBaseUrl,
+                },
+                {}
+              );
+              if (response.data.success) {
+                props.handleFetch();
+              }
+            });
+        });
+      }
       const response = await put(
         `/users/${user.sub}`,
         {
           fullname: data.fullname,
-          avatar: avatarUpload,
         },
         {}
       );
@@ -51,6 +73,11 @@ export const ProfileDialog = (props) => {
       console.log(ex);
     }
   };
+  const handleClickCancel = (event) => {
+    event.preventDefault(event);
+    setIsEditOn(false);
+  };
+
   return (
     <Dialog dialogStatus={props.viewProfile} onClick={props.onClick}>
       <div className="profile-dialog" style={stylesProfileBackround}>
@@ -83,12 +110,10 @@ export const ProfileDialog = (props) => {
 
         <div className={isEditOn ? 'profile-edit-on' : 'profile-edit-off'}>
           <form onSubmit={handleSubmit(onSubmit)}>
-            <div className="avatar-container">
-              <ProfileAvatar
-                src={props.avatar || userAvt}
-                onClick={(e) => setAvatarUpload(e)}
-              />
-            </div>
+            <ProfileAvatar
+              src={props.avatar || userAvt}
+              onClickUpload={(imageFile) => setImageFileUpload(imageFile)}
+            />
             <InputFieldsChange
               label="FULL NAME:"
               name="fullname"
@@ -109,7 +134,7 @@ export const ProfileDialog = (props) => {
               Change Password ?
             </a>
             <div className="btn-submit">
-              <button className="btn-cancel" onClick={() => setIsEditOn(false)}>
+              <button className="btn-cancel" onClick={handleClickCancel}>
                 Cancel
               </button>
               <DialogButton styles={stylesDialogButtonSave}>Save</DialogButton>
