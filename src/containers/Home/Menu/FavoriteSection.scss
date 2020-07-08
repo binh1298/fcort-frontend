@@ -16,6 +16,17 @@
   cursor: default;
 }
 
+.favorite-wrapper>p>.fa-plus {
+  padding: 0 4px 0 4px;
+  margin-left: 4px;
+  margin-right: 4px;
+  font-size: 1.1rem;
+  font-weight: 100;
+  vertical-align: baseline;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+}
+
 .favorite-wrapper>p>i {
   padding-left: 12px;
   padding-right: 8px;
@@ -24,17 +35,7 @@
 .favorite-wrapper>ul {
   font-size: 1.1rem;
   padding-left: 12px;
-  width: 100%;
-}
-
-.favorite-wrapper>ul>li {
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
   word-wrap: break-word;
   word-break: break-word;
-  padding-top: 6px;
-  padding-bottom: 6px;
-  padding-right: 16px;
-  cursor: pointer;
+  width: 100%;
 }

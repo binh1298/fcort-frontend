@@ -66,7 +66,7 @@ export const ProfileDialog = (props) => {
             </button>
           </div>
         </div>
-        <div className={isEditOn ? 'profileEdit-Off' : 'profileEdit-On'}>
+        <div className={isEditOn ? 'profile-edit-off' : 'profile-edit-on'}>
           <InputFieldsNotChange
             label="FULL NAME:"
             value={props.fullname}
@@ -81,7 +81,7 @@ export const ProfileDialog = (props) => {
           />
         </div>
 
-        <div className={isEditOn ? 'profileEdit-On' : 'profileEdit-Off'}>
+        <div className={isEditOn ? 'profile-edit-on' : 'profile-edit-off'}>
           <form onSubmit={handleSubmit(onSubmit)}>
             <div className="avatar-container">
               <ProfileAvatar
