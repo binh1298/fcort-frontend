@@ -90,7 +90,6 @@ export const Home = () => {
   const [isClickedUserOption, setIsClickedUserOption] = useState(false);
   const [isClickedGroupDetail, setIsClickedGroupDetail] = useState(false);
   const [isClickedViewProfile, setIsClickedViewProfile] = useState(false);
-  const [index, setIndex] = useState(1);
   return (
     <div className="home-container">
       <GroupDialog
