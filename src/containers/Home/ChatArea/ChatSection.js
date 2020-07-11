@@ -9,10 +9,10 @@ export const ChatSection = (props) => {
   };
   const chat = props.messages.map((object) => (
     <div
-      className={object.name === props.username ? 'userMessages' : 'otherMessages'}
+      className={object.name === props.username ? 'user-messages' : 'other-messages'}
       key={object.id}
     >
-      <img className="avatarChat" src={props.avatarChat[0].image} />
+      <img className="avatar-chat" src={props.avatarChat[0].image} />
       <span style={styles}>{object.message}</span>
     </div>
   ));

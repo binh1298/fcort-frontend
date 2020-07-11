@@ -102,12 +102,12 @@ export const GroupDetail = ({updateGroupDetail, navbarStatus, chatTarget}) => {
     <div
       className={
         navbarStatus
-          ? 'groupDetail-context groupDetailOn'
-          : 'groupDetail-context groupDetailOff'
+          ? 'group-detail-context group-detail-on'
+          : 'group-detail-context group-detail-off'
       }
       style={groupDetailStyles}
     >
-      <div className="groupDetail-wrapper" style={lineStyles}>
+      <div className="group-detail-wrapper" style={lineStyles}>
         <GroupDetailHeader chatTarget={chatTarget} />
         <GroupDetailMenu
           membersList={membersList}

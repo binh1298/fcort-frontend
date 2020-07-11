@@ -23,7 +23,7 @@ const Options = (props) => {
       onMouseOver={() => setStyles({color: theme.palette.navbar.titleColor})}
       onMouseOut={() => setStyles({color: theme.palette.navbar.hoverColor})}
     >
-      <p className="optionsName" onClick={() => handleLogoutClick(props.name)}>
+      <p className="options-name" onClick={() => handleLogoutClick(props.name)}>
         {props.name}
         {props.icon}
       </p>

@@ -8,7 +8,7 @@ export const SearchBar = () => {
     backgroundColor: theme.palette.searchBar.backgroundColor,
   };
   return (
-    <div className="searchBar-wrapper">
+    <div className="search-bar-wrapper">
       <form>
         <input type="text" placeholder="Search" style={stylesSearchInput} />
         <i className="fa fas fa-search"></i>

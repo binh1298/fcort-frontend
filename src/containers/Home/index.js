@@ -110,7 +110,7 @@ export const Home = () => {
       />
       <div className="navbar-wrapper">
         <div
-          className={isClickedMenu ? 'navbarOn' : 'navbarOff'}
+          className={isClickedMenu ? 'navbar-on' : 'navbar-off'}
           onClick={() => setIsClickedMenu(false)}
         ></div>
         <div

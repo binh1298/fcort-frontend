@@ -5,11 +5,11 @@ import userAvt from '../../../assets/images/userAvt.png';
 
 export const UserNavbar = (props) => {
   return (
-    <div className="userNavbar-wrapper">
+    <div className="user-navbar-wrapper">
       <img src={props.avatar || userAvt} />
-      <div className="userDropdown">
+      <div className="user-dropdown">
         <button
-          className="optionBtn"
+          className="option-btn"
           onMouseEnter={() => props.onHoverUserOption(true)}
           onMouseLeave={() => props.onHoverUserOption(false)}
         >

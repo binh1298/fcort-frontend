@@ -2,7 +2,6 @@ import React, {useContext, useState} from 'react';
 import './AddMembersDialog.scss';
 import ThemeContext from '../../../../contexts/ThemeContext';
 import Dialog from '../../../../component/Dialog';
-import DialogButton from '../../../../component/DialogButton';
 import SearchBar from '../../../../component/SearchBar';
 import ListUsers from '../../../../component/ListUsers';
 
@@ -23,7 +22,7 @@ const AddButton = ({onClick}) => {
   const [isClicked, setIsClicked] = useState(true);
   return (
     <button
-      className="addMembers-btn"
+      className="add-members-btn"
       style={isClicked ? stylesAddMembersButton : stylesAddedMembersButton}
       onClick={() => {
         onClick();
@@ -57,13 +56,13 @@ export const AddMembersDialog = ({
   };
   return (
     <Dialog dialogStatus={dialogStatus} onClick={setIsClickedAddMembersDialog}>
-      <div className="addMembersDialog-wrapper" style={stylesAddMembersDialog}>
-        <div className="addMembersDialog-header" style={stylesAddMembersDialogTitle}>
+      <div className="add-members-dialog-wrapper" style={stylesAddMembersDialog}>
+        <div className="add-members-dialog-header" style={stylesAddMembersDialogTitle}>
           Invite friends to {chatTarget.name}
         </div>
-        <div className="addMembersDialog-selector">
+        <div className="add-members-dialog-selector">
           <SearchBar />
-          <div className="listAddUsers">
+          <div className="list-add-users">
             <ListUsers listUsers={allUsers} setUsersID={setGroupDetailUserTargetID}>
               <div>
                 <AddButton onClick={onClick} />

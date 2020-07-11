@@ -51,12 +51,12 @@ export const GroupDialog = (props) => {
   };
   return (
     <Dialog dialogStatus={props.dialogStatus} onClick={props.onClick}>
-      <div className="dialogAddGroup-wrapper" style={stylesDialogAddGroupBox}>
-        <p className="dialogAddGroup-header" style={stylesDialogAddGroupTitle}>
+      <div className="dialog-add-group-wrapper" style={stylesDialogAddGroupBox}>
+        <p className="dialog-add-group-header" style={stylesDialogAddGroupTitle}>
           Add a new group
         </p>
         <form
-          className={isFocused ? 'inputGroupName focus' : 'inputGroupName'}
+          className={isFocused ? 'input-group-name focus' : 'input-group-name'}
           onSubmit={handleSubmit(groupAdding)}
           onFocus={() => setIsFocused(true)}
           onBlur={() => setIsFocused(false)}

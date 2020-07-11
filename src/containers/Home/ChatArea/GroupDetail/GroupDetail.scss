@@ -1,36 +1,36 @@
 @import '../../../../fonts.scss';
 
-.groupDetail-context {
+.group-detail-context {
   transition: all 0.5s ease-in-out;
   height: 100%;
   z-index: 51;
 }
 
 @media screen and (max-width: 900px) {
-  .groupDetail-context {
+  .group-detail-context {
     position: absolute;
     top: 0;
     right: 0;
   }
 }
 
-.groupDetailOn {
+.group-detail-on {
   width: 55%;
 }
 
 @media screen and (max-width: 900px) {
-  .groupDetailOn {
+  .group-detail-on {
     width: 88vw;
     justify-content: flex-end;
   }
 }
 
-.groupDetailOff {
+.group-detail-off {
   display: none;
 }
 
 @media screen and (max-width: 900px) {
-  .groupDetailOff {
+  .group-detail-off {
     display: block;
     width: 88vw;
     transform: translate(100vw);
@@ -38,7 +38,7 @@
   }
 }
 
-.groupDetail-background {
+.group-detail-background {
   display: none;
   position: absolute;
   top: 0;
@@ -47,15 +47,20 @@
   height: 100%;
 }
 
-.groupDetail-wrapper {
+.group-detail-wrapper {
   width: 100%;
   height: 100%;
   border-left: 1px inset;
   overflow-y: scroll;
-  border-top-left-radius: 10px;
-  border-bottom-left-radius: 10px;
 }
 
-.groupDetail-wrapper::-webkit-scrollbar {
+@media screen and (max-width: 900px) {
+  .group-detail-wrapper {
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+  }
+}
+
+.group-detail-wrapper::-webkit-scrollbar {
   display: none;
 }

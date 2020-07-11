@@ -15,11 +15,13 @@ const User = ({fullname, avatar, id, setUsersID, children}) => {
       }}
       onMouseLeave={() => setStyles({})}
     >
-      <img className="listUsersAvatar" src={avatar || userAvt} />
-      <p className="listUsersName">{fullname}</p>
+      <img className="list-users-avatar" src={avatar || userAvt} />
+      <p className="list-users-name">{fullname}</p>
       <div
         className={
-          Object.entries(styles).length === 0 ? 'listUserOptionsOff' : 'listUserOptionsOn'
+          Object.entries(styles).length === 0
+            ? 'list-user-options-off'
+            : 'list-user-options-on'
         }
       >
         {children}
@@ -40,6 +42,6 @@ export const ListUsers = ({listUsers, setUsersID, children}) => {
       {children}
     </User>
   ));
-  return <ul className="listUsers">{list}</ul>;
+  return <ul className="list-users">{list}</ul>;
 };
 export default ListUsers;

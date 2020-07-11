@@ -1,6 +1,6 @@
 @import '../../../fonts.scss';
 
-.dialogAddGroup-wrapper {
+.dialog-add-group-wrapper {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -25,12 +25,12 @@
 }
 
 @media screen and (max-width: 900px) {
-  .dialogAddGroup-wrapper {
+  .dialog-add-group-wrapper {
     width: 100%;
   }
 }
 
-.dialogAddGroup-header {
+.dialog-add-group-header {
   position: relative;
   align-self: flex-start;
   display: flex;
@@ -42,7 +42,7 @@
   margin-left: 1vw;
 }
 
-.inputGroupName {
+.input-group-name {
   position: relative;
   display: flex;
   width: 450px;
@@ -54,20 +54,20 @@
 }
 
 @media screen and (max-width: 900px) {
-  .inputGroupName {
+  .input-group-name {
     width: 100%;
   }
 }
 
-.inputGroupName>.input-container {
+.input-group-name>.input-container {
   width: 94%;
   margin: 16px 0 16px 0;
 }
 
-.inputGroupName>.dialogBtn {
+.input-group-name>.dialog-btn {
   margin-bottom: 8px;
 }
 
-.inputGroupName>.dialogBtn-container {
+.input-group-name>.dialog-btn-container {
   padding-left: 12px;
 }

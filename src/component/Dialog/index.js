@@ -8,7 +8,7 @@ export const Dialog = ({dialogStatus, onClick, children}) => {
     backgroundColor: theme.palette.dialog.backgroundColor,
   };
   return (
-    <div className={dialogStatus ? 'dialogOn' : 'dialogOff'}>
+    <div className={dialogStatus ? 'dialog-on' : 'dialog-off'}>
       <div
         className="dialog-background"
         style={stylesDialogBackground}

@@ -20,8 +20,8 @@ export const GroupDetailMenu = ({
     color: theme.palette.groupDetail.titleColor,
   };
   return (
-    <div className="groupDetailMenu-wrapper">
-      <div className="groupDetailMenu-header">
+    <div className="group-detail-menu-wrapper">
+      <div className="group-detail-menu-header">
         <p style={stylesTitle}>EVERYBODY</p>
         <i
           className="fa fas fa-plus"

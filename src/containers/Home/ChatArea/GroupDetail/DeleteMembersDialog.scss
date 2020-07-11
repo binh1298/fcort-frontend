@@ -1,6 +1,6 @@
 @import '../../../../fonts.scss';
 
-.deleteMembersDialog-wrapper {
+.delete-members-dialog-wrapper {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -27,14 +27,14 @@
 }
 
 @media screen and (max-width: 900px) {
-  .deleteMembersDialog-wrapper {
+  .delete-members-dialog-wrapper {
     position: absolute;
     left: -12vw;
     width: 100vw;
   }
 }
 
-.deleteMembersDialog-wrapper>p {
+.delete-members-dialog-wrapper>p {
   font-size: 1rem;
   margin-top: 16px;
   margin-bottom: 16px;
@@ -42,7 +42,7 @@
   word-wrap: break-word;
 }
 
-.deleteMembersDialog-header {
+.delete-members-dialog-header {
   align-self: flex-start;
   font-family: $default-font;
   width: 100%;
@@ -51,7 +51,7 @@
   font-size: 1.5rem;
 }
 
-.dialogBtn-container {
+.dialog-btn-container {
   display: flex;
   justify-content: space-between;
   width: 100%;

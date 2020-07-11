@@ -1,6 +1,6 @@
 @import '../../../../fonts.scss';
 
-.addMembersDialog-wrapper {
+.add-members-dialog-wrapper {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -10,7 +10,7 @@
   padding: 24px 24px 24px 24px;
   border: 1px solid;
   border-radius: 6px;
-  animation-name: deleteMembersDialogAppear;
+  animation-name: addMembersDialogAppear;
   animation-duration: 0.2s;
   animation-timing-function: ease-in-out;
   z-index: 101;
@@ -27,7 +27,7 @@
 }
 
 @media screen and (max-width: 900px) {
-  .addMembersDialog-wrapper {
+  .add-members-dialog-wrapper {
     position: absolute;
     left: -12vw;
     width: 100vw;
@@ -35,7 +35,7 @@
   }
 }
 
-.addMembersDialog-header {
+.add-members-dialog-header {
   align-self: flex-start;
   font-family: $default-font;
   width: 100%;
@@ -44,7 +44,7 @@
   font-size: 1.5rem;
 }
 
-.addMembersDialog-selector {
+.add-members-dialog-selector {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -54,16 +54,16 @@
   overflow: hidden;
 }
 
-.listAddUsers {
+.list-add-users {
   width: 100%;
   overflow-y: auto;
 }
 
-.listAddUsers>.listUsers>li {
+.list-add-users>.list-users>li {
   cursor: default;
 }
 
-.addMembers-btn {
+.add-members-btn {
   align-self: flex-end;
   font-size: 1rem;
   background-color: transparent;
@@ -77,10 +77,10 @@
   cursor: pointer;
 }
 
-.addMembers-btn:hover {
+.add-members-btn:hover {
   opacity: 1;
 }
 
-.addMembers-btn:active {
+.add-members-btn:active {
   opacity: 0.8;
 }

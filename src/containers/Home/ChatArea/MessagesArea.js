@@ -18,8 +18,8 @@ export const MessagesArea = ({
     backgroundColor: theme.palette.message.textInput,
   };
   return (
-    <div className="messagesArea-groupDetail">
-      <div className="messagesArea-wrapper">
+    <div className="messages-area-group-detail">
+      <div className="messages-area-wrapper">
         <ChatSection messages={messages} username={username} avatarChat={avatarChat} />
         <form>
           <input type="text" placeholder="Type a messages..." style={styles}></input>
@@ -29,7 +29,7 @@ export const MessagesArea = ({
         </form>
       </div>
       <div
-        className={navbarStatus ? 'navbarOn' : 'navbarOff'}
+        className={navbarStatus ? 'navbar-on' : 'navbar-off'}
         onClick={setIsClickedGroupDetail}
       ></div>
       <GroupDetail

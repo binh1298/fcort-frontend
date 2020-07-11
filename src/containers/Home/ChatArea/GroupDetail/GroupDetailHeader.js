@@ -34,15 +34,15 @@ export const GroupDetailHeader = ({chatTarget}) => {
     }
   };
   return (
-    <div className="groupDetail-header" style={stylesLine}>
+    <div className="group-detail-header" style={stylesLine}>
       <AvatarUpload
         dialogStatus={isClickedAvatar}
         onClick={() => setIsClickedAvatar(false)}
         setProfilePic={setGroupProfilePic}
         selectedImage={selectedImage}
       />
-      <div className="groupDetailAvt-wrapper">
-        <img className="groupDetailAvt" src={groupProfilePic || groupAvt} />
+      <div className="group-detail-avt-wrapper">
+        <img className="group-detail-avt" src={groupProfilePic || groupAvt} />
         <span>Change Avt</span>
         <input
           className="fileInput-23-d-3"
@@ -54,7 +54,7 @@ export const GroupDetailHeader = ({chatTarget}) => {
           onChange={profilePicChange}
         />
       </div>
-      <div className="groupDetailName" style={stylesGroupName}>
+      <div className="group-detail-name" style={stylesGroupName}>
         {chatTarget.name}
       </div>
     </div>

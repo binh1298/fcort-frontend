@@ -1,13 +1,13 @@
 @import '../../fonts.scss';
 
-.listUsers {
+.list-users {
   font-size: 1.1rem;
   font-family: $message-font;
   width: 100%;
   height: 100%;
 }
 
-.listUsers>li {
+.list-users>li {
   width: 100%;
   padding: 8px 8px 8px 16px;
   display: flex;
@@ -16,12 +16,12 @@
   cursor: pointer;
 }
 
-.listUsersAvatar {
+.list-users-avatar {
   width: 36px;
   border-radius: 50%;
 }
 
-.listUsersName {
+.list-users-name {
   width: 80%;
   margin-left: 16px;
   word-wrap: break-word;
@@ -29,12 +29,12 @@
 }
 
 @media screen and (max-width: 900px) {
-  .listUsersName {
+  .list-users-name {
     width: 100%;
   }
 }
 
-.listUserOptionsOn>i {
+.list-user-options-on>i {
   display: flex;
   justify-content: space-between;
   visibility: visible;
@@ -44,7 +44,7 @@
   padding: 4px;
 }
 
-.listUserOptionsOff>i {
+.list-user-options-off>i {
   display: flex;
   justify-content: space-between;
   visibility: hidden;
@@ -55,7 +55,7 @@
 }
 
 @media screen and (max-width: 900px) {
-  .listUsers i {
+  .list-users i {
     visibility: visible;
   }
 }
