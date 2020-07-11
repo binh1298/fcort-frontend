@@ -3,7 +3,7 @@
 .groupDetail-context {
   transition: all 0.5s ease-in-out;
   height: 100%;
-  z-index: 0;
+  z-index: 51;
 }
 
 @media screen and (max-width: 900px) {
@@ -20,7 +20,7 @@
 
 @media screen and (max-width: 900px) {
   .groupDetailOn {
-    width: 90vw;
+    width: 88vw;
     justify-content: flex-end;
   }
 }
@@ -32,7 +32,7 @@
 @media screen and (max-width: 900px) {
   .groupDetailOff {
     display: block;
-    width: 90vw;
+    width: 88vw;
     transform: translate(100vw);
     justify-content: flex-end;
   }

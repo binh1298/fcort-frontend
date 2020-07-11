@@ -13,7 +13,7 @@
   animation-name: deleteMembersDialogAppear;
   animation-duration: 0.2s;
   animation-timing-function: ease-in-out;
-  z-index: 4;
+  z-index: 101;
 }
 
 @keyframes deleteMembersDialogAppear {
@@ -29,7 +29,7 @@
 @media screen and (max-width: 900px) {
   .deleteMembersDialog-wrapper {
     position: absolute;
-    left: -10vw;
+    left: -12vw;
     width: 100vw;
   }
 }
