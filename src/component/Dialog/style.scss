@@ -18,8 +18,13 @@
 
 .dialog-background {
   position: absolute;
-  width: 124vw;
-  height: 100vh;
-  left: -12vw;
-  top: 0;
+  width: 150vw;
+  height: 150vh;
+}
+
+@media screen and (max-width: 900px) {
+  .dialog-background{
+    left: -12vw;
+    top: 0;
+  }
 }
