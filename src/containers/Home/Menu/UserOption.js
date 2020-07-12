@@ -50,6 +50,7 @@ export const UserOption = (props) => {
         props.isClickedUserOption ? 'options-wrapper' : 'options-wrapper toggle-option'
       }
       style={styles}
+      onMouseLeave={props.onMouseLeave}
     >
       {options}
     </ul>

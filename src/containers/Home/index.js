@@ -86,7 +86,6 @@ export const Home = () => {
   const [chatTarget, setChatTarget] = useState({});
   const [isClickedMenu, setIsClickedMenu] = useState(false);
   const [isClickedAddGroup, setIsClickedAddGroup] = useState(false);
-  const [isClickedUserOption, setIsClickedUserOption] = useState(false);
   const [isClickedGroupDetail, setIsClickedGroupDetail] = useState(false);
   const [isClickedViewProfile, setIsClickedViewProfile] = useState(false);
   return (
@@ -115,8 +114,6 @@ export const Home = () => {
         <UserNavbar
           avatar={inforProfile.avatar}
           userName={inforProfile.fullname}
-          onHoverUserOption={(value) => setIsClickedUserOption(value)}
-          isClickedUserOption={isClickedUserOption}
           userOption={[
             {id: 'aaa', name: 'Account Setting', icon: <i className="fa fas fa-cog"></i>},
             {id: 'bbb', name: 'Logout', icon: <i className="fa fas fa-sign-out"></i>},
