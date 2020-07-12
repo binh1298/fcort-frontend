@@ -3,7 +3,7 @@ import './style.scss';
 import userAvt from '../../assets/images/userAvt.png';
 import ThemeContext from '../../contexts/ThemeContext';
 
-const User = ({fullname, avatar, id, setUsersID, children}) => {
+const ItemUser = ({fullname, avatar, id, setUsersID, children}) => {
   const theme = useContext(ThemeContext);
   const [styles, setStyles] = useState({});
   return (
@@ -32,7 +32,7 @@ const User = ({fullname, avatar, id, setUsersID, children}) => {
 
 export const ListUsers = ({listUsers, setUsersID, children}) => {
   const list = listUsers.map((object) => (
-    <User
+    <ItemUser
       fullname={object.fullname}
       avatar={object.avatar}
       id={object.id}
@@ -40,7 +40,7 @@ export const ListUsers = ({listUsers, setUsersID, children}) => {
       setUsersID={setUsersID}
     >
       {children}
-    </User>
+    </ItemUser>
   ));
   return <ul className="list-users">{list}</ul>;
 };
