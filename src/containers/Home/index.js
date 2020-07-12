@@ -12,6 +12,7 @@ import {get} from '../../utils/ApiCaller';
 import ProfileDialog from './Menu/ProfileDialog';
 import {LOCALSTORAGE_TOKEN_NAME} from '../../configurations';
 import LocalStorageUtils from '../../utils/LocalStorageUtils';
+import ChangePassword from './Menu/ChangePassword';
 const user = LocalStorageUtils.getUser(LOCALSTORAGE_TOKEN_NAME);
 
 export const Home = () => {
@@ -86,11 +87,18 @@ export const Home = () => {
   const [chatTarget, setChatTarget] = useState({});
   const [isClickedMenu, setIsClickedMenu] = useState(false);
   const [isClickedAddGroup, setIsClickedAddGroup] = useState(false);
-  const [isClickedUserOption, setIsClickedUserOption] = useState(false);
   const [isClickedGroupDetail, setIsClickedGroupDetail] = useState(false);
   const [isClickedViewProfile, setIsClickedViewProfile] = useState(false);
+  const [isClickedChangepassword, setIsClickedChangePassword] = useState(false);
   return (
     <div className="home-container">
+      <ChangePassword
+        dialogStatus={isClickedChangepassword}
+        email={inforProfile.email}
+        onClickOff={() => {
+          setIsClickedChangePassword(false);
+        }}
+      />
       <GroupDialog
         dialogStatus={isClickedAddGroup}
         handleFetch={fetchGroup}
@@ -107,6 +115,9 @@ export const Home = () => {
         onClick={() => {
           setIsClickedViewProfile(false);
         }}
+        onClickOn={() => {
+          setIsClickedChangePassword(true);
+        }}
       />
       <div className={isClickedMenu ? 'navbar toggle-target' : 'navbar'} style={styles}>
         <h1>
@@ -115,8 +126,6 @@ export const Home = () => {
         <UserNavbar
           avatar={inforProfile.avatar}
           userName={inforProfile.fullname}
-          onHoverUserOption={(value) => setIsClickedUserOption(value)}
-          isClickedUserOption={isClickedUserOption}
           userOption={[
             {id: 'aaa', name: 'Account Setting', icon: <i className="fa fas fa-cog"></i>},
             {id: 'bbb', name: 'Logout', icon: <i className="fa fas fa-sign-out"></i>},

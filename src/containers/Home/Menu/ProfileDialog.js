@@ -77,6 +77,10 @@ export const ProfileDialog = (props) => {
     event.preventDefault(event);
     setIsEditOn(false);
   };
+  const handleClickChangePassword = () => {
+    props.onClick();
+    props.onClickOn();
+  };
 
   return (
     <Dialog dialogStatus={props.viewProfile} onClick={props.onClick}>
@@ -130,7 +134,7 @@ export const ProfileDialog = (props) => {
               styleTitle={stylesProfileTitle}
               styleBoder={stylesInputBorder}
             />
-            <a href="#" className="change-password">
+            <a href="#" className="change-password" onClick={handleClickChangePassword}>
               Change Password ?
             </a>
             <div className="btn-submit">
