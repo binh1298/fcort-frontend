@@ -61,7 +61,7 @@ export const ListItems = (props) => {
       {props.icon}
     </Items>
   ));
-  return <ul>{list}</ul>;
+  return <ul className="list-items-name">{list}</ul>;
 };
 
 export default ListItems;

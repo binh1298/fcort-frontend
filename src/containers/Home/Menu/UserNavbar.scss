@@ -1,7 +1,7 @@
 @import '../../../fonts.scss';
 
 
-.userNavbar-wrapper {
+.user-navbar-wrapper {
   padding-top: 16px;
   padding-bottom: 24px;
   padding-left: 32px;
@@ -11,19 +11,19 @@
   align-items: center;
 }
 
-.userNavbar-wrapper>img {
+.user-navbar-wrapper>img {
   width: 48px;
   border-radius: 50%;
 }
 
-.userDropdown {
+.user-dropdown {
   position: relative;
   padding-top: 6px;
   padding-bottom: 6px;
   min-width: 70%;
 }
 
-.userDropdown>.optionBtn {
+.user-dropdown>.option-btn {
   width: 100%;
   position: relative;
   display: flex;
@@ -38,14 +38,14 @@
   cursor: pointer;
 }
 
-.userDropdown>.optionBtn>p {
+.user-dropdown>.option-btn>p {
   word-wrap: break-word;
   word-break: break-word;
   font-size: 1rem;
   font-family: $default-font;
 }
 
-.userDropdown>.optionBtn>i {
+.user-dropdown>.option-btn>i {
   font-size: 1.6rem;
   padding-left: 12px;
 }

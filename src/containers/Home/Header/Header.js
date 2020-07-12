@@ -31,7 +31,7 @@ export const Header = (props) => {
       <i
         className={
           props.groupDetailStatus
-            ? 'fa fa-exclamation-circle groupDetailIconOn'
+            ? 'fa fa-exclamation-circle group-detail-icon-on'
             : 'fa fa-exclamation-circle'
         }
         onClick={props.onClickGroupDetail}

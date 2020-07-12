@@ -1,0 +1,57 @@
+@import '../../../../fonts.scss';
+
+.delete-members-dialog-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: fit-content;
+  width: 500px;
+  padding: 24px 36px 24px 36px;
+  border: 1px solid;
+  border-radius: 6px;
+  animation-name: delete-members-dialog-appear;
+  animation-duration: 0.2s;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes delete-members-dialog-appear {
+  0% {
+    transform: scale(0.1, 0.1);
+  }
+
+  100% {
+    transform: scale(1, 1);
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .delete-members-dialog-wrapper {
+    position: absolute;
+    left: -12vw;
+    width: 100vw;
+  }
+}
+
+.delete-members-dialog-wrapper>p {
+  font-size: 1rem;
+  margin-top: 16px;
+  margin-bottom: 16px;
+  word-break: break-word;
+  word-wrap: break-word;
+}
+
+.delete-members-dialog-header {
+  align-self: flex-start;
+  font-family: $default-font;
+  width: 100%;
+  word-break: break-word;
+  word-wrap: break-word;
+  font-size: 1.5rem;
+}
+
+.dialog-btn-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}

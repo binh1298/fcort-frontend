@@ -12,9 +12,9 @@ import {get} from '../../utils/ApiCaller';
 import ProfileDialog from './Menu/ProfileDialog';
 import {LOCALSTORAGE_TOKEN_NAME} from '../../configurations';
 import LocalStorageUtils from '../../utils/LocalStorageUtils';
-const user = LocalStorageUtils.getUser(LOCALSTORAGE_TOKEN_NAME);
 
 export const Home = () => {
+  const user = LocalStorageUtils.getUser(LOCALSTORAGE_TOKEN_NAME);
   const theme = useContext(ThemeContext);
   const styles = {
     backgroundColor: theme.palette.navbar.background,
@@ -108,49 +108,62 @@ export const Home = () => {
           setIsClickedViewProfile(false);
         }}
       />
-      <div className={isClickedMenu ? 'navbar toggle-target' : 'navbar'} style={styles}>
-        <h1>
-          <i className="fa fas fa-tv fa-lg"></i>Fcord
-        </h1>
-        <UserNavbar
-          avatar={inforProfile.avatar}
-          userName={inforProfile.fullname}
-          onHoverUserOption={(value) => setIsClickedUserOption(value)}
-          isClickedUserOption={isClickedUserOption}
-          userOption={[
-            {id: 'aaa', name: 'Account Setting', icon: <i className="fa fas fa-cog"></i>},
-            {id: 'bbb', name: 'Logout', icon: <i className="fa fas fa-sign-out"></i>},
-          ]}
-          viewProfile={isClickedViewProfile}
-          onClickViewProfile={() => {
-            setIsClickedViewProfile(true);
-          }}
-        />
-        <FavoriteSection
-          chooseChatTarget={setChatTarget}
-          favoriteList={favoriteGroupList}
-          handleFetch={fetchFavoriteGroup}
-        />
-        <GroupSection
-          chooseChatTarget={setChatTarget}
-          onClick={() => setIsClickedAddGroup(true)}
-          groupList={groupList}
-          handleFetch={fetchFavoriteGroup}
-        />
-        <MessagesSection
-          chooseChatTarget={setChatTarget}
-          messagesList={[
-            {id: '135', name: 'BinhPham'},
-            {id: '246', name: 'KienTran'},
-            {id: '357', name: 'HuyBui'},
-            {id: '468', name: 'BinhTruong'},
-            {id: '579', name: 'HungNguyen'},
-            {id: '680', name: 'NguyenTran'},
-            {id: '791', name: 'HoaLuu'},
-            {id: '444', name: 'DaiLe'},
-            {id: '555', name: 'LamNguyen'},
-          ]}
-        />
+      <div className="navbar-wrapper">
+        <div
+          className={isClickedMenu ? 'navbar-on' : 'navbar-off'}
+          onClick={() => setIsClickedMenu(false)}
+        ></div>
+        <div
+          className={isClickedMenu ? 'navbar' : 'navbar  toggle-target'}
+          style={styles}
+        >
+          <h1>
+            <i className="fa fas fa-tv fa-lg"></i>Fcord
+          </h1>
+          <UserNavbar
+            avatar={inforProfile.avatar}
+            userName={inforProfile.fullname}
+            onHoverUserOption={(value) => setIsClickedUserOption(value)}
+            isClickedUserOption={isClickedUserOption}
+            userOption={[
+              {
+                id: 'aaa',
+                name: 'Account Setting',
+                icon: <i className="fa fas fa-cog"></i>,
+              },
+              {id: 'bbb', name: 'Logout', icon: <i className="fa fas fa-sign-out"></i>},
+            ]}
+            viewProfile={isClickedViewProfile}
+            onClickViewProfile={() => {
+              setIsClickedViewProfile(true);
+            }}
+          />
+          <FavoriteSection
+            chooseChatTarget={setChatTarget}
+            favoriteList={favoriteGroupList}
+            handleFetch={fetchFavoriteGroup}
+          />
+          <GroupSection
+            chooseChatTarget={setChatTarget}
+            onClick={() => setIsClickedAddGroup(true)}
+            groupList={groupList}
+            handleFetch={fetchFavoriteGroup}
+          />
+          <MessagesSection
+            chooseChatTarget={setChatTarget}
+            messagesList={[
+              {id: '135', name: 'BinhPham'},
+              {id: '246', name: 'KienTran'},
+              {id: '357', name: 'HuyBui'},
+              {id: '468', name: 'BinhTruong'},
+              {id: '579', name: 'HungNguyen'},
+              {id: '680', name: 'NguyenTran'},
+              {id: '791', name: 'HoaLuu'},
+              {id: '444', name: 'DaiLe'},
+              {id: '555', name: 'LamNguyen'},
+            ]}
+          />
+        </div>
       </div>
       <div className="section">
         <Header
@@ -161,8 +174,9 @@ export const Home = () => {
           groupDetailStatus={isClickedGroupDetail}
         />
         <MessagesArea
+          setIsClickedGroupDetail={() => setIsClickedGroupDetail(false)}
           chatTarget={chatTarget}
-          onClickMenu={() => setIsClickedMenu(false)}
+          navbarStatus={isClickedGroupDetail}
           username="Nguyễn Trần Thiên Đức"
           avatarChat={[
             {
@@ -202,7 +216,6 @@ export const Home = () => {
             },
             {id: '25', name: 'BinhPham', message: 'ken nơ lao nèn'},
           ]}
-          navbarStatus={isClickedGroupDetail}
         />
       </div>
     </div>

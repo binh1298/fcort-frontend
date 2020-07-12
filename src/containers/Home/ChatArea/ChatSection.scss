@@ -21,21 +21,21 @@
   display: none;
 }
 
-.chat-wrapper>.otherMessages {
+.chat-wrapper>.other-messages {
   align-self: flex-start;
   display: flex;
   align-items: center;
   max-width: 60%;
 }
 
-.chat-wrapper>.userMessages {
+.chat-wrapper>.user-messages {
   align-self: flex-end;
   display: flex;
   align-items: center;
   max-width: 60%;
 }
 
-.chat-wrapper>.userMessages>span {
+.chat-wrapper>.user-messages>span {
   display: block;
   padding: 12px 16px 12px 16px;
   border-radius: 48px;
@@ -45,12 +45,12 @@
 }
 
 @media screen and (max-width: 900px) {
-  .chat-wrapper>.userMessages>span {
+  .chat-wrapper>.user-messages>span {
     padding: 8px 16px 8px 16px;
   }
 }
 
-.chat-wrapper>.otherMessages>span {
+.chat-wrapper>.other-messages>span {
   display: block;
   padding: 12px 16px 12px 16px;
   border-radius: 48px;
@@ -60,23 +60,23 @@
 }
 
 @media screen and (max-width: 900px) {
-  .chat-wrapper>.otherMessages>span {
+  .chat-wrapper>.other-messages>span {
     padding: 8px 16px 8px 16px;
   }
 }
 
-.chat-wrapper>.userMessages>.avatarChat {
+.chat-wrapper>.user-messages>.avatar-chat {
   display: none;
 }
 
-.chat-wrapper>.otherMessages>.avatarChat {
+.chat-wrapper>.other-messages>.avatar-chat {
   border-radius: 50%;
   width: 40px;
   margin-right: 12px;
 }
 
 @media screen and (max-width: 900px) {
-  .chat-wrapper>.otherMessages>.avatarChat {
+  .chat-wrapper>.other-messages>.avatar-chat {
     border-radius: 50%;
     width: 32px;
     margin-right: 8px;

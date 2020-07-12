@@ -1,0 +1,85 @@
+@import '../../../../fonts.scss';
+
+.add-members-dialog-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: 540px;
+  width: 500px;
+  padding: 24px 24px 24px 24px;
+  border: 1px solid;
+  border-radius: 6px;
+  animation-name: add-members-dialog-appear;
+  animation-duration: 0.2s;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes add-members-dialog-appear {
+  0% {
+    transform: scale(0.1, 0.1);
+  }
+
+  100% {
+    transform: scale(1, 1);
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .add-members-dialog-wrapper {
+    position: absolute;
+    left: -12vw;
+    width: 100vw;
+    height: 70vh;
+  }
+}
+
+.add-members-dialog-header {
+  align-self: flex-start;
+  font-family: $default-font;
+  width: 100%;
+  word-break: break-word;
+  word-wrap: break-word;
+  font-size: 1.5rem;
+}
+
+.add-members-dialog-selector {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.list-add-users {
+  width: 100%;
+  overflow-y: auto;
+}
+
+.list-add-users>.list-users>li {
+  cursor: default;
+}
+
+.add-members-btn {
+  align-self: flex-end;
+  font-size: 1rem;
+  background-color: transparent;
+  border: 1px solid;
+  border-radius: 5px;
+  outline: none;
+  padding: 10px 20px 10px 20px;
+  margin-left: 20px;
+  opacity: 0.6;
+  transition: all 0.1s ease-in-out;
+  cursor: pointer;
+}
+
+.add-members-btn:hover {
+  opacity: 1;
+}
+
+.add-members-btn:active {
+  opacity: 0.8;
+}

@@ -1,22 +1,20 @@
 @import '../../../fonts.scss';
 
-.dialogGroupBox {
-  top: 0;
-  left: 0;
+.dialog-add-group-wrapper {
   display: flex;
   flex-direction: column;
   justify-content: center;
   height: fit-content;
-  max-width: 80%;
+  width: 500px;
   padding: 24px 24px 24px 24px;
   border-radius: 6px;
-  animation-name: dialogGroupAppear;
+  animation-name: dialog-add-group-appear;
   animation-duration: 0.2s;
   animation-timing-function: ease-in-out;
-  z-index: 4;
+  z-index: 1;
 }
 
-@keyframes dialogGroupAppear {
+@keyframes dialog-add-group-appear {
   0% {
     transform: scale(0.1, 0.1);
   }
@@ -26,16 +24,28 @@
   }
 }
 
-.dialogGroupBox>.dialogGroupTitle {
+@media screen and (max-width: 900px) {
+  .dialog-add-group-wrapper {
+    width: 100%;
+  }
+}
+
+.dialog-add-group-header {
+  position: relative;
   align-self: flex-start;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  font-family: $default-font;
+  width: 100%;
   font-size: 1.5rem;
   margin-left: 1vw;
 }
 
-.inputGroupName {
+.input-group-name {
   position: relative;
   display: flex;
-  width: 28vw;
+  width: 450px;
   min-width: 210px;
   flex-direction: column;
   justify-content: center;
@@ -43,12 +53,21 @@
   margin-top: 8px;
 }
 
-.inputGroupName>.input-container {
-  width: 25vw;
-  min-width: 200px;
+@media screen and (max-width: 900px) {
+  .input-group-name {
+    width: 100%;
+  }
+}
+
+.input-group-name>.input-container {
+  width: 94%;
   margin: 16px 0 16px 0;
 }
 
-.inputGroupName>.dialogBtn {
+.input-group-name>.dialog-btn {
   margin-bottom: 8px;
+}
+
+.input-group-name>.dialog-btn-container {
+  padding-left: 12px;
 }
