@@ -10,13 +10,13 @@
   padding: 24px 24px 24px 24px;
   border: 1px solid;
   border-radius: 6px;
-  animation-name: addMembersDialogAppear;
+  animation-name: add-members-dialog-appear;
   animation-duration: 0.2s;
   animation-timing-function: ease-in-out;
   z-index: 101;
 }
 
-@keyframes addMembersDialogAppear {
+@keyframes add-members-dialog-appear {
   0% {
     transform: scale(0.1, 0.1);
   }

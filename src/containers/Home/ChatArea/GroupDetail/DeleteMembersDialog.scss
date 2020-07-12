@@ -10,13 +10,13 @@
   padding: 24px 36px 24px 36px;
   border: 1px solid;
   border-radius: 6px;
-  animation-name: deleteMembersDialogAppear;
+  animation-name: delete-members-dialog-appear;
   animation-duration: 0.2s;
   animation-timing-function: ease-in-out;
   z-index: 101;
 }
 
-@keyframes deleteMembersDialogAppear {
+@keyframes delete-members-dialog-appear {
   0% {
     transform: scale(0.1, 0.1);
   }
