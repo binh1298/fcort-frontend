@@ -4,7 +4,7 @@ import groupAvt from '../../../../assets/images/groupAvt.png';
 import ThemeContext from '../../../../contexts/ThemeContext';
 import AvatarUpload from '../../../../component/AvatarUpload';
 
-export const GroupDetailHeader = ({chatTarget}) => {
+export const GroupDetailHeader = ({groupInfo}) => {
   const theme = useContext(ThemeContext);
   const stylesLine = {
     borderColor: theme.palette.groupDetail.lineColor,
@@ -55,7 +55,7 @@ export const GroupDetailHeader = ({chatTarget}) => {
         />
       </div>
       <div className="group-detail-name" style={stylesGroupName}>
-        {chatTarget.name}
+        {groupInfo.name}
       </div>
     </div>
   );

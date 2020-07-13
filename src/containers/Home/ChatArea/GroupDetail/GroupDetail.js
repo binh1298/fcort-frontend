@@ -8,7 +8,7 @@ import {get, post, remove} from '../../../../utils/ApiCaller';
 import DeleteMembersDialog from './DeleteMembersDialog';
 import AddMembersDialog from './AddMembersDialog';
 
-export const GroupDetail = ({updateGroupDetail, navbarStatus, chatTarget}) => {
+export const GroupDetail = ({updateGroupDetail, navbarStatus, groupInfo}) => {
   const theme = useContext(ThemeContext);
   const groupDetailStyles = {
     backgroundColor: theme.palette.groupDetail.backgroundColor,
@@ -19,7 +19,7 @@ export const GroupDetail = ({updateGroupDetail, navbarStatus, chatTarget}) => {
   const memberFetching = async () => {
     //Call the server
     try {
-      const response = await get(`/groups/${chatTarget.id}/members`, {});
+      const response = await get(`/groups/${groupInfo.id}/members`, {});
       if (response.data.success) {
         return response.data.data;
       }
@@ -34,15 +34,15 @@ export const GroupDetail = ({updateGroupDetail, navbarStatus, chatTarget}) => {
     await setMembersList(tempMembersList);
   };
   useEffect(() => {
-    if (Object.entries(chatTarget).length !== 0) {
+    if (Object.entries(groupInfo).length !== 0) {
       fetchMembers();
     }
-  }, [chatTarget, updateGroupDetail]);
+  }, [groupInfo, updateGroupDetail]);
   const membersDeteling = async () => {
     //Call the server
     try {
       const response = await remove(
-        `/groups/${chatTarget.id}/members/${groupDetailUserTargetID}`,
+        `/groups/${groupInfo.id}/members/${groupDetailUserTargetID}`,
         {}
       );
       if (response.data.success) {
@@ -59,7 +59,7 @@ export const GroupDetail = ({updateGroupDetail, navbarStatus, chatTarget}) => {
     //Call the server
     try {
       const response = await post(
-        `/groups/${chatTarget.id}/members/${groupDetailUserTargetID}`,
+        `/groups/${groupInfo.id}/members/${groupDetailUserTargetID}`,
         {},
         {}
       );
@@ -108,7 +108,7 @@ export const GroupDetail = ({updateGroupDetail, navbarStatus, chatTarget}) => {
       style={groupDetailStyles}
     >
       <div className="group-detail-wrapper" style={lineStyles}>
-        <GroupDetailHeader chatTarget={chatTarget} />
+        <GroupDetailHeader groupInfo={groupInfo} />
         <GroupDetailMenu
           membersList={membersList}
           onClickDeleteMembersDialog={() => setIsClickedDeleteMembersDialog(true)}
@@ -116,7 +116,7 @@ export const GroupDetail = ({updateGroupDetail, navbarStatus, chatTarget}) => {
           setGroupDetailUserTargetID={setGroupDetailUserTargetID}
         />
         <DeleteMembersDialog
-          chatTarget={chatTarget}
+          groupInfo={groupInfo}
           dialogStatus={isClickedDeleteMembersDialog}
           setIsClickedDeleteMembersDialog={() => setIsClickedDeleteMembersDialog(false)}
           onClick={() => membersDeteling()}
@@ -125,7 +125,7 @@ export const GroupDetail = ({updateGroupDetail, navbarStatus, chatTarget}) => {
           setGroupDetailUserTargetID={setGroupDetailUserTargetID}
           membersList={membersList}
           allUsers={allUsers}
-          chatTarget={chatTarget}
+          groupInfo={groupInfo}
           dialogStatus={isClickedAddMembersDialog}
           setIsClickedAddMembersDialog={() => setIsClickedAddMembersDialog(false)}
           onClick={membersAdding}

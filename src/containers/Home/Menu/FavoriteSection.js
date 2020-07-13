@@ -19,7 +19,7 @@ export const FavoriteSection = (props) => {
         icon={<i className="fa fas fa-hashtag"></i>}
         iconRemote="fa fa-trash"
         labelRemote="Remove"
-        chooseChatTarget={props.chooseChatTarget}
+        chooseGroupInfo={props.chooseGroupInfo}
         onClick={(e) => handleRemoveFavoriteGroup(e)}
       />
     </div>

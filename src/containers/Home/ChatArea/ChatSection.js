@@ -7,13 +7,17 @@ export const ChatSection = (props) => {
   const styles = {
     backgroundColor: theme.palette.message.backgroundColor,
   };
-  const chat = props.messages.map((object) => (
+  const chat = props.messages.map((message) => (
     <div
-      className={object.name === props.username ? 'user-messages' : 'other-messages'}
-      key={object.id}
+      className={
+        message.userInfo.email === props.userInfo.email
+          ? 'user-messages'
+          : 'other-messages'
+      }
+      key={message.id}
     >
-      <img className="avatar-chat" src={props.avatarChat[0].image} />
-      <span style={styles}>{object.message}</span>
+      <img className="avatar-chat" src={message.userInfo.avatar} />
+      <span style={styles}>{message.message}</span>
     </div>
   ));
   return <div className="chat-wrapper">{chat}</div>;

@@ -37,7 +37,7 @@ const AddButton = ({onClick}) => {
 export const AddMembersDialog = ({
   setGroupDetailUserTargetID,
   allUsers,
-  chatTarget,
+  groupInfo,
   dialogStatus,
   setIsClickedAddMembersDialog,
   onClick,
@@ -58,7 +58,7 @@ export const AddMembersDialog = ({
     <Dialog dialogStatus={dialogStatus} onClick={setIsClickedAddMembersDialog}>
       <div className="add-members-dialog-wrapper" style={stylesAddMembersDialog}>
         <div className="add-members-dialog-header" style={stylesAddMembersDialogTitle}>
-          Invite friends to {chatTarget.name}
+          Invite friends to {groupInfo.name}
         </div>
         <div className="add-members-dialog-selector">
           <SearchBar />

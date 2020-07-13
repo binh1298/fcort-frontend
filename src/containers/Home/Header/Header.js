@@ -17,7 +17,7 @@ export const Header = (props) => {
     <div className="header-wrapper" style={headerWrapperStyles}>
       <p>
         {props.icon}
-        {props.chatTarget.name}
+        {props.groupInfo.name}
       </p>
       <button className="toggle" onClick={props.onClickMenu}>
         <i className="fa fas fa-bars"></i>

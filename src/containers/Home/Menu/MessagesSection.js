@@ -11,7 +11,7 @@ export const MessagesSection = (props) => {
       <ListItems
         list={props.messagesList}
         icon={<i className="fa fas fa-at"></i>}
-        chooseChatTarget={props.chooseChatTarget}
+        chooseGroupInfo={props.chooseGroupInfo}
       />
     </div>
   );

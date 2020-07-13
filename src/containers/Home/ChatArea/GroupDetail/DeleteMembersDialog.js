@@ -5,7 +5,7 @@ import Dialog from '../../../../component/Dialog';
 import DialogButton from '../../../../component/DialogButton';
 
 export const DeleteMembersDialog = ({
-  chatTarget,
+  groupInfo,
   dialogStatus,
   setIsClickedDeleteMembersDialog,
   onClick,
@@ -32,7 +32,7 @@ export const DeleteMembersDialog = ({
           className="delete-members-dialog-header"
           style={stylesDeleteMembersDialogTitle}
         >
-          Remove from {chatTarget.name}
+          Remove from {groupInfo.name}
         </div>
         <p style={stylesDeleteMembersDialogText}>
           Are you sure you want to delete this person from the conversation? They will no
