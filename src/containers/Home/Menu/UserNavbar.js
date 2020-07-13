@@ -9,11 +9,7 @@ export const UserNavbar = (props) => {
     <div className="user-navbar-wrapper">
       <img src={props.avatar || userAvt} />
       <div className="user-dropdown">
-        <button
-          className="option-btn"
-          onMouseEnter={() => props.onHoverUserOption(true)}
-          onMouseLeave={() => props.onHoverUserOption(false)}
-        >
+        <button className="option-btn" onMouseEnter={() => setIsClickedUserOption(true)}>
           <p>{props.userName}</p>
           <i
             className={

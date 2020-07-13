@@ -122,8 +122,6 @@ export const Home = () => {
           <UserNavbar
             avatar={userInfo.avatar}
             userName={userInfo.fullname}
-            onHoverUserOption={(value) => setIsClickedUserOption(value)}
-            isClickedUserOption={isClickedUserOption}
             userOption={[
               {
                 id: 'aaa',
