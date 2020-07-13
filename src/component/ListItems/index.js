@@ -52,7 +52,7 @@ export const ListItems = (props) => {
     <Items
       key={object.id}
       name={object.name}
-      isClick={() => props.chooseChatTarget(object)}
+      isClick={() => props.chooseGroupInfo(object)}
       iconRemote={props.iconRemote}
       labelRemote={props.labelRemote}
       onClick={(e) => props.onClick(e)}
@@ -61,7 +61,7 @@ export const ListItems = (props) => {
       {props.icon}
     </Items>
   ));
-  return <ul>{list}</ul>;
+  return <ul className="list-items-name">{list}</ul>;
 };
 
 export default ListItems;

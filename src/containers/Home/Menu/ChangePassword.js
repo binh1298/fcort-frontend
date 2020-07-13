@@ -94,9 +94,12 @@ export const ChangePassword = (props) => {
                 'Password and Confirm password must be the same.',
             })}
           />
-          <DialogButton styles={stylesDialogGroupButton}>Save</DialogButton>
-          <div style={{color: theme.palette.text.error}}>
-            {Object.keys(errors)[0] === 'currentPassword' && 'Invalid current password.'}
+          <div className="change-password__submit">
+            <div style={{color: theme.palette.text.error}}>
+              {Object.keys(errors)[0] === 'currentPassword' &&
+                'Invalid current password.'}
+            </div>
+            <DialogButton styles={stylesDialogGroupButton}>Save</DialogButton>
           </div>
         </form>
       </div>

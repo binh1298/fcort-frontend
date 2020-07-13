@@ -21,6 +21,9 @@
 .header-wrapper>p {
   width: 60%;
   font-size: 1.2rem;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
 @media screen and (max-width: 900px) {
@@ -39,7 +42,6 @@
   border-style: none;
   background-color: transparent;
   outline: none;
-  z-index: 3;
   cursor: pointer;
   transition: opacity 0.3s ease-in-out;
 }
@@ -128,7 +130,6 @@
 .header-wrapper>i {
   padding-right: 16px;
   font-size: 2rem;
-  z-index: 8;
   opacity: 0.4;
   transition: opacity 0.1s ease-in-out;
   cursor: pointer;
@@ -145,6 +146,6 @@
   }
 }
 
-.header-wrapper>.groupDetailIconOn {
+.header-wrapper>.group-detail-icon-on {
   opacity: 1;
 }

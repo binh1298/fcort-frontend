@@ -6,7 +6,7 @@ import userAvt from '../../../assets/images/userAvt.png';
 export const UserNavbar = (props) => {
   const [isClickedUserOption, setIsClickedUserOption] = useState(false);
   return (
-    <div className="userNavbar-wrapper">
+    <div className="user-navbar-wrapper">
       <img src={props.avatar || userAvt} />
       <div className="userDropdown">
         <button className="optionBtn" onMouseEnter={() => setIsClickedUserOption(true)}>

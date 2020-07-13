@@ -14,7 +14,7 @@ const theme = {
       error: '#f15109',
     },
     navbar: {
-      background: '#28B463',
+      background: '#2ecc71',
       titleColor: '#FFFFFF',
       hoverColor: '#D0D3D4',
     },
@@ -30,7 +30,8 @@ const theme = {
     dialog: {
       backgroundColor: 'rgba(0, 0, 0, 0.4)',
       boxBgColor: '#FFFFFF',
-      titleColor: '#00995c',
+      titleColor: '#00B36B',
+      textColor: '#00663D',
       buttonColor: '#FFFFFF',
       buttonBgColor: '#2FBA83',
       inputBorder: '#f2f2f2',
@@ -43,15 +44,32 @@ const theme = {
     groupDetail: {
       backgroundColor: '#FFFFFF',
       lineColor: '#D3D3D3',
+      plusIconColor: '#2ecc71',
+      minusIConColor: '#e74c3c',
+      hoverListMembersColor: '#dcdde1',
+      groupNameColor: '#2ecc71',
+      titleColor: '#2ecc71',
+      borderAddMembersDialog: '#2ecc71',
     },
     profileDialog: {
       overlayColor: 'rgba(0, 0, 0, 0.4)',
       boxColor: '#FFFFFF',
-      titleColor: '#00995c',
+      titleColor: '#00B36B',
       inputBorder: '#f2f2f2',
       btnSubmitColor: '#FFFFFF',
       btnSaveBgColor: '#00995c',
       btnCancelBgColor: '#999999',
+    },
+    searchBar: {
+      backgroundColor: 'rgba(0, 0, 0, 0.1)',
+    },
+    listUsers: {
+      btnAddedMembersTextColor: '#43B581',
+      btnAddedMembersBgColor: '#FFFFFF',
+      btnAddMembersBgColor: '#4cd137',
+      btnAddMembersHoverBgColor: '#00E67E',
+      btnAddMembersTextColor: '#FFFFFF',
+      btnAddMembersBorderColor: '#4cd137',
     },
   },
 };

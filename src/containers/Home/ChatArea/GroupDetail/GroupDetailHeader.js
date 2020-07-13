@@ -1,13 +1,16 @@
 import React, {useContext, useState} from 'react';
 import './GroupDetailHeader.scss';
-import groupAvt from '../../../assets/images/groupAvt.png';
-import ThemeContext from '../../../contexts/ThemeContext';
-import AvatarUpload from '../../../component/AvatarUpload';
+import groupAvt from '../../../../assets/images/groupAvt.png';
+import ThemeContext from '../../../../contexts/ThemeContext';
+import AvatarUpload from '../../../../component/AvatarUpload';
 
-export const GroupDetailHeader = ({chatTarget}) => {
+export const GroupDetailHeader = ({groupInfo}) => {
   const theme = useContext(ThemeContext);
-  const lineStyles = {
+  const stylesLine = {
     borderColor: theme.palette.groupDetail.lineColor,
+  };
+  const stylesGroupName = {
+    color: theme.palette.groupDetail.groupNameColor,
   };
   const [groupProfilePic, setGroupProfilePic] = useState('');
   const [selectedImage, setSelectedImage] = useState('');
@@ -31,15 +34,15 @@ export const GroupDetailHeader = ({chatTarget}) => {
     }
   };
   return (
-    <div className="groupDetail-header" style={lineStyles}>
+    <div className="group-detail-header" style={stylesLine}>
       <AvatarUpload
         dialogStatus={isClickedAvatar}
         onClick={() => setIsClickedAvatar(false)}
         setProfilePic={setGroupProfilePic}
         selectedImage={selectedImage}
       />
-      <div className="groupDetailAvt-wrapper">
-        <img className="groupDetailAvt" src={groupProfilePic || groupAvt} />
+      <div className="group-detail-avt-wrapper">
+        <img className="group-detail-avt" src={groupProfilePic || groupAvt} />
         <span>Change Avt</span>
         <input
           className="fileInput-23-d-3"
@@ -51,7 +54,9 @@ export const GroupDetailHeader = ({chatTarget}) => {
           onChange={profilePicChange}
         />
       </div>
-      <div className="groupDetailName">{chatTarget.name}</div>
+      <div className="group-detail-name" style={stylesGroupName}>
+        {groupInfo.name}
+      </div>
     </div>
   );
 };

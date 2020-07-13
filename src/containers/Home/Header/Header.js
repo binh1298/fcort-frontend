@@ -17,7 +17,7 @@ export const Header = (props) => {
     <div className="header-wrapper" style={headerWrapperStyles}>
       <p>
         {props.icon}
-        {props.chatTarget.name}
+        {props.groupInfo.name}
       </p>
       <button className="toggle" onClick={props.onClickMenu}>
         <i className="fa fas fa-bars"></i>
@@ -31,7 +31,7 @@ export const Header = (props) => {
       <i
         className={
           props.groupDetailStatus
-            ? 'fa fa-exclamation-circle groupDetailIconOn'
+            ? 'fa fa-exclamation-circle group-detail-icon-on'
             : 'fa fa-exclamation-circle'
         }
         onClick={props.onClickGroupDetail}

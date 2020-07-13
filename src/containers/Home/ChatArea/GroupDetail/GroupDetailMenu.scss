@@ -1,0 +1,35 @@
+@import '../../../../fonts.scss';
+
+.group-detail-menu-wrapper {
+  width: 100%;
+  overflow: hidden;
+}
+
+.group-detail-menu-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 16px 8px 16px;
+}
+
+.group-detail-menu-header>p {
+  font-size: 1rem;
+  font-family: $default-font;
+  cursor: default;
+}
+
+.group-detail-menu-header>i {
+  padding: 4px 4px 4px 4px;
+  opacity: 0.5;
+  font-size: 1.4rem;
+  cursor: pointer;
+  transition: all 0.15s ease-in-out;
+}
+
+.group-detail-menu-header>i:hover {
+  opacity: 1;
+}
+
+.group-detail-menu-header>i:active {
+  opacity: 0.75;
+}

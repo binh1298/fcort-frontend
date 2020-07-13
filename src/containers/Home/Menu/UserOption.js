@@ -9,10 +9,9 @@ const Options = (props) => {
   const [styles, setStyles] = useState({
     color: theme.palette.navbar.hoverColor,
   });
-  const handleClick = (name) => {
+  const handleLogoutClick = (name) => {
     if (name === 'Logout') {
-      LocalStorageUtils.removeItem(LOCALSTORAGE_TOKEN_NAME);
-      window.location.reload(false);
+      LocalStorageUtils.deleteUser();
     }
     if (name === 'Account Setting') {
       props.onClickViewProfile();
@@ -24,7 +23,7 @@ const Options = (props) => {
       onMouseOver={() => setStyles({color: theme.palette.navbar.titleColor})}
       onMouseOut={() => setStyles({color: theme.palette.navbar.hoverColor})}
     >
-      <p className="optionsName" onClick={() => handleClick(props.name)}>
+      <p className="options-name" onClick={() => handleLogoutClick(props.name)}>
         {props.name}
         {props.icon}
       </p>
