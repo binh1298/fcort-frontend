@@ -2,8 +2,8 @@ ul {
   list-style: none;
 }
 
-li {
-  transition: all 0.1s ease-in-out;
+.list-items-name>li {
+  transition: all 0.15s ease-in-out;
 }
 
 @keyframes appear {

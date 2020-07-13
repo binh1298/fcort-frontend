@@ -15,7 +15,7 @@
   }
 }
 
-.home-container>.navbar {
+.navbar {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -23,7 +23,6 @@
   min-width: 330px;
   overflow-y: scroll;
   transition: all 0.5s ease-in-out;
-  z-index: 1;
 }
 
 .navbar::-webkit-scrollbar {
@@ -31,16 +30,33 @@
 }
 
 @media screen and (max-width: 900px) {
-  .home-container>.navbar {
+  .navbar {
     position: absolute;
-    width: 90%;
+    width: 88%;
     min-width: 0;
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
+    z-index: 1;
   }
 
-  .home-container>.toggle-target {
-    transform: translateX(-90vw);
+  .toggle-target {
+    transform: translateX(-88vw);
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .navbar-off {
+    display: none;
+  }
+
+  .navbar-on {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1;
   }
 }
 
@@ -50,6 +66,8 @@
   text-align: center;
   font-size: 3.5rem;
   padding-top: 32px;
+  margin-top: 8px;
+  margin-bottom: 8px;
   width: 100%;
   cursor: default;
 }

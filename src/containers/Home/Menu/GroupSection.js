@@ -36,7 +36,7 @@ export const GroupSection = (props) => {
         icon={<i className="fa fas fa-hashtag"></i>}
         iconRemote="fa fas fa-star"
         labelRemote="Add to favorite"
-        chooseChatTarget={props.chooseChatTarget}
+        chooseGroupInfo={props.chooseGroupInfo}
         onClick={(e) => handleAddFavoriteGroup(e)}
       />
     </div>

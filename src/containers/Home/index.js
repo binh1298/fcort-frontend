@@ -12,9 +12,9 @@ import {get} from '../../utils/ApiCaller';
 import ProfileDialog from './Menu/ProfileDialog';
 import {LOCALSTORAGE_TOKEN_NAME} from '../../configurations';
 import LocalStorageUtils from '../../utils/LocalStorageUtils';
-const user = LocalStorageUtils.getUser(LOCALSTORAGE_TOKEN_NAME);
 
 export const Home = () => {
+  const user = LocalStorageUtils.getUser(LOCALSTORAGE_TOKEN_NAME);
   const theme = useContext(ThemeContext);
   const styles = {
     backgroundColor: theme.palette.navbar.background,
@@ -38,7 +38,7 @@ export const Home = () => {
     const tempGroupList = await groupFetching();
     await setGroupList(tempGroupList);
     if (tempGroupList.length) {
-      setChatTarget(tempGroupList[0]);
+      setGroupInfo(tempGroupList[0]);
     }
   };
 
@@ -60,7 +60,7 @@ export const Home = () => {
     const tempFavoriteGroupList = await FavoriteGroupFetching();
     await setFavoriteGroupList(tempFavoriteGroupList);
     if (tempFavoriteGroupList.length) {
-      setChatTarget(tempFavoriteGroupList[0]);
+      setGroupInfo(tempFavoriteGroupList[0]);
     }
   };
 
@@ -73,17 +73,17 @@ export const Home = () => {
       }
     } catch (ex) {}
   };
-  const [inforProfile, setInforProfile] = useState({});
+  const [userInfo, setUserInfo] = useState({});
   const fetchProfile = async () => {
-    const tempInforProfile = await profileFetching();
-    setInforProfile(tempInforProfile);
+    const userInfo = await profileFetching();
+    setUserInfo(userInfo);
   };
   useEffect(() => {
     fetchGroup();
     fetchProfile();
     fetchFavoriteGroup();
   }, []);
-  const [chatTarget, setChatTarget] = useState({});
+  const [groupInfo, setGroupInfo] = useState({});
   const [isClickedMenu, setIsClickedMenu] = useState(false);
   const [isClickedAddGroup, setIsClickedAddGroup] = useState(false);
   const [isClickedGroupDetail, setIsClickedGroupDetail] = useState(false);
@@ -99,107 +99,71 @@ export const Home = () => {
       />
       <ProfileDialog
         viewProfile={isClickedViewProfile}
-        avatar={inforProfile.avatar}
-        fullname={inforProfile.fullname}
-        gmail={inforProfile.email}
+        avatar={userInfo.avatar}
+        fullname={userInfo.fullname}
+        gmail={userInfo.email}
         handleFetch={fetchProfile}
         onClick={() => {
           setIsClickedViewProfile(false);
         }}
       />
-      <div className={isClickedMenu ? 'navbar toggle-target' : 'navbar'} style={styles}>
-        <h1>
-          <i className="fa fas fa-tv fa-lg"></i>Fcord
-        </h1>
-        <UserNavbar
-          avatar={inforProfile.avatar}
-          userName={inforProfile.fullname}
-          userOption={[
-            {id: 'aaa', name: 'Account Setting', icon: <i className="fa fas fa-cog"></i>},
-            {id: 'bbb', name: 'Logout', icon: <i className="fa fas fa-sign-out"></i>},
-          ]}
-          viewProfile={isClickedViewProfile}
-          onClickViewProfile={() => {
-            setIsClickedViewProfile(true);
-          }}
-        />
-        <FavoriteSection
-          chooseChatTarget={setChatTarget}
-          favoriteList={favoriteGroupList}
-          handleFetch={fetchFavoriteGroup}
-        />
-        <GroupSection
-          chooseChatTarget={setChatTarget}
-          onClick={() => setIsClickedAddGroup(true)}
-          groupList={groupList}
-          handleFetch={fetchFavoriteGroup}
-        />
-        <MessagesSection
-          chooseChatTarget={setChatTarget}
-          messagesList={[
-            {id: '135', name: 'BinhPham'},
-            {id: '246', name: 'KienTran'},
-            {id: '357', name: 'HuyBui'},
-            {id: '468', name: 'BinhTruong'},
-            {id: '579', name: 'HungNguyen'},
-            {id: '680', name: 'NguyenTran'},
-            {id: '791', name: 'HoaLuu'},
-            {id: '444', name: 'DaiLe'},
-            {id: '555', name: 'LamNguyen'},
-          ]}
-        />
+      <div className="navbar-wrapper">
+        <div
+          className={isClickedMenu ? 'navbar-on' : 'navbar-off'}
+          onClick={() => setIsClickedMenu(false)}
+        ></div>
+        <div
+          className={isClickedMenu ? 'navbar' : 'navbar  toggle-target'}
+          style={styles}
+        >
+          <h1>
+            <i className="fa fas fa-tv fa-lg"></i>Fcord
+          </h1>
+          <UserNavbar
+            avatar={userInfo.avatar}
+            userName={userInfo.fullname}
+            onHoverUserOption={(value) => setIsClickedUserOption(value)}
+            isClickedUserOption={isClickedUserOption}
+            userOption={[
+              {
+                id: 'aaa',
+                name: 'Account Setting',
+                icon: <i className="fa fas fa-cog"></i>,
+              },
+              {id: 'bbb', name: 'Logout', icon: <i className="fa fas fa-sign-out"></i>},
+            ]}
+            viewProfile={isClickedViewProfile}
+            onClickViewProfile={() => {
+              setIsClickedViewProfile(true);
+            }}
+          />
+          <FavoriteSection
+            chooseGroupInfo={setGroupInfo}
+            favoriteList={favoriteGroupList}
+            handleFetch={fetchFavoriteGroup}
+          />
+          <GroupSection
+            chooseGroupInfo={setGroupInfo}
+            onClick={() => setIsClickedAddGroup(true)}
+            groupList={groupList}
+            handleFetch={fetchFavoriteGroup}
+          />
+          <MessagesSection chooseGroupInfo={setGroupInfo} messagesList={[]} />
+        </div>
       </div>
       <div className="section">
         <Header
-          chatTarget={chatTarget}
+          groupInfo={groupInfo}
           icon={<i className="fa fas fa-at"></i>}
           onClickMenu={() => setIsClickedMenu(!isClickedMenu)}
           onClickGroupDetail={() => setIsClickedGroupDetail(!isClickedGroupDetail)}
           groupDetailStatus={isClickedGroupDetail}
         />
         <MessagesArea
-          chatTarget={chatTarget}
-          onClickMenu={() => setIsClickedMenu(false)}
-          username="Nguyễn Trần Thiên Đức"
-          avatarChat={[
-            {
-              id: '69',
-              image:
-                'https://github.com/kien123456k/Hello-world/blob/master/avatarChat.jpg?raw=true',
-            },
-          ]}
-          messages={[
-            {id: '1', name: 'BinhPham', message: 'ừm'},
-            {id: '2', name: 'Nguyễn Trần Thiên Đức', message: 'tộ'},
-            {id: '3', name: 'BinhPham', message: 'kiệt lao'},
-            {id: '4', name: 'Nguyễn Trần Thiên Đức', message: 'ừm'},
-            {id: '5', name: 'BinhPham', message: 'lược lạo'},
-            {id: '6', name: 'Nguyễn Trần Thiên Đức', message: 'thăm ngàn'},
-            {id: '7', name: 'BinhPham', message: 'thăm ngàn'},
-            {id: '8', name: 'Nguyễn Trần Thiên Đức', message: 'kẹp ngần'},
-            {id: '9', name: 'BinhPham', message: 'thăm ngàn'},
-            {id: '10', name: 'Nguyễn Trần Thiên Đức', message: 'kẹp ngần'},
-            {id: '11', name: 'BinhPham', message: 'chai ni'},
-            {id: '12', name: 'Nguyễn Trần Thiên Đức', message: 'thăm ngàn'},
-            {id: '13', name: 'BinhPham', message: 'kẹp ngần'},
-            {id: '14', name: 'Nguyễn Trần Thiên Đức', message: 'đai riển'},
-            {id: '15', name: 'BinhPham', message: 'mìn kịt'},
-            {id: '16', name: 'Nguyễn Trần Thiên Đức', message: 'chui lừa'},
-            {id: '17', name: 'BinhPham', message: 'phỏm dại'},
-            {id: '18', name: 'Nguyễn Trần Thiên Đức', message: 'miều rặt'},
-            {id: '19', name: 'BinhPham', message: 'bơ bun'},
-            {id: '20', name: 'Nguyễn Trần Thiên Đức', message: 'minh buồi'},
-            {id: '21', name: 'BinhPham', message: 'rồ bần già'},
-            {id: '22', name: 'Nguyễn Trần Thiên Đức', message: 'ba ca nà'},
-            {id: '23', name: 'BinhPham', message: 'chả nại'},
-            {
-              id: '24',
-              name: 'Nguyễn Trần Thiên Đức',
-              message: 'tha chả lơ bịt nài là bưn lụa',
-            },
-            {id: '25', name: 'BinhPham', message: 'ken nơ lao nèn'},
-          ]}
+          setIsClickedGroupDetail={() => setIsClickedGroupDetail(false)}
+          groupInfo={groupInfo}
           navbarStatus={isClickedGroupDetail}
+          userInfo={userInfo}
         />
       </div>
     </div>
