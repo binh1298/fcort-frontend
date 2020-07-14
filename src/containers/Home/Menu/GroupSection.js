@@ -8,18 +8,40 @@ import LocalStorageUtils from '../../../utils/LocalStorageUtils';
 import GroupDialog from '../Menu/GroupDialog';
 
 export const GroupSection = ({
+  groupInfo,
   chooseGroupInfo,
   onClickOpenAddGroup,
   onClickCloseAddGroup,
   handleFetch,
   dialogStatus,
 }) => {
+  const firstGroupFetching = async () => {
+    //Call the sever
+    try {
+      const response = await get('/groups', {});
+      if (response.data.success) {
+        const temp = response.data.data;
+        setGroupList(temp);
+        if (temp.length) {
+          chooseGroupInfo(temp[0]);
+        }
+      }
+    } catch (ex) {
+      if (ex.response && ex.response.status === 401) {
+        LocalStorageUtils.deleteUser();
+      }
+    }
+  };
   const groupFetching = async () => {
     //Call the sever
     try {
       const response = await get('/groups', {});
       if (response.data.success) {
-        return response.data.data;
+        const temp = response.data.data;
+        setGroupList(temp);
+        if (temp.length) {
+          chooseGroupInfo(temp[temp.length - 1]);
+        }
       }
     } catch (ex) {
       if (ex.response && ex.response.status === 401) {
@@ -28,21 +50,16 @@ export const GroupSection = ({
     }
   };
   const [groupList, setGroupList] = useState([]);
-  const fetchGroup = async () => {
-    const tempGroupList = await groupFetching();
-    await setGroupList(tempGroupList);
-    if (tempGroupList.length) {
-      chooseGroupInfo(tempGroupList[0]);
-    }
-  };
   useEffect(() => {
-    fetchGroup();
+    firstGroupFetching();
   }, []);
+
   const theme = useContext(ThemeContext);
   const [checkGroupExist, setCheckGroupExist] = useState(true);
   const [styles, setStyles] = useState({
     color: theme.palette.navbar.hoverColor,
   });
+
   const handleAddFavoriteGroup = async (e) => {
     const check = await AddFavoriteGroup(e);
     handleFetch();
@@ -52,7 +69,7 @@ export const GroupSection = ({
     <div className="group-wrapper" onClick={() => setCheckGroupExist(true)}>
       <GroupDialog
         dialogStatus={dialogStatus}
-        handleFetch={fetchGroup}
+        handleFetch={groupFetching}
         onClick={onClickCloseAddGroup}
       />
       <p>

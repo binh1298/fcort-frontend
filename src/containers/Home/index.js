@@ -20,28 +20,6 @@ export const Home = () => {
     color: theme.palette.navbar.titleColor,
   };
 
-  const FavoriteGroupFetching = async () => {
-    //Call the sever
-    try {
-      const response = await get('/favorites', {});
-      if (response.data.success) {
-        return response.data.data;
-      }
-    } catch (ex) {
-      if (ex.response && ex.response.status === 401) {
-        LocalStorageUtils.deleteUser();
-      }
-    }
-  };
-  const [favoriteGroupList, setFavoriteGroupList] = useState([]);
-  const fetchFavoriteGroup = async () => {
-    const tempFavoriteGroupList = await FavoriteGroupFetching();
-    await setFavoriteGroupList(tempFavoriteGroupList);
-    if (tempFavoriteGroupList.length) {
-      setGroupInfo(tempFavoriteGroupList[0]);
-    }
-  };
-
   const profileFetching = async () => {
     //Call the sever
     try {
@@ -58,7 +36,6 @@ export const Home = () => {
   };
   useEffect(() => {
     fetchProfile();
-    fetchFavoriteGroup();
   }, []);
   const [groupInfo, setGroupInfo] = useState({});
   const [isClickedMenu, setIsClickedMenu] = useState(false);
@@ -66,6 +43,7 @@ export const Home = () => {
   const [isClickedUserOption, setIsClickedUserOption] = useState(false);
   const [isClickedGroupDetail, setIsClickedGroupDetail] = useState(true);
   const [isClickedViewProfile, setIsClickedViewProfile] = useState(false);
+  const [isUpdatedFavoriteGroup, setIsUpdatedFavoriteGroup] = useState(false);
   return (
     <div className="home-container">
       <ProfileDialog
@@ -101,7 +79,11 @@ export const Home = () => {
                 name: 'Account Setting',
                 icon: <i className="fa fas fa-cog"></i>,
               },
-              {id: 'bbb', name: 'Logout', icon: <i className="fa fas fa-sign-out"></i>},
+              {
+                id: 'bbb',
+                name: 'Logout',
+                icon: <i className="fa fas fa-sign-out"></i>,
+              },
             ]}
             viewProfile={isClickedViewProfile}
             onClickViewProfile={() => {
@@ -110,14 +92,14 @@ export const Home = () => {
           />
           <FavoriteSection
             chooseGroupInfo={setGroupInfo}
-            favoriteList={favoriteGroupList}
-            handleFetch={fetchFavoriteGroup}
+            isUpdateFavoriteGroup={isUpdatedFavoriteGroup}
           />
           <GroupSection
+            groupInfo={groupInfo}
             chooseGroupInfo={setGroupInfo}
             onClickOpenAddGroup={() => setIsClickedAddGroup(true)}
             onClickCloseAddGroup={() => setIsClickedAddGroup(false)}
-            handleFetch={fetchFavoriteGroup}
+            handleFetch={() => setIsUpdatedFavoriteGroup(!isUpdatedFavoriteGroup)}
             dialogStatus={isClickedAddGroup}
           />
           <MessagesSection chooseGroupInfo={setGroupInfo} messagesList={[]} />
