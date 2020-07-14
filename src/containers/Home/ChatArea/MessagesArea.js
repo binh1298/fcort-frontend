@@ -46,7 +46,9 @@ export const MessagesArea = ({
     }
     if (socket && groupInfo && groupInfo.id && !isJoinedRoom)
       socket.emit('joinRoom', groupInfo.id);
-
+    {
+      console.log(socket);
+    }
     return () => {
       if (socket) socket.off('connect');
     };

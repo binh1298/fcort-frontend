@@ -5,7 +5,6 @@ import UserNavbar from './Menu/UserNavbar';
 import FavoriteSection from './Menu/FavoriteSection';
 import GroupSection from './Menu/GroupSection';
 import MessagesSection from './Menu/MessagesSection';
-import GroupDialog from './Menu/GroupDialog';
 import Header from './Header/Header';
 import MessagesArea from './ChatArea/MessagesArea';
 import {get} from '../../utils/ApiCaller';
@@ -19,27 +18,6 @@ export const Home = () => {
   const styles = {
     backgroundColor: theme.palette.navbar.background,
     color: theme.palette.navbar.titleColor,
-  };
-  const groupFetching = async () => {
-    //Call the sever
-    try {
-      const response = await get('/groups', {});
-      if (response.data.success) {
-        return response.data.data;
-      }
-    } catch (ex) {
-      if (ex.response && ex.response.status === 401) {
-        LocalStorageUtils.deleteUser();
-      }
-    }
-  };
-  const [groupList, setGroupList] = useState([]);
-  const fetchGroup = async () => {
-    const tempGroupList = await groupFetching();
-    await setGroupList(tempGroupList);
-    if (tempGroupList.length) {
-      setGroupInfo(tempGroupList[0]);
-    }
   };
 
   const FavoriteGroupFetching = async () => {
@@ -79,7 +57,6 @@ export const Home = () => {
     setUserInfo(userInfo);
   };
   useEffect(() => {
-    fetchGroup();
     fetchProfile();
     fetchFavoriteGroup();
   }, []);
@@ -87,17 +64,10 @@ export const Home = () => {
   const [isClickedMenu, setIsClickedMenu] = useState(false);
   const [isClickedAddGroup, setIsClickedAddGroup] = useState(false);
   const [isClickedUserOption, setIsClickedUserOption] = useState(false);
-  const [isClickedGroupDetail, setIsClickedGroupDetail] = useState(false);
+  const [isClickedGroupDetail, setIsClickedGroupDetail] = useState(true);
   const [isClickedViewProfile, setIsClickedViewProfile] = useState(false);
   return (
     <div className="home-container">
-      <GroupDialog
-        dialogStatus={isClickedAddGroup}
-        handleFetch={fetchGroup}
-        onClick={() => {
-          setIsClickedAddGroup(false);
-        }}
-      />
       <ProfileDialog
         viewProfile={isClickedViewProfile}
         avatar={userInfo.avatar}
@@ -145,9 +115,10 @@ export const Home = () => {
           />
           <GroupSection
             chooseGroupInfo={setGroupInfo}
-            onClick={() => setIsClickedAddGroup(true)}
-            groupList={groupList}
+            onClickOpenAddGroup={() => setIsClickedAddGroup(true)}
+            onClickCloseAddGroup={() => setIsClickedAddGroup(false)}
             handleFetch={fetchFavoriteGroup}
+            dialogStatus={isClickedAddGroup}
           />
           <MessagesSection chooseGroupInfo={setGroupInfo} messagesList={[]} />
         </div>
