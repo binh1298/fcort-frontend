@@ -3,10 +3,10 @@ import './FavoriteSection.scss';
 import ListItems from '../../../component/ListItems';
 import RemoveFavoriteGroup from './RemoveFavoriteGroup';
 
-export const FavoriteSection = (props) => {
+export const FavoriteSection = ({chooseGroupInfo, favoriteList, handleFetch}) => {
   const handleRemoveFavoriteGroup = async (e) => {
     await RemoveFavoriteGroup(e);
-    props.handleFetch();
+    handleFetch();
   };
   return (
     <div className="favorite-wrapper">
@@ -15,11 +15,11 @@ export const FavoriteSection = (props) => {
         Favorite
       </p>
       <ListItems
-        list={props.favoriteList}
+        list={favoriteList}
         icon={<i className="fa fas fa-hashtag"></i>}
         iconRemote="fa fa-trash"
         labelRemote="Remove"
-        chooseGroupInfo={props.chooseGroupInfo}
+        chooseGroupInfo={chooseGroupInfo}
         onClick={(e) => handleRemoveFavoriteGroup(e)}
       />
     </div>
