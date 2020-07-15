@@ -8,9 +8,9 @@ import LocalStorageUtils from '../../../../utils/LocalStorageUtils';
 
 export const DeleteMembersDialog = ({
   groupInfo,
+  setMembersList,
   dialogStatus,
   setIsClickedDeleteMembersDialog,
-  setMembersList,
   groupDetailUserTargetID,
 }) => {
   const theme = useContext(ThemeContext);

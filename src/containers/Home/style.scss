@@ -22,6 +22,7 @@
   height: 100vh;
   min-width: 330px;
   overflow-y: scroll;
+  overflow-x: scroll;
   transition: all 0.5s ease-in-out;
 }
 
@@ -37,6 +38,7 @@
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
     z-index: 1;
+    overflow-x: visible;
   }
 
   .toggle-target {

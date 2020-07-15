@@ -42,7 +42,7 @@ const theme = {
       backgroundColor: '#26884F',
     },
     groupDetail: {
-      backgroundColor: '#FFFFFF',
+      backgroundColor: '#ecf0f1',
       lineColor: '#D3D3D3',
       plusIconColor: '#2ecc71',
       minusIConColor: '#e74c3c',

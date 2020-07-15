@@ -56,34 +56,36 @@ export const GroupSection = ({
     setCheckGroupExist(check);
   };
   return (
-    <div className="group-wrapper" onClick={() => setCheckGroupExist(true)}>
+    <div>
       <GroupDialog
         dialogStatus={dialogStatus}
         handleFetch={groupFetching}
         onClick={onClickCloseAddGroup}
       />
-      <p>
-        <i className="fa fas fa-users"></i>
-        Group
-        <i
-          className="fa fas fa-plus"
-          style={styles}
-          onClick={onClickOpenAddGroup}
-          onMouseOver={() => setStyles({color: theme.palette.navbar.titleColor})}
-          onMouseOut={() => setStyles({color: theme.palette.navbar.hoverColor})}
-        ></i>
-      </p>
-      <span className={checkGroupExist ? 'favorite-notify-off' : undefined}>
-        (The group has been added to favorites.)
-      </span>
-      <ListItems
-        list={groupList}
-        icon={<i className="fa fas fa-hashtag"></i>}
-        iconRemote="fa fas fa-star"
-        labelRemote="Add to favorite"
-        chooseGroupInfo={chooseGroupInfo}
-        onClick={(e) => handleAddFavoriteGroup(e)}
-      />
+      <div className="group-wrapper" onClick={() => setCheckGroupExist(true)}>
+        <p>
+          <i className="fa fas fa-users"></i>
+          Group
+          <i
+            className="fa fas fa-plus"
+            style={styles}
+            onClick={onClickOpenAddGroup}
+            onMouseOver={() => setStyles({color: theme.palette.navbar.titleColor})}
+            onMouseOut={() => setStyles({color: theme.palette.navbar.hoverColor})}
+          ></i>
+        </p>
+        <span className={checkGroupExist ? 'favorite-notify-off' : undefined}>
+          (The group has been added to favorites.)
+        </span>
+        <ListItems
+          list={groupList}
+          icon={<i className="fa fas fa-hashtag"></i>}
+          iconRemote="fa fas fa-star"
+          labelRemote="Add to favorite"
+          chooseGroupInfo={chooseGroupInfo}
+          onClick={(e) => handleAddFavoriteGroup(e)}
+        />
+      </div>
     </div>
   );
 };

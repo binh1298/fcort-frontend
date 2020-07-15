@@ -21,7 +21,7 @@
 @media screen and (max-width: 900px) {
   .group-detail-on {
     width: 88vw;
-    justify-content: flex-end;
+    transform: translate(100vw);
   }
 }
 
@@ -33,18 +33,7 @@
   .group-detail-off {
     display: block;
     width: 88vw;
-    transform: translate(100vw);
-    justify-content: flex-end;
   }
-}
-
-.group-detail-background {
-  display: none;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
 }
 
 .group-detail-wrapper {

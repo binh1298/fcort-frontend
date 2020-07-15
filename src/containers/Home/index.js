@@ -109,9 +109,9 @@ export const Home = () => {
           groupDetailStatus={isClickedGroupDetail}
         />
         <MessagesArea
-          setIsClickedGroupDetail={() => setIsClickedGroupDetail(false)}
+          setIsClickedGroupDetail={() => setIsClickedGroupDetail(true)}
           groupInfo={groupInfo}
-          navbarStatus={isClickedGroupDetail}
+          groupDetailStatus={isClickedGroupDetail}
           userInfo={userInfo}
         />
       </div>

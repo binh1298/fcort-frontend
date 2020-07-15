@@ -38,12 +38,12 @@ const AddButton = ({onClick}) => {
 
 export const AddMembersDialog = ({
   groupInfo,
-  allUsers,
+  setMembersList,
   dialogStatus,
   setIsClickedAddMembersDialog,
   groupDetailUserTargetID,
   setGroupDetailUserTargetID,
-  setMembersList,
+  allUsers,
 }) => {
   const theme = useContext(ThemeContext);
   const stylesAddMembersDialog = {
