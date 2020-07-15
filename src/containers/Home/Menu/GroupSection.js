@@ -8,30 +8,12 @@ import LocalStorageUtils from '../../../utils/LocalStorageUtils';
 import GroupDialog from '../Menu/GroupDialog';
 
 export const GroupSection = ({
-  groupInfo,
   chooseGroupInfo,
   onClickOpenAddGroup,
   onClickCloseAddGroup,
   handleFetch,
   dialogStatus,
 }) => {
-  const firstGroupFetching = async () => {
-    //Call the sever
-    try {
-      const response = await get('/groups', {});
-      if (response.data.success) {
-        const temp = response.data.data;
-        setGroupList(temp);
-        if (temp.length) {
-          chooseGroupInfo(temp[0]);
-        }
-      }
-    } catch (ex) {
-      if (ex.response && ex.response.status === 401) {
-        LocalStorageUtils.deleteUser();
-      }
-    }
-  };
   const groupFetching = async () => {
     //Call the sever
     try {
@@ -39,8 +21,15 @@ export const GroupSection = ({
       if (response.data.success) {
         const temp = response.data.data;
         setGroupList(temp);
-        if (temp.length) {
-          chooseGroupInfo(temp[temp.length - 1]);
+        if (isFirstFetchGroup) {
+          if (temp.length) {
+            chooseGroupInfo(temp[0]);
+          }
+          setIsFirstFetchGroup(false);
+        } else {
+          if (temp.length) {
+            chooseGroupInfo(temp[temp.length - 1]);
+          }
         }
       }
     } catch (ex) {
@@ -50,8 +39,9 @@ export const GroupSection = ({
     }
   };
   const [groupList, setGroupList] = useState([]);
+  const [isFirstFetchGroup, setIsFirstFetchGroup] = useState(true);
   useEffect(() => {
-    firstGroupFetching();
+    groupFetching();
   }, []);
 
   const theme = useContext(ThemeContext);

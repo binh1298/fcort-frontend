@@ -25,17 +25,13 @@ export const Home = () => {
     try {
       const response = await get(`/users/${user.sub}`, {});
       if (response.data.success) {
-        return response.data.data;
+        setUserInfo(response.data.data);
       }
     } catch (ex) {}
   };
   const [userInfo, setUserInfo] = useState({});
-  const fetchProfile = async () => {
-    const userInfo = await profileFetching();
-    setUserInfo(userInfo);
-  };
   useEffect(() => {
-    fetchProfile();
+    profileFetching();
   }, []);
   const [groupInfo, setGroupInfo] = useState({});
   const [isClickedMenu, setIsClickedMenu] = useState(false);
@@ -51,7 +47,7 @@ export const Home = () => {
         avatar={userInfo.avatar}
         fullname={userInfo.fullname}
         gmail={userInfo.email}
-        handleFetch={fetchProfile}
+        handleFetch={profileFetching}
         onClick={() => {
           setIsClickedViewProfile(false);
         }}
@@ -95,7 +91,6 @@ export const Home = () => {
             isUpdateFavoriteGroup={isUpdatedFavoriteGroup}
           />
           <GroupSection
-            groupInfo={groupInfo}
             chooseGroupInfo={setGroupInfo}
             onClickOpenAddGroup={() => setIsClickedAddGroup(true)}
             onClickCloseAddGroup={() => setIsClickedAddGroup(false)}
