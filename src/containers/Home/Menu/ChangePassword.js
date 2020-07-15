@@ -34,16 +34,6 @@ export const ChangePassword = (props) => {
       );
       if (response.data.success) {
         console.log('Pro qua Anh oi!');
-        console.log(props.email);
-        const response = await post(
-          '/auth/signup',
-          {
-            email: props.email,
-            password: data.password,
-            confirmPassword: data.confirmPassword,
-          },
-          {}
-        );
       }
     } catch (ex) {
       console.log(ex);
