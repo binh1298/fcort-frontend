@@ -12,6 +12,7 @@ import {get} from '../../utils/ApiCaller';
 import ProfileDialog from './Menu/ProfileDialog';
 import {LOCALSTORAGE_TOKEN_NAME} from '../../configurations';
 import LocalStorageUtils from '../../utils/LocalStorageUtils';
+import ChangePassword from './Menu/ChangePassword';
 export const Home = () => {
   const user = LocalStorageUtils.getUser(LOCALSTORAGE_TOKEN_NAME);
   const theme = useContext(ThemeContext);
@@ -92,7 +93,7 @@ export const Home = () => {
     <div className="home-container">
       <ChangePassword
         dialogStatus={isClickedChangepassword}
-        email={inforProfile.email}
+        email={userInfo.email}
         onClickOff={() => {
           setIsClickedChangePassword(false);
         }}
@@ -132,8 +133,6 @@ export const Home = () => {
           <UserNavbar
             avatar={userInfo.avatar}
             userName={userInfo.fullname}
-            onHoverUserOption={(value) => setIsClickedUserOption(value)}
-            isClickedUserOption={isClickedUserOption}
             userOption={[
               {
                 id: 'aaa',
