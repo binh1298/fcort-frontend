@@ -15,11 +15,15 @@ import LocalStorageUtils from '../../utils/LocalStorageUtils';
 export const Home = () => {
   const user = LocalStorageUtils.getUser(LOCALSTORAGE_TOKEN_NAME);
   const theme = useContext(ThemeContext);
-  const styles = {
+  const navbarStyles = {
     backgroundColor: theme.palette.navbar.background,
     color: theme.palette.navbar.titleColor,
   };
-
+  const navbarAddGroupStyles = {
+    backgroundColor: theme.palette.navbar.background,
+    color: theme.palette.navbar.titleColor,
+    overflowY: 'visible',
+  };
   const profileFetching = async () => {
     //Call the sever
     try {
@@ -59,7 +63,7 @@ export const Home = () => {
         ></div>
         <div
           className={isClickedMenu ? 'navbar' : 'navbar  toggle-target'}
-          style={styles}
+          style={isClickedAddGroup ? navbarAddGroupStyles : navbarStyles}
         >
           <h1>
             <i className="fa fas fa-tv fa-lg"></i>Fcord
