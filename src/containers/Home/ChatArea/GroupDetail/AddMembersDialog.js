@@ -4,6 +4,8 @@ import ThemeContext from '../../../../contexts/ThemeContext';
 import Dialog from '../../../../component/Dialog';
 import SearchBar from '../../../../component/SearchBar';
 import ListUsers from '../../../../component/ListUsers';
+import {post} from '../../../../utils/ApiCaller';
+import LocalStorageUtils from '../../../../utils/LocalStorageUtils';
 
 const AddButton = ({onClick}) => {
   const theme = useContext(ThemeContext);
@@ -35,12 +37,13 @@ const AddButton = ({onClick}) => {
 };
 
 export const AddMembersDialog = ({
-  setGroupDetailUserTargetID,
-  allUsers,
   groupInfo,
+  allUsers,
   dialogStatus,
   setIsClickedAddMembersDialog,
-  onClick,
+  groupDetailUserTargetID,
+  setGroupDetailUserTargetID,
+  setMembersList,
 }) => {
   const theme = useContext(ThemeContext);
   const stylesAddMembersDialog = {
@@ -54,6 +57,23 @@ export const AddMembersDialog = ({
     backgroundColor: theme.palette.listUsers.btnAddedMembersBgColor,
     color: theme.palette.listUsers.btnAddedMembersTextColor,
   };
+  const membersAdding = async () => {
+    //Call the server
+    try {
+      const response = await post(
+        `/groups/${groupInfo.id}/members/${groupDetailUserTargetID}`,
+        {},
+        {}
+      );
+      if (response.data.success) {
+        setMembersList(response.data.data);
+      }
+    } catch (ex) {
+      if (ex.response && ex.response.status === 401) {
+        LocalStorageUtils.deleteUser();
+      }
+    }
+  };
   return (
     <Dialog dialogStatus={dialogStatus} onClick={setIsClickedAddMembersDialog}>
       <div className="add-members-dialog-wrapper" style={stylesAddMembersDialog}>
@@ -65,7 +85,7 @@ export const AddMembersDialog = ({
           <div className="list-add-users">
             <ListUsers listUsers={allUsers} setUsersID={setGroupDetailUserTargetID}>
               <div>
-                <AddButton onClick={onClick} />
+                <AddButton onClick={membersAdding} />
               </div>
             </ListUsers>
           </div>

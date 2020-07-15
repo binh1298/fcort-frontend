@@ -3,12 +3,15 @@ import './DeleteMembersDialog.scss';
 import ThemeContext from '../../../../contexts/ThemeContext';
 import Dialog from '../../../../component/Dialog';
 import DialogButton from '../../../../component/DialogButton';
+import {remove} from '../../../../utils/ApiCaller';
+import LocalStorageUtils from '../../../../utils/LocalStorageUtils';
 
 export const DeleteMembersDialog = ({
   groupInfo,
   dialogStatus,
   setIsClickedDeleteMembersDialog,
-  onClick,
+  setMembersList,
+  groupDetailUserTargetID,
 }) => {
   const theme = useContext(ThemeContext);
   const stylesDeleteMembersDialog = {
@@ -24,6 +27,23 @@ export const DeleteMembersDialog = ({
   const stylesDeleteMembersButton = {
     color: theme.palette.dialog.buttonColor,
     backgroundColor: theme.palette.dialog.buttonBgColor,
+  };
+  const membersDeteling = async () => {
+    //Call the server
+    try {
+      const response = await remove(
+        `/groups/${groupInfo.id}/members/${groupDetailUserTargetID}`,
+        {}
+      );
+      if (response.data.success) {
+        setIsClickedDeleteMembersDialog();
+        setMembersList(response.data.data);
+      }
+    } catch (ex) {
+      if (ex.response && ex.response.status === 401) {
+        LocalStorageUtils.deleteUser();
+      }
+    }
   };
   return (
     <Dialog dialogStatus={dialogStatus} onClick={setIsClickedDeleteMembersDialog}>
@@ -42,7 +62,7 @@ export const DeleteMembersDialog = ({
           <button className="btn-cancel" onClick={setIsClickedDeleteMembersDialog}>
             Cancel
           </button>
-          <DialogButton styles={stylesDeleteMembersButton} onClick={onClick}>
+          <DialogButton styles={stylesDeleteMembersButton} onClick={membersDeteling}>
             Delete
           </DialogButton>
         </div>

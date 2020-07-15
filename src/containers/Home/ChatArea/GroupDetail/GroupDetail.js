@@ -21,57 +21,20 @@ export const GroupDetail = ({updateGroupDetail, navbarStatus, groupInfo}) => {
     try {
       const response = await get(`/groups/${groupInfo.id}/members`, {});
       if (response.data.success) {
-        return response.data.data;
+        setMembersList(response.data.data);
       }
     } catch (ex) {
       if (ex.response && ex.response.status === 401) {
         LocalStorageUtils.deleteUser();
       }
     }
-  };
-  const fetchMembers = async () => {
-    const tempMembersList = await memberFetching();
-    await setMembersList(tempMembersList);
   };
   useEffect(() => {
     if (Object.entries(groupInfo).length !== 0) {
-      fetchMembers();
+      memberFetching();
     }
   }, [groupInfo, updateGroupDetail]);
-  const membersDeteling = async () => {
-    //Call the server
-    try {
-      const response = await remove(
-        `/groups/${groupInfo.id}/members/${groupDetailUserTargetID}`,
-        {}
-      );
-      if (response.data.success) {
-        setIsClickedDeleteMembersDialog(false);
-        setMembersList(response.data.data);
-      }
-    } catch (ex) {
-      if (ex.response && ex.response.status === 401) {
-        LocalStorageUtils.deleteUser();
-      }
-    }
-  };
-  const membersAdding = async () => {
-    //Call the server
-    try {
-      const response = await post(
-        `/groups/${groupInfo.id}/members/${groupDetailUserTargetID}`,
-        {},
-        {}
-      );
-      if (response.data.success) {
-        setMembersList(response.data.data);
-      }
-    } catch (ex) {
-      if (ex.response && ex.response.status === 401) {
-        LocalStorageUtils.deleteUser();
-      }
-    }
-  };
+
   const usersFetching = async () => {
     //Call the server
     try {
@@ -119,16 +82,18 @@ export const GroupDetail = ({updateGroupDetail, navbarStatus, groupInfo}) => {
           groupInfo={groupInfo}
           dialogStatus={isClickedDeleteMembersDialog}
           setIsClickedDeleteMembersDialog={() => setIsClickedDeleteMembersDialog(false)}
-          onClick={() => membersDeteling()}
+          setMembersList={setMembersList}
+          groupDetailUserTargetID={groupDetailUserTargetID}
         />
         <AddMembersDialog
-          setGroupDetailUserTargetID={setGroupDetailUserTargetID}
+          groupInfo={groupInfo}
           membersList={membersList}
           allUsers={allUsers}
-          groupInfo={groupInfo}
           dialogStatus={isClickedAddMembersDialog}
           setIsClickedAddMembersDialog={() => setIsClickedAddMembersDialog(false)}
-          onClick={membersAdding}
+          groupDetailUserTargetID={groupDetailUserTargetID}
+          setGroupDetailUserTargetID={setGroupDetailUserTargetID}
+          setMembersList={setMembersList}
         />
       </div>
     </div>
