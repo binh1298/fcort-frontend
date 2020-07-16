@@ -5,9 +5,15 @@ import './ChangePassword.scss';
 import ThemeContext from '../../../contexts/ThemeContext';
 import Dialog from '../../../component/Dialog';
 import DialogButton from '../../../component/DialogButton';
-import {post} from '../../../utils/ApiCaller';
+import {post, put} from '../../../utils/ApiCaller';
+import {LOCALSTORAGE_TOKEN_NAME} from '../../../configurations';
+import LocalStorageUtils from '../../../utils/LocalStorageUtils';
+import usePersistedState from '../../../utils/usePersistedState';
+const users = LocalStorageUtils.getUser(LOCALSTORAGE_TOKEN_NAME);
 
 export const ChangePassword = (props) => {
+  const [user, setUser] = usePersistedState(LOCALSTORAGE_TOKEN_NAME);
+  const [token, setToken] = usePersistedState(LOCALSTORAGE_TOKEN_NAME, '');
   const theme = useContext(ThemeContext);
   const stylesBoxBackround = {
     backgroundColor: theme.palette.profileDialog.boxColor,
@@ -22,8 +28,6 @@ export const ChangePassword = (props) => {
   const {register, handleSubmit, errors, setError, watch} = useForm();
   const onSubmit = async (data) => {
     try {
-      console.log(props.email);
-      console.log(data.currentPassword);
       const response = await post(
         '/auth/login',
         {
@@ -33,7 +37,20 @@ export const ChangePassword = (props) => {
         {}
       );
       if (response.data.success) {
-        console.log('Pro qua Anh oi!');
+        try {
+          const res = await put(
+            `/users/${users.sub}`,
+            {
+              password: data.password,
+            },
+            {}
+          );
+          if (res.data.success) {
+            console.log('hello');
+          }
+        } catch (ex) {
+          console.log(ex);
+        }
       }
     } catch (ex) {
       console.log(ex);
