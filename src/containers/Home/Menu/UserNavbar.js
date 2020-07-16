@@ -9,7 +9,11 @@ export const UserNavbar = (props) => {
     <div className="user-navbar-wrapper">
       <img src={props.avatar || userAvt} />
       <div className="user-dropdown">
-        <button className="option-btn" onMouseEnter={() => setIsHover(true)}>
+        <button
+          className="option-btn"
+          onMouseEnter={() => setIsHover(true)}
+          onMouseLeave={() => setIsHover(false)}
+        >
           <p>{props.userName}</p>
           <i
             className={
@@ -19,7 +23,6 @@ export const UserNavbar = (props) => {
             <UserOption
               userOption={props.userOption}
               isHoverUserOption={isHover}
-              onMouseLeave={() => setIsHover(false)}
               onClickViewProfile={props.onClickViewProfile}
             />
           </i>

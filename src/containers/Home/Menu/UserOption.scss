@@ -12,7 +12,7 @@
   justify-content: center;
   cursor: pointer;
   animation-name: userOptionAppear;
-  animation-duration: 0.15s;
+  animation-duration: 0.2s;
   animation-timing-function: ease-in-out;
   transform-origin: top;
   padding: 8px;
@@ -25,19 +25,17 @@
 @keyframes userOptionAppear {
   0% {
     transform: scaleY(0);
+    display: none;
   }
 
   100% {
     transform: scaleY(1);
+    display: block;
   }
 }
 
 .toggle-option {
-  animation-name: userOptionDisappear;
-  animation-duration: 0.1s;
-  animation-timing-function: ease-in-out;
-  animation-fill-mode: forwards;
-  transform-origin: top;
+  display: none;
 }
 
 @keyframes userOptionDisappear {

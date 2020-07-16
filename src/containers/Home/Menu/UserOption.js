@@ -49,7 +49,6 @@ export const UserOption = (props) => {
         props.isHoverUserOption ? 'options-wrapper' : 'options-wrapper toggle-option'
       }
       style={styles}
-      onMouseLeave={props.onMouseLeave}
     >
       {options}
     </ul>
