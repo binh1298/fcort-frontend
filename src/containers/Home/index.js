@@ -146,7 +146,7 @@ export const Home = () => {
             groupList={groupList}
             handleFetch={fetchFavoriteGroup}
           />
-          <MessagesSection chooseGroupInfo={setGroupInfo} messagesList={[]} />
+          <MessagesSection />
         </div>
       </div>
       <div className="section">
