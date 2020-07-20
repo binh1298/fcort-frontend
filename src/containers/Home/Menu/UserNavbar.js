@@ -4,26 +4,25 @@ import UserOption from './UserOption';
 import userAvt from '../../../assets/images/userAvt.png';
 
 export const UserNavbar = (props) => {
+  const [isHover, setIsHover] = useState(false);
   return (
     <div className="user-navbar-wrapper">
       <img src={props.avatar || userAvt} />
       <div className="user-dropdown">
         <button
           className="option-btn"
-          onMouseEnter={() => props.onHoverUserOption(true)}
-          onMouseLeave={() => props.onHoverUserOption(false)}
+          onMouseEnter={() => setIsHover(true)}
+          onMouseLeave={() => setIsHover(false)}
         >
           <p>{props.userName}</p>
           <i
             className={
-              props.isClickedUserOption
-                ? 'fa fas fa-caret-up fa-lg'
-                : 'fa fas fa-caret-down fa-lg'
+              isHover ? 'fa fas fa-caret-up fa-lg' : 'fa fas fa-caret-down fa-lg'
             }
           >
             <UserOption
               userOption={props.userOption}
-              isClickedUserOption={props.isClickedUserOption}
+              isHoverUserOption={isHover}
               onClickViewProfile={props.onClickViewProfile}
             />
           </i>

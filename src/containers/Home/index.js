@@ -86,7 +86,6 @@ export const Home = () => {
   const [groupInfo, setGroupInfo] = useState({});
   const [isClickedMenu, setIsClickedMenu] = useState(false);
   const [isClickedAddGroup, setIsClickedAddGroup] = useState(false);
-  const [isClickedUserOption, setIsClickedUserOption] = useState(false);
   const [isClickedGroupDetail, setIsClickedGroupDetail] = useState(false);
   const [isClickedViewProfile, setIsClickedViewProfile] = useState(false);
   return (
@@ -123,8 +122,6 @@ export const Home = () => {
           <UserNavbar
             avatar={userInfo.avatar}
             userName={userInfo.fullname}
-            onHoverUserOption={(value) => setIsClickedUserOption(value)}
-            isClickedUserOption={isClickedUserOption}
             userOption={[
               {
                 id: 'aaa',

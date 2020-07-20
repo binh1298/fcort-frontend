@@ -46,7 +46,7 @@ export const UserOption = (props) => {
   return (
     <ul
       className={
-        props.isClickedUserOption ? 'options-wrapper' : 'options-wrapper toggle-option'
+        props.isHoverUserOption ? 'options-wrapper' : 'options-wrapper toggle-option'
       }
       style={styles}
     >
