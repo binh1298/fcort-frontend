@@ -5,7 +5,6 @@ import UserNavbar from './Menu/UserNavbar';
 import FavoriteSection from './Menu/FavoriteSection';
 import GroupSection from './Menu/GroupSection';
 import MessagesSection from './Menu/MessagesSection';
-import GroupDialog from './Menu/GroupDialog';
 import Header from './Header/Header';
 import MessagesArea from './ChatArea/MessagesArea';
 import {get} from '../../utils/ApiCaller';
@@ -16,93 +15,43 @@ import LocalStorageUtils from '../../utils/LocalStorageUtils';
 export const Home = () => {
   const user = LocalStorageUtils.getUser(LOCALSTORAGE_TOKEN_NAME);
   const theme = useContext(ThemeContext);
-  const styles = {
+  const navbarStyles = {
     backgroundColor: theme.palette.navbar.background,
     color: theme.palette.navbar.titleColor,
   };
-  const groupFetching = async () => {
-    //Call the sever
-    try {
-      const response = await get('/groups', {});
-      if (response.data.success) {
-        return response.data.data;
-      }
-    } catch (ex) {
-      if (ex.response && ex.response.status === 401) {
-        LocalStorageUtils.deleteUser();
-      }
-    }
+  const navbarAddGroupStyles = {
+    backgroundColor: theme.palette.navbar.background,
+    color: theme.palette.navbar.titleColor,
+    overflowY: 'visible',
   };
-  const [groupList, setGroupList] = useState([]);
-  const fetchGroup = async () => {
-    const tempGroupList = await groupFetching();
-    await setGroupList(tempGroupList);
-    if (tempGroupList.length) {
-      setGroupInfo(tempGroupList[0]);
-    }
-  };
-
-  const FavoriteGroupFetching = async () => {
-    //Call the sever
-    try {
-      const response = await get('/favorites', {});
-      if (response.data.success) {
-        return response.data.data;
-      }
-    } catch (ex) {
-      if (ex.response && ex.response.status === 401) {
-        LocalStorageUtils.deleteUser();
-      }
-    }
-  };
-  const [favoriteGroupList, setFavoriteGroupList] = useState([]);
-  const fetchFavoriteGroup = async () => {
-    const tempFavoriteGroupList = await FavoriteGroupFetching();
-    await setFavoriteGroupList(tempFavoriteGroupList);
-    if (tempFavoriteGroupList.length) {
-      setGroupInfo(tempFavoriteGroupList[0]);
-    }
-  };
-
   const profileFetching = async () => {
     //Call the sever
     try {
       const response = await get(`/users/${user.sub}`, {});
       if (response.data.success) {
-        return response.data.data;
+        setUserInfo(response.data.data);
       }
     } catch (ex) {}
   };
   const [userInfo, setUserInfo] = useState({});
-  const fetchProfile = async () => {
-    const userInfo = await profileFetching();
-    setUserInfo(userInfo);
-  };
   useEffect(() => {
-    fetchGroup();
-    fetchProfile();
-    fetchFavoriteGroup();
+    profileFetching();
   }, []);
   const [groupInfo, setGroupInfo] = useState({});
   const [isClickedMenu, setIsClickedMenu] = useState(false);
   const [isClickedAddGroup, setIsClickedAddGroup] = useState(false);
-  const [isClickedGroupDetail, setIsClickedGroupDetail] = useState(false);
+  const [isClickedUserOption, setIsClickedUserOption] = useState(false);
+  const [isClickedGroupDetail, setIsClickedGroupDetail] = useState(true);
   const [isClickedViewProfile, setIsClickedViewProfile] = useState(false);
+  const [isUpdatedFavoriteGroup, setIsUpdatedFavoriteGroup] = useState(false);
   return (
     <div className="home-container">
-      <GroupDialog
-        dialogStatus={isClickedAddGroup}
-        handleFetch={fetchGroup}
-        onClick={() => {
-          setIsClickedAddGroup(false);
-        }}
-      />
       <ProfileDialog
         viewProfile={isClickedViewProfile}
         avatar={userInfo.avatar}
         fullname={userInfo.fullname}
         gmail={userInfo.email}
-        handleFetch={fetchProfile}
+        handleFetch={profileFetching}
         onClick={() => {
           setIsClickedViewProfile(false);
         }}
@@ -114,7 +63,7 @@ export const Home = () => {
         ></div>
         <div
           className={isClickedMenu ? 'navbar' : 'navbar  toggle-target'}
-          style={styles}
+          style={isClickedAddGroup ? navbarAddGroupStyles : navbarStyles}
         >
           <h1>
             <i className="fa fas fa-tv fa-lg"></i>Fcord
@@ -128,7 +77,11 @@ export const Home = () => {
                 name: 'Account Setting',
                 icon: <i className="fa fas fa-cog"></i>,
               },
-              {id: 'bbb', name: 'Logout', icon: <i className="fa fas fa-sign-out"></i>},
+              {
+                id: 'bbb',
+                name: 'Logout',
+                icon: <i className="fa fas fa-sign-out"></i>,
+              },
             ]}
             viewProfile={isClickedViewProfile}
             onClickViewProfile={() => {
@@ -137,14 +90,14 @@ export const Home = () => {
           />
           <FavoriteSection
             chooseGroupInfo={setGroupInfo}
-            favoriteList={favoriteGroupList}
-            handleFetch={fetchFavoriteGroup}
+            isUpdateFavoriteGroup={isUpdatedFavoriteGroup}
           />
           <GroupSection
             chooseGroupInfo={setGroupInfo}
-            onClick={() => setIsClickedAddGroup(true)}
-            groupList={groupList}
-            handleFetch={fetchFavoriteGroup}
+            onClickOpenAddGroup={() => setIsClickedAddGroup(true)}
+            onClickCloseAddGroup={() => setIsClickedAddGroup(false)}
+            handleFetch={() => setIsUpdatedFavoriteGroup(!isUpdatedFavoriteGroup)}
+            dialogStatus={isClickedAddGroup}
           />
           <MessagesSection />
         </div>
@@ -158,9 +111,9 @@ export const Home = () => {
           groupDetailStatus={isClickedGroupDetail}
         />
         <MessagesArea
-          setIsClickedGroupDetail={() => setIsClickedGroupDetail(false)}
+          setIsClickedGroupDetail={() => setIsClickedGroupDetail(true)}
           groupInfo={groupInfo}
-          navbarStatus={isClickedGroupDetail}
+          groupDetailStatus={isClickedGroupDetail}
           userInfo={userInfo}
         />
       </div>

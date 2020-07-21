@@ -10,7 +10,7 @@ import ChatForm from './ChatForm';
 export const MessagesArea = ({
   userInfo,
   avatarChat,
-  navbarStatus,
+  groupDetailStatus,
   groupInfo,
   updateGroupDetail,
   setIsClickedGroupDetail,
@@ -46,7 +46,9 @@ export const MessagesArea = ({
     }
     if (socket && groupInfo && groupInfo.id && !isJoinedRoom)
       socket.emit('joinRoom', groupInfo.id);
-
+    {
+      console.log(socket);
+    }
     return () => {
       if (socket) socket.off('connect');
     };
@@ -68,12 +70,12 @@ export const MessagesArea = ({
         <ChatForm sendChatMessage={sendChatMessage} />
       </div>
       <div
-        className={navbarStatus ? 'navbar-on' : 'navbar-off'}
+        className={groupDetailStatus ? 'navbar-off' : 'navbar-on'}
         onClick={setIsClickedGroupDetail}
       ></div>
       <GroupDetail
         updateGroupDetail={updateGroupDetail}
-        navbarStatus={navbarStatus}
+        groupDetailStatus={groupDetailStatus}
         groupInfo={groupInfo}
       />
     </div>

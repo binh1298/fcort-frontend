@@ -1,6 +1,7 @@
 @import '../../../fonts.scss';
 
 .dialog-add-group-wrapper {
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -11,7 +12,6 @@
   animation-name: dialog-add-group-appear;
   animation-duration: 0.2s;
   animation-timing-function: ease-in-out;
-  z-index: 1;
 }
 
 @keyframes dialog-add-group-appear {

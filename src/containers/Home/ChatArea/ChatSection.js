@@ -7,7 +7,7 @@ export const ChatSection = (props) => {
   const styles = {
     backgroundColor: theme.palette.message.backgroundColor,
   };
-  const chat = props.messages.map((message) => (
+  const chat = props.messages.reverse().map((message) => (
     <div
       className={
         message.userInfo.email === props.userInfo.email
