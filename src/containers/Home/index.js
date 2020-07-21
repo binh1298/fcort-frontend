@@ -71,8 +71,6 @@ export const Home = () => {
           <UserNavbar
             avatar={userInfo.avatar}
             userName={userInfo.fullname}
-            onHoverUserOption={(value) => setIsClickedUserOption(value)}
-            isClickedUserOption={isClickedUserOption}
             userOption={[
               {
                 id: 'aaa',
@@ -101,7 +99,7 @@ export const Home = () => {
             handleFetch={() => setIsUpdatedFavoriteGroup(!isUpdatedFavoriteGroup)}
             dialogStatus={isClickedAddGroup}
           />
-          <MessagesSection chooseGroupInfo={setGroupInfo} messagesList={[]} />
+          <MessagesSection />
         </div>
       </div>
       <div className="section">
