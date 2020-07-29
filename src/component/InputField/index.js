@@ -1,6 +1,16 @@
 import React, {useEffect, useState} from 'react';
 import './style.scss';
-const InputField = ({register, name, label, type, errors, valid, icon, isTaken}) => {
+const InputField = ({
+  register,
+  name,
+  label,
+  type,
+  errors,
+  valid,
+  icon,
+  isTaken,
+  inputID,
+}) => {
   const [isFocused, setIsFocused] = useState(false);
   const [currentText, setCurrentText] = useState('');
   return (
@@ -9,6 +19,7 @@ const InputField = ({register, name, label, type, errors, valid, icon, isTaken})
       <div className="input-field">
         <h5>{label}</h5>
         <input
+          id={inputID}
           type={type}
           name={name}
           className="input"
