@@ -12,6 +12,7 @@ context('Sign up success', () => {
     cy.url().should('eq', 'http://localhost:3000/');
     cy.get('.input-container > div> input').eq(0).type(`Test ${id}`);
     cy.get('form').submit();
+    cy.url().should('eq', 'http://localhost:3000/');
   });
 });
 context('Signup fail', () => {
@@ -29,9 +30,6 @@ context('Login success', () => {
     cy.get('.input-container > div> input').eq(0).type(email);
     cy.get('.input-container > div > input').eq(1).type(password);
     cy.get('form').submit();
-  });
-
-  it('Check the status', () => {
     cy.url().should('eq', 'http://localhost:3000/');
   });
 });
@@ -39,13 +37,8 @@ context('Login fail', () => {
   it('Login', () => {
     cy.visit('http://localhost:3000/login');
     cy.get('.input-container > div> input').eq(0).type(email);
-  });
-
-  it('Wrong password', () => {
-    cy.get('.input-container > div > input')
-      .eq(1)
-      .type('ducdeptrai')
-      .should('eq', password);
+    cy.get('.input-container > div > input').eq(1).type('abcxyz');
     cy.get('form').submit();
+    cy.url().should('eq', 'http://localhost:3000/');
   });
 });
