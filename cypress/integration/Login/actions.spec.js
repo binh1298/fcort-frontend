@@ -16,12 +16,13 @@ context('Sign up success', () => {
   });
 });
 context('Signup fail', () => {
-  it('Register a new user with different password', () => {
+  it('Register with already taken email', () => {
     cy.visit('http://localhost:3000/signup');
     cy.get('.input-container > div> input').eq(0).type(email);
     cy.get('.input-container > div > input').eq(1).type(password);
-    cy.get('.input-container > div > input').eq(2).type('123abc').should('eq', password);
-    // cy.get('form').submit();
+    cy.get('.input-container > div > input').eq(2).type(password);
+    cy.get('form').submit();
+    cy.get('form > div').eq(3).contains('This email is already taken.');
   });
 });
 context('Login success', () => {
@@ -34,11 +35,11 @@ context('Login success', () => {
   });
 });
 context('Login fail', () => {
-  it('Login', () => {
+  it('Invalid email or password', () => {
     cy.visit('http://localhost:3000/login');
     cy.get('.input-container > div> input').eq(0).type(email);
     cy.get('.input-container > div > input').eq(1).type('abcxyz');
     cy.get('form').submit();
-    cy.url().should('eq', 'http://localhost:3000/');
+    cy.get('form > div').eq(2).contains('Invalid email or password.');
   });
 });
