@@ -5,7 +5,7 @@
 }
 
 .dialog-on {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   display: flex;
@@ -24,13 +24,13 @@
 
 .dialog-background {
   position: absolute;
-  width: 150vw;
-  height: 150vh;
+  width: 100vw;
+  height: 100vh;
 }
 
 @media screen and (max-width: 900px) {
   .dialog-background {
-    left: -12vw;
+    left: 0;
     top: 0;
   }
 }
