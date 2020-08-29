@@ -40,7 +40,6 @@ export const Home = () => {
   const [groupInfo, setGroupInfo] = useState({});
   const [isClickedMenu, setIsClickedMenu] = useState(false);
   const [isClickedAddGroup, setIsClickedAddGroup] = useState(false);
-  const [isClickedUserOption, setIsClickedUserOption] = useState(false);
   const [isClickedGroupDetail, setIsClickedGroupDetail] = useState(true);
   const [isClickedViewProfile, setIsClickedViewProfile] = useState(false);
   const [isUpdatedFavoriteGroup, setIsUpdatedFavoriteGroup] = useState(false);
