@@ -40,22 +40,32 @@ export const Home = () => {
   const [groupInfo, setGroupInfo] = useState({});
   const [isClickedMenu, setIsClickedMenu] = useState(false);
   const [isClickedAddGroup, setIsClickedAddGroup] = useState(false);
-  const [isClickedUserOption, setIsClickedUserOption] = useState(false);
   const [isClickedGroupDetail, setIsClickedGroupDetail] = useState(true);
   const [isClickedViewProfile, setIsClickedViewProfile] = useState(false);
   const [isUpdatedFavoriteGroup, setIsUpdatedFavoriteGroup] = useState(false);
+  const [isClickedChangePassword, setIsClickedChangePassword] = useState(false);
   return (
     <div className="home-container">
+      <ChangePassword
+        dialogStatus={isClickedChangePassword}
+        email={userInfo.email}
+        changePasswordOff={() => {
+          setIsClickedChangePassword(false);
+        }}
+        viewProfileOn={() => {
+          setIsClickedViewProfile(true);
+        }}
+      />
       <ProfileDialog
         viewProfile={isClickedViewProfile}
         avatar={userInfo.avatar}
         fullname={userInfo.fullname}
         gmail={userInfo.email}
         handleFetch={profileFetching}
-        onClick={() => {
+        viewProfileOff={() => {
           setIsClickedViewProfile(false);
         }}
-        onClickOn={() => {
+        changePasswordOn={() => {
           setIsClickedChangePassword(true);
         }}
       />

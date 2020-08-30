@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React, {useContext, useState} from 'react';
 import {useForm} from 'react-hook-form';
 import InputField from '../../../component/InputField';
 import './ChangePassword.scss';
@@ -11,9 +11,15 @@ import LocalStorageUtils from '../../../utils/LocalStorageUtils';
 import usePersistedState from '../../../utils/usePersistedState';
 const users = LocalStorageUtils.getUser(LOCALSTORAGE_TOKEN_NAME);
 
-export const ChangePassword = (props) => {
+export const ChangePassword = ({
+  dialogStatus,
+  email,
+  changePasswordOff,
+  viewProfileOn,
+}) => {
   const [user, setUser] = usePersistedState(LOCALSTORAGE_TOKEN_NAME);
   const [token, setToken] = usePersistedState(LOCALSTORAGE_TOKEN_NAME, '');
+  const [checkChangePassword, setCheckChangePassword] = useState(false);
   const theme = useContext(ThemeContext);
   const stylesBoxBackround = {
     backgroundColor: theme.palette.profileDialog.boxColor,
@@ -31,7 +37,7 @@ export const ChangePassword = (props) => {
       const response = await post(
         '/auth/login',
         {
-          email: props.email,
+          email: email,
           password: data.currentPassword,
         },
         {}
@@ -46,7 +52,7 @@ export const ChangePassword = (props) => {
             {}
           );
           if (res.data.success) {
-            console.log('hello');
+            setCheckChangePassword(true);
           }
         } catch (ex) {
           console.log(ex);
@@ -59,8 +65,12 @@ export const ChangePassword = (props) => {
       }
     }
   };
+  const handleOnClick = () => {
+    changePasswordOff();
+    viewProfileOn();
+  };
   return (
-    <Dialog dialogStatus={props.dialogStatus} onClick={props.onClickOff}>
+    <Dialog dialogStatus={dialogStatus} onClick={handleOnClick}>
       <div className="change-password__wrapper" style={stylesBoxBackround}>
         <h2 style={stylesProfileTitle}>Change Password</h2>
         <form className="change-password__form" onSubmit={handleSubmit(onSubmit)}>
@@ -106,6 +116,11 @@ export const ChangePassword = (props) => {
               {Object.keys(errors)[0] === 'currentPassword' &&
                 'Invalid current password.'}
             </div>
+            {checkChangePassword && (
+              <span>
+                Successful <i className="fa fa-check"></i>
+              </span>
+            )}
             <DialogButton styles={stylesDialogGroupButton}>Save</DialogButton>
           </div>
         </form>
