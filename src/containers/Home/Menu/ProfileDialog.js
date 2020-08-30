@@ -13,6 +13,7 @@ import {LOCALSTORAGE_TOKEN_NAME} from '../../../configurations';
 import LocalStorageUtils from '../../../utils/LocalStorageUtils';
 const user = LocalStorageUtils.getUser(LOCALSTORAGE_TOKEN_NAME);
 import {storage} from '../../../utils/FireBase';
+import {Link} from 'react-router-dom';
 
 export const ProfileDialog = (props) => {
   const [isEditOn, setIsEditOn] = useState(false);
@@ -66,7 +67,7 @@ export const ProfileDialog = (props) => {
       );
       if (response.data.success) {
         props.handleFetch();
-        props.onClick();
+        props.viewProfileOff();
         setIsEditOn(false);
       }
     } catch (ex) {
@@ -77,9 +78,13 @@ export const ProfileDialog = (props) => {
     event.preventDefault(event);
     setIsEditOn(false);
   };
+  const handleClickChangePassword = () => {
+    props.viewProfileOff();
+    props.changePasswordOn();
+  };
 
   return (
-    <Dialog dialogStatus={props.viewProfile} onClick={props.onClick}>
+    <Dialog dialogStatus={props.viewProfile} onClick={props.viewProfileOff}>
       <div className="profile-dialog" style={stylesProfileBackround}>
         <h2 style={stylesProfileTitle}>My Profile</h2>
         <div className="profile-avatar" id={isEditOn ? 'disable-edit-profile' : ''}>
@@ -130,7 +135,7 @@ export const ProfileDialog = (props) => {
               styleTitle={stylesProfileTitle}
               styleBoder={stylesInputBorder}
             />
-            <a href="#" className="change-password">
+            <a href="#" className="change-password" onClick={handleClickChangePassword}>
               Change Password ?
             </a>
             <div className="btn-submit">
