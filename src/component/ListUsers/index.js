@@ -1,36 +1,28 @@
 import React, {useContext, useState} from 'react';
 import './style.scss';
 import userAvt from '../../assets/images/userAvt.png';
-import ThemeContext from '../../contexts/ThemeContext';
 
-const ItemUser = ({fullname, avatar, id, setUsersID, children}) => {
-  const theme = useContext(ThemeContext);
-  const [styles, setStyles] = useState({});
+const ItemUser = ({fullname, avatar, id, setUsersID, children, usersMessages}) => {
+  const [isHover, setIsHover] = useState(false);
   return (
     <li
-      style={styles}
       onMouseEnter={() => {
-        setStyles({backgroundColor: theme.palette.groupDetail.hoverListMembersColor});
-        setUsersID(id);
+        setIsHover(true);
+        if (!usersMessages) setUsersID(id);
       }}
-      onMouseLeave={() => setStyles({})}
+      onMouseLeave={() => setIsHover(false)}
+      className={usersMessages ? 'users-messages' : 'users-group-detail'}
     >
       <img className="list-users-avatar" src={avatar || userAvt} />
       <p className="list-users-name">{fullname}</p>
-      <div
-        className={
-          Object.entries(styles).length === 0
-            ? 'list-user-options-off'
-            : 'list-user-options-on'
-        }
-      >
+      <div className={!isHover ? 'list-user-options-off' : 'list-user-options-on'}>
         {children}
       </div>
     </li>
   );
 };
 
-export const ListUsers = ({listUsers, setUsersID, children}) => {
+export const ListUsers = ({listUsers, setUsersID, children, usersMessages}) => {
   const list = listUsers.map((object) => (
     <ItemUser
       fullname={object.fullname}
@@ -38,6 +30,7 @@ export const ListUsers = ({listUsers, setUsersID, children}) => {
       id={object.id}
       key={object.id}
       setUsersID={setUsersID}
+      usersMessages={usersMessages}
     >
       {children}
     </ItemUser>
